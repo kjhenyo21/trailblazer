@@ -5,7 +5,7 @@
 -->
 <!DOCTYPE html>
 	<head>
-		<title>Lalaine's Bookstore - Login</title>
+		<title>Trailblazer - Login</title>
 		<link href="{url}assets/stylesheets/bootstrap.css" rel="stylesheet"></link>
 		<link href="{url}assets/stylesheets/bootstrap-responsive.css" rel="stylesheet"></link>
 		<link href="{url}assets/stylesheets/main.css" rel="stylesheet"></link>
@@ -18,7 +18,7 @@
 		</div>
 		
 		<!-- Main -->
-		<h3 style="margin: 20px auto; text-align: center"> Members' Log-in </h3>
+		<h3 style="margin: 20px auto; text-align: center"> User Login </h3>
 		<div id="main-wrapper" style="width: 300px">
 			{if $response != ""}
 				<div class="alert alert-error">
@@ -30,14 +30,14 @@
 			{if $accessStatus == "unauthorizedAccess"}
 				<div class="alert alert-error">
 				  <button type="button" class="close" data-dismiss="alert">&times;</button>
-				  <strong>Oops!</strong> You are not authorized to access this site without logging in.
+				  <strong>Oops!</strong> You are not authorized to access this application without logging in.
 				</div>
 			{/if}
 			<form id="form-login" class="form-horizontal" method="post" action="{url}login">
 				<div class="control-group">
-					<label class="control-label" for="id">ID Number</label>
+					<label class="control-label" for="uname">Username</label>
 					<div class="controls">
-						<input type="text" id="id" name="id" placeholder="ID Number">
+						<input type="text" id="uname" name="uname" placeholder="Username">
 					</div>
 				</div>
 				<div class="control-group">

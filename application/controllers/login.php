@@ -11,16 +11,16 @@ class Login extends CI_Controller {
 		$account = new account();
 		$login = new login_db();
 
-		$id = $this->security->xss_clean($this->input->post('id'));
+		$uname = $this->security->xss_clean($this->input->post('uname'));
 		$password = $this->security->xss_clean($this->input->post('password'));
-		if(($id != "") && ($password != "")) {						//either/both uname and pwd has input
-			$response = $account->validateUser($id, $password);
+		if(($uname != "") && ($password != "")) {						//either/both uname and pwd has input
+			$response = $account->validateUser($uname, $password);
 
 			if ($response['error']) {													//if wrong uname and/or pwd			
 				$message = $response['message'];
 				header("location: index?response=$message");
 			}
-		} else if(($id == "") || ($password == "")) {
+		} else if(($uname == "") || ($password == "")) {
 			$message = "Enter user credentials to log in.";
 			header("location: index?response=$message");
 		}

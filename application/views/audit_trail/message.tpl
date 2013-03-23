@@ -43,10 +43,10 @@
 					{$noOfMessages = $noOfMessages + 1}
 					{$row = $row + 1}
 				{/foreach}
+				<audio><source src="{url}assets/audio/message-beep.wav" type="audio/wav" /></audio>
 			{/if}
 		</div>
-
-		<script src="{url}assets/scripts/date-format.js" type="text/javascript"></script>
+				<script src="{url}assets/scripts/date-format.js" type="text/javascript"></script>
 		<script>
 			var now = new Date();
 			var today = dateFormat(now, 'yyyy-mm-dd H:MM:ss');
@@ -75,11 +75,11 @@
 							//setTimeout("location.reload(true);",3600000);
 							$('#messages').load('ignored_messages');
 							$('body').append('<div id="messages"></div>');	
-								for (i=0; i < data.all; i++) {
-									//show
-									$('#ignored-message' + i).removeClass('hide');
-									$('#ignored-message' + i).addClass('in');
-								}
+							for (i=0; i < data.all; i++) {
+								//show
+								$('#ignored-message' + i).removeClass('hide');
+								$('#ignored-message' + i).addClass('in');
+							}
 						} else {
 							if (ignored) {
 								//$('body').append('<div id="backdropping" class="modal-backdrop fade in"></div> ');	

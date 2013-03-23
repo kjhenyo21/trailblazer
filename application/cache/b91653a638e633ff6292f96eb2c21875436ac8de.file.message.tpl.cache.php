@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-03-23 10:01:27
+<?php /* Smarty version Smarty-3.1.7, created on 2013-03-23 14:49:42
          compiled from "C:\xampp\htdocs\trailblazer\application/views\audit_trail\message.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:23425514bbe8b4ee512-63566459%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'b91653a638e633ff6292f96eb2c21875436ac8de' => 
     array (
       0 => 'C:\\xampp\\htdocs\\trailblazer\\application/views\\audit_trail\\message.tpl',
-      1 => 1364029285,
+      1 => 1364046573,
       2 => 'file',
     ),
   ),
@@ -96,10 +96,13 @@ $_smarty_tpl->tpl_vars['m']->_loop = true;
 					<?php $_smarty_tpl->tpl_vars['noOfMessages'] = new Smarty_variable($_smarty_tpl->tpl_vars['noOfMessages']->value+1, null, 0);?>
 					<?php $_smarty_tpl->tpl_vars['row'] = new Smarty_variable($_smarty_tpl->tpl_vars['row']->value+1, null, 0);?>
 				<?php } ?>
+				<EMBED src="<?php echo smarty_function_url(array(),$_smarty_tpl);?>
+assets/audio/message-beep.wav" AUTOSTART="true" HIDDEN="true" LOOP="1">
+				<audio><source src="<?php echo smarty_function_url(array(),$_smarty_tpl);?>
+assets/audio/message-beep.wav" type="audio/wav" /></audio>
 			<?php }?>
 		</div>
-
-		<script src="<?php echo smarty_function_url(array(),$_smarty_tpl);?>
+				<script src="<?php echo smarty_function_url(array(),$_smarty_tpl);?>
 assets/scripts/date-format.js" type="text/javascript"></script>
 		<script>
 			var now = new Date();
@@ -129,11 +132,11 @@ assets/scripts/date-format.js" type="text/javascript"></script>
 							//setTimeout("location.reload(true);",3600000);
 							$('#messages').load('ignored_messages');
 							$('body').append('<div id="messages"></div>');	
-								for (i=0; i < data.all; i++) {
-									//show
-									$('#ignored-message' + i).removeClass('hide');
-									$('#ignored-message' + i).addClass('in');
-								}
+							for (i=0; i < data.all; i++) {
+								//show
+								$('#ignored-message' + i).removeClass('hide');
+								$('#ignored-message' + i).addClass('in');
+							}
 						} else {
 							if (ignored) {
 								//$('body').append('<div id="backdropping" class="modal-backdrop fade in"></div> ');	

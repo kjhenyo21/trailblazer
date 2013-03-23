@@ -13,17 +13,18 @@ class Messages extends CI_Controller {
     }
 	
 	public function index() {
-		$messages = new messages_db();
-		$allMessages = $messages->getMessages();
-			
+		if ($this->session->userdata('status') != 'authorizedUser') {
+			header("location:".$this->config->item('base_url')."index.php?status=unauthorizedAccess");
+		} else {
+			$messages = new messages_db();
+			$allMessages = $messages->getMessages();
 			$this->mysmarty->assign('status', $this->session->userdata('status'));
 			$this->mysmarty->assign('base_url', $this->config->item('base_url'));
-			//$this->mysmarty->assign('profile', $profile->getProfile($user_id));
 			$this->mysmarty->assign('messages', $allMessages);
 			$this->mysmarty->display('header.tpl');
 			$this->mysmarty->display('audit_trail/messages.tpl');
 			$this->mysmarty->display('footer.tpl');
-		//}
+		}
 	}
 	
 	public function removeMessage() {

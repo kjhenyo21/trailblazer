@@ -1,40 +1,29 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Index extends CI_Controller {
-
 	function __construct() {
         parent::__construct();
 		$this->load->library('session');
 		$this->load->model('files_db');
 		$this->load->model('database_db');
 		$this->load->model('messages_db');
-		//$this->load->model('account');
+		$this->load->model('preferences_db');
 		$this->load->helper('url');
 		$this->load->library('form_validation');
     }
 	
 	public function index() {
-		/**$profile = new profile_db();
-		if ($this->session->userdata('status') != 'authorizedAdmin') {
+		if ($this->session->userdata('status') != 'authorizedUser') {
 			header("location:".$this->config->item('base_url')."index.php?status=unauthorizedAccess");
-		}
-		else {
-			$data['current_url'] = $this->config->item('base_url')."admin";
-			$user_id = $this->session->userdata('id');
-			$this->mysmarty->assign('error_old_pass', form_error('old_pass'));
-			$this->mysmarty->assign('error_new_pass', form_error('new_pass'));
-			$this->mysmarty->assign('error_c_new_pass', form_error('c_new_pas'));
-			$this->mysmarty->assign('profile', $profile->getProfile($user_id));
-			$this->mysmarty->assign('adminID', $this->session->userdata('id'));*/
-			
+		} else {
 			$this->mysmarty->assign('status', $this->session->userdata('status'));
+			$this->mysmarty->assign('user', $this->session->userdata('username'));
 			$this->mysmarty->assign('base_url', $this->config->item('base_url'));
-			//$this->mysmarty->assign('profile', $profile->getProfile($user_id));
-			//$this->mysmarty->assign('adminID', $this->session->userdata('id'));
+			$this->mysmarty->assign('nonExistentPaths', $this->checkPaths());
 			$this->mysmarty->display('header.tpl');
 			$this->mysmarty->display('audit_trail/index.tpl');
 			$this->mysmarty->display('footer.tpl');
-		//}
+		}
 	}
 	
 	public function readFile() {
@@ -94,6 +83,28 @@ class Index extends CI_Controller {
 		$this->mysmarty->display('header.tpl');
 		$this->mysmarty->display('audit_trail/trail_fs.tpl');
 		$this->mysmarty->display('footer.tpl');
+	}
+	
+	public function checkPaths() {
+		$preferences = new preferences_db();
+		$paths = $preferences->getDocPaths();
+		$noOfNonExistentPaths = 0;
+		foreach ($paths as $p) {
+			//echo $this->pathExists($p['path']);
+			$noOfNonExistentPaths++;
+		}
+		return $noOfNonExistentPaths;
+	}
+
+	public function pathExists($path) {
+		//echo $path;
+		if (is_dir($path)) {
+			echo "EXIST!";
+			return true;
+		} else {
+			echo "nope";
+			return false;
+		}
 	}
 	
 	public function replyPerson() {

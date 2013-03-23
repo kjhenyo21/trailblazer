@@ -7,27 +7,7 @@ class Files_DB extends CI_Model {
 		/*$this->conn = new database() /*mysqli(DB_SERVER, DB_USER, DB_PASSWORD, DB_NAME) or 
 					  die('There was a problem connecting to the database.');*/
 	}
-	
-	function getTempItems($inv_no) {
-		$query = $this->db->query("SELECT *
-									FROM sales_invoice_temp sit, items i
-									WHERE invoice_no = $inv_no
-										AND sit.item_code = i.item_code");
-		if ($query->result()) {
-			foreach ($query->result() as $row) {
-				$items[] = array(
-					'id' => $row->id,
-					'item_code' => $row->item_code,
-					'desc' => $row->desc,
-					'quantity' => $row->quantity,
-					'price' => $row->price,
-					'amount' => $row->amount
-				);
-			}
-			return $items;
-		} else return false;
-	}
-	
+
 	function getFilePath($filename) {
 		$query = $this->db->query("SELECT path
 									FROM files

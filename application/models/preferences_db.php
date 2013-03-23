@@ -1,43 +1,62 @@
 <?php
-class Setup_DB extends CI_Model {
+class Preferences_DB extends CI_Model {
 	private $conn;
 	
 	function __construct() {
 		$this->conn = $this->load->database();
-		$this->load->library('encrypt');
 		/*$this->conn = new database() /*mysqli(DB_SERVER, DB_USER, DB_PASSWORD, DB_NAME) or 
 					  die('There was a problem connecting to the database.');*/
 	}
 
-	function saveUserInfo($info) {
-		echo $info['lname'];
-		$user = array(
-			'id' => $info['id'],
-			'lname' => $info['lname'],
-			'fname' => $info['fname'],
-			'mname' => $info['mname'],
-			'sex' => $info['sex'],
-			'bdate' => $info['bdate'],
-			'address' => $info['address'],
-			'contact' => $info['contact'],
-			'email' => $info['email']
-		);
+	function getDocPaths() {
+		$query = $this->db->query("SELECT *
+									FROM doc_locations");
+		if ($query->result()) {
+			foreach ($query->result() as $row) {
+				$doc_paths[] = array(
+					'id' => $row->id,
+					'document' => $row->document,
+					'type' => $row->type,
+					'path' => $row->path,
+					'ext' => $row->file_extension
+				);
+			}
+			return $doc_paths;
+		} else return false;
+	}
+
+	function getFilePathByDocTypeAndDate($doc_type, $month, $year) {
+		$query = $this->db->query("SELECT dl.path, f.filename, dl.document
+									FROM files f, doc_locations dl, doc_types dt
+									WHERE dt.type = '$doc_type'
+										AND dt.id = dl.type
+										AND filename LIKE '%".$month."-".$year."%'
+										AND f.path = dl.path");
+		if ($query->row()) {
+			$row = $query->row(); 
+			$path['path'] = $row->path;
+			$path['full_path'] = $row->path."\\".$row->filename;
+			$path['doc'] = $row->document;
+			return $path;
+		} else return false;
+	}
+
+	function getFilePathByReference($doc_type, $ref) {
 		
-		$company = array(
-			'license_no' => $info['license_no'],
-			'name' => $info['cname'],
-			'address' => $info['caddress']
-		);
-		
-		$account = array(
-			'position' => $info['position'],
-			'username' => $info['uname'],
-			'password' => $this->encrypt->encode($info['password'])
-		);
-		
-		$this->db->insert('users_info', $user);
-		$this->db->insert('company_info', $company);
-		$this->db->insert('user_accounts', $account);
+		$query = $this->db->query("SELECT dl.path, f.filename, dl.document
+									FROM files f, doc_locations dl, doc_types dt
+									WHERE dt.type = '$doc_type'
+										AND dt.id = dl.type
+										AND filename LIKE '%".$ref."%'
+										AND f.path = dl.path");
+
+		if ($query->row()) {
+			$row = $query->row(); 
+			$path['path'] = $row->path;
+			$path['full_path'] = $row->path."\\".$row->filename;
+			$path['doc'] = $row->document;
+			return $path;
+		} else return false;
 	}
 	
 	function removeTempItem($id) {

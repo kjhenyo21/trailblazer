@@ -12,161 +12,165 @@ class Trail_Trans extends CI_Controller {
     }
 	
 	public function index() {
-		$files = new files_db();
-		$database = new database_db();
-		$doc_type = "Transaction Files";
-		$error_msg = false;
-		$account = $_GET['acct'];
-		$ref = $_GET['ref'];
-		$fs = $_GET['fs'];
-		$fs_amt = $_GET['fs_amt'];
-		$fs_file = $_GET['fs_file'];
-		$ledger = $_GET['ledger'];
-		$lg_ref = $_GET['lg_ref'];
-		$lg_desc = $_GET['lg_desc'];
-		$lg_debit = $_GET['lg_debit'];
-		$lg_credit = $_GET['lg_credit'];
-		$journal = $_GET['journal'];
-		$jl_ref = $_GET['jl_ref'];
-		$date_temp = explode("-", $ref);
-		$month_num = trim($date_temp[1]);
-		$month = date("F", mktime(0, 0, 0, $month_num, 10));
-		$year = trim($date_temp[2]);
-		$row = 0;
-		
-		$path = $files->getFilePathByReference($doc_type, $ref);
-		if($path) {
-			//echo $path['path'];
-			//echo $path['full_path'];
-		} else $error_msg = "File not found!";
+		if ($this->session->userdata('status') != 'authorizedUser') {
+			header("location:".$this->config->item('base_url')."index.php?status=unauthorizedAccess");
+		} else {
+			$files = new files_db();
+			$database = new database_db();
+			$doc_type = "Transaction Files";
+			$error_msg = false;
+			$account = $_GET['acct'];
+			$ref = $_GET['ref'];
+			$fs = $_GET['fs'];
+			$fs_amt = $_GET['fs_amt'];
+			$fs_file = $_GET['fs_file'];
+			$ledger = $_GET['ledger'];
+			$lg_ref = $_GET['lg_ref'];
+			$lg_desc = $_GET['lg_desc'];
+			$lg_debit = $_GET['lg_debit'];
+			$lg_credit = $_GET['lg_credit'];
+			$journal = $_GET['journal'];
+			$jl_ref = $_GET['jl_ref'];
+			$date_temp = explode("-", $ref);
+			$month_num = trim($date_temp[1]);
+			$month = date("F", mktime(0, 0, 0, $month_num, 10));
+			$year = trim($date_temp[2]);
+			$row = 0;
+			
+			$path = $files->getFilePathByReference($doc_type, $ref);
+			if($path) {
+				//echo $path['path'];
+				//echo $path['full_path'];
+			} else $error_msg = "File not found!";
 
-		//path of transaction details
-		$temp_ref = explode("-", $ref);
-		$filename = trim($temp_ref[0])."D";
-		$detailsRef = $filename."-".trim($temp_ref[1])."-".trim($temp_ref[2]);
-		//echo $detailsRef;
-		$detailsPath = $files->getFilePathByReference($doc_type, $detailsRef);
-		if($path) {
-			//echo $detailsPath['path'];
-			//echo $detailsPath['full_path'];
-		} else $error_msg = "File not found!";
+			//path of transaction details
+			$temp_ref = explode("-", $ref);
+			$filename = trim($temp_ref[0])."D";
+			$detailsRef = $filename."-".trim($temp_ref[1])."-".trim($temp_ref[2]);
+			//echo $detailsRef;
+			$detailsPath = $files->getFilePathByReference($doc_type, $detailsRef);
+			if($path) {
+				//echo $detailsPath['path'];
+				//echo $detailsPath['full_path'];
+			} else $error_msg = "File not found!";
 
-		
-		$lines = file($path['full_path']);
-		foreach ($lines as $line) {
-			$temp = explode(",", $line);
-			$size = sizeOf($temp);
+			
+			$lines = file($path['full_path']);
+			foreach ($lines as $line) {
+				$temp = explode(",", $line);
+				$size = sizeOf($temp);
 
-			if ($row == 0) {
-				//echo "hey";
-				foreach ($temp as $heading) {
-					$headings[] = $heading;
-				}
-			} else {
-				if ($size > 1) {
-					if (strcasecmp($path['doc'], "sale transactions") == 0) {
-						$info[] = array(
-							0 => trim($temp[0]),
-							1 => trim($temp[1]),
-							2 => trim($temp[2]),
-							3 => trim($temp[3]),
-							4 => trim($temp[4]),
-							5 => trim($temp[5]),
-							6 => trim($temp[6])
-						);
-					} else if (strcasecmp($path['doc'], "purchase transactions") == 0) {
-						$info[] = array(
-							0 => trim($temp[0]),
-							1 => trim($temp[1]),
-							2 => trim($temp[2]),
-							3 => trim($temp[3]),
-							4 => trim($temp[4]),
-							5 => trim($temp[5]),
-							6 => trim($temp[6])
-						);
+				if ($row == 0) {
+					//echo "hey";
+					foreach ($temp as $heading) {
+						$headings[] = $heading;
+					}
+				} else {
+					if ($size > 1) {
+						if (strcasecmp($path['doc'], "sale transactions") == 0) {
+							$info[] = array(
+								0 => trim($temp[0]),
+								1 => trim($temp[1]),
+								2 => trim($temp[2]),
+								3 => trim($temp[3]),
+								4 => trim($temp[4]),
+								5 => trim($temp[5]),
+								6 => trim($temp[6])
+							);
+						} else if (strcasecmp($path['doc'], "purchase transactions") == 0) {
+							$info[] = array(
+								0 => trim($temp[0]),
+								1 => trim($temp[1]),
+								2 => trim($temp[2]),
+								3 => trim($temp[3]),
+								4 => trim($temp[4]),
+								5 => trim($temp[5]),
+								6 => trim($temp[6])
+							);
+						}
 					}
 				}
+				$row++;
 			}
-			$row++;
-		}
 
-		//for transaction details
-		$row = 0;
-		$lines = file($detailsPath['full_path']);
-		foreach ($lines as $line) {
-			$temp = explode(",", $line);
-			$size = sizeOf($temp);
-			if ($row == 0) {
-				//echo "heyz";
-				foreach ($temp as $heading) {
-					$detHeadings[] = $heading;
-				}
-			} else {
-				if ($size > 1) {
-					if (strcasecmp($detailsPath['doc'], "sale transactions") == 0) {
-						$detInfo[] = array(
-							0 => trim($temp[0]),
-							1 => trim($temp[1]),
-							2 => trim($temp[2]),
-							3 => trim($temp[3]),
-							4 => trim($temp[4]),
-							5 => trim($temp[5])
-						);
-					} else if (strcasecmp($detailsPath['doc'], "purchase transactions") == 0) {
-						$detInfo[] = array(
-							0 => trim($temp[0]),
-							1 => trim($temp[1]),
-							2 => trim($temp[2]),
-							3 => trim($temp[3]),
-							4 => trim($temp[4]),
-							5 => trim($temp[5])
-						);
+			//for transaction details
+			$row = 0;
+			$lines = file($detailsPath['full_path']);
+			foreach ($lines as $line) {
+				$temp = explode(",", $line);
+				$size = sizeOf($temp);
+				if ($row == 0) {
+					//echo "heyz";
+					foreach ($temp as $heading) {
+						$detHeadings[] = $heading;
+					}
+				} else {
+					if ($size > 1) {
+						if (strcasecmp($detailsPath['doc'], "sale transactions") == 0) {
+							$detInfo[] = array(
+								0 => trim($temp[0]),
+								1 => trim($temp[1]),
+								2 => trim($temp[2]),
+								3 => trim($temp[3]),
+								4 => trim($temp[4]),
+								5 => trim($temp[5])
+							);
+						} else if (strcasecmp($detailsPath['doc'], "purchase transactions") == 0) {
+							$detInfo[] = array(
+								0 => trim($temp[0]),
+								1 => trim($temp[1]),
+								2 => trim($temp[2]),
+								3 => trim($temp[3]),
+								4 => trim($temp[4]),
+								5 => trim($temp[5])
+							);
+						}
 					}
 				}
+				$row++;
 			}
-			$row++;
+			
+			if (!$database->tableExists('transactions'))
+				$database->createTransactionsTable($headings);
+			else "EXISTS";
+			$database->addTransactions($headings, $info);
+			
+			if (!$database->tableExists('transaction_details'))
+				$database->createTransactionDetailsTable($detHeadings);
+			$database->addTransactionDetails($detHeadings, $detInfo);
+			
+			$sizeOfTrans = sizeOf($info);
+			$min = 8;
+			if ($sizeOfTrans > $min)
+				$info = $database->getSamples($sizeOfTrans, $info);
+			$messages = $database->getIgnoredMessages();
+			$this->mysmarty->assign('messages', $messages);
+			$this->mysmarty->assign('status', $this->session->userdata('status'));
+			$this->mysmarty->assign('base_url', $this->config->item('base_url'));
+			$this->mysmarty->assign('month', $month);
+			$this->mysmarty->assign('year', $year);
+			$this->mysmarty->assign('headings', $headings);
+			$this->mysmarty->assign('info', $info);
+			$this->mysmarty->assign('details', $detInfo);
+			$this->mysmarty->assign('source', $path['full_path']);
+			$this->mysmarty->assign('fs', $fs);
+			$this->mysmarty->assign('fs_amt', $fs_amt);
+			$this->mysmarty->assign('fs_file', $fs_file);
+			$this->mysmarty->assign('ledger', $ledger);
+			$this->mysmarty->assign('lg_ref', $lg_ref);
+			$this->mysmarty->assign('lg_desc', $lg_desc);
+			$this->mysmarty->assign('lg_debit', $lg_debit);
+			$this->mysmarty->assign('lg_credit', $lg_credit);
+			$this->mysmarty->assign('journal', $journal);
+			$this->mysmarty->assign('jl_ref', $jl_ref);
+			$this->mysmarty->assign('doc', $path['doc']);
+			$this->mysmarty->assign('ref', $ref);
+			$this->mysmarty->assign('acct', $account);
+			$this->mysmarty->display('header.tpl');
+			$this->mysmarty->display('audit_trail/trail_transactions.tpl');
+			$this->mysmarty->display('audit_trail/message.tpl');
+			$this->mysmarty->display('footer.tpl');
 		}
-		
-		if (!$database->tableExists('transactions'))
-			$database->createTransactionsTable($headings);
-		else "EXISTS";
-		$database->addTransactions($headings, $info);
-		
-		if (!$database->tableExists('transaction_details'))
-			$database->createTransactionDetailsTable($detHeadings);
-		$database->addTransactionDetails($detHeadings, $detInfo);
-		
-		$sizeOfTrans = sizeOf($info);
-		$min = 8;
-		if ($sizeOfTrans > $min)
-			$info = $database->getSamples($sizeOfTrans, $info);
-		$messages = $database->getIgnoredMessages();
-		$this->mysmarty->assign('messages', $messages);
-		$this->mysmarty->assign('status', $this->session->userdata('status'));
-		$this->mysmarty->assign('base_url', $this->config->item('base_url'));
-		$this->mysmarty->assign('month', $month);
-		$this->mysmarty->assign('year', $year);
-		$this->mysmarty->assign('headings', $headings);
-		$this->mysmarty->assign('info', $info);
-		$this->mysmarty->assign('details', $detInfo);
-		$this->mysmarty->assign('source', $path['full_path']);
-		$this->mysmarty->assign('fs', $fs);
-		$this->mysmarty->assign('fs_amt', $fs_amt);
-		$this->mysmarty->assign('fs_file', $fs_file);
-		$this->mysmarty->assign('ledger', $ledger);
-		$this->mysmarty->assign('lg_ref', $lg_ref);
-		$this->mysmarty->assign('lg_desc', $lg_desc);
-		$this->mysmarty->assign('lg_debit', $lg_debit);
-		$this->mysmarty->assign('lg_credit', $lg_credit);
-		$this->mysmarty->assign('journal', $journal);
-		$this->mysmarty->assign('jl_ref', $jl_ref);
-		$this->mysmarty->assign('doc', $path['doc']);
-		$this->mysmarty->assign('ref', $ref);
-		$this->mysmarty->assign('acct', $account);
-		$this->mysmarty->display('header.tpl');
-		$this->mysmarty->display('audit_trail/trail_transactions.tpl');
-		$this->mysmarty->display('audit_trail/message.tpl');
-		$this->mysmarty->display('footer.tpl');
 	}
 	
 	public function getTransDetails() {

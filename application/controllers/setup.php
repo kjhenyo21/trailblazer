@@ -18,7 +18,6 @@ class Setup extends CI_Controller {
 	}
 	
 	public function saveUserInfo() {
-	
 		$setup = new setup_db();
 		$info['id'] = $this->security->xss_clean($this->input->post('id'));
 		$info['lname'] = $this->security->xss_clean($this->input->post('lname'));
@@ -35,9 +34,9 @@ class Setup extends CI_Controller {
 		$info['position'] = $this->security->xss_clean($this->input->post('email'));	
 		$info['uname'] = $this->security->xss_clean($this->input->post('uname'));
 		$info['password'] = $this->security->xss_clean($this->input->post('password'));
-		
-		//$setup->saveUserInfo($info);
-		header("location: ".$this->config->item('base_url')."setup_preferences");
+
+		$setup->saveUserInfo($info);
+		//header("location: ".$this->config->item('base_url')."setup_preferences");
 	}
 	
 	public function savePreferences() {

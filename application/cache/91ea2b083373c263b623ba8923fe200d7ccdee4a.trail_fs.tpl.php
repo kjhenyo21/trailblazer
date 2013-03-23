@@ -5,30 +5,17 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '91ea2b083373c263b623ba8923fe200d7ccdee4a' => 
     array (
       0 => 'C:\\xampp\\htdocs\\trailblazer\\application/views\\audit_trail\\trail_fs.tpl',
-      1 => 1364037527,
+      1 => 1364037626,
       2 => 'file',
     ),
   ),
   'nocache_hash' => '2111351486ec38c4a67-69946801',
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_514d8f9ca6437',
-  'variables' => 
-  array (
-    'fr_kind' => 0,
-    'date' => 0,
-    'info' => 0,
-    'i' => 0,
-    'month' => 0,
-    'year' => 0,
-    'file' => 0,
-    'column' => 0,
-    'error_msg' => 0,
-    'source' => 0,
-  ),
+  'unifunc' => 'content_514dac06f08e9',
   'has_nocache_code' => false,
   'cache_lifetime' => 1,
 ),true); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_514d8f9ca6437')) {function content_514d8f9ca6437($_smarty_tpl) {?><!--
+<?php if ($_valid && !is_callable('content_514dac06f08e9')) {function content_514dac06f08e9($_smarty_tpl) {?>  <!--
  * Lalaine's Bookstore Computerized AIS
  * @author Kristian Jacob Abad Lora <kjalora92@yahoo.com>
  * @date-created October 31, 2012
@@ -42,7 +29,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 		<!-- Main -->
 		<br>
 		<div id="main-wrapper" style="width: 700px">
-			<div id="navi" style="float: right; font-size: 14pt">
+			<div id="navi">
 				<a href="http://localhost/trailblazer/audit_trail"><i class="icon-arrow-left"></i></a>
 				<span> | </span>
 				<a href="http://localhost/trailblazer/audit_trail"><i class="icon-home"></i></a>

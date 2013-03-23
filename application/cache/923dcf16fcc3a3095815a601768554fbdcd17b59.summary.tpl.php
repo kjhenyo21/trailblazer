@@ -11,27 +11,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'nocache_hash' => '11975514c12e20bf2a2-43938155',
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_514d906a24f01',
-  'variables' => 
-  array (
-    'fs' => 0,
-    'acct' => 0,
-    'fs_amt' => 0,
-    'ledger' => 0,
-    'lg_ref' => 0,
-    'lg_debit' => 0,
-    'lg_credit' => 0,
-    'journal' => 0,
-    'jl_ref' => 0,
-    'lg_desc' => 0,
-    'trans' => 0,
-    'info' => 0,
-    'url' => 0,
-  ),
+  'unifunc' => 'content_514db1b22b1b5',
   'has_nocache_code' => false,
   'cache_lifetime' => 1,
 ),true); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_514d906a24f01')) {function content_514d906a24f01($_smarty_tpl) {?><!--
+<?php if ($_valid && !is_callable('content_514db1b22b1b5')) {function content_514db1b22b1b5($_smarty_tpl) {?>  <!--
  * Lalaine's Bookstore Computerized AIS
  * @author Kristian Jacob Abad Lora <kjalora92@yahoo.com>
  * @date-created October 31, 2012
@@ -69,7 +53,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 					<div>Account: Sales</div>
 					<div>Acct. #: 201</div>
 											<div>Credit: Php 0.00</div>
-																<div>Debit: Php 1,338.00</div>
+																<div>Debit: Php 587.00</div>
 									</div>
 				<div class="arrow">
 					<img src="http://localhost/trailblazer/assets/images/arrow-left-small.PNG"></img>
@@ -77,7 +61,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 				<div class="sub-summary-container">
 					<strong>Cash Receipts Journal</strong>
 					<div>Ref. #: CRJ-1-2010</div>
-					<div>Desc.: 6253-6255</div>
+					<div>Desc.: 6256-6260</div>
 				</div>
 				<div class="arrow">
 					<img src="http://localhost/trailblazer/assets/images/arrow-left-small.PNG"></img>

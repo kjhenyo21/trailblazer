@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-03-23 04:53:28
+<?php /* Smarty version Smarty-3.1.7, created on 2013-03-23 18:16:45
          compiled from "C:\xampp\htdocs\trailblazer\application/views\audit_trail\index.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:79475146d0854cbc89-58047973%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '0ec05981f24af0231dcae604535e6ca84eb6960b' => 
     array (
       0 => 'C:\\xampp\\htdocs\\trailblazer\\application/views\\audit_trail\\index.tpl',
-      1 => 1364010803,
+      1 => 1364059003,
       2 => 'file',
     ),
   ),
@@ -17,6 +17,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'version' => 'Smarty-3.1.7',
   'unifunc' => 'content_5146d08580496',
+  'variables' => 
+  array (
+    'nonExistentPaths' => 0,
+  ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_5146d08580496')) {function content_5146d08580496($_smarty_tpl) {?><?php if (!is_callable('smarty_function_url')) include 'C:\\xampp\\htdocs\\trailblazer\\application\\libraries\\smarty\\plugins\\function.url.php';
@@ -48,7 +52,7 @@ audit_trail/index/readFile">
 								</div>
 							</div>
 							<div class="field-group" id="group-doc">
-								<label class="field-label" for="doc">FR Kind</label>
+								<label class="field-label" for="doc">Statement</label>
 								<div class="control">
 									<select class="span3" id="doc" name="doc">
 										<option></option>
@@ -65,6 +69,26 @@ audit_trail/index/readFile">
 				</form>
 			</div>
 		</div>
+		
+		<!-- Modal for Notification-->
+		<?php if (($_smarty_tpl->tpl_vars['nonExistentPaths']->value>0)){?>
+			<div id="notif" class="modal hide fade in" style="margin-top: -50px; width: 480px">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true" onClick="closeNotif(); return false;">&times;</button>
+					<h3 style="color: #DB1900">Path Does Not Exists!</h3>
+				</div>
+				<div class="modal-body">
+					<p>There are <span style="color: #DB1900; font-weight: bold"><?php echo $_smarty_tpl->tpl_vars['nonExistentPaths']->value;?>
+</span> document path(s) that is/are no longer existing. Not updating the path of these documents will cause this application not to function properly.</p>
+				</div>
+				<div class="modal-footer">
+					<div style="margin: 0 auto">
+						<button class="btn btn-primary" type="submit" id="update">OK, I'll update now</button>
+						<button class="btn" data-dismiss="modal" id="closeNotif" onClick="closeNotif(); return false;">I'll update later</button>
+					</div>
+				</div>
+			</div>
+		<?php }?>
 		
 		<!-- Main -->
 		<h3 style="margin: 20px auto; text-align: center"> Switchboard </h3>
@@ -95,11 +119,28 @@ assets/scripts/jquery.js" type="text/javascript"></script>
 		<script src="<?php echo smarty_function_url(array(),$_smarty_tpl);?>
 assets/scripts/bootstrap.min.js" type="text/javascript"></script>
 		<script>
+			if (<?php echo $_smarty_tpl->tpl_vars['nonExistentPaths']->value;?>
+ > 0) {
+				$('body').append('<div id="backdropping" class="modal-backdrop fade in"></div> ');
+				$('#notif').show();
+			} else $('#backdropping').remove();
+			
+			function closeNotif() {
+				$('#notif').removeClass('in');
+				$('#notif').addClass('hide');
+				$('#backdropping').remove();
+			}
+			
 			function closeIt() {
 				document.getElementById('file').value = "";
 				$('#add').attr("disabled", "disabled");
 				$('#add').removeClass("btn-primary");
 			}
+			function onChangeFile() {
+				$('#add').removeAttr("disabled");
+				$('#add').addClass("btn-primary");
+			}
+			
 			function onChangeFile() {
 				$('#add').removeAttr("disabled");
 				$('#add').addClass("btn-primary");

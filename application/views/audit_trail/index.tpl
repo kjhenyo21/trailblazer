@@ -25,7 +25,7 @@
 								</div>
 							</div>
 							<div class="field-group" id="group-doc">
-								<label class="field-label" for="doc">FR Kind</label>
+								<label class="field-label" for="doc">Statement</label>
 								<div class="control">
 									<select class="span3" id="doc" name="doc">
 										<option></option>
@@ -42,6 +42,25 @@
 				</form>
 			</div>
 		</div>
+		
+		<!-- Modal for Notification-->
+		{if ($nonExistentPaths > 0) }
+			<div id="notif" class="modal hide fade in" style="margin-top: -50px; width: 480px">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true" onClick="closeNotif(); return false;">&times;</button>
+					<h3 style="color: #DB1900">Path Does Not Exists!</h3>
+				</div>
+				<div class="modal-body">
+					<p>There are <span style="color: #DB1900; font-weight: bold">{$nonExistentPaths}</span> document path(s) that is/are no longer existing. Not updating the path of these documents will cause this application not to function properly.</p>
+				</div>
+				<div class="modal-footer">
+					<div style="margin: 0 auto">
+						<button class="btn btn-primary" type="submit" id="update">OK, I'll update now</button>
+						<button class="btn" data-dismiss="modal" id="closeNotif" onClick="closeNotif(); return false;">I'll update later</button>
+					</div>
+				</div>
+			</div>
+		{/if}
 		
 		<!-- Main -->
 		<h3 style="margin: 20px auto; text-align: center"> Switchboard </h3>
@@ -62,11 +81,27 @@
 		<script src="{url}assets/scripts/jquery.js" type="text/javascript"></script>
 		<script src="{url}assets/scripts/bootstrap.min.js" type="text/javascript"></script>
 		<script>
+			if ({$nonExistentPaths} > 0) {
+				$('body').append('<div id="backdropping" class="modal-backdrop fade in"></div> ');
+				$('#notif').show();
+			} else $('#backdropping').remove();
+			
+			function closeNotif() {
+				$('#notif').removeClass('in');
+				$('#notif').addClass('hide');
+				$('#backdropping').remove();
+			}
+			
 			function closeIt() {
 				document.getElementById('file').value = "";
 				$('#add').attr("disabled", "disabled");
 				$('#add').removeClass("btn-primary");
 			}
+			function onChangeFile() {
+				$('#add').removeAttr("disabled");
+				$('#add').addClass("btn-primary");
+			}
+			
 			function onChangeFile() {
 				$('#add').removeAttr("disabled");
 				$('#add').addClass("btn-primary");

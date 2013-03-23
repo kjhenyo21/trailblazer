@@ -9,14 +9,18 @@ class Log_Messages extends CI_Controller {
     }
 	
 	public function index() {
-		$log_contents = $this->readLog();
-		$this->mysmarty->assign('status', $this->session->userdata('status'));
-		$this->mysmarty->assign('base_url', $this->config->item('base_url'));
-		//$this->mysmarty->assign('profile', $profile->getProfile($user_id));
-		$this->mysmarty->assign('contents', $log_contents);
-		$this->mysmarty->display('header.tpl');
-		$this->mysmarty->display('audit_trail/log_messages.tpl');
-		$this->mysmarty->display('footer.tpl');
+		if ($this->session->userdata('status') != 'authorizedUser') {
+			header("location:".$this->config->item('base_url')."index.php?status=unauthorizedAccess");
+		} else {
+			$log_contents = $this->readLog();
+			$this->mysmarty->assign('status', $this->session->userdata('status'));
+			$this->mysmarty->assign('base_url', $this->config->item('base_url'));
+			//$this->mysmarty->assign('profile', $profile->getProfile($user_id));
+			$this->mysmarty->assign('contents', $log_contents);
+			$this->mysmarty->display('header.tpl');
+			$this->mysmarty->display('audit_trail/log_messages.tpl');
+			$this->mysmarty->display('footer.tpl');
+		}
 	}
 	
 	public function checkLog() {

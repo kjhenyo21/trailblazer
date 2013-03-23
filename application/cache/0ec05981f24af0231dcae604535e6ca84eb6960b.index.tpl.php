@@ -5,17 +5,21 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '0ec05981f24af0231dcae604535e6ca84eb6960b' => 
     array (
       0 => 'C:\\xampp\\htdocs\\trailblazer\\application/views\\audit_trail\\index.tpl',
-      1 => 1364010803,
+      1 => 1364059003,
       2 => 'file',
     ),
   ),
   'nocache_hash' => '79475146d0854cbc89-58047973',
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_514d911fc772b',
+  'unifunc' => 'content_514de37d6b6ce',
+  'variables' => 
+  array (
+    'nonExistentPaths' => 0,
+  ),
   'has_nocache_code' => false,
   'cache_lifetime' => 1,
 ),true); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_514d911fc772b')) {function content_514d911fc772b($_smarty_tpl) {?>  <!--
+<?php if ($_valid && !is_callable('content_514de37d6b6ce')) {function content_514de37d6b6ce($_smarty_tpl) {?><!--
  * WADWE Computerized AIS
  * @author Kristian Jacob Abad Lora <kjalora92@yahoo.com>
  * @date-created October 31, 2012
@@ -42,7 +46,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 								</div>
 							</div>
 							<div class="field-group" id="group-doc">
-								<label class="field-label" for="doc">FR Kind</label>
+								<label class="field-label" for="doc">Statement</label>
 								<div class="control">
 									<select class="span3" id="doc" name="doc">
 										<option></option>
@@ -60,6 +64,23 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 			</div>
 		</div>
 		
+		<!-- Modal for Notification-->
+					<div id="notif" class="modal hide fade in" style="margin-top: -50px; width: 480px">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true" onClick="closeNotif(); return false;">&times;</button>
+					<h3 style="color: #DB1900">Path Does Not Exists!</h3>
+				</div>
+				<div class="modal-body">
+					<p>There are <span style="color: #DB1900; font-weight: bold">8</span> document path(s) that is/are no longer existing. Not updating the path of these documents will cause this application not to function properly.</p>
+				</div>
+				<div class="modal-footer">
+					<div style="margin: 0 auto">
+						<button class="btn btn-primary" type="submit" id="update">OK, I'll update now</button>
+						<button class="btn" data-dismiss="modal" id="closeNotif" onClick="closeNotif(); return false;">I'll update later</button>
+					</div>
+				</div>
+			</div>
+				
 		<!-- Main -->
 		<h3 style="margin: 20px auto; text-align: center"> Switchboard </h3>
 		<div id="main-wrapper" style="width: 300px">
@@ -79,11 +100,27 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 		<script src="http://localhost/trailblazer/assets/scripts/jquery.js" type="text/javascript"></script>
 		<script src="http://localhost/trailblazer/assets/scripts/bootstrap.min.js" type="text/javascript"></script>
 		<script>
+			if (8 > 0) {
+				$('body').append('<div id="backdropping" class="modal-backdrop fade in"></div> ');
+				$('#notif').show();
+			} else $('#backdropping').remove();
+			
+			function closeNotif() {
+				$('#notif').removeClass('in');
+				$('#notif').addClass('hide');
+				$('#backdropping').remove();
+			}
+			
 			function closeIt() {
 				document.getElementById('file').value = "";
 				$('#add').attr("disabled", "disabled");
 				$('#add').removeClass("btn-primary");
 			}
+			function onChangeFile() {
+				$('#add').removeAttr("disabled");
+				$('#add').addClass("btn-primary");
+			}
+			
 			function onChangeFile() {
 				$('#add').removeAttr("disabled");
 				$('#add').addClass("btn-primary");

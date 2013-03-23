@@ -115,3 +115,7 @@
 .form-horizontal .control select {
 	height: 20pt;
 }
+
+.asterisk {
+	color: red;
+}

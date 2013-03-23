@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-03-20 09:30:54
+<?php /* Smarty version Smarty-3.1.7, created on 2013-03-23 16:32:31
          compiled from "C:\xampp\htdocs\trailblazer\application/views\setup.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:207325145e3c9b5ec21-63530817%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '055b2d5b4ed3ca4c423bf8acc8c54a6224e7bd57' => 
     array (
       0 => 'C:\\xampp\\htdocs\\trailblazer\\application/views\\setup.tpl',
-      1 => 1363768249,
+      1 => 1364052748,
       2 => 'file',
     ),
   ),
@@ -33,25 +33,24 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 		<!-- Main -->
 		<div id="main-wrapper-setup">
 			<div id="form-container">
-				<form id="setup" class="form-horizontal" method="post" action="<?php echo smarty_function_url(array(),$_smarty_tpl);?>
-setup/saveUserInfo">
+				<form id="setup" class="form-horizontal">
 					<h4>User Info</h4>
 					<table style="width: 100%">
 						<td style="width: 50%">
 							<div class="field-group" id="group-id">
-								<label class="field-label" for="id">ID Number*</label>
+								<label class="field-label" for="id">ID Number<span class="asterisk">*</span></label>
 								<div class="control">
 									<input type="text" class="span2" id="id" name="id" placeholder="ID Number">
 								</div>
 							</div>
 							<div class="field-group" id="group-lname">
-								<label class="field-label" for="lname">Last Name*</label>
+								<label class="field-label" for="lname">Last Name<span class="asterisk">*</span></label>
 								<div class="control">
-									<input type="text" id="lname" name="lname" placeholder="Last Name">
+									<input type="text" id="lname" name="lname" onChange="lnameOnChange(); return false;" placeholder="Last Name">
 								</div>
 							</div>
 							<div class="field-group" id="group-fname">
-								<label class="field-label" for="fname">First Name*</label>
+								<label class="field-label" for="fname">First Name<span class="asterisk">*</span></label>
 								<div class="control">
 									<input type="text" id="fname" name="fname" placeholder="First Name">
 								</div>
@@ -76,7 +75,7 @@ setup/saveUserInfo">
 							<div class="field-group">
 								<label class="field-label" for="bdate">Birthdate</label>
 								<div class="control">
-									<input type="text" id="bdate" name="bdate" style="width: 80px" placeholder="Birthdate">
+									<input type="text" id="bdate" name="bdate" style="width: 80px" placeholder="yyyy-mm-dd">
 								</div>
 							</div>
 							<div class="field-group">
@@ -106,13 +105,13 @@ setup/saveUserInfo">
 					<table style="width: 100%">
 						<td style="width: 50%">
 							<div class="field-group" id="group-license_no">
-								<label class="field-label" for="license_no">License No.*</label>
+								<label class="field-label" for="license_no">License No.<span class="asterisk">*</span></label>
 								<div class="control">
 									<input type="text" class="span2" id="license_no" name="license_no" placeholder="License Number">
 								</div>
 							</div>
 							<div class="field-group" id="group-cname">
-								<label class="field-label" for="cname">Name*</label>
+								<label class="field-label" for="cname">Name<span class="asterisk">*</span></label>
 								<div class="control">
 									<input type="text" id="cname" name="cname" placeholder="Company Name">
 								</div>
@@ -138,7 +137,7 @@ setup/saveUserInfo">
 								</div>
 							</div>
 							<div class="field-group" id="group-uname">
-								<label class="field-label" for="uname">Username*</label>
+								<label class="field-label" for="uname">Username<span class="asterisk">*</span></label>
 								<div class="control">
 									<input type="text" class="error" id="uname" name="uname" placeholder="Username">
 								</div>
@@ -146,23 +145,24 @@ setup/saveUserInfo">
 						</td>
 						<td style="width: 50%">
 							<div class="field-group" id="group-password">
-								<label class="field-label" for="password" style="width: 140px">Password*</label>
+								<label class="field-label" for="password" style="width: 140px">Password<span class="asterisk">*</span></label>
 								<div class="control">
 									<input type="password" id="password" name="password" placeholder="Password">
 								</div>
 							</div>
 							<div class="field-group" id="group-cpassword">
-								<label class="field-label" for="cpassword" style="width: 140px">Confirm Password*</label>
+								<label class="field-label" for="cpassword" style="width: 140px">Confirm Password<span class="asterisk">*</span></label>
 								<div class="control">
 									<input type="password" id="cpassword" name="cpassword" placeholder="Confirm Password*">
 								</div>
 							</div>
 						</td>
 					</table>
-					<hr>
+					<hr style="margin-bottom: 2px">
+					<div style="font-style: italic; font-size: 8pt; color: red; margin-bottom: 10px">* - required fields</div>
 					<div class="field-group" style="margin-bottom: 0px; text-align: center">
 						<div class="control">
-							<button type="submit" class="btn btn-primary">Save</button>
+							<a type="button" id="submit" class="btn btn-primary" disabled="disabled">Save</a>
 							<button type="reset" id="reset" class="btn">Reset</button>
 						</div>
 					</div>
@@ -199,8 +199,36 @@ assets/scripts/bootstrap-datepicker.js" type="text/javascript"></script>
 			$('#bdate').datepicker({
 				format: 'yyyy-mm-dd'
 			});
+			 
+			val = $('#lname').val();
+			if (val != '') {
+				$('#submit').removeAttr("disabled");
+				var js = "submitIt(); return false;";
+				var open = "(function(){";
+				var close = "});";
+				var newclick = eval( open + js + close );
+				$("#submit").get(0).onclick = newclick;
+			} else {
+				$('#submit').attr("disabled", "disabled");
+				$("#submit").get(0).onclick = null;
+			}
+
+			function lnameOnChange() {
+				val = $('#lname').val();
+				if (val != '') {
+					$('#submit').removeAttr("disabled");
+					var js = "submitIt(); return false;";
+					var open = "(function(){";
+					var close = "});";
+					var newclick = eval( open + js + close );
+					$("#submit").get(0).onclick = newclick;
+				} else {
+					$('#submit').attr("disabled", "disabled");
+					$("#submit").get(0).onclick = null;
+				}
+			}
 			
-			$('#submit').click(function(){
+			function submitIt() {
 				id = $('#id').val();
 				lname = $('#lname').val();
 				fname = $('#fname').val();
@@ -209,7 +237,6 @@ assets/scripts/bootstrap-datepicker.js" type="text/javascript"></script>
 				uname = $('#uname').val();
 				password = $('#password').val();
 				cpassword = $('#cpassword').val();
-
 				if ((id=="") || (lname=="") || (fname=="") || (license_no=="") || (cname=="") || (uname=="") || (password=="") || (cpassword=="")) {
 					if (id=="")
 						$('#group-id').addClass("error");
@@ -269,13 +296,15 @@ assets/scripts/bootstrap-datepicker.js" type="text/javascript"></script>
 							$.ajax({
 								type: "POST",
 								url: 'setup/saveUserInfo',
-								data: form.serialize(),
+								data:  $("#setup").serialize(),
 								success: function(data){
-									$('#form-container').load('setup_preferences');
+									//$('#form-container').load('setup_preferences');
+									location.replace("<?php echo smarty_function_url(array(),$_smarty_tpl);?>
+setup_preferences");
 								}
 							});
 						}
 					}
 				}
-			});
+			}
 		</script><?php }} ?>
