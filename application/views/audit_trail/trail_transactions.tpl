@@ -14,6 +14,11 @@
 		<!-- Main -->
 		<br>
 		<div id="main-wrapper" style="width: 900px">
+			<div id="navi" style="float: right; font-size: 14pt">
+				<a href="#" onclick="history.go(-1);return false;"><i class="icon-arrow-left"></i></a>
+				<span> | </span>
+				<a href="{url}audit_trail"><i class="icon-home"></i></a>
+			</div>
 			<div style="margin: 0 auto; text-align: center">
 				<h2>{$doc}</h2>
 				<br>
@@ -40,7 +45,7 @@
 										<td style="text-align: center; vertical-align: center">{$i[4]}</td>
 										<td style="text-align: center; vertical-align: center">{$i[5]}</td>
 										<td style="text-align: center; vertical-align: center">{$i[6]}</td>
-										<td style="text-align: center; vertical-align: center; width: 30px"><a href="{url}audit_trail/summary?ref={$ref}&or_no={$i[1]}&acct={$acct}&fs={$fs}&ledger={$ledger}&journal={$journal}&trans={$doc}">Audit Trail</a></td>
+										<td style="text-align: center; vertical-align: center; width: 30px"><a href="{url}audit_trail/summary?ref={$ref}&or_no={$i[1]}&acct={$acct}&fs={$fs}&fs_amt={$fs_amt}&fs_file={$fs_file}&ledger={$ledger}&lg_ref={$lg_ref}&lg_desc={$lg_desc}&lg_debit={$lg_debit}&lg_credit={$lg_credit}&journal={$journal}&jl_ref={$jl_ref}&trans={$doc}">Audit Trail</a></td>
 										<td style="text-align: center; vertical-align: center; width: 30px"><a>System Audit</a></td>
 									</tr>
 								{else}
@@ -51,7 +56,7 @@
 										<td style="text-align: center; vertical-align: center;">{$i[4]}</td>
 										<td style="text-align: center; vertical-align: center;">{$i[5]}</td>
 										<td style="text-align: center; vertical-align: center;">{$i[6]}</td>
-										<td style="text-align: center; vertical-align: center;"><a href="{url}audit_trail/summary?ref={$ref}&or_no={$i[1]}&acct={$acct}&fs={$fs}&ledger={$ledger}&journal={$journal}&trans={$doc}">Audit Trail</a></td>
+										<td style="text-align: center; vertical-align: center; width: 30px"><a href="{url}audit_trail/summary?ref={$ref}&or_no={$i[1]}&acct={$acct}&fs={$fs}&fs_amt={$fs_amt}&fs_file={$fs_file}&ledger={$ledger}&lg_ref={$lg_ref}&lg_desc={$lg_desc}&lg_debit={$lg_debit}&lg_credit={$lg_credit}&journal={$journal}&jl_ref={$jl_ref}&trans={$doc}">Audit Trail</a></td>
 										<td style="text-align: center; vertical-align: center;"><a>System Audit</a></td>
 									</tr>
 								{/if}

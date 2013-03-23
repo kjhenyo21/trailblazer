@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-03-22 09:56:28
+<?php /* Smarty version Smarty-3.1.7, created on 2013-03-23 12:20:36
          compiled from "C:\xampp\htdocs\trailblazer\application/views\audit_trail\trail_ledger.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:2273351482ff7a49822-97291323%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'abe38ed4490c1c4f981f87378e847e254dedb5a6' => 
     array (
       0 => 'C:\\xampp\\htdocs\\trailblazer\\application/views\\audit_trail\\trail_ledger.tpl',
-      1 => 1363942519,
+      1 => 1364037634,
       2 => 'file',
     ),
   ),
@@ -28,6 +28,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'i' => 0,
     'acct' => 0,
     'fs' => 0,
+    'fs_amt' => 0,
+    'fs_file' => 0,
     'source' => 0,
   ),
   'has_nocache_code' => false,
@@ -47,6 +49,12 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 		<!-- Main -->
 		<br>
 		<div id="main-wrapper" style="width: 700px">
+			<div id="navi" style="float: right; font-size: 14pt">
+				<a href="#" onclick="history.go(-1);return false;"><i class="icon-arrow-left"></i></a>
+				<span> | </span>
+				<a href="<?php echo smarty_function_url(array(),$_smarty_tpl);?>
+audit_trail"><i class="icon-home"></i></a>
+			</div>
 			<div style="margin: 0 auto; text-align: center">
 				<h2><?php echo $_smarty_tpl->tpl_vars['doc']->value;?>
 </h2>
@@ -84,7 +92,14 @@ $_smarty_tpl->tpl_vars['i']->_loop = true;
 audit_trail/trail_journal?ref=<?php echo $_smarty_tpl->tpl_vars['i']->value['ref'];?>
 &acct=<?php echo $_smarty_tpl->tpl_vars['acct']->value;?>
 &fs=<?php echo $_smarty_tpl->tpl_vars['fs']->value;?>
+&fs_amt=<?php echo $_smarty_tpl->tpl_vars['fs_amt']->value;?>
+&fs_file=<?php echo $_smarty_tpl->tpl_vars['fs_file']->value;?>
 &ledger=<?php echo $_smarty_tpl->tpl_vars['doc']->value;?>
+&lg_ref=<?php echo $_smarty_tpl->tpl_vars['detail']->value['acct_no'];?>
+&lg_desc=<?php echo $_smarty_tpl->tpl_vars['i']->value['desc'];?>
+&lg_debit=<?php echo $_smarty_tpl->tpl_vars['i']->value['debit'];?>
+&lg_credit=<?php echo $_smarty_tpl->tpl_vars['i']->value['credit'];?>
+&jl_ref=<?php echo $_smarty_tpl->tpl_vars['i']->value['ref'];?>
 "><?php echo $_smarty_tpl->tpl_vars['i']->value['ref'];?>
 </a></td>
 										<?php if ($_smarty_tpl->tpl_vars['i']->value['debit']!=''){?>
@@ -112,18 +127,25 @@ audit_trail/trail_journal?ref=<?php echo $_smarty_tpl->tpl_vars['i']->value['ref
 audit_trail/trail_journal?ref=<?php echo $_smarty_tpl->tpl_vars['i']->value['ref'];?>
 &acct=<?php echo $_smarty_tpl->tpl_vars['acct']->value;?>
 &fs=<?php echo $_smarty_tpl->tpl_vars['fs']->value;?>
+&fs_amt=<?php echo $_smarty_tpl->tpl_vars['fs_amt']->value;?>
+&fs_file=<?php echo $_smarty_tpl->tpl_vars['fs_file']->value;?>
 &ledger=<?php echo $_smarty_tpl->tpl_vars['doc']->value;?>
+&lg_ref=<?php echo $_smarty_tpl->tpl_vars['detail']->value['acct_no'];?>
+&lg_desc=<?php echo $_smarty_tpl->tpl_vars['i']->value['desc'];?>
+&lg_debit=<?php echo $_smarty_tpl->tpl_vars['i']->value['debit'];?>
+&lg_credit=<?php echo $_smarty_tpl->tpl_vars['i']->value['credit'];?>
+&jl_ref=<?php echo $_smarty_tpl->tpl_vars['i']->value['ref'];?>
 "><?php echo $_smarty_tpl->tpl_vars['i']->value['ref'];?>
 </a></td>
 										<?php if ($_smarty_tpl->tpl_vars['i']->value['debit']!=''){?>
-											<td class="amount"><?php echo number_format($_smarty_tpl->tpl_vars['i']->value['debit'],2,".",",");?>
+											<td class="amount">Php <?php echo number_format($_smarty_tpl->tpl_vars['i']->value['debit'],2,".",",");?>
 </td>
 										<?php }else{ ?>
 											<td class="amount"><?php echo $_smarty_tpl->tpl_vars['i']->value['debit'];?>
 </td>
 										<?php }?>
 										<?php if ($_smarty_tpl->tpl_vars['i']->value['credit']!=''){?>
-											<td class="amount"><?php echo number_format($_smarty_tpl->tpl_vars['i']->value['credit'],2,".",",");?>
+											<td class="amount">Php <?php echo number_format($_smarty_tpl->tpl_vars['i']->value['credit'],2,".",",");?>
 </td>
 										<?php }else{ ?>
 											<td class="amount"><?php echo $_smarty_tpl->tpl_vars['i']->value['credit'];?>

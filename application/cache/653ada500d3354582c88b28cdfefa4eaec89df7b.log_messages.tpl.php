@@ -5,17 +5,22 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '653ada500d3354582c88b28cdfefa4eaec89df7b' => 
     array (
       0 => 'C:\\xampp\\htdocs\\trailblazer\\application/views\\audit_trail\\log_messages.tpl',
-      1 => 1364024920,
+      1 => 1364037842,
       2 => 'file',
     ),
   ),
   'nocache_hash' => '31066514d587c503a50-23323811',
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_514d74c9d3e75',
+  'unifunc' => 'content_514d910f9d14d',
+  'variables' => 
+  array (
+    'contents' => 0,
+    'c' => 0,
+  ),
   'has_nocache_code' => false,
   'cache_lifetime' => 1,
 ),true); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_514d74c9d3e75')) {function content_514d74c9d3e75($_smarty_tpl) {?>  <!--
+<?php if ($_valid && !is_callable('content_514d910f9d14d')) {function content_514d910f9d14d($_smarty_tpl) {?><!--
  * Lalaine's Bookstore Computerized AIS
  * @author Kristian Jacob Abad Lora <kjalora92@yahoo.com>
  * @date-created October 31, 2012
@@ -43,6 +48,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 		<!-- Main -->
 		<br>
 		<div id="main-wrapper" style="width: 950px; padding: 40px 10px;">
+			<div id="navi" style="float: right; font-size: 14pt">
+				<a href="#" onclick="history.go(-1);return false;"><i class="icon-arrow-left"></i></a>
+				<span> | </span>
+				<a href="http://localhost/trailblazer/audit_trail"><i class="icon-home"></i></a>
+			</div>
 			<div id="messages" style="margin: 0 auto; text-align: center">
 				<h2>Messages Log File</h2>
 				<br>

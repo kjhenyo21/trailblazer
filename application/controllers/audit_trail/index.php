@@ -90,6 +90,7 @@ class Index extends CI_Controller {
 		$this->mysmarty->assign('date', $date);
 		$this->mysmarty->assign('month', $month_in_num);
 		$this->mysmarty->assign('year', $year);
+		$this->mysmarty->assign('file', $filename);
 		$this->mysmarty->display('header.tpl');
 		$this->mysmarty->display('audit_trail/trail_fs.tpl');
 		$this->mysmarty->display('footer.tpl');

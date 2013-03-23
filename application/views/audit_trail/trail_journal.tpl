@@ -12,6 +12,11 @@
 		<!-- Main -->
 		<br>
 		<div id="main-wrapper" style="width: 700px">
+			<div id="navi" style="float: right; font-size: 14pt">
+				<a href="#" onclick="history.go(-1);return false;"><i class="icon-arrow-left"></i></a>
+				<span> | </span>
+				<a href="{url}audit_trail"><i class="icon-home"></i></a>
+			</div>
 			<div style="margin: 0 auto; text-align: center">
 				<h2>{$doc}</h2>
 				<br>
@@ -32,7 +37,7 @@
 									<tr>
 										<td style="text-align: right">{$month} {$i['day']}</td>
 										<td>{$i['desc']}</td>
-										<td><a href="{url}audit_trail/trail_trans?ref={$i['ref']}&acct={$acct}&fs={$fs}&ledger={$ledger}&journal={$doc}">{$i['ref']}</a></td>
+										<td><a href="{url}audit_trail/trail_trans?ref={$i['ref']}&acct={$acct}&fs={$fs}&fs_amt={$fs_amt}&fs_file={$fs_file}&ledger={$ledger}&lg_ref={$lg_ref}&lg_desc={$lg_desc}&lg_debit={$lg_debit}&lg_credit={$lg_credit}&journal={$doc}&jl_ref={$jl_ref}">{$i['ref']}</a></td>
 										{if $i['cash'] != ""}
 											<td class="amount">Php {$i['cash']|number_format:2:".":","}</td>
 										{else}
@@ -53,7 +58,7 @@
 									<tr>
 										<td style="text-align: right">{$i['day']}</td>
 										<td>{$i['desc']}</td>
-										<td><a href="{url}audit_trail/trail_trans?ref={$i['ref']}&acct={$acct}&fs={$fs}&ledger={$ledger}&journal={$doc}">{$i['ref']}</a></td>
+										<td><a href="{url}audit_trail/trail_trans?ref={$i['ref']}&acct={$acct}&fs={$fs}&fs_amt={$fs_amt}&fs_file={$fs_file}&ledger={$ledger}&lg_ref={$lg_ref}&lg_desc={$lg_desc}&lg_debit={$lg_debit}&lg_credit={$lg_credit}&journal={$doc}&jl_ref={$jl_ref}">{$i['ref']}</a></td></td>
 										{if $i['cash'] != ""}
 											<td class="amount">{$i['cash']|number_format:2:".":","}</td>
 										{else}

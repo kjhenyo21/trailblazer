@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-03-23 09:00:57
+<?php /* Smarty version Smarty-3.1.7, created on 2013-03-23 12:25:03
          compiled from "C:\xampp\htdocs\trailblazer\application/views\audit_trail\log_messages.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:31066514d587c503a50-23323811%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '653ada500d3354582c88b28cdfefa4eaec89df7b' => 
     array (
       0 => 'C:\\xampp\\htdocs\\trailblazer\\application/views\\audit_trail\\log_messages.tpl',
-      1 => 1364024920,
+      1 => 1364037842,
       2 => 'file',
     ),
   ),
@@ -54,6 +54,12 @@ audit_trail/log_messages/clearLog" class="btn" id="clearButton">Yes</a>
 		<!-- Main -->
 		<br>
 		<div id="main-wrapper" style="width: 950px; padding: 40px 10px;">
+			<div id="navi" style="float: right; font-size: 14pt">
+				<a href="#" onclick="history.go(-1);return false;"><i class="icon-arrow-left"></i></a>
+				<span> | </span>
+				<a href="<?php echo smarty_function_url(array(),$_smarty_tpl);?>
+audit_trail"><i class="icon-home"></i></a>
+			</div>
 			<div id="messages" style="margin: 0 auto; text-align: center">
 				<h2>Messages Log File</h2>
 				<br>

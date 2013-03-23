@@ -20,6 +20,8 @@ class Trail_Ledger extends CI_Controller {
 		$month = date("F", mktime(0, 0, 0, $month_num, 10));
 		$year = $_GET['year'];
 		$fs = $_GET['fs'];
+		$fs_amt = $_GET['fs_amt'];
+		$fs_file = $_GET['fs_file'];
 		$within_the_account = false;
 		
 		$path = $files->getFilePathByDocTypeAndDate($doc_type, $month_num, $year);
@@ -66,6 +68,8 @@ class Trail_Ledger extends CI_Controller {
 		$this->mysmarty->assign('acct', $account);
 		$this->mysmarty->assign('source', $path['full_path']);
 		$this->mysmarty->assign('doc', $path['doc']);
+		$this->mysmarty->assign('fs_amt', $fs_amt);
+		$this->mysmarty->assign('fs_file', $fs_file);
 		$this->mysmarty->display('header.tpl');
 		$this->mysmarty->display('audit_trail/trail_ledger.tpl');
 		$this->mysmarty->display('footer.tpl');

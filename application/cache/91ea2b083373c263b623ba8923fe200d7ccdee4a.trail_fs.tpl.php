@@ -5,17 +5,30 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '91ea2b083373c263b623ba8923fe200d7ccdee4a' => 
     array (
       0 => 'C:\\xampp\\htdocs\\trailblazer\\application/views\\audit_trail\\trail_fs.tpl',
-      1 => 1363942447,
+      1 => 1364037527,
       2 => 'file',
     ),
   ),
   'nocache_hash' => '2111351486ec38c4a67-69946801',
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_514d762120a55',
+  'unifunc' => 'content_514d8f9ca6437',
+  'variables' => 
+  array (
+    'fr_kind' => 0,
+    'date' => 0,
+    'info' => 0,
+    'i' => 0,
+    'month' => 0,
+    'year' => 0,
+    'file' => 0,
+    'column' => 0,
+    'error_msg' => 0,
+    'source' => 0,
+  ),
   'has_nocache_code' => false,
   'cache_lifetime' => 1,
 ),true); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_514d762120a55')) {function content_514d762120a55($_smarty_tpl) {?>  <!--
+<?php if ($_valid && !is_callable('content_514d8f9ca6437')) {function content_514d8f9ca6437($_smarty_tpl) {?><!--
  * Lalaine's Bookstore Computerized AIS
  * @author Kristian Jacob Abad Lora <kjalora92@yahoo.com>
  * @date-created October 31, 2012
@@ -29,6 +42,12 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 		<!-- Main -->
 		<br>
 		<div id="main-wrapper" style="width: 700px">
+			<div id="navi" style="float: right; font-size: 14pt">
+				<a href="http://localhost/trailblazer/audit_trail"><i class="icon-arrow-left"></i></a>
+				<span> | </span>
+				<a href="http://localhost/trailblazer/audit_trail"><i class="icon-home"></i></a>
+			</div>
+			<br>
 			<div style="margin: 0 auto; text-align: center">
 				<h2>Income Statement</h2>
 				<div id="date-heading">As of January 2010</div>
@@ -44,7 +63,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 										<td style="font-style: italic">Revenue:</td>
 									</tr>
 																																<tr>
-										<td><a href="http://localhost/trailblazer/audit_trail/trail_ledger?acct=Sales&month=1&year=2010&fs=Income Statement">Sales</a></td>
+										<td><a href="http://localhost/trailblazer/audit_trail/trail_ledger?acct=Sales&month=1&year=2010&fs=Income Statement&fs_amt=2656.00&fs_file=is-1-2010.is">Sales</a></td>
 																				
 											<td></td>
 											<td class="amount">2,656.00</td>										
@@ -55,7 +74,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 										<td class="amount">2,656.00</td>
 									</tr>
 																																<tr>
-										<td><a href="http://localhost/trailblazer/audit_trail/trail_ledger?acct=&month=1&year=2010&fs=Income Statement"></a></td>
+										<td><a href="http://localhost/trailblazer/audit_trail/trail_ledger?acct=&month=1&year=2010&fs=Income Statement&fs_amt=&fs_file=is-1-2010.is"></a></td>
 																			</tr>
 																																									<tr style="height: 10px"></tr>
 									<tr>

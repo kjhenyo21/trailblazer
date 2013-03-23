@@ -47,6 +47,11 @@
 		<!-- Main -->
 		<br>
 		<div id="main-wrapper" style="width: 950px; padding: 40px 10px;">
+			<div id="navi" style="float: right; font-size: 14pt">
+				<a href="#" onclick="history.go(-1);return false;"><i class="icon-arrow-left"></i></a>
+				<span> | </span>
+				<a href="{url}audit_trail"><i class="icon-home"></i></a>
+			</div>
 			<div id="messages" style="margin: 0 auto; text-align: center">
 				<h2>Messages</h2>
 				<br>

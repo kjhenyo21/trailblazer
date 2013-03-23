@@ -135,6 +135,11 @@ body {
 	font-family: "Courier New", Courier, monospace;
 }
 
+#navi{
+	float: right;
+	font-size: 14pt
+}
+
 /*******************/
 /**** FOOTER ****/
 #footer {

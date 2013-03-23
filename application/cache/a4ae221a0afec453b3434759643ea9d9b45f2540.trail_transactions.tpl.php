@@ -5,17 +5,40 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'a4ae221a0afec453b3434759643ea9d9b45f2540' => 
     array (
       0 => 'C:\\xampp\\htdocs\\trailblazer\\application/views\\audit_trail\\trail_transactions.tpl',
-      1 => 1363956758,
+      1 => 1364037683,
       2 => 'file',
     ),
   ),
   'nocache_hash' => '19596514877de33d178-33889167',
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_514d7404cf230',
+  'unifunc' => 'content_514d905e6fe59',
+  'variables' => 
+  array (
+    'doc' => 0,
+    'headings' => 0,
+    'h' => 0,
+    'info' => 0,
+    'i' => 0,
+    'row' => 0,
+    'url' => 0,
+    'ref' => 0,
+    'acct' => 0,
+    'fs' => 0,
+    'fs_amt' => 0,
+    'fs_file' => 0,
+    'ledger' => 0,
+    'lg_ref' => 0,
+    'lg_desc' => 0,
+    'lg_debit' => 0,
+    'lg_credit' => 0,
+    'journal' => 0,
+    'jl_ref' => 0,
+    'source' => 0,
+  ),
   'has_nocache_code' => false,
   'cache_lifetime' => 1,
 ),true); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_514d7404cf230')) {function content_514d7404cf230($_smarty_tpl) {?>  <!--
+<?php if ($_valid && !is_callable('content_514d905e6fe59')) {function content_514d905e6fe59($_smarty_tpl) {?><!--
  * Lalaine's Bookstore Computerized AIS
  * @author Kristian Jacob Abad Lora <kjalora92@yahoo.com>
  * @date-created October 31, 2012
@@ -31,6 +54,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 		<!-- Main -->
 		<br>
 		<div id="main-wrapper" style="width: 900px">
+			<div id="navi" style="float: right; font-size: 14pt">
+				<a href="#" onclick="history.go(-1);return false;"><i class="icon-arrow-left"></i></a>
+				<span> | </span>
+				<a href="http://localhost/trailblazer/audit_trail"><i class="icon-home"></i></a>
+			</div>
 			<div style="margin: 0 auto; text-align: center">
 				<h2>Sale Transactions</h2>
 				<br>
@@ -49,24 +77,14 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 					</thead>
 					<tbody>
 																																												<tr>
-										<td style="text-align: center; vertical-align: center">2010-01-06</td>
-										<td style="text-align: center; vertical-align: center"><a href="#trans-details6264" data-toggle="modal" onClick="getDetails('or_no=6264&amt=5.00&name=Karl Arevalo&address=Manila&contact=9332567821'); return false;">6264</a></td>
-										<td class="amount" style="text-align: right;">Php 5.00</td>
-										<td style="text-align: center; vertical-align: center">Karl Arevalo</td>
-										<td style="text-align: center; vertical-align: center">Manila</td>
+										<td style="text-align: center; vertical-align: center">2010-01-02</td>
+										<td style="text-align: center; vertical-align: center"><a href="#trans-details6255" data-toggle="modal" onClick="getDetails('or_no=6255&amt=304.50&name=Mae Carmel Boquia&address=Dumanjug&contact=9332567821'); return false;">6255</a></td>
+										<td class="amount" style="text-align: right;">Php 304.50</td>
+										<td style="text-align: center; vertical-align: center">Mae Carmel Boquia</td>
+										<td style="text-align: center; vertical-align: center">Dumanjug</td>
 										<td style="text-align: center; vertical-align: center">9332567821</td>
-										<td style="text-align: center; vertical-align: center; width: 30px"><a href="http://localhost/trailblazer/audit_trail/summary?ref=ST-1-2010&or_no=6264&acct=Sales&fs=Income Statement&ledger=General Ledger&journal=Cash Receipts Journal&trans=Sale Transactions">Audit Trail</a></td>
+										<td style="text-align: center; vertical-align: center; width: 30px"><a href="http://localhost/trailblazer/audit_trail/summary?ref=ST-1-2010&or_no=6255&acct=Sales&fs=Income Statement&fs_amt=2656.00&fs_file=is-1-2010.is&ledger=General Ledger&lg_ref=201&lg_desc=6253-6255&lg_debit=&lg_credit=1338.00&journal=Cash Receipts Journal&jl_ref=CRJ-1-2010&trans=Sale Transactions">Audit Trail</a></td>
 										<td style="text-align: center; vertical-align: center; width: 30px"><a>System Audit</a></td>
-									</tr>
-																																																<tr style="vertical-align: center;">
-										<td style="text-align: center; vertical-align: center important!;">2010-01-04</td>
-										<td style="text-align: center; vertical-align: center;"><a href="#trans-details6258" data-toggle="modal" onClick="getDetails('or_no=6258&amt=61.50&name=&address=&contact='); return false;">6258</a></td>
-										<td class="amount" style="text-align: right;">61.50</td>
-										<td style="text-align: center; vertical-align: center;"></td>
-										<td style="text-align: center; vertical-align: center;"></td>
-										<td style="text-align: center; vertical-align: center;"></td>
-										<td style="text-align: center; vertical-align: center;"><a href="http://localhost/trailblazer/audit_trail/summary?ref=ST-1-2010&or_no=6258&acct=Sales&fs=Income Statement&ledger=General Ledger&journal=Cash Receipts Journal&trans=Sale Transactions">Audit Trail</a></td>
-										<td style="text-align: center; vertical-align: center;"><a>System Audit</a></td>
 									</tr>
 																																																<tr style="vertical-align: center;">
 										<td style="text-align: center; vertical-align: center important!;">2010-01-04</td>
@@ -75,47 +93,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 										<td style="text-align: center; vertical-align: center;">Justine Balan</td>
 										<td style="text-align: center; vertical-align: center;"></td>
 										<td style="text-align: center; vertical-align: center;">9332567821</td>
-										<td style="text-align: center; vertical-align: center;"><a href="http://localhost/trailblazer/audit_trail/summary?ref=ST-1-2010&or_no=6257&acct=Sales&fs=Income Statement&ledger=General Ledger&journal=Cash Receipts Journal&trans=Sale Transactions">Audit Trail</a></td>
-										<td style="text-align: center; vertical-align: center;"><a>System Audit</a></td>
-									</tr>
-																																																<tr style="vertical-align: center;">
-										<td style="text-align: center; vertical-align: center important!;">2010-01-02</td>
-										<td style="text-align: center; vertical-align: center;"><a href="#trans-details6253" data-toggle="modal" onClick="getDetails('or_no=6253&amt=997.50&name=Mary Ann Polinar&address=Lahug. Cebu City&contact=9158342099'); return false;">6253</a></td>
-										<td class="amount" style="text-align: right;">997.50</td>
-										<td style="text-align: center; vertical-align: center;">Mary Ann Polinar</td>
-										<td style="text-align: center; vertical-align: center;">Lahug. Cebu City</td>
-										<td style="text-align: center; vertical-align: center;">9158342099</td>
-										<td style="text-align: center; vertical-align: center;"><a href="http://localhost/trailblazer/audit_trail/summary?ref=ST-1-2010&or_no=6253&acct=Sales&fs=Income Statement&ledger=General Ledger&journal=Cash Receipts Journal&trans=Sale Transactions">Audit Trail</a></td>
-										<td style="text-align: center; vertical-align: center;"><a>System Audit</a></td>
-									</tr>
-																																																<tr style="vertical-align: center;">
-										<td style="text-align: center; vertical-align: center important!;">2010-01-04</td>
-										<td style="text-align: center; vertical-align: center;"><a href="#trans-details6256" data-toggle="modal" onClick="getDetails('or_no=6256&amt=210.00&name=Eriberta Canada&address=Carcar&contact=9053171598'); return false;">6256</a></td>
-										<td class="amount" style="text-align: right;">210.00</td>
-										<td style="text-align: center; vertical-align: center;">Eriberta Canada</td>
-										<td style="text-align: center; vertical-align: center;">Carcar</td>
-										<td style="text-align: center; vertical-align: center;">9053171598</td>
-										<td style="text-align: center; vertical-align: center;"><a href="http://localhost/trailblazer/audit_trail/summary?ref=ST-1-2010&or_no=6256&acct=Sales&fs=Income Statement&ledger=General Ledger&journal=Cash Receipts Journal&trans=Sale Transactions">Audit Trail</a></td>
-										<td style="text-align: center; vertical-align: center;"><a>System Audit</a></td>
-									</tr>
-																																																<tr style="vertical-align: center;">
-										<td style="text-align: center; vertical-align: center important!;">2010-01-06</td>
-										<td style="text-align: center; vertical-align: center;"><a href="#trans-details6261" data-toggle="modal" onClick="getDetails('or_no=6261&amt=513.00&name=Kirby Taghoy&address=&contact=9332567821'); return false;">6261</a></td>
-										<td class="amount" style="text-align: right;">513.00</td>
-										<td style="text-align: center; vertical-align: center;">Kirby Taghoy</td>
-										<td style="text-align: center; vertical-align: center;"></td>
-										<td style="text-align: center; vertical-align: center;">9332567821</td>
-										<td style="text-align: center; vertical-align: center;"><a href="http://localhost/trailblazer/audit_trail/summary?ref=ST-1-2010&or_no=6261&acct=Sales&fs=Income Statement&ledger=General Ledger&journal=Cash Receipts Journal&trans=Sale Transactions">Audit Trail</a></td>
-										<td style="text-align: center; vertical-align: center;"><a>System Audit</a></td>
-									</tr>
-																																																<tr style="vertical-align: center;">
-										<td style="text-align: center; vertical-align: center important!;">2010-01-06</td>
-										<td style="text-align: center; vertical-align: center;"><a href="#trans-details6262" data-toggle="modal" onClick="getDetails('or_no=6262&amt=180.00&name=Demelo Lao&address=&contact=9994406820'); return false;">6262</a></td>
-										<td class="amount" style="text-align: right;">180.00</td>
-										<td style="text-align: center; vertical-align: center;">Demelo Lao</td>
-										<td style="text-align: center; vertical-align: center;"></td>
-										<td style="text-align: center; vertical-align: center;">9994406820</td>
-										<td style="text-align: center; vertical-align: center;"><a href="http://localhost/trailblazer/audit_trail/summary?ref=ST-1-2010&or_no=6262&acct=Sales&fs=Income Statement&ledger=General Ledger&journal=Cash Receipts Journal&trans=Sale Transactions">Audit Trail</a></td>
+										<td style="text-align: center; vertical-align: center; width: 30px"><a href="http://localhost/trailblazer/audit_trail/summary?ref=ST-1-2010&or_no=6257&acct=Sales&fs=Income Statement&fs_amt=2656.00&fs_file=is-1-2010.is&ledger=General Ledger&lg_ref=201&lg_desc=6253-6255&lg_debit=&lg_credit=1338.00&journal=Cash Receipts Journal&jl_ref=CRJ-1-2010&trans=Sale Transactions">Audit Trail</a></td>
 										<td style="text-align: center; vertical-align: center;"><a>System Audit</a></td>
 									</tr>
 																																																<tr style="vertical-align: center;">
@@ -125,7 +103,37 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 										<td style="text-align: center; vertical-align: center;"></td>
 										<td style="text-align: center; vertical-align: center;"></td>
 										<td style="text-align: center; vertical-align: center;"></td>
-										<td style="text-align: center; vertical-align: center;"><a href="http://localhost/trailblazer/audit_trail/summary?ref=ST-1-2010&or_no=6260&acct=Sales&fs=Income Statement&ledger=General Ledger&journal=Cash Receipts Journal&trans=Sale Transactions">Audit Trail</a></td>
+										<td style="text-align: center; vertical-align: center; width: 30px"><a href="http://localhost/trailblazer/audit_trail/summary?ref=ST-1-2010&or_no=6260&acct=Sales&fs=Income Statement&fs_amt=2656.00&fs_file=is-1-2010.is&ledger=General Ledger&lg_ref=201&lg_desc=6253-6255&lg_debit=&lg_credit=1338.00&journal=Cash Receipts Journal&jl_ref=CRJ-1-2010&trans=Sale Transactions">Audit Trail</a></td>
+										<td style="text-align: center; vertical-align: center;"><a>System Audit</a></td>
+									</tr>
+																																																<tr style="vertical-align: center;">
+										<td style="text-align: center; vertical-align: center important!;">2010-01-06</td>
+										<td style="text-align: center; vertical-align: center;"><a href="#trans-details6262" data-toggle="modal" onClick="getDetails('or_no=6262&amt=180.00&name=Demelo Lao&address=&contact=9994406820'); return false;">6262</a></td>
+										<td class="amount" style="text-align: right;">180.00</td>
+										<td style="text-align: center; vertical-align: center;">Demelo Lao</td>
+										<td style="text-align: center; vertical-align: center;"></td>
+										<td style="text-align: center; vertical-align: center;">9994406820</td>
+										<td style="text-align: center; vertical-align: center; width: 30px"><a href="http://localhost/trailblazer/audit_trail/summary?ref=ST-1-2010&or_no=6262&acct=Sales&fs=Income Statement&fs_amt=2656.00&fs_file=is-1-2010.is&ledger=General Ledger&lg_ref=201&lg_desc=6253-6255&lg_debit=&lg_credit=1338.00&journal=Cash Receipts Journal&jl_ref=CRJ-1-2010&trans=Sale Transactions">Audit Trail</a></td>
+										<td style="text-align: center; vertical-align: center;"><a>System Audit</a></td>
+									</tr>
+																																																<tr style="vertical-align: center;">
+										<td style="text-align: center; vertical-align: center important!;">2010-01-02</td>
+										<td style="text-align: center; vertical-align: center;"><a href="#trans-details6254" data-toggle="modal" onClick="getDetails('or_no=6254&amt=36.00&name=Yvette Doyongan&address=Kamputhaw. Cebu City&contact=9179414753'); return false;">6254</a></td>
+										<td class="amount" style="text-align: right;">36.00</td>
+										<td style="text-align: center; vertical-align: center;">Yvette Doyongan</td>
+										<td style="text-align: center; vertical-align: center;">Kamputhaw. Cebu City</td>
+										<td style="text-align: center; vertical-align: center;">9179414753</td>
+										<td style="text-align: center; vertical-align: center; width: 30px"><a href="http://localhost/trailblazer/audit_trail/summary?ref=ST-1-2010&or_no=6254&acct=Sales&fs=Income Statement&fs_amt=2656.00&fs_file=is-1-2010.is&ledger=General Ledger&lg_ref=201&lg_desc=6253-6255&lg_debit=&lg_credit=1338.00&journal=Cash Receipts Journal&jl_ref=CRJ-1-2010&trans=Sale Transactions">Audit Trail</a></td>
+										<td style="text-align: center; vertical-align: center;"><a>System Audit</a></td>
+									</tr>
+																																																<tr style="vertical-align: center;">
+										<td style="text-align: center; vertical-align: center important!;">2010-01-06</td>
+										<td style="text-align: center; vertical-align: center;"><a href="#trans-details6263" data-toggle="modal" onClick="getDetails('or_no=6263&amt=33.00&name=Kristian Lora&address=Lahug&contact=9336925206'); return false;">6263</a></td>
+										<td class="amount" style="text-align: right;">33.00</td>
+										<td style="text-align: center; vertical-align: center;">Kristian Lora</td>
+										<td style="text-align: center; vertical-align: center;">Lahug</td>
+										<td style="text-align: center; vertical-align: center;">9336925206</td>
+										<td style="text-align: center; vertical-align: center; width: 30px"><a href="http://localhost/trailblazer/audit_trail/summary?ref=ST-1-2010&or_no=6263&acct=Sales&fs=Income Statement&fs_amt=2656.00&fs_file=is-1-2010.is&ledger=General Ledger&lg_ref=201&lg_desc=6253-6255&lg_debit=&lg_credit=1338.00&journal=Cash Receipts Journal&jl_ref=CRJ-1-2010&trans=Sale Transactions">Audit Trail</a></td>
 										<td style="text-align: center; vertical-align: center;"><a>System Audit</a></td>
 									</tr>
 																																																<tr style="vertical-align: center;">
@@ -135,7 +143,27 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 										<td style="text-align: center; vertical-align: center;">Elaine Pahang</td>
 										<td style="text-align: center; vertical-align: center;">Talisay City</td>
 										<td style="text-align: center; vertical-align: center;">9332567821</td>
-										<td style="text-align: center; vertical-align: center;"><a href="http://localhost/trailblazer/audit_trail/summary?ref=ST-1-2010&or_no=6259&acct=Sales&fs=Income Statement&ledger=General Ledger&journal=Cash Receipts Journal&trans=Sale Transactions">Audit Trail</a></td>
+										<td style="text-align: center; vertical-align: center; width: 30px"><a href="http://localhost/trailblazer/audit_trail/summary?ref=ST-1-2010&or_no=6259&acct=Sales&fs=Income Statement&fs_amt=2656.00&fs_file=is-1-2010.is&ledger=General Ledger&lg_ref=201&lg_desc=6253-6255&lg_debit=&lg_credit=1338.00&journal=Cash Receipts Journal&jl_ref=CRJ-1-2010&trans=Sale Transactions">Audit Trail</a></td>
+										<td style="text-align: center; vertical-align: center;"><a>System Audit</a></td>
+									</tr>
+																																																<tr style="vertical-align: center;">
+										<td style="text-align: center; vertical-align: center important!;">2010-01-04</td>
+										<td style="text-align: center; vertical-align: center;"><a href="#trans-details6258" data-toggle="modal" onClick="getDetails('or_no=6258&amt=61.50&name=&address=&contact='); return false;">6258</a></td>
+										<td class="amount" style="text-align: right;">61.50</td>
+										<td style="text-align: center; vertical-align: center;"></td>
+										<td style="text-align: center; vertical-align: center;"></td>
+										<td style="text-align: center; vertical-align: center;"></td>
+										<td style="text-align: center; vertical-align: center; width: 30px"><a href="http://localhost/trailblazer/audit_trail/summary?ref=ST-1-2010&or_no=6258&acct=Sales&fs=Income Statement&fs_amt=2656.00&fs_file=is-1-2010.is&ledger=General Ledger&lg_ref=201&lg_desc=6253-6255&lg_debit=&lg_credit=1338.00&journal=Cash Receipts Journal&jl_ref=CRJ-1-2010&trans=Sale Transactions">Audit Trail</a></td>
+										<td style="text-align: center; vertical-align: center;"><a>System Audit</a></td>
+									</tr>
+																																																<tr style="vertical-align: center;">
+										<td style="text-align: center; vertical-align: center important!;">2010-01-02</td>
+										<td style="text-align: center; vertical-align: center;"><a href="#trans-details6253" data-toggle="modal" onClick="getDetails('or_no=6253&amt=997.50&name=Mary Ann Polinar&address=Lahug. Cebu City&contact=9158342099'); return false;">6253</a></td>
+										<td class="amount" style="text-align: right;">997.50</td>
+										<td style="text-align: center; vertical-align: center;">Mary Ann Polinar</td>
+										<td style="text-align: center; vertical-align: center;">Lahug. Cebu City</td>
+										<td style="text-align: center; vertical-align: center;">9158342099</td>
+										<td style="text-align: center; vertical-align: center; width: 30px"><a href="http://localhost/trailblazer/audit_trail/summary?ref=ST-1-2010&or_no=6253&acct=Sales&fs=Income Statement&fs_amt=2656.00&fs_file=is-1-2010.is&ledger=General Ledger&lg_ref=201&lg_desc=6253-6255&lg_debit=&lg_credit=1338.00&journal=Cash Receipts Journal&jl_ref=CRJ-1-2010&trans=Sale Transactions">Audit Trail</a></td>
 										<td style="text-align: center; vertical-align: center;"><a>System Audit</a></td>
 									</tr>
 																																		</tbody>

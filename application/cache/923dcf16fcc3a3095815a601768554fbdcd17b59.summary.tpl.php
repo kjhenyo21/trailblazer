@@ -5,17 +5,33 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '923dcf16fcc3a3095815a601768554fbdcd17b59' => 
     array (
       0 => 'C:\\xampp\\htdocs\\trailblazer\\application/views\\audit_trail\\summary.tpl',
-      1 => 1364024949,
+      1 => 1364037700,
       2 => 'file',
     ),
   ),
   'nocache_hash' => '11975514c12e20bf2a2-43938155',
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_514d75e7f3732',
+  'unifunc' => 'content_514d906a24f01',
+  'variables' => 
+  array (
+    'fs' => 0,
+    'acct' => 0,
+    'fs_amt' => 0,
+    'ledger' => 0,
+    'lg_ref' => 0,
+    'lg_debit' => 0,
+    'lg_credit' => 0,
+    'journal' => 0,
+    'jl_ref' => 0,
+    'lg_desc' => 0,
+    'trans' => 0,
+    'info' => 0,
+    'url' => 0,
+  ),
   'has_nocache_code' => false,
   'cache_lifetime' => 1,
 ),true); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_514d75e7f3732')) {function content_514d75e7f3732($_smarty_tpl) {?>  <!--
+<?php if ($_valid && !is_callable('content_514d906a24f01')) {function content_514d906a24f01($_smarty_tpl) {?><!--
  * Lalaine's Bookstore Computerized AIS
  * @author Kristian Jacob Abad Lora <kjalora92@yahoo.com>
  * @date-created October 31, 2012
@@ -31,34 +47,47 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 		<!-- Main -->
 		<br>
 		<div id="main-wrapper" style="width: 950px; padding: 40px 10px;">
+			<div id="navi" style="float: right; font-size: 14pt">
+				<a href="#" onclick="history.go(-1);return false;"><i class="icon-arrow-left"></i></a>
+				<span> | </span>
+				<a href="http://localhost/trailblazer/audit_trail"><i class="icon-home"></i></a>
+			</div>
 			<div id="summary-container" style="margin: 0 auto; text-align: center">
 				<h2>Audit Trail Summary</h2>
-				
+				<br>
+				<br>
 				<div class="sub-summary-container">
 					<div><strong>Income Statement</strong></div>
 					<div>Account: Sales</div>
+					<div>Amount: Php 2,656.00</div>
 				</div>
 				<div class="arrow">
 					<img src="http://localhost/trailblazer/assets/images/arrow-left-small.PNG"></img>
 				</div>
 				<div class="sub-summary-container">
 					<strong>General Ledger</strong>
-				</div>
+					<div>Account: Sales</div>
+					<div>Acct. #: 201</div>
+											<div>Credit: Php 0.00</div>
+																<div>Debit: Php 1,338.00</div>
+									</div>
 				<div class="arrow">
 					<img src="http://localhost/trailblazer/assets/images/arrow-left-small.PNG"></img>
 				</div>
 				<div class="sub-summary-container">
 					<strong>Cash Receipts Journal</strong>
+					<div>Ref. #: CRJ-1-2010</div>
+					<div>Desc.: 6253-6255</div>
 				</div>
 				<div class="arrow">
 					<img src="http://localhost/trailblazer/assets/images/arrow-left-small.PNG"></img>
 				</div>
 				<div class="sub-summary-container">
 					<strong>Sale Transactions</strong>
-										<div>Date: 2010-01-06</div>
-					<div>OR No.: <a href="#trans-details6264" data-toggle="modal" onClick="getDetails('or_no=6264&amt=5.00&name=Karl Arevalo&address=Manila&contact=9332567821'); return false;">6264</a></div>
-					<div>Amount Due: 5.00</div>
-					<div>Name: Karl Arevalo</div>
+										<div>Date: 2010-01-02</div>
+					<div>OR No.: <a href="#trans-details6255" data-toggle="modal" onClick="getDetails('or_no=6255&amt=304.50&name=Mae Carmel Boquia&address=Dumanjug&contact=9332567821'); return false;">6255</a></div>
+					<div>Amount Due: 304.50</div>
+					<div>Name: Mae Carmel Boquia</div>
 					<div>Contact: 9332567821</div>
 				</div>
 			</div>

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-03-22 09:58:19
+<?php /* Smarty version Smarty-3.1.7, created on 2013-03-23 12:21:45
          compiled from "C:\xampp\htdocs\trailblazer\application/views\audit_trail\trail_journal.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:88625148672100ba70-18825362%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '2a215d0267e6460a25bd3495987273bfbb43672e' => 
     array (
       0 => 'C:\\xampp\\htdocs\\trailblazer\\application/views\\audit_trail\\trail_journal.tpl',
-      1 => 1363942698,
+      1 => 1364037675,
       2 => 'file',
     ),
   ),
@@ -26,7 +26,14 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'i' => 0,
     'acct' => 0,
     'fs' => 0,
+    'fs_amt' => 0,
+    'fs_file' => 0,
     'ledger' => 0,
+    'lg_ref' => 0,
+    'lg_desc' => 0,
+    'lg_debit' => 0,
+    'lg_credit' => 0,
+    'jl_ref' => 0,
     'source' => 0,
   ),
   'has_nocache_code' => false,
@@ -46,6 +53,12 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 		<!-- Main -->
 		<br>
 		<div id="main-wrapper" style="width: 700px">
+			<div id="navi" style="float: right; font-size: 14pt">
+				<a href="#" onclick="history.go(-1);return false;"><i class="icon-arrow-left"></i></a>
+				<span> | </span>
+				<a href="<?php echo smarty_function_url(array(),$_smarty_tpl);?>
+audit_trail"><i class="icon-home"></i></a>
+			</div>
 			<div style="margin: 0 auto; text-align: center">
 				<h2><?php echo $_smarty_tpl->tpl_vars['doc']->value;?>
 </h2>
@@ -78,8 +91,15 @@ $_smarty_tpl->tpl_vars['i']->_loop = true;
 audit_trail/trail_trans?ref=<?php echo $_smarty_tpl->tpl_vars['i']->value['ref'];?>
 &acct=<?php echo $_smarty_tpl->tpl_vars['acct']->value;?>
 &fs=<?php echo $_smarty_tpl->tpl_vars['fs']->value;?>
+&fs_amt=<?php echo $_smarty_tpl->tpl_vars['fs_amt']->value;?>
+&fs_file=<?php echo $_smarty_tpl->tpl_vars['fs_file']->value;?>
 &ledger=<?php echo $_smarty_tpl->tpl_vars['ledger']->value;?>
+&lg_ref=<?php echo $_smarty_tpl->tpl_vars['lg_ref']->value;?>
+&lg_desc=<?php echo $_smarty_tpl->tpl_vars['lg_desc']->value;?>
+&lg_debit=<?php echo $_smarty_tpl->tpl_vars['lg_debit']->value;?>
+&lg_credit=<?php echo $_smarty_tpl->tpl_vars['lg_credit']->value;?>
 &journal=<?php echo $_smarty_tpl->tpl_vars['doc']->value;?>
+&jl_ref=<?php echo $_smarty_tpl->tpl_vars['jl_ref']->value;?>
 "><?php echo $_smarty_tpl->tpl_vars['i']->value['ref'];?>
 </a></td>
 										<?php if ($_smarty_tpl->tpl_vars['i']->value['cash']!=''){?>
@@ -114,10 +134,17 @@ audit_trail/trail_trans?ref=<?php echo $_smarty_tpl->tpl_vars['i']->value['ref']
 audit_trail/trail_trans?ref=<?php echo $_smarty_tpl->tpl_vars['i']->value['ref'];?>
 &acct=<?php echo $_smarty_tpl->tpl_vars['acct']->value;?>
 &fs=<?php echo $_smarty_tpl->tpl_vars['fs']->value;?>
+&fs_amt=<?php echo $_smarty_tpl->tpl_vars['fs_amt']->value;?>
+&fs_file=<?php echo $_smarty_tpl->tpl_vars['fs_file']->value;?>
 &ledger=<?php echo $_smarty_tpl->tpl_vars['ledger']->value;?>
+&lg_ref=<?php echo $_smarty_tpl->tpl_vars['lg_ref']->value;?>
+&lg_desc=<?php echo $_smarty_tpl->tpl_vars['lg_desc']->value;?>
+&lg_debit=<?php echo $_smarty_tpl->tpl_vars['lg_debit']->value;?>
+&lg_credit=<?php echo $_smarty_tpl->tpl_vars['lg_credit']->value;?>
 &journal=<?php echo $_smarty_tpl->tpl_vars['doc']->value;?>
+&jl_ref=<?php echo $_smarty_tpl->tpl_vars['jl_ref']->value;?>
 "><?php echo $_smarty_tpl->tpl_vars['i']->value['ref'];?>
-</a></td>
+</a></td></td>
 										<?php if ($_smarty_tpl->tpl_vars['i']->value['cash']!=''){?>
 											<td class="amount"><?php echo number_format($_smarty_tpl->tpl_vars['i']->value['cash'],2,".",",");?>
 </td>

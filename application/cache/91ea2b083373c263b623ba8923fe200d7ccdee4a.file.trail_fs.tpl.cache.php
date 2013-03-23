@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-03-22 09:54:32
+<?php /* Smarty version Smarty-3.1.7, created on 2013-03-23 12:18:52
          compiled from "C:\xampp\htdocs\trailblazer\application/views\audit_trail\trail_fs.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:2111351486ec38c4a67-69946801%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '91ea2b083373c263b623ba8923fe200d7ccdee4a' => 
     array (
       0 => 'C:\\xampp\\htdocs\\trailblazer\\application/views\\audit_trail\\trail_fs.tpl',
-      1 => 1363942447,
+      1 => 1364037527,
       2 => 'file',
     ),
   ),
@@ -25,6 +25,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'i' => 0,
     'month' => 0,
     'year' => 0,
+    'file' => 0,
     'column' => 0,
     'error_msg' => 0,
     'source' => 0,
@@ -46,6 +47,14 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 		<!-- Main -->
 		<br>
 		<div id="main-wrapper" style="width: 700px">
+			<div id="navi" style="float: right; font-size: 14pt">
+				<a href="<?php echo smarty_function_url(array(),$_smarty_tpl);?>
+audit_trail"><i class="icon-arrow-left"></i></a>
+				<span> | </span>
+				<a href="<?php echo smarty_function_url(array(),$_smarty_tpl);?>
+audit_trail"><i class="icon-home"></i></a>
+			</div>
+			<br>
 			<div style="margin: 0 auto; text-align: center">
 				<h2><?php echo $_smarty_tpl->tpl_vars['fr_kind']->value;?>
 </h2>
@@ -111,6 +120,8 @@ audit_trail/trail_ledger?acct=<?php echo $_smarty_tpl->tpl_vars['i']->value['acc
 &month=<?php echo $_smarty_tpl->tpl_vars['month']->value;?>
 &year=<?php echo $_smarty_tpl->tpl_vars['year']->value;?>
 &fs=<?php echo $_smarty_tpl->tpl_vars['fr_kind']->value;?>
+&fs_amt=<?php echo $_smarty_tpl->tpl_vars['i']->value['amount'];?>
+&fs_file=<?php echo $_smarty_tpl->tpl_vars['file']->value;?>
 "><?php echo $_smarty_tpl->tpl_vars['i']->value['account'];?>
 </a></td>
 										<?php if (($_smarty_tpl->tpl_vars['column']->value=="first"&&$_smarty_tpl->tpl_vars['i']->value['amount']!='')){?>

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-03-22 13:52:44
+<?php /* Smarty version Smarty-3.1.7, created on 2013-03-23 12:22:05
          compiled from "C:\xampp\htdocs\trailblazer\application/views\audit_trail\trail_transactions.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:19596514877de33d178-33889167%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'a4ae221a0afec453b3434759643ea9d9b45f2540' => 
     array (
       0 => 'C:\\xampp\\htdocs\\trailblazer\\application/views\\audit_trail\\trail_transactions.tpl',
-      1 => 1363956758,
+      1 => 1364037683,
       2 => 'file',
     ),
   ),
@@ -29,8 +29,15 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'ref' => 0,
     'acct' => 0,
     'fs' => 0,
+    'fs_amt' => 0,
+    'fs_file' => 0,
     'ledger' => 0,
+    'lg_ref' => 0,
+    'lg_desc' => 0,
+    'lg_debit' => 0,
+    'lg_credit' => 0,
     'journal' => 0,
+    'jl_ref' => 0,
     'source' => 0,
   ),
   'has_nocache_code' => false,
@@ -52,6 +59,12 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 		<!-- Main -->
 		<br>
 		<div id="main-wrapper" style="width: 900px">
+			<div id="navi" style="float: right; font-size: 14pt">
+				<a href="#" onclick="history.go(-1);return false;"><i class="icon-arrow-left"></i></a>
+				<span> | </span>
+				<a href="<?php echo smarty_function_url(array(),$_smarty_tpl);?>
+audit_trail"><i class="icon-home"></i></a>
+			</div>
 			<div style="margin: 0 auto; text-align: center">
 				<h2><?php echo $_smarty_tpl->tpl_vars['doc']->value;?>
 </h2>
@@ -101,8 +114,15 @@ audit_trail/summary?ref=<?php echo $_smarty_tpl->tpl_vars['ref']->value;?>
 &or_no=<?php echo $_smarty_tpl->tpl_vars['i']->value[1];?>
 &acct=<?php echo $_smarty_tpl->tpl_vars['acct']->value;?>
 &fs=<?php echo $_smarty_tpl->tpl_vars['fs']->value;?>
+&fs_amt=<?php echo $_smarty_tpl->tpl_vars['fs_amt']->value;?>
+&fs_file=<?php echo $_smarty_tpl->tpl_vars['fs_file']->value;?>
 &ledger=<?php echo $_smarty_tpl->tpl_vars['ledger']->value;?>
+&lg_ref=<?php echo $_smarty_tpl->tpl_vars['lg_ref']->value;?>
+&lg_desc=<?php echo $_smarty_tpl->tpl_vars['lg_desc']->value;?>
+&lg_debit=<?php echo $_smarty_tpl->tpl_vars['lg_debit']->value;?>
+&lg_credit=<?php echo $_smarty_tpl->tpl_vars['lg_credit']->value;?>
 &journal=<?php echo $_smarty_tpl->tpl_vars['journal']->value;?>
+&jl_ref=<?php echo $_smarty_tpl->tpl_vars['jl_ref']->value;?>
 &trans=<?php echo $_smarty_tpl->tpl_vars['doc']->value;?>
 ">Audit Trail</a></td>
 										<td style="text-align: center; vertical-align: center; width: 30px"><a>System Audit</a></td>
@@ -123,13 +143,20 @@ audit_trail/summary?ref=<?php echo $_smarty_tpl->tpl_vars['ref']->value;?>
 </td>
 										<td style="text-align: center; vertical-align: center;"><?php echo $_smarty_tpl->tpl_vars['i']->value[6];?>
 </td>
-										<td style="text-align: center; vertical-align: center;"><a href="<?php echo smarty_function_url(array(),$_smarty_tpl);?>
+										<td style="text-align: center; vertical-align: center; width: 30px"><a href="<?php echo smarty_function_url(array(),$_smarty_tpl);?>
 audit_trail/summary?ref=<?php echo $_smarty_tpl->tpl_vars['ref']->value;?>
 &or_no=<?php echo $_smarty_tpl->tpl_vars['i']->value[1];?>
 &acct=<?php echo $_smarty_tpl->tpl_vars['acct']->value;?>
 &fs=<?php echo $_smarty_tpl->tpl_vars['fs']->value;?>
+&fs_amt=<?php echo $_smarty_tpl->tpl_vars['fs_amt']->value;?>
+&fs_file=<?php echo $_smarty_tpl->tpl_vars['fs_file']->value;?>
 &ledger=<?php echo $_smarty_tpl->tpl_vars['ledger']->value;?>
+&lg_ref=<?php echo $_smarty_tpl->tpl_vars['lg_ref']->value;?>
+&lg_desc=<?php echo $_smarty_tpl->tpl_vars['lg_desc']->value;?>
+&lg_debit=<?php echo $_smarty_tpl->tpl_vars['lg_debit']->value;?>
+&lg_credit=<?php echo $_smarty_tpl->tpl_vars['lg_credit']->value;?>
 &journal=<?php echo $_smarty_tpl->tpl_vars['journal']->value;?>
+&jl_ref=<?php echo $_smarty_tpl->tpl_vars['jl_ref']->value;?>
 &trans=<?php echo $_smarty_tpl->tpl_vars['doc']->value;?>
 ">Audit Trail</a></td>
 										<td style="text-align: center; vertical-align: center;"><a>System Audit</a></td>

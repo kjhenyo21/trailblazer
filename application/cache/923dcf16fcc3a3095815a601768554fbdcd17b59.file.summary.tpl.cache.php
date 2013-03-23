@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-03-23 08:49:27
+<?php /* Smarty version Smarty-3.1.7, created on 2013-03-23 12:22:17
          compiled from "C:\xampp\htdocs\trailblazer\application/views\audit_trail\summary.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:11975514c12e20bf2a2-43938155%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '923dcf16fcc3a3095815a601768554fbdcd17b59' => 
     array (
       0 => 'C:\\xampp\\htdocs\\trailblazer\\application/views\\audit_trail\\summary.tpl',
-      1 => 1364024949,
+      1 => 1364037700,
       2 => 'file',
     ),
   ),
@@ -21,8 +21,14 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   array (
     'fs' => 0,
     'acct' => 0,
+    'fs_amt' => 0,
     'ledger' => 0,
+    'lg_ref' => 0,
+    'lg_debit' => 0,
+    'lg_credit' => 0,
     'journal' => 0,
+    'jl_ref' => 0,
+    'lg_desc' => 0,
     'trans' => 0,
     'info' => 0,
     'url' => 0,
@@ -46,13 +52,22 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 		<!-- Main -->
 		<br>
 		<div id="main-wrapper" style="width: 950px; padding: 40px 10px;">
+			<div id="navi" style="float: right; font-size: 14pt">
+				<a href="#" onclick="history.go(-1);return false;"><i class="icon-arrow-left"></i></a>
+				<span> | </span>
+				<a href="<?php echo smarty_function_url(array(),$_smarty_tpl);?>
+audit_trail"><i class="icon-home"></i></a>
+			</div>
 			<div id="summary-container" style="margin: 0 auto; text-align: center">
 				<h2>Audit Trail Summary</h2>
-				
+				<br>
+				<br>
 				<div class="sub-summary-container">
 					<div><strong><?php echo $_smarty_tpl->tpl_vars['fs']->value;?>
 </strong></div>
 					<div>Account: <?php echo $_smarty_tpl->tpl_vars['acct']->value;?>
+</div>
+					<div>Amount: Php <?php echo number_format($_smarty_tpl->tpl_vars['fs_amt']->value,2,".",",");?>
 </div>
 				</div>
 				<div class="arrow">
@@ -62,6 +77,22 @@ assets/images/arrow-left-small.PNG"></img>
 				<div class="sub-summary-container">
 					<strong><?php echo $_smarty_tpl->tpl_vars['ledger']->value;?>
 </strong>
+					<div>Account: <?php echo $_smarty_tpl->tpl_vars['acct']->value;?>
+</div>
+					<div>Acct. #: <?php echo $_smarty_tpl->tpl_vars['lg_ref']->value;?>
+</div>
+					<?php if (($_smarty_tpl->tpl_vars['lg_debit']->value!='')){?>
+						<div>Debit: Php <?php echo number_format($_smarty_tpl->tpl_vars['lg_debit']->value,2,".",",");?>
+</div>
+					<?php }else{ ?>
+						<div>Credit: Php 0.00</div>
+					<?php }?>
+					<?php if (($_smarty_tpl->tpl_vars['lg_credit']->value!='')){?>
+						<div>Debit: Php <?php echo number_format($_smarty_tpl->tpl_vars['lg_credit']->value,2,".",",");?>
+</div>
+					<?php }else{ ?>
+						<div>Credit: Php 0.00</div>
+					<?php }?>
 				</div>
 				<div class="arrow">
 					<img src="<?php echo smarty_function_url(array(),$_smarty_tpl);?>
@@ -70,6 +101,10 @@ assets/images/arrow-left-small.PNG"></img>
 				<div class="sub-summary-container">
 					<strong><?php echo $_smarty_tpl->tpl_vars['journal']->value;?>
 </strong>
+					<div>Ref. #: <?php echo $_smarty_tpl->tpl_vars['jl_ref']->value;?>
+</div>
+					<div>Desc.: <?php echo $_smarty_tpl->tpl_vars['lg_desc']->value;?>
+</div>
 				</div>
 				<div class="arrow">
 					<img src="<?php echo smarty_function_url(array(),$_smarty_tpl);?>

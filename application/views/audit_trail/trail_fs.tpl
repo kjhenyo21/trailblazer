@@ -12,6 +12,12 @@
 		<!-- Main -->
 		<br>
 		<div id="main-wrapper" style="width: 700px">
+			<div id="navi">
+				<a href="{url}audit_trail"><i class="icon-arrow-left"></i></a>
+				<span> | </span>
+				<a href="{url}audit_trail"><i class="icon-home"></i></a>
+			</div>
+			<br>
 			<div style="margin: 0 auto; text-align: center">
 				<h2>{$fr_kind}</h2>
 				<div id="date-heading">As of {$date}</div>
@@ -58,7 +64,7 @@
 									</tr>
 								{else}
 									<tr>
-										<td><a href="{url}audit_trail/trail_ledger?acct={$i['account']}&month={$month}&year={$year}&fs={$fr_kind}">{$i['account']}</a></td>
+										<td><a href="{url}audit_trail/trail_ledger?acct={$i['account']}&month={$month}&year={$year}&fs={$fr_kind}&fs_amt={$i['amount']}&fs_file={$file}">{$i['account']}</a></td>
 										{if ($column == "first" && $i['amount'] != "")}
 											<td class="amount">{$i['amount']|number_format:2:".":","}</td>
 											<td></td>										

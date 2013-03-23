@@ -14,24 +14,45 @@
 		<!-- Main -->
 		<br>
 		<div id="main-wrapper" style="width: 950px; padding: 40px 10px;">
+			<div id="navi" style="float: right; font-size: 14pt">
+				<a href="#" onclick="history.go(-1);return false;"><i class="icon-arrow-left"></i></a>
+				<span> | </span>
+				<a href="{url}audit_trail"><i class="icon-home"></i></a>
+			</div>
 			<div id="summary-container" style="margin: 0 auto; text-align: center">
 				<h2>Audit Trail Summary</h2>
-				
+				<br>
+				<br>
 				<div class="sub-summary-container">
 					<div><strong>{$fs}</strong></div>
 					<div>Account: {$acct}</div>
+					<div>Amount: Php {$fs_amt|number_format:2:".":","}</div>
 				</div>
 				<div class="arrow">
 					<img src="{url}assets/images/arrow-left-small.PNG"></img>
 				</div>
 				<div class="sub-summary-container">
 					<strong>{$ledger}</strong>
+					<div>Account: {$acct}</div>
+					<div>Acct. #: {$lg_ref}</div>
+					{if ($lg_debit != '')}
+						<div>Debit: Php {$lg_debit|number_format:2:".":","}</div>
+					{else}
+						<div>Credit: Php 0.00</div>
+					{/if}
+					{if ($lg_credit != '')}
+						<div>Debit: Php {$lg_credit|number_format:2:".":","}</div>
+					{else}
+						<div>Credit: Php 0.00</div>
+					{/if}
 				</div>
 				<div class="arrow">
 					<img src="{url}assets/images/arrow-left-small.PNG"></img>
 				</div>
 				<div class="sub-summary-container">
 					<strong>{$journal}</strong>
+					<div>Ref. #: {$jl_ref}</div>
+					<div>Desc.: {$lg_desc}</div>
 				</div>
 				<div class="arrow">
 					<img src="{url}assets/images/arrow-left-small.PNG"></img>
