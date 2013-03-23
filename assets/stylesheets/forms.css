@@ -1,0 +1,117 @@
+/**
+ * Trailblazer Digital Accounting Audit Trail Program
+ * @author Kristian Jacob Abad Lora <kjalora92@yahoo.com>
+ * @date-created October 31, 2012
+ */
+
+
+/** SETUP **/
+#setup .form-horizontal form {
+	width:550px;
+	background: #FFFFFF;
+	padding: 5px;
+	box-shadow: 0px 0px 5px #CCC;
+}
+
+#setup .field-group {
+	margin-bottom: 5px;
+}
+
+.error  label {
+	color: #B94A48;
+}
+
+.error  input {
+	color: #B94A48;
+	border-color: #B94A48;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+}
+
+#error-text {
+	margin-left: 5px;
+	color: #B94A48;
+	font-size: 10pt;
+}
+
+#setup .field-label {
+	float: left;
+	margin-top: 2px;
+    text-align: left;
+	width: 100px;
+}
+
+#setup .control {
+	margin-left: 5px;
+}
+
+.form-horizontal .control input {
+	height: 12pt;
+}
+
+.form-horizontal .control select {
+	height: 20pt;
+}
+
+#files .table-column {
+	text-align: center;
+}
+
+.form-horizontal .control .combobox-container  {
+	margin-top: 5px;
+}
+
+.form-horizontal .control .combobox-container .add-on  {
+	height: 12pt !important;
+}
+
+/** LOAD FILE **/
+#load-file-form .form-horizontal form {
+	width:550px;
+	background: #FFFFFF;
+	padding: 5px;
+	box-shadow: 0px 0px 5px #CCC;
+}
+
+#load-file-form  .field-group {
+	margin-bottom: 5px;
+}
+
+.error  label {
+	color: #B94A48;
+}
+
+.error  input {
+	color: #B94A48;
+	border-color: #B94A48;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+}
+
+#error-text {
+	margin-left: 5px;
+	color: #B94A48;
+	font-size: 10pt;
+}
+
+#load-file-form  .field-label {
+	float: left;
+	margin-top: 2px;
+	margin-right: 5px;
+    text-align: right;
+	width: 100px;
+}
+
+#load-file-form  .control {
+	margin-left: 5px;
+}
+
+.form-horizontal .control input {
+	height: 12pt;
+}
+
+.form-horizontal .control input[type=file] {
+	height: 20pt !important;
+}
+
+.form-horizontal .control select {
+	height: 20pt;
+}
