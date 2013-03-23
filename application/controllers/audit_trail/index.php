@@ -31,6 +31,7 @@ class Index extends CI_Controller {
 		$filename = $this->input->post('file');
 		//echo $filename;
 		$doc = $this->input->post('doc');
+		$items = $this->input->post('items');
 		$error_msg = false;
 		$path = $files->getFilePath($filename);
 		$full_path = $path."\\".$filename;
@@ -80,6 +81,7 @@ class Index extends CI_Controller {
 		$this->mysmarty->assign('month', $month_in_num);
 		$this->mysmarty->assign('year', $year);
 		$this->mysmarty->assign('file', $filename);
+		$this->session->set_userdata('items_of_interest', $items);
 		$this->mysmarty->display('header.tpl');
 		$this->mysmarty->display('audit_trail/trail_fs.tpl');
 		$this->mysmarty->display('footer.tpl');
@@ -90,8 +92,8 @@ class Index extends CI_Controller {
 		$paths = $preferences->getDocPaths();
 		$noOfNonExistentPaths = 0;
 		foreach ($paths as $p) {
-			//echo $this->pathExists($p['path']);
-			$noOfNonExistentPaths++;
+			if (!$this->pathExists($p['path']))
+				$noOfNonExistentPaths++;
 		}
 		return $noOfNonExistentPaths;
 	}
@@ -99,10 +101,10 @@ class Index extends CI_Controller {
 	public function pathExists($path) {
 		//echo $path;
 		if (is_dir($path)) {
-			echo "EXIST!";
+			//echo "EXIST!";
 			return true;
 		} else {
-			echo "nope";
+			//echo "nope";
 			return false;
 		}
 	}

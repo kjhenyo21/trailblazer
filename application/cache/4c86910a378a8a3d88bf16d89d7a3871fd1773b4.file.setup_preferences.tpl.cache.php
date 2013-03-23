@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-03-20 09:13:14
+<?php /* Smarty version Smarty-3.1.7, created on 2013-03-23 23:17:08
          compiled from "C:\xampp\htdocs\trailblazer\application/views\setup_preferences.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:25650514621948c7d28-86108484%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '4c86910a378a8a3d88bf16d89d7a3871fd1773b4' => 
     array (
       0 => 'C:\\xampp\\htdocs\\trailblazer\\application/views\\setup_preferences.tpl',
-      1 => 1363767142,
+      1 => 1364077024,
       2 => 'file',
     ),
   ),
@@ -26,135 +26,31 @@ $_valid = $_smarty_tpl->decodeProperties(array (
  * @date-created October 31, 2012
 -->
 	<head>
-		<title>Setup Page</title>
+		<title>Setup Page - Preferences</title>
 	</head>
 	
 	<body>
 		<!-- Main -->
 		<div id="main-wrapper-setup">
 			<div id="form-container">
-				<form id="setup" class="form-horizontal" method="post" action="<?php echo smarty_function_url(array(),$_smarty_tpl);?>
-setup/savePreferences">
-					<h4>Target Database</h4>
-					<table style="width: 100%">
-						<td style="width: 50%">
-							<div class="field-group" id="group-hname">
-								<label class="field-label" for="hname">Hostname*</label>
-								<div class="control">
-									<input type="text" id="hname" name="hname" placeholder="e.g. localhost">
-								</div>
-							</div>
-							<div class="field-group" id="group-uname">
-								<label class="field-label" for="uname">Username*</label>
-								<div class="control">
-									<input type="text" id="uname" name="uname" placeholder="Username">
-								</div>
-							</div>
-							<div class="field-group" id="group-db_name">
-								<label class="field-label" for="password">DB Name*</label>
-								<div class="control">
-									<input type="text" id="db_name" name="db_name" placeholder="Database Name">
-						</td>
-						<td style="width: 50%">
-							<div class="field-group" id="group-db_driver">
-								<label class="field-label" for="db_driver" style="width: 140px">DB Driver*</label>
-								<div class="control">
-									<input type="text" id="db_driver" name="db_driver" placeholder="e. g. mysql, sqlite, etc">
-								</div>
-							</div>
-							<div class="field-group" id="group-password">
-								<label class="field-label" for="password" style="width: 140px">Password*</label>
-								<div class="control">
-									<input type="password" id="password" name="password" placeholder="Password">
-								</div>
-							</div>
-							<div class="field-group" id="group-cpassword">
-								<label class="field-label" for="cpassword" style="width: 140px">Confirm Password*</label>
-								<div class="control">
-									<input type="password" id="cpassword" name="cpassword" placeholder="Confirm Password*">
-								</div>
-							</div>
-						</td>
-					</table>
-					
-					<hr>
-					
+				<form id="setup-pref" class="form-horizontal">
 					<h4>Document Locations</h4>
-					<table id="files" style="width: 100%">
+					<table id="files" class="table table-hover" style="width: 100%">
 						<thead>
-							<th>Document</th>
-							<th>Type</th>
-							<th>Path</th>
-							<th>File Extension</th>
-							<th></th>
+							<th style="text-align: center">Document</th>
+							<th style="text-align: center">Type</th>
+							<th style="text-align: center">Path</th>
+							<th style="text-align: center">File Extension</th>
 							<th></th>
 						</thead>
 						<tbody>
-							<tr id="file-loc">
-								<td>
-									<div class="table-column" id="group-doc">
-										<div class="control">
-											<select class="span3 doc" id="doc1" name="doc1" placeholder="e.g. Cash Receipts">
-												<option></option>
-												<option>Cash Receipts</option>
-												<option>Cash Reimbursements</option>
-												<option>General Ledger</option>
-											</select>
-										</div>
-									</div>
-								</td>
-								<td>
-									<div class="table-column" id="group-type">
-										<div class="control">
-											<select class="span3" id="type" name="type" placeholder="e.g. Journal, Ledger, etc">
-												<option></option>
-												<option>Journal</option>
-												<option>Ledger</option>
-												<option>Transaction File</option>
-												<option>Financial Report</option>
-											</select>
-										</div>
-									</div>
-								</td>
-								<td>
-									<div class="table-column" id="group-path">
-										<div class="control">
-											<input type="text" class="span4" id="path" name="path" placeholder="Paste the full path of the directory here">
-											<div id="upload" style="display: none">
-												<input type="file" class="span1" id="theFile" name="theFile" onChange="onFileChange();">
-											</div>
-										</div>
-									</div>
-								</td>
-								<td>
-									<div class="table-column">
-										<div class="control">
-											<input type="text" class="span1" id="ext" name="ext" placeholder="ex: txt">
-										</div>
-									</div>
-								</td>
-								<td>
-									<div class="table-column">
-										<div class="control">
-											<a href="#" data-toggle="modal"><i class="icon-edit" ></i></a>
-										</div>
-									</div>
-								</td>
-								<td>
-									<div class="table-column">
-										<div class="control">
-											<a href="#" data-toggle="modal"><i class="icon-remove" style="color: red"></i></a>
-										</div>
-									</div>
-								</td>
-							</tr>
 						</tbody>
 					</table>
 					<a href="#" onclick="addMoreDocument(); return false;">Add Document</a>
 					<hr>
 					<div class="field-group" style="margin-bottom: 0px; text-align: center">
 						<div class="control">
-							<button type="submit" id="no" class="btn btn-primary">Save</button>
+							<a id="submit" class="btn btn-primary" disabled="disabled">Save</a>
 							<button type="reset" id="reset" class="btn">Reset</button>
 						</div>
 					</div>
@@ -191,7 +87,8 @@ assets/scripts/bootstrap-combobox.js" type="text/javascript"></script>
 			var password = $('#password').val();
 			var cpassword = $('#cpassword').val();
 			var form = $('#setup');
-			var rowNo = 1;
+			var rowNo = 0;
+			var rows = 0;
 			
 			/**function performClick(node) {
 			   node.click();
@@ -205,32 +102,81 @@ assets/scripts/bootstrap-combobox.js" type="text/javascript"></script>
 
 			function addMoreDocument() {
 				rowNo += 1;
-				$('#files > tbody:last').after('<tr id="file-loc"><td><div class="table-column" id="group-doc"><div class="control"><select class="span3 doc' + rowNo + '" id="doc' + rowNo + '" name="doc' + rowNo + '" placeholder="e.g. Cash Receipts"><option></option><option>Cash Receipts</option><option>Cash Reimbursements</option><option>General Ledger</option></select></div></div></td><td><div class="table-column" id="group-type"><div class="control"><select class="span3" id="type" name="type" placeholder="e.g. Journal, Ledger, etc"><option></option><option>Journal</option><option>Ledger</option><option>Transaction File</option><option>Financial Report</option></select></div></div></td><td><div class="table-column" id="group-path"><div class="control"><input type="text" class="span4" id="path" name="path" placeholder="Paste the full path of the directory here"><div id="upload" style="display: none"><input type="file" class="span1" id="theFile" name="theFile" onChange="onFileChange();"></div></div></div></td><td><div class="table-column"><div class="control"><input type="text" class="span1" id="ext" name="ext" placeholder="ex: txt"></div></div></td><td><div class="table-column"><div class="control"><a href="#" data-toggle="modal"><i class="icon-edit" ></i></a></div></div></td><td><div class="table-column"><div class="control"><a href="#" data-toggle="modal"><i class="icon-remove" style="color: red"></i></a></div></div></td></tr>');
-				$('#doc2').combobox();
+				rows += 1;
+				$('#files').append('<tr id="row' + rowNo + '"><td><div class="table-column" id="group-doc' + rowNo + '"><div id="control-doc' + rowNo + '" class="control"><select class="doc' + rowNo + '" id="doc' + rowNo + '" name="doc[]" placeholder="e.g. Cash Receipts" onChange="pathOnChange(this.id); docOnChange(this); return false;"><option></option><option>Cash Receipts Journal</option><option>Cash Disbursements Journal</option><option>General Ledger</option><option>Sale Transactions</option><option>Purchase Transactions</option><option>Expense Transactions</option><option>Income Sheet</option><option>Balance Sheet</option><option>Other</option></select></div></div></td><td><div class="table-column" id="group-type"><div class="control"><select class="type' + rowNo + ' span2" id="type' + rowNo + '" name="type[]" style="width: 170px" placeholder="e.g. Journal, Ledger, etc" onChange="pathOnChange(this.id); return false;"><option></option><option value=1>Journals</option><option value=2>Ledgers</option><option value=3>Transaction Files</option><option value=4>Financial Statements</option><option value=5>Log Files</option></select></div></div></td><td><div class="table-column" id="group-path"><div class="control"><input type="text" class="span4" id="path' + rowNo + '" name="path[]" placeholder="Paste the full path of the directory here" onChange="pathOnChange(this.id); return false;"></div></div></div></td><td><div class="table-column"><div class="control"><input type="text" class="span1" id="ext' + rowNo + '" name="ext[]" placeholder="ex: txt" onChange="pathOnChange(this.id); return false;"></div></div></td><td><div class="table-column"></div></td><td><div class="table-column"><div class="control"><a href="#" data-toggle="modal"><i class="icon-remove" id="remove' + rowNo + '" style="color: red;" onClick="removeRow(this.id)"></i></a></div></div></td></tr>');
+				$('#doc' + rowNo).combobox();
+				$('#type' + rowNo).combobox();
 				$('.add-on btn dropdown-toggle').remove();
 			}
 			
-			$('#bdate').datepicker({
-				format: 'yyyy-mm-dd'
-			});
-			
-			$('#doc1').combobox();
-			
-			$('#submit').click(function(){
-				id = $('#id').val();
-				lname = $('#lname').val();
-				fname = $('#fname').val();
-				license_no = $('#license_no').val();
-				cname = $('#cname').val();
-				uname = $('#uname').val();
-				password = $('#password').val();
-				cpassword = $('#cpassword').val();
-				
-							$.ajax({
-								type: "POST",
-								url: 'setup/savePreferences',
-								data: form.serialize()
-							});
+			 
+			val = $('#path1').val();
+			if (val != null) {
+				$('#submit').removeAttr("disabled");
+				var js = "submitIt(); return false;";
+				var open = "(function(){";
+				var close = "});";
+				var newclick = eval( open + js + close );
+				$("#submit").get(0).onclick = newclick;
+			} else {
+				$('#submit').attr("disabled", "disabled");
+				$("#submit").get(0).onclick = null;
+			}
 
-			});
+			function docOnChange(obj) {
+				id = obj.id;
+				//tb=document.createElement('INPUT');
+				//tb.type='text';
+				docVal=obj.options[obj.selectedIndex].text;
+				//tb.value=obj.options[obj.selectedIndex].text;
+				//parent = obj.parentNode;
+				//obj.parentNode.insertBefore(tb,obj);
+				//obj = obj.parentNode.removeChild(obj);
+				
+				//console.log(parent);
+				console.log(docVal);
+				if (docVal == "Other") {
+					$('#control-' + id).remove();
+					$('#group-' + id).append('<div id="control-' + id + '" class="control"> <input type="text" class="doc' + rowNo + '" id="doc' + rowNo + '" name="doc[]" style="width: 230px; margin-left:-15px;" placeholder="e.g. Cash Receipts"/></div>');
+				}
+			}
+			
+			function pathOnChange(id) {
+				val = $('#'+id).val();
+				console.log(id);
+				if (val != '') {
+					$('#submit').removeAttr("disabled");
+					var js = "submitIt(); return false;";
+					var open = "(function(){";
+					var close = "});";
+					var newclick = eval( open + js + close );
+					$("#submit").get(0).onclick = newclick;
+				} else {
+					$('#submit').attr("disabled", "disabled");
+					$("#submit").get(0).onclick = null;
+				}
+			}
+			
+			
+			$('.doc').combobox();
+			$('.type').combobox();
+			
+			function removeRow(row) {
+				no = row.substring(6);
+				console.log(no);
+				$('#row' + no).remove();
+				rows--;
+			}
+			
+			function submitIt() {
+				$.ajax({
+					type: "POST",
+					url: 'setup_preferences/savePreferences',
+					data: $("#setup-pref").serialize(),				
+					success: function(data){
+						location.replace("<?php echo smarty_function_url(array(),$_smarty_tpl);?>
+");
+					}
+				});
+			}
 		</script><?php }} ?>

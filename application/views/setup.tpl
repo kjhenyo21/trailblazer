@@ -4,7 +4,7 @@
  * @date-created October 31, 2012
 -->
 	<head>
-		<title>Setup Page</title>
+		<title>Setup Page - Profile</title>
 	</head>
 	
 	<body>

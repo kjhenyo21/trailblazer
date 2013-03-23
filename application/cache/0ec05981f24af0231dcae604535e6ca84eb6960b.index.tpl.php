@@ -5,21 +5,17 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '0ec05981f24af0231dcae604535e6ca84eb6960b' => 
     array (
       0 => 'C:\\xampp\\htdocs\\trailblazer\\application/views\\audit_trail\\index.tpl',
-      1 => 1364059003,
+      1 => 1364077623,
       2 => 'file',
     ),
   ),
   'nocache_hash' => '79475146d0854cbc89-58047973',
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_514de37d6b6ce',
-  'variables' => 
-  array (
-    'nonExistentPaths' => 0,
-  ),
+  'unifunc' => 'content_514e2db94620a',
   'has_nocache_code' => false,
   'cache_lifetime' => 1,
 ),true); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_514de37d6b6ce')) {function content_514de37d6b6ce($_smarty_tpl) {?><!--
+<?php if ($_valid && !is_callable('content_514e2db94620a')) {function content_514e2db94620a($_smarty_tpl) {?>  <!--
  * WADWE Computerized AIS
  * @author Kristian Jacob Abad Lora <kjalora92@yahoo.com>
  * @date-created October 31, 2012
@@ -55,6 +51,12 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 									</select>
 								</div>
 							</div>
+							<div class="field-group" id="group-interest">
+								<label class="field-label" for="items">Items of Interest</label>
+								<div class="control">
+									<input type="text" class="span1" style="text-align: right" id="items" name="items" value="250" />
+								</div>
+							</div>
 						</div>
 						<div style="margin: 0 156px">
 							<button class="btn btn-small" type="submit" id="add" disabled="disabled">Load File</button>
@@ -65,13 +67,14 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 		</div>
 		
 		<!-- Modal for Notification-->
-					<div id="notif" class="modal hide fade in" style="margin-top: -50px; width: 480px">
+					<div id="notif" class="modal hide fade in" style="margin-top: -100px; width: 480px">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true" onClick="closeNotif(); return false;">&times;</button>
-					<h3 style="color: #DB1900">Path Does Not Exists!</h3>
+					<h3 style="color: #DB1900">Paths Do Not Exist!</h3>
 				</div>
 				<div class="modal-body">
-					<p>There are <span style="color: #DB1900; font-weight: bold">8</span> document path(s) that is/are no longer existing. Not updating the path of these documents will cause this application not to function properly.</p>
+					<p>There are <span style="color: #DB1900; font-weight: bold">8</span> document path(s) that is/are no longer existing. Check these documents in your computer and update their paths in this system now or you may udpate them later at the Preferences tab.</p>
+					<p><strong>Warning!</strong> Not updating the path of these documents will cause this application not to function properly.</p>
 				</div>
 				<div class="modal-footer">
 					<div style="margin: 0 auto">

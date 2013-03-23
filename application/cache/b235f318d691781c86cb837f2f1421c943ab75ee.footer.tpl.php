@@ -11,11 +11,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'nocache_hash' => '295735145e3c9cdea83-63864522',
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_514de37d6f85f',
+  'unifunc' => 'content_514e2db94a4e2',
   'has_nocache_code' => false,
   'cache_lifetime' => 1,
 ),true); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_514de37d6f85f')) {function content_514de37d6f85f($_smarty_tpl) {?>		<div id="footer">
+<?php if ($_valid && !is_callable('content_514e2db94a4e2')) {function content_514e2db94a4e2($_smarty_tpl) {?>		<div id="footer">
 			<span style="font-size: 11px; color: #b81d1d"><strong>Copyright &copy 2012. All Rights Reserved.</strong></span>
 			<br>CSS powered by Twitter Bootstrap
 			<br>Kristian Jacob Abad Lora. BS Computer Science 4

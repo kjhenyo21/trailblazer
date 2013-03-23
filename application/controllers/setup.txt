@@ -36,7 +36,7 @@ class Setup extends CI_Controller {
 		$info['password'] = $this->security->xss_clean($this->input->post('password'));
 
 		$setup->saveUserInfo($info);
-		unlink('./application/controllers/setup.php');
+		unlink('setup.php');
 		//header("location: ".$this->config->item('base_url')."setup_preferences");
 	}
 	

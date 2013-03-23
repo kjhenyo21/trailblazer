@@ -25,6 +25,17 @@ class Preferences_DB extends CI_Model {
 		} else return false;
 	}
 
+	function addPath($info) {
+		$data = array(
+			'document' => $info['doc'],
+			'type' => $info['type'],
+			'path' => $info['path'],
+			'file_extension' => $info['ext']
+		);
+		
+        $this->db->insert('doc_locations', $data);
+	}
+	
 	function getFilePathByDocTypeAndDate($doc_type, $month, $year) {
 		$query = $this->db->query("SELECT dl.path, f.filename, dl.document
 									FROM files f, doc_locations dl, doc_types dt

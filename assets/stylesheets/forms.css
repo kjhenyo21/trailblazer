@@ -115,6 +115,9 @@
 .form-horizontal .control select {
 	height: 20pt;
 }
+.combobox-container {
+	margin: 0px !important;
+}
 
 .asterisk {
 	color: red;

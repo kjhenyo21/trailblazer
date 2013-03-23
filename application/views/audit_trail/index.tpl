@@ -34,6 +34,12 @@
 									</select>
 								</div>
 							</div>
+							<div class="field-group" id="group-interest">
+								<label class="field-label" for="items">Items of Interest</label>
+								<div class="control">
+									<input type="text" class="span1" style="text-align: right" id="items" name="items" value="250" />
+								</div>
+							</div>
 						</div>
 						<div style="margin: 0 156px">
 							<button class="btn btn-small" type="submit" id="add" disabled="disabled">Load File</button>
@@ -45,13 +51,14 @@
 		
 		<!-- Modal for Notification-->
 		{if ($nonExistentPaths > 0) }
-			<div id="notif" class="modal hide fade in" style="margin-top: -50px; width: 480px">
+			<div id="notif" class="modal hide fade in" style="margin-top: -100px; width: 480px">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true" onClick="closeNotif(); return false;">&times;</button>
-					<h3 style="color: #DB1900">Path Does Not Exists!</h3>
+					<h3 style="color: #DB1900">Paths Do Not Exist!</h3>
 				</div>
 				<div class="modal-body">
-					<p>There are <span style="color: #DB1900; font-weight: bold">{$nonExistentPaths}</span> document path(s) that is/are no longer existing. Not updating the path of these documents will cause this application not to function properly.</p>
+					<p>There are <span style="color: #DB1900; font-weight: bold">{$nonExistentPaths}</span> document path(s) that is/are no longer existing. Check these documents in your computer and update their paths in this system now or you may udpate them later at the Preferences tab.</p>
+					<p><strong>Warning!</strong> Not updating the path of these documents will cause this application not to function properly.</p>
 				</div>
 				<div class="modal-footer">
 					<div style="margin: 0 auto">

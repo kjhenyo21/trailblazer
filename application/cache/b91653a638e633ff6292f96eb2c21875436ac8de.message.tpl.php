@@ -5,17 +5,17 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'b91653a638e633ff6292f96eb2c21875436ac8de' => 
     array (
       0 => 'C:\\xampp\\htdocs\\trailblazer\\application/views\\audit_trail\\message.tpl',
-      1 => 1364046573,
+      1 => 1364047058,
       2 => 'file',
     ),
   ),
   'nocache_hash' => '23425514bbe8b4ee512-63566459',
   'cache_lifetime' => 1,
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_514db4c7cc9b6',
+  'unifunc' => 'content_514e2d8205a59',
   'has_nocache_code' => false,
 ),true); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_514db4c7cc9b6')) {function content_514db4c7cc9b6($_smarty_tpl) {?><!--
+<?php if ($_valid && !is_callable('content_514e2d8205a59')) {function content_514e2d8205a59($_smarty_tpl) {?><!--
  * WADWE Computerized AIS
  * @author Kristian Jacob Abad Lora <kjalora92@yahoo.com>
  * @date-created October 31, 2012
@@ -66,8 +66,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 							</div>
 						</div>
 					</div>
-																		<EMBED src="http://localhost/trailblazer/assets/audio/message-beep.wav" AUTOSTART="true" HIDDEN="true" LOOP="1">
-				<audio><source src="http://localhost/trailblazer/assets/audio/message-beep.wav" type="audio/wav" /></audio>
+																		<audio><source src="http://localhost/trailblazer/assets/audio/message-beep.wav" type="audio/wav" /></audio>
 					</div>
 				<script src="http://localhost/trailblazer/assets/scripts/date-format.js" type="text/javascript"></script>
 		<script>

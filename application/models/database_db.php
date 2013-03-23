@@ -96,7 +96,7 @@ class Database_DB extends CI_Model {
 		$totalTaxableAmount = 0;
 		$auditedDeductions = 0;
 		$percentageOfDeductions = 0;
-		$min = 8;
+		$items_of_interest = $this->session->userdata('items_of_interest');
 		$sampleSize = 0;
 		
 		foreach ($info as $i) {
@@ -106,7 +106,7 @@ class Database_DB extends CI_Model {
 		
 		$auditedDeductions = $totalAmountDue - $totalTaxableAmount;
 		$percentageOfDeductions = $auditedDeductions / $totalAmountDue;
-		$sampleSize = $min / $percentageOfDeductions;
+		$sampleSize = $items_of_interest / $percentageOfDeductions;
 		$sampleSize = round($sampleSize);
 		
 		$query = $this->db->query("SELECT Date as date, `OR No` as or_no, `Amount Due` as amt_due, `VAT Amount` as vat_amt, `Customer Name` as cust_name, `Customer Address` as cust_address, `Customer Contact` as cust_contact
