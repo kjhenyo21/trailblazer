@@ -25,6 +25,7 @@ class Index extends CI_Controller {
 			
 			$this->mysmarty->assign('status', $this->session->userdata('status'));
 			$this->mysmarty->assign('base_url', $this->config->item('base_url'));
+			$this->mysmarty->display('header.tpl');
 			$this->mysmarty->display('index.tpl');
 			$this->mysmarty->display('footer.tpl');
 		}

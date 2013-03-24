@@ -139,12 +139,12 @@ class Index extends CI_Controller {
 					$reply_msg = "Thank you for your confirmation! We will call you should there be a need for further customer validation. Thank you and have a good day!";
 					$database->saveReceivedMessage($ref, 'yes');
 					$info = $messages->getMessageByRef($ref);
-					header("location: ".$this->config->item('base_url')."audit_trail/log_messages/writeToLog?data=".$info['date_received']." ".$info['name']."(0".$info['contact'].") replied 'yes' on Ref. No. ".$info['ref']);
+					header("location: ".$this->config->item('base_url')."messages/log_messages/writeToLog?data=".$info['date_received']." ".$info['name']."(0".$info['contact'].") replied 'yes' on Ref. No. ".$info['ref']);
 				} else if (strcasecmp($ans, "no") == 0) {
 					$reply_msg = "We are very sorry for bothering you. Thank you for your response, anyway. Have a good day!";
 					$database->saveReceivedMessage($ref, 'no');
 					$info = $messages->getMessageByRef($ref);
-					header("location: ".$this->config->item('base_url')."audit_trail/log_messages/writeToLog?data=".$info['date_received']." ".$info['name']."(0".$info['contact'].") replied 'no' on Ref. No. ".$info['ref']);
+					header("location: ".$this->config->item('base_url')."messages/log_messages/writeToLog?data=".$info['date_received']." ".$info['name']."(0".$info['contact'].") replied 'no' on Ref. No. ".$info['ref']);
 				} else $reply_msg = "Sorry, you have entered an invalid parameter. Please reply TRAIL<space><Ref No><space><Yes or No>. Thank you.";
 			} else $reply_msg = "You have already sent your confirmation on this transaction with Ref. No.: ". $ref .". Thank you for your cooperation!";
 			echo $reply_msg;
@@ -169,7 +169,7 @@ class Index extends CI_Controller {
 		
 		$database->storeSentMessage($data);
 		$info = $messages->getMessageByRef($data['ref']);
-		header("location: ".$this->config->item('base_url')."audit_trail/log_messages/writeToLog?data=".$info['date_sent']." sent a confirmation message to ".$info['name']." at 0".$info['contact']." with Ref. No. ".$info['ref']." on OR No. ".$info['or_no']." amounting to Php".$info['amt']);
+		header("location: ".$this->config->item('base_url')."messages/log_messages/writeToLog?data=".$info['date_sent']." ".$this->session->userdata('username')." sent a confirmation message to ".$info['name']." at 0".$info['contact']." with Ref. No. ".$info['ref']." on OR No. ".$info['or_no']." amounting to Php".$info['amt']);
 	}
 	
 	public function test() {
@@ -201,91 +201,13 @@ class Index extends CI_Controller {
 		$id = $_GET['id'];
 		$database->confirmMessage($id);
 		$info = $messages->getMessageByID($id);
-		header("location: ".$this->config->item('base_url')."audit_trail/log_messages/writeToLog?data=".$info['date_confirmed']." confirmed message with Ref. No. ".$info['ref']);
+		header("location: ".$this->config->item('base_url')."messages/log_messages/writeToLog?data=".$info['date_confirmed']." ".$this->session->userdata('username')." confirmed message with Ref. No. ".$info['ref']);
 	}
 	
 	public function ignoreMessage() {
 		$database = new database_db();
 		$id = $_GET['id'];
 		$database->ignoreMessage($id);
-	}
-	
-	public function searchCustomerInvoice() {
-		$customers = new customers_db();
-		$temp_inv_no = random_string('numeric', 10);
-		$cust_no = $this->security->xss_clean($this->input->post('cust_acct_no'));
-		header("location: ".$this->config->item('base_url')."cashier/invoice?customer=".$cust_no."&invoice=".$temp_inv_no);
-	}
-	
-	public function addItem() {
-		$items = new cashier_db();
-		$facs = new fac_db();
-		$i['item_code'] = $this->security->xss_clean($this->input->post('or'));
-		$items->addItem($i);
-		header("location: ".$this->config->item('base_url')."cashier");			
-	}
-	
-	public function editProfile() {
-		$profile = new profile_db();
-		$m['id'] = $this->security->xss_clean($this->input->post('id'));
-		$m['studno'] = $this->security->xss_clean($this->input->post('studno'));
-		$m['lname'] = $this->security->xss_clean($this->input->post('lname'));
-		$m['fname'] = $this->security->xss_clean($this->input->post('fname'));
-		$m['mname'] = $this->security->xss_clean($this->input->post('mname'));
-		$m['mail'] = $this->security->xss_clean($this->input->post('mail'));
-		$m['sex'] = $this->security->xss_clean($this->input->post('sex'));
-		$m['bdate'] = $this->security->xss_clean($this->input->post('bdate'));
-		$m['address'] = $this->security->xss_clean($this->input->post('address'));
-		$m['phone'] = $this->security->xss_clean($this->input->post('phone'));		
-		$m['year'] = $this->security->xss_clean($this->input->post('year'));		
-		$m['block'] = $this->security->xss_clean($this->input->post('block'));		
-			//$m['password'] = $this->security->xss_clean($this->input->post('password'));
-		$profile->updateProfile($m);
-		header("location: ".$this->config->item('base_url')."admin?status=saved");		
-	}
-	
-	public function changePass() {
-		$profile = new profile_db();
-		$user_id = $this->session->userdata('id');
-		$old_pass = $profile->getPassword($user_id);
-		$m['id'] = $user_id;
-		$id = $this->security->xss_clean($this->input->post('id'));
-		$m['old_pass'] = $this->security->xss_clean($this->input->post('old_pass'));
-		$m['new_pass'] = $this->security->xss_clean($this->input->post('new_pass'));
-		$m['c_new_pass'] = $this->security->xss_clean($this->input->post('c_new_pass'));
-		$this->form_validation->set_rules('old_pass', 'Old Password', 'required');
-		$this->form_validation->set_rules('new_pass', 'New Password', 'required');
-		$this->form_validation->set_rules('c_new_pass', 'Password Confirmation', 'required|matches[new_pass]');
-
-		if ($this->form_validation->run() == FALSE) {
-			$this->mysmarty->assign('error_old_pass', form_error('old_pass'));
-			$this->mysmarty->assign('error_new_pass', form_error('new_pass'));
-			$this->mysmarty->assign('error_c_new_pass', form_error('c_new_pass'));
-			$this->mysmarty->assign('profile', $profile->getProfile($user_id));
-			$this->mysmarty->assign('adminID', $this->session->userdata('id'));
-			$this->mysmarty->display('admin/index.tpl');
-			echo "<script>";
-			echo "$('#changePass$id').show();";
-			echo "</script>";
-		} else {
-			if ($old_pass == $m['old_pass']) {
-				$profile->updatePassword($m);
-				echo "<script>";
-				echo "$('#changePass$id').hide();";
-				echo "</script>";
-				header("location: ".$this->config->item('base_url')."admin?status=passChanged");
-			} else {
-				$this->mysmarty->assign('error_old_pass', 'Invalid password!');
-				$this->mysmarty->assign('error_new_pass', form_error('new_pass'));
-				$this->mysmarty->assign('error_c_new_pass', form_error('c_new_pas'));
-				$this->mysmarty->assign('profile', $profile->getProfile($user_id));
-				$this->mysmarty->assign('adminID', $this->session->userdata('id'));
-				$this->mysmarty->display('admin/index.tpl');
-				echo "<script>";
-				echo "$('#changePass$id').show();";
-				echo "</script>";
-			}
-		}
 	}
 	
 	public function logout() {

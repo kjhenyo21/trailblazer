@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-03-24 03:58:39
+<?php /* Smarty version Smarty-3.1.7, created on 2013-03-25 00:12:11
          compiled from "C:\xampp\htdocs\trailblazer\application/views\messages\message_items.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:31477514e6bdf24c674-81304209%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'b52350223175a4de7c7a83113928a18252d0d430' => 
     array (
       0 => 'C:\\xampp\\htdocs\\trailblazer\\application/views\\messages\\message_items.tpl',
-      1 => 1364090333,
+      1 => 1364162210,
       2 => 'file',
     ),
   ),
@@ -15,17 +15,22 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_514e6bdf7c764',
   'variables' => 
   array (
     'messages' => 0,
     'm' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_514e6bdf7c764',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_514e6bdf7c764')) {function content_514e6bdf7c764($_smarty_tpl) {?><?php if (!is_callable('smarty_function_url')) include 'C:\\xampp\\htdocs\\trailblazer\\application\\libraries\\smarty\\plugins\\function.url.php';
-?>			<div id="messages" style="margin: 0 auto; text-align: center">
+?><!--
+ * Trailblazer Digital Accounting Audit Trail Program
+ * @author Kristian Jacob Abad Lora <kjalora92@yahoo.com>
+ * @date-created October 31, 2012
+-->
+			<div id="messages" style="margin: 0 auto; text-align: center">
 				<h2>Messages</h2>
 				<br>
 				<?php if (($_smarty_tpl->tpl_vars['messages']->value)){?>

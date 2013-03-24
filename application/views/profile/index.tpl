@@ -17,7 +17,7 @@
 						<i class="icon-thumbs-up"></i> {$response}
 					</div>
 				{/if}
-				<form id="setup" class="form-horizontal">
+				<form id="profile" class="form-horizontal">
 					<h4>User Info</h4>
 					{if ($info)}
 						<table style="width: 100%">
@@ -156,7 +156,7 @@
 					<input type="hidden" name="id1" value="{$info['id']}"/>
 					<div class="field-group" style="margin-bottom: 0px; text-align: center">
 						<div class="control">
-							<a type="button" id="submit" class="btn btn-primary" disabled="disabled">Save changes</a>
+							<a type="button" id="submit" class="btn" disabled="disabled">Save changes</a>
 							<a href="{url}" type="button" id="back" class="btn">Back</a>
 						</div>
 					</div>
@@ -190,6 +190,7 @@
 			val = $('#lname').val();
 			if (val != '') {
 				$('#submit').removeAttr("disabled");
+				$('#submit').addClass("btn-primary");
 				var js = "submitIt(); return false;";
 				var open = "(function(){";
 				var close = "});";
@@ -197,6 +198,7 @@
 				$("#submit").get(0).onclick = newclick;
 			} else {
 				$('#submit').attr("disabled", "disabled");
+				$('#submit').removeClass("btn-primary");
 				$("#submit").get(0).onclick = null;
 			}
 
@@ -204,6 +206,7 @@
 				val = $('#lname').val();
 				if (val != '') {
 					$('#submit').removeAttr("disabled");
+					$('#submit').addClass("btn-primary");
 					var js = "submitIt(); return false;";
 					var open = "(function(){";
 					var close = "});";
@@ -211,6 +214,7 @@
 					$("#submit").get(0).onclick = newclick;
 				} else {
 					$('#submit').attr("disabled", "disabled");
+					$('#submit').removeClass("btn-primary");
 					$("#submit").get(0).onclick = null;
 				}
 			}
@@ -304,8 +308,8 @@
 								url: 'profile/index/updateProfile',
 								data:  $("#profile").serialize(),
 								success: function(data){
-									$('#password').attr("disabled", "disabled");
 									window.location.href="{url}profile?response=Profile has been successfully saved!";
+									$('#password').attr("disabled", "disabled");
 								},
 								error: function(data) {
 									$('#password').attr("disabled", "disabled");

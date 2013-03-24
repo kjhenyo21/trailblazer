@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-03-23 17:13:48
+<?php /* Smarty version Smarty-3.1.7, created on 2013-03-24 23:29:39
          compiled from "C:\xampp\htdocs\trailblazer\application/views\index.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:6863514dcda9528c20-15705602%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'f0af9a7bddcfdbc431b554acc01868611d73a494' => 
     array (
       0 => 'C:\\xampp\\htdocs\\trailblazer\\application/views\\index.tpl',
-      1 => 1364055226,
+      1 => 1364164176,
       2 => 'file',
     ),
   ),
@@ -26,27 +26,15 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_514dcda97c9af')) {function content_514dcda97c9af($_smarty_tpl) {?><?php if (!is_callable('smarty_function_url')) include 'C:\\xampp\\htdocs\\trailblazer\\application\\libraries\\smarty\\plugins\\function.url.php';
 ?><!--
- * Lalaine's Bookstore Computerized AIS
+ * Trailblazer Digital Accounting Audit Trail Program
  * @author Kristian Jacob Abad Lora <kjalora92@yahoo.com>
  * @date-created October 31, 2012
 -->
-<!DOCTYPE html>
 	<head>
 		<title>Trailblazer - Login</title>
-		<link href="<?php echo smarty_function_url(array(),$_smarty_tpl);?>
-assets/stylesheets/bootstrap.css" rel="stylesheet"></link>
-		<link href="<?php echo smarty_function_url(array(),$_smarty_tpl);?>
-assets/stylesheets/bootstrap-responsive.css" rel="stylesheet"></link>
-		<link href="<?php echo smarty_function_url(array(),$_smarty_tpl);?>
-assets/stylesheets/main.css" rel="stylesheet"></link>
 	</head>
 	
 	<body>
-		
-		<!-- Navbar -->
-		<div id="banner" class="page-header"></div>
-		</div>
-		
 		<!-- Main -->
 		<h3 style="margin: 20px auto; text-align: center"> User Login </h3>
 		<div id="main-wrapper" style="width: 300px">
@@ -80,8 +68,25 @@ login">
 				</div>
 				<div class="control-group" style="margin-bottom: 0px">
 					<div class="controls">
-						<button type="submit" class="btn">Log in</button>
+						<button type="submit" class="btn btn-primary">Log in</button>
 					</div>
 				</div>
 			</form>
-		</div><?php }} ?>
+		</div>
+		<link href="<?php echo smarty_function_url(array(),$_smarty_tpl);?>
+assets/stylesheets/bootstrap.css" rel="stylesheet"></link>
+		<link href="<?php echo smarty_function_url(array(),$_smarty_tpl);?>
+assets/stylesheets/bootstrap-responsive.css" rel="stylesheet"></link>
+		<link href="<?php echo smarty_function_url(array(),$_smarty_tpl);?>
+assets/stylesheets/main.css" rel="stylesheet"></link>
+		<script src="<?php echo smarty_function_url(array(),$_smarty_tpl);?>
+assets/scripts/jquery.js" type="text/javascript"></script>
+		<script src="<?php echo smarty_function_url(array(),$_smarty_tpl);?>
+assets/scripts/bootstrap.js" type="text/javascript"></script>
+		<script>
+			$('#form-login input').keydown(function(e) {
+				if (e.keyCode == 13) {
+					$('#form-login').submit();
+				}
+			});
+		</script><?php }} ?>

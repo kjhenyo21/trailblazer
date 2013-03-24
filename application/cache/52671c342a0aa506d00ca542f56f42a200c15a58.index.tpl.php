@@ -5,17 +5,17 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '52671c342a0aa506d00ca542f56f42a200c15a58' => 
     array (
       0 => 'C:\\xampp\\htdocs\\trailblazer\\application/views\\profile\\index.tpl',
-      1 => 1364134444,
+      1 => 1364162952,
       2 => 'file',
     ),
   ),
   'nocache_hash' => '19485514e7ec767f865-24683265',
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_514f0b108f79f',
+  'unifunc' => 'content_514f79caa60ab',
   'has_nocache_code' => false,
   'cache_lifetime' => 1,
 ),true); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_514f0b108f79f')) {function content_514f0b108f79f($_smarty_tpl) {?>  <!--
+<?php if ($_valid && !is_callable('content_514f79caa60ab')) {function content_514f79caa60ab($_smarty_tpl) {?>  <!--
  * Trailblazer Digital Accounting Audit Trail Program
  * @author Kristian Jacob Abad Lora <kjalora92@yahoo.com>
  * @date-created October 31, 2012
@@ -28,7 +28,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 		<!-- Main -->
 		<div id="main-wrapper-profile">
 			<div id="form-container">
-								<form id="setup" class="form-horizontal">
+								<form id="profile" class="form-horizontal">
 					<h4>User Info</h4>
 											<table style="width: 100%">
 							<td style="width: 50%">
@@ -102,7 +102,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 								<div class="field-group" id="group-license_no">
 									<label class="field-label" for="license_no">License No.<span class="asterisk">*</span></label>
 									<div class="control">
-										<input type="text" class="span2" id="license_no" name="license_no" value="238346" placeholder="License Number">
+										<input type="text" class="span2" id="license_no" name="license_no" value="4763467" placeholder="License Number">
 									</div>
 								</div>
 								<div class="field-group" id="group-cname">
@@ -160,7 +160,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 					<input type="hidden" name="id1" value="1"/>
 					<div class="field-group" style="margin-bottom: 0px; text-align: center">
 						<div class="control">
-							<a type="button" id="submit" class="btn btn-primary" disabled="disabled">Save changes</a>
+							<a type="button" id="submit" class="btn" disabled="disabled">Save changes</a>
 							<a href="http://localhost/trailblazer/" type="button" id="back" class="btn">Back</a>
 						</div>
 					</div>
@@ -194,6 +194,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 			val = $('#lname').val();
 			if (val != '') {
 				$('#submit').removeAttr("disabled");
+				$('#submit').addClass("btn-primary");
 				var js = "submitIt(); return false;";
 				var open = "(function(){";
 				var close = "});";
@@ -201,6 +202,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 				$("#submit").get(0).onclick = newclick;
 			} else {
 				$('#submit').attr("disabled", "disabled");
+				$('#submit').removeClass("btn-primary");
 				$("#submit").get(0).onclick = null;
 			}
 
@@ -208,6 +210,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 				val = $('#lname').val();
 				if (val != '') {
 					$('#submit').removeAttr("disabled");
+					$('#submit').addClass("btn-primary");
 					var js = "submitIt(); return false;";
 					var open = "(function(){";
 					var close = "});";
@@ -215,6 +218,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 					$("#submit").get(0).onclick = newclick;
 				} else {
 					$('#submit').attr("disabled", "disabled");
+					$('#submit').removeClass("btn-primary");
 					$("#submit").get(0).onclick = null;
 				}
 			}
@@ -308,8 +312,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 								url: 'profile/index/updateProfile',
 								data:  $("#profile").serialize(),
 								success: function(data){
-									$('#password').attr("disabled", "disabled");
 									window.location.href="http://localhost/trailblazer/profile?response=Profile has been successfully saved!";
+									$('#password').attr("disabled", "disabled");
 								},
 								error: function(data) {
 									$('#password').attr("disabled", "disabled");

@@ -5,17 +5,17 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '8712921747993caddacec5a6a89f061b904b1eb0' => 
     array (
       0 => 'C:\\xampp\\htdocs\\trailblazer\\application/views\\preferences\\index.tpl',
-      1 => 1364147986,
+      1 => 1364161730,
       2 => 'file',
     ),
   ),
   'nocache_hash' => '32387514e953def5aa4-24846542',
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_514f409a099ba',
+  'unifunc' => 'content_514f79d4aac2d',
   'has_nocache_code' => false,
   'cache_lifetime' => 1,
 ),true); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_514f409a099ba')) {function content_514f409a099ba($_smarty_tpl) {?>  <!--
+<?php if ($_valid && !is_callable('content_514f79d4aac2d')) {function content_514f79d4aac2d($_smarty_tpl) {?>  <!--
  * Trailblazer Digital Accounting Audit Trail Program
  * @author Kristian Jacob Abad Lora <kjalora92@yahoo.com>
  * @date-created October 31, 2012
@@ -28,10 +28,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 		<!-- Main -->
 		<div id="main-wrapper-setup">
 			<div id="form-container">
-									<div id="response" class="alert alert-success" style="margin: 0 auto; text-align:center; width: 280px">
-						<button type="button" class="close" data-dismiss="alert">&times;</button>
-						<i class="icon-thumbs-up"></i> Profile has been successfully saved!
-					</div>
 								<form id="pref" class="form-horizontal">
 					<h4>Document Locations</h4>
 					<table id="files" class="table table-hover" style="width: 100%">
@@ -54,7 +50,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 										<td>
 											<div class="table-column" id="group-type0">
 												<div class="control">
-													<a class="link" data-original-title="Enter numeric value only: 1=Journals, 2=Ledgers, 3=Transaction Files, 4=Financial Statements, 5=Log Files"><input type="text" class="type0 span2" id="type0" name="type[]" style="width: 155px; float: left; text-align: right" value="1" placeholder="e.g. Journal, Ledger, etc"/></a>
+													<a class="link" data-original-title="Enter numeric value only: 1=Journals, 2=Ledgers, 3=Financial Statements, 4=Transaction Files, 5=Log Files"><input type="text" class="type0 span2" id="type0" name="type[]" style="width: 155px; float: left; text-align: right" value="1" placeholder="e.g. Journal, Ledger, etc"/></a>
 												</div>
 											</div>
 										</td>
@@ -96,7 +92,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 										<td>
 											<div class="table-column" id="group-type1">
 												<div class="control">
-													<a class="link" data-original-title="Enter numeric value only: 1=Journals, 2=Ledgers, 3=Transaction Files, 4=Financial Statements, 5=Log Files"><input type="text" class="type1 span2" id="type1" name="type[]" style="width: 155px; float: left; text-align: right" value="1" placeholder="e.g. Journal, Ledger, etc"/></a>
+													<a class="link" data-original-title="Enter numeric value only: 1=Journals, 2=Ledgers, 3=Financial Statements, 4=Transaction Files, 5=Log Files"><input type="text" class="type1 span2" id="type1" name="type[]" style="width: 155px; float: left; text-align: right" value="1" placeholder="e.g. Journal, Ledger, etc"/></a>
 												</div>
 											</div>
 										</td>
@@ -138,7 +134,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 										<td>
 											<div class="table-column" id="group-type2">
 												<div class="control">
-													<a class="link" data-original-title="Enter numeric value only: 1=Journals, 2=Ledgers, 3=Transaction Files, 4=Financial Statements, 5=Log Files"><input type="text" class="type2 span2" id="type2" name="type[]" style="width: 155px; float: left; text-align: right" value="2" placeholder="e.g. Journal, Ledger, etc"/></a>
+													<a class="link" data-original-title="Enter numeric value only: 1=Journals, 2=Ledgers, 3=Financial Statements, 4=Transaction Files, 5=Log Files"><input type="text" class="type2 span2" id="type2" name="type[]" style="width: 155px; float: left; text-align: right" value="2" placeholder="e.g. Journal, Ledger, etc"/></a>
 												</div>
 											</div>
 										</td>
@@ -180,7 +176,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 										<td>
 											<div class="table-column" id="group-type3">
 												<div class="control">
-													<a class="link" data-original-title="Enter numeric value only: 1=Journals, 2=Ledgers, 3=Transaction Files, 4=Financial Statements, 5=Log Files"><input type="text" class="type3 span2" id="type3" name="type[]" style="width: 155px; float: left; text-align: right" value="4" placeholder="e.g. Journal, Ledger, etc"/></a>
+													<a class="link" data-original-title="Enter numeric value only: 1=Journals, 2=Ledgers, 3=Financial Statements, 4=Transaction Files, 5=Log Files"><input type="text" class="type3 span2" id="type3" name="type[]" style="width: 155px; float: left; text-align: right" value="3" placeholder="e.g. Journal, Ledger, etc"/></a>
 												</div>
 											</div>
 										</td>
@@ -222,7 +218,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 										<td>
 											<div class="table-column" id="group-type4">
 												<div class="control">
-													<a class="link" data-original-title="Enter numeric value only: 1=Journals, 2=Ledgers, 3=Transaction Files, 4=Financial Statements, 5=Log Files"><input type="text" class="type4 span2" id="type4" name="type[]" style="width: 155px; float: left; text-align: right" value="4" placeholder="e.g. Journal, Ledger, etc"/></a>
+													<a class="link" data-original-title="Enter numeric value only: 1=Journals, 2=Ledgers, 3=Financial Statements, 4=Transaction Files, 5=Log Files"><input type="text" class="type4 span2" id="type4" name="type[]" style="width: 155px; float: left; text-align: right" value="3" placeholder="e.g. Journal, Ledger, etc"/></a>
 												</div>
 											</div>
 										</td>
@@ -238,7 +234,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 											<td>
 												<div class="table-column" id="group-ext4">
 													<div class="control">
-														<input type="text" class="span1" id="ext4" name="ext[]" value="bs" placeholder="ex: txt"/>
+														<input type="text" class="span1" id="ext4" name="ext[]" value="fh" placeholder="ex: txt"/>
 													</div>
 												</div>
 											</td>
@@ -264,7 +260,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 										<td>
 											<div class="table-column" id="group-type5">
 												<div class="control">
-													<a class="link" data-original-title="Enter numeric value only: 1=Journals, 2=Ledgers, 3=Transaction Files, 4=Financial Statements, 5=Log Files"><input type="text" class="type5 span2" id="type5" name="type[]" style="width: 155px; float: left; text-align: right" value="3" placeholder="e.g. Journal, Ledger, etc"/></a>
+													<a class="link" data-original-title="Enter numeric value only: 1=Journals, 2=Ledgers, 3=Financial Statements, 4=Transaction Files, 5=Log Files"><input type="text" class="type5 span2" id="type5" name="type[]" style="width: 155px; float: left; text-align: right" value="4" placeholder="e.g. Journal, Ledger, etc"/></a>
 												</div>
 											</div>
 										</td>
@@ -306,7 +302,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 										<td>
 											<div class="table-column" id="group-type6">
 												<div class="control">
-													<a class="link" data-original-title="Enter numeric value only: 1=Journals, 2=Ledgers, 3=Transaction Files, 4=Financial Statements, 5=Log Files"><input type="text" class="type6 span2" id="type6" name="type[]" style="width: 155px; float: left; text-align: right" value="3" placeholder="e.g. Journal, Ledger, etc"/></a>
+													<a class="link" data-original-title="Enter numeric value only: 1=Journals, 2=Ledgers, 3=Financial Statements, 4=Transaction Files, 5=Log Files"><input type="text" class="type6 span2" id="type6" name="type[]" style="width: 155px; float: left; text-align: right" value="4" placeholder="e.g. Journal, Ledger, etc"/></a>
 												</div>
 											</div>
 										</td>
@@ -322,7 +318,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 											<td>
 												<div class="table-column" id="group-ext6">
 													<div class="control">
-														<input type="text" class="span1" id="ext6" name="ext[]" value="tf" placeholder="ex: txt"/>
+														<input type="text" class="span1" id="ext6" name="ext[]" value="gf" placeholder="ex: txt"/>
 													</div>
 												</div>
 											</td>
@@ -348,7 +344,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 										<td>
 											<div class="table-column" id="group-type7">
 												<div class="control">
-													<a class="link" data-original-title="Enter numeric value only: 1=Journals, 2=Ledgers, 3=Transaction Files, 4=Financial Statements, 5=Log Files"><input type="text" class="type7 span2" id="type7" name="type[]" style="width: 155px; float: left; text-align: right" value="3" placeholder="e.g. Journal, Ledger, etc"/></a>
+													<a class="link" data-original-title="Enter numeric value only: 1=Journals, 2=Ledgers, 3=Financial Statements, 4=Transaction Files, 5=Log Files"><input type="text" class="type7 span2" id="type7" name="type[]" style="width: 155px; float: left; text-align: right" value="4" placeholder="e.g. Journal, Ledger, etc"/></a>
 												</div>
 											</div>
 										</td>
@@ -383,11 +379,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 					</table>
 					<a href="#" onclick="addMoreDocument(); return false;">Add Document</a>
 					<hr style="margin-bottom: 5px">
-					<div style="font-style: italic; font-size: 8pt; color: red;">^a red box indicates that the path cannot be found</div>
 					<div style="font-style: italic; font-size: 8pt; color: red; margin-bottom: 20px">* - required fields</div>
 					<div class="field-group" style="margin-bottom: 0px; text-align: center">
 						<div class="control">
-							<a id="submit" class="btn btn-primary" disabled="disabled">Save changes</a>
+							<a id="submit" class="btn" disabled="disabled">Save changes</a>
 							<a href="http://localhost/trailblazer/" type="button" id="back" class="btn">Back</a>
 						</div>
 					</div>
@@ -445,6 +440,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 			val = $('#path1').val();
 			if (val != null) {
 				$('#submit').removeAttr("disabled");
+				$('#submit').addClass("btn-primary");
 				var js = "submitIt(); return false;";
 				var open = "(function(){";
 				var close = "});";
@@ -452,6 +448,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 				$("#submit").get(0).onclick = newclick;
 			} else {
 				$('#submit').attr("disabled", "disabled");
+				$('#submit').removeClass("btn-primary");
 				$("#submit").get(0).onclick = null;
 			}
 
@@ -495,6 +492,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 				console.log(id);
 				if (val != '') {
 					$('#submit').removeAttr("disabled");
+					$('#submit').addClass("btn-primary");
 					var js = "submitIt(); return false;";
 					var open = "(function(){";
 					var close = "});";
@@ -502,6 +500,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 					$("#submit").get(0).onclick = newclick;
 				} else {
 					$('#submit').attr("disabled", "disabled");
+					$('#submit').removeClass("btn-primary");
 					$("#submit").get(0).onclick = null;
 				}
 				
@@ -569,19 +568,88 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 			}
 			
 			function submitIt() {
-				$.ajax({
-					type: "POST",
-					url: 'preferences/index/updatePreferences',
-					data: $("#pref").serialize(),				
-					success: function(data){
-						window.location.href="http://localhost/trailblazer/preferences?response=Profile has been successfully saved!";
-					},
-					error: function(data) {
-						$('#response').remove();
-						$('#pref').prepend('<div id="response" class="alert alert-error" style="margin: 0 auto; text-align:center; width: 280px"><button type="button" class="close" data-dismiss="alert">&times;</button><i class="icon-thumbs-down"></i> Saving unsuccessful! </div>')
-						$("html, body").animate({ scrollTop: 0 }, "slow");
-						window.history.pushState("saving unsuccessful", "Preferences", "http://localhost/trailblazer/preferences");
+				error = 0;
+				doc_id = 0;
+				$('input[name="doc[]"]').each(function() {
+					if ($(this).val() == '') {
+						$('#notify-doc' + doc_id).remove();
+						$(this).parent().parent().addClass("error");
+						$(this).parent().parent().append('<div id="notify-doc' + doc_id + '" style="color: red; font-size: 9pt; font-style: italic; text-align: left; margin-left:15px">Must not be empty!</div>');
+						error++;
+					} else {
+						$(this).parent().parent().removeClass("error");
+						$('#notify-doc' + doc_id).remove();
+					}
+					doc_id++;
+				});
+				
+				type_id = 0;
+				$('input[name="type[]"]').each(function() {
+					if ($(this).val() == '') {
+						$('#notify-type' + type_id).remove();
+						$(this).parent().parent().addClass("error");
+						$(this).parent().parent().append('<div id="notify-type' + type_id + '" style="color: red; font-size: 9pt; font-style: italic; text-align: left; margin-left:15px">Must not be empty!</div>');
+						error++;
+					} else {
+						$(this).parent().parent().removeClass("error");
+						$('#notify-type' + type_id).remove();
+					}
+					type_id++;
+				});
+				
+				$('input[name="path[]"]').each(function() {
+					id = $(this).attr('id');
+					if ($(this).hasClass('error'))
+						error++;
+					else {
+						if ($(this).val() == '') {
+							$('#notify-' + id).remove();
+							$(this).parent().parent().addClass("error");
+							$(this).parent().parent().append('<div id="notify-' + id + '" style="color: red; font-size: 9pt; font-style: italic; text-align: left; margin-left:15px">Must not be empty!</div>');
+							error++;
+						} else {
+							$(this).parent().parent().removeClass("error");
+							$('#notify-' + id).remove();
+						}
+					}
+					
+				});
+				$('input[name="ext[]"]').each(function() {
+					id = $(this).attr('id');
+					if ($(this).val() == '') {
+						$('#notify-' + id).remove();
+						$(this).parent().parent().addClass("error");
+						$(this).parent().parent().append('<div id="notify-' + id + '" style="color: red; font-size: 9pt; font-style: italic; text-align: left; margin-left:15px">Must not be empty!</div>');
+						error++;
+					} else {
+						$(this).parent().parent().removeClass("error");
+						$('#notify-' + id).remove();
 					}
 				});
+				console.log("ERRORS: " + error);
+				if (error == 0) {
+					$.ajax({
+						type: "POST",
+						url: 'preferences/index/updatePreferences',
+						data: $("#pref").serialize(),				
+						success: function(data){
+							$('#response-validation').remove();
+							$('#pref').prepend('<div id="response" class="alert alert-success" style="margin: 0 auto; text-align:center; width: 280px"><button type="button" class="close" data-dismiss="alert">&times;</button><i class="icon-thumbs-up"></i> </div>');
+							window.location.href="http://localhost/trailblazer/preferences?response=Profile has been successfully saved!";
+						},
+						error: function(data) {
+							$('#response').remove();
+							$('#response-validation').remove();
+							$('#pref').prepend('<div id="response" class="alert alert-error" style="margin: 0 auto; text-align:center; width: 280px"><button type="button" class="close" data-dismiss="alert">&times;</button><i class="icon-thumbs-down"></i> Saving unsuccessful! </div>')
+							$("html, body").animate({ scrollTop: 0 }, "slow");
+							window.history.pushState("saving unsuccessful", "Preferences", "http://localhost/trailblazer/preferences");
+						}
+					});
+				} else {
+					$('#response').remove();
+					$('#response-validation').remove();
+					$('#pref').prepend('<div id="response-validation" class="alert alert-error" style="margin: 0 auto; text-align:center; width: 280px"><button type="button" class="close" data-dismiss="alert">&times;</button><i class="icon-thumbs-down"></i> Cannot save while there are errors.</div>');
+					$("html, body").animate({ scrollTop: 0 }, "slow");
+				}
 			}
 		</script><?php }} ?>

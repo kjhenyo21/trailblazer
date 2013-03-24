@@ -5,22 +5,21 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'abe38ed4490c1c4f981f87378e847e254dedb5a6' => 
     array (
       0 => 'C:\\xampp\\htdocs\\trailblazer\\application/views\\audit_trail\\trail_ledger.tpl',
-      1 => 1364037634,
+      1 => 1364161232,
       2 => 'file',
     ),
   ),
   'nocache_hash' => '2273351482ff7a49822-97291323',
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_514e7301d701f',
+  'unifunc' => 'content_514f813300376',
   'has_nocache_code' => false,
   'cache_lifetime' => 1,
 ),true); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_514e7301d701f')) {function content_514e7301d701f($_smarty_tpl) {?>  <!--
- * Lalaine's Bookstore Computerized AIS
+<?php if ($_valid && !is_callable('content_514f813300376')) {function content_514f813300376($_smarty_tpl) {?>  <!--
+ * Trailblazer Digital Accounting Audit Trail Program
  * @author Kristian Jacob Abad Lora <kjalora92@yahoo.com>
  * @date-created October 31, 2012
 -->
-<!DOCTYPE html>
 	<head>
 		<title>Trailblazer - Trailing the Ledger</title>
 	</head>
@@ -41,11 +40,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 				<br>
 				<table id="table" style="text-align: left; color: black">
 					<thead>
-						<th>Date</th>
-						<th>Description</th>
-						<th>Reference</th>
-						<th>Debit</th>
-						<th>Credit</th>
+						<th style="text-align: center; vertical-align: center">Date</th>
+						<th style="text-align: center; vertical-align: center">Description</th>
+						<th style="text-align: center; vertical-align: center">Reference</th>
+						<th style="text-align: center; vertical-align: center">Debit</th>
+						<th style="text-align: center; vertical-align: center">Credit</th>
 					</thead>
 					<tbody>
 																																				<tr>

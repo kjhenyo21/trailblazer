@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-03-24 14:56:27
+<?php /* Smarty version Smarty-3.1.7, created on 2013-03-24 22:19:22
          compiled from "C:\xampp\htdocs\trailblazer\application/views\setup_preferences.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:25650514621948c7d28-86108484%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '4c86910a378a8a3d88bf16d89d7a3871fd1773b4' => 
     array (
       0 => 'C:\\xampp\\htdocs\\trailblazer\\application/views\\setup_preferences.tpl',
-      1 => 1364133334,
+      1 => 1364159845,
       2 => 'file',
     ),
   ),
@@ -37,21 +37,22 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 					<h4>Document Locations</h4>
 					<table id="files" class="table table-hover" style="width: 100%">
 						<thead>
-							<th style="text-align: center">Document</th>
-							<th style="text-align: center">Type</th>
-							<th style="text-align: center">Path</th>
-							<th style="text-align: center">File Extension</th>
+							<th style="text-align: center">Document<span class="asterisk">*</span></th>
+							<th style="text-align: center">Type<span class="asterisk">*</span></th>
+							<th style="text-align: center">Path<span class="asterisk">*</span></th>
+							<th style="text-align: center">File Extension<span class="asterisk">*</span></th>
 							<th></th>
 						</thead>
 						<tbody>
 						</tbody>
 					</table>
 					<a href="#" onclick="addMoreDocument(); return false;">Add Document</a>
-					<hr>
+					<hr style="margin-bottom: 5px">
+					<div style="font-style: italic; font-size: 8pt; color: red; margin-bottom: 20px">* - required fields</div>
 					<div class="field-group" style="margin-bottom: 0px; text-align: center">
 						<div class="control">
-							<a id="submit" class="btn btn-primary" disabled="disabled">Save</a>
-							<button type="reset" id="reset" class="btn">Reset</button>
+							<a id="submit" class="btn" disabled="disabled">Save</a>
+							<button type="reset" id="reset" class="btn" onClick="resetIt();">Reset</button>
 						</div>
 					</div>
 				</form>
@@ -77,6 +78,8 @@ assets/scripts/bootstrap.min.js" type="text/javascript"></script>
 assets/scripts/bootstrap-datepicker.js" type="text/javascript"></script>
 		<script src="<?php echo smarty_function_url(array(),$_smarty_tpl);?>
 assets/scripts/bootstrap-combobox.js" type="text/javascript"></script>
+		<script src="<?php echo smarty_function_url(array(),$_smarty_tpl);?>
+assets/scripts/jquery.validate.min.js" type="text/javascript"></script>
 		<script>
 			var id = $('#id').val();
 			var lname = $('#lname').val();
@@ -89,21 +92,12 @@ assets/scripts/bootstrap-combobox.js" type="text/javascript"></script>
 			var form = $('#setup');
 			var rowNo = 0;
 			var rows = 0;
-			
-			/**function performClick(node) {
-			   node.click();
-
-			}			
-			
-			function onFileChange() {
-				var d = document.getElementById("theFile").value;
-				document.forms[0].path.value=document.getElementById("theFile").value;
-			}*/
+			var errors = 0;
 
 			function addMoreDocument() {
 				rowNo += 1;
 				rows += 1;
-				$('#files').append('<tr id="row' + rowNo + '"><td><div class="table-column" id="group-doc' + rowNo + '"><div id="control-doc' + rowNo + '" class="control"><select class="doc' + rowNo + '" id="doc' + rowNo + '" name="doc[]" placeholder="e.g. Cash Receipts" onChange="pathOnChange(this.id); docOnChange(this); return false;"><option></option><option>Cash Receipts Journal</option><option>Cash Disbursements Journal</option><option>General Ledger</option><option>Sale Transactions</option><option>Purchase Transactions</option><option>Expense Transactions</option><option>Income Sheet</option><option>Balance Sheet</option><option>Other</option></select></div></div></td><td><div class="table-column" id="group-type"><div class="control"><select class="type' + rowNo + ' span2" id="type' + rowNo + '" name="type[]" style="width: 170px" placeholder="e.g. Journal, Ledger, etc" onChange="pathOnChange(this.id); return false;"><option></option><option value=1>Journals</option><option value=2>Ledgers</option><option value=3>Transaction Files</option><option value=4>Financial Statements</option><option value=5>Log Files</option></select></div></div></td><td><div class="table-column" id="group-path' + rowNo + '"><div class="control"><input type="text" class="span4" id="path' + rowNo + '" name="path[]" placeholder="Paste the full path of the directory here" onChange="pathOnChange(this.id); return false;"></div></div></div></td><td><div class="table-column"><div class="control"><input type="text" class="span1" id="ext' + rowNo + '" name="ext[]" placeholder="ex: txt" onChange="pathOnChange(this.id); return false;"></div></div></td><td><div class="table-column"></div></td><td><div class="table-column"><div class="control"><a href="#" data-toggle="modal"><i class="icon-remove" id="remove' + rowNo + '" style="color: red;" onClick="removeRow(this.id)"></i></a></div></div></td></tr>');
+				$('#files').append('<tr id="row' + rowNo + '"><td><div class="table-column" id="group-doc' + rowNo + '"><div id="control-doc' + rowNo + '" class="control"><select class="doc' + rowNo + '" id="doc' + rowNo + '" name="doc[]" placeholder="e.g. Cash Receipts" onChange="docOnChange(this); return false;"><option></option><option>Cash Receipts Journal</option><option>Cash Disbursements Journal</option><option>General Ledger</option><option>Sale Transactions</option><option>Purchase Transactions</option><option>Expense Transactions</option><option>Income Sheet</option><option>Balance Sheet</option><option>Other</option></select></div></div></td><td><div class="table-column" id="group-type"><div class="control"><select class="type' + rowNo + ' span2" id="type' + rowNo + '" name="type[]" style="width: 170px" placeholder="e.g. Journal, Ledger, etc" ><option></option><option value=1>Journals</option><option value=2>Ledgers</option><option value=3>Transaction Files</option><option value=4>Financial Statements</option><option value=5>Log Files</option></select></div></div></td><td><div class="table-column" id="group-path' + rowNo + '"><div class="control"><input type="text" class="span4" id="path' + rowNo + '" name="path[]" placeholder="Paste the full path of the directory here" onChange="pathOnChange(this.id); return false;"></div></div></div></td><td><div class="table-column"><div class="control"><input type="text" class="span1" id="ext' + rowNo + '" name="ext[]" placeholder="ex: txt" ></div></div></td><td><div class="table-column"></div></td><td><div class="table-column"><div class="control"><a href="#" data-toggle="modal"><i class="icon-remove" id="remove' + rowNo + '" style="color: red;" onClick="removeRow(this.id)"></i></a></div></div></td></tr>');
 				$('#doc' + rowNo).combobox();
 				$('#type' + rowNo).combobox();
 				$('.add-on btn dropdown-toggle').remove();
@@ -146,6 +140,7 @@ assets/scripts/bootstrap-combobox.js" type="text/javascript"></script>
 				console.log(id);
 				if (val != '') {
 					$('#submit').removeAttr("disabled");
+					$('#submit').addClass("btn-primary");
 					var js = "submitIt(); return false;";
 					var open = "(function(){";
 					var close = "});";
@@ -153,6 +148,7 @@ assets/scripts/bootstrap-combobox.js" type="text/javascript"></script>
 					$("#submit").get(0).onclick = newclick;
 				} else {
 					$('#submit').attr("disabled", "disabled");
+					$('#submit').removeClass("btn-primary");
 					$("#submit").get(0).onclick = null;
 				}
 				
@@ -164,10 +160,12 @@ assets/scripts/bootstrap-combobox.js" type="text/javascript"></script>
 						console.log(data);
 						if (data == "true") {
 							$('#group-' + id).removeClass("error");
+							$('#' + id).removeClass("error");
 							$('#notify-' + id).remove();
 						} else {
 							$('#notify-' + id).remove();
 							$('#group-' + id).addClass("error");
+							$('#' + id).addClass("error");
 							$('#group-' + id).append('<div id="notify-' + id + '" style="color: red; font-size: 9pt; font-style: italic; text-align: left; margin-left:15px">Path does not exist!</div>');
 						}
 					}
@@ -186,14 +184,85 @@ assets/scripts/bootstrap-combobox.js" type="text/javascript"></script>
 			}
 			
 			function submitIt() {
-				$.ajax({
-					type: "POST",
-					url: 'setup_preferences/savePreferences',
-					data: $("#setup-pref").serialize(),				
-					success: function(data){
-						location.replace("<?php echo smarty_function_url(array(),$_smarty_tpl);?>
-");
+				error = 0;
+				doc_id = 0;
+				$('input[name="doc[]"]').each(function() {
+					if ($(this).val() == '') {
+						$('#notify-doc' + doc_id).remove();
+						$(this).parent().parent().addClass("error");
+						$(this).parent().parent().append('<div id="notify-doc' + doc_id + '" style="color: red; font-size: 9pt; font-style: italic; text-align: left; margin-left:15px">Must not be empty!</div>');
+						error++;
+					} else {
+						$(this).parent().parent().removeClass("error");
+						$('#notify-doc' + doc_id).remove();
+					}
+					doc_id++;
+				});
+				
+				type_id = 0;
+				$('input[name="type[]"]').each(function() {
+					if ($(this).val() == '') {
+						$('#notify-type' + type_id).remove();
+						$(this).parent().parent().addClass("error");
+						$(this).parent().parent().append('<div id="notify-type' + type_id + '" style="color: red; font-size: 9pt; font-style: italic; text-align: left; margin-left:15px">Must not be empty!</div>');
+						error++;
+					} else {
+						$(this).parent().parent().removeClass("error");
+						$('#notify-type' + type_id).remove();
+					}
+					type_id++;
+				});
+				
+				$('input[name="path[]"]').each(function() {
+					id = $(this).attr('id');
+					if ($(this).hasClass('error'))
+						error++;
+					else {
+						if ($(this).val() == '') {
+							$('#notify-' + id).remove();
+							$(this).parent().parent().addClass("error");
+							$(this).parent().parent().append('<div id="notify-' + id + '" style="color: red; font-size: 9pt; font-style: italic; text-align: left; margin-left:15px">Must not be empty!</div>');
+							error++;
+						} else {
+							$(this).parent().parent().removeClass("error");
+							$('#notify-' + id).remove();
+						}
+					}
+					
+				});
+				$('input[name="ext[]"]').each(function() {
+					id = $(this).attr('id');
+					if ($(this).val() == '') {
+						$('#notify-' + id).remove();
+						$(this).parent().parent().addClass("error");
+						$(this).parent().parent().append('<div id="notify-' + id + '" style="color: red; font-size: 9pt; font-style: italic; text-align: left; margin-left:15px">Must not be empty!</div>');
+						error++;
+					} else {
+						$(this).parent().parent().removeClass("error");
+						$('#notify-' + id).remove();
 					}
 				});
+				console.log("ERRORS: " + error);
+				if (error == 0) {
+					$.ajax({
+						type: "POST",
+						url: 'setup_preferences/savePreferences',
+						data: $("#setup-pref").serialize(),				
+						success: function(data){
+							location.replace("<?php echo smarty_function_url(array(),$_smarty_tpl);?>
+");
+						}
+					});
+				} else {
+					$('#response').remove();
+					$('#setup-pref').prepend('<div id="response" class="alert alert-error" style="margin: 0 auto; text-align:center; width: 280px"><button type="button" class="close" data-dismiss="alert">&times;</button><i class="icon-thumbs-down"></i> Cannot process while there are errors.</div>');
+					$("html, body").animate({ scrollTop: 0 }, "slow");
+				}
+			}
+			
+			function resetIt() {
+				$('#submit').attr("disabled", "disabled");
+				$('#submit').removeClass("btn-primary");
+				$("#submit").get(0).onclick = null;
 			}
 		</script><?php }} ?>

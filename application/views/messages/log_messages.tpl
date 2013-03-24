@@ -1,9 +1,8 @@
 <!--
- * Lalaine's Bookstore Computerized AIS
+ * Trailblazer Digital Accounting Audit Trail Program
  * @author Kristian Jacob Abad Lora <kjalora92@yahoo.com>
  * @date-created October 31, 2012
 -->
-<!DOCTYPE html>
 	<head>
 		<title>Trailblazer - Messages Log File</title>
 	</head>
@@ -43,6 +42,7 @@
 			<div class="control-group" style="text-align: center; margin-top: 50px;">
 				<a href="{url}messages/log_messages/saveLog" type="button" class="btn btn-primary">Save Log File</a>
 				<a href="#clearModal" type="button" class="btn" data-toggle="modal">Clear Log File</a>
+				<a type="button" class="btn" onClick="printIt(); return false;">Print Log File</a>
 				<a href="{url}messages" type="button" class="btn">Back</a>
 			</div>
 		</div>
@@ -64,5 +64,13 @@
 				}
 			});
 		}
-	</script>
+		
+		function printIt() {    
+			var divToPrint = document.getElementById('messages');
+			var popupWin = window.open('', '_blank', 'width=300,height=300');
+			popupWin.document.open();
+			popupWin.document.write('<html><body onload="window.print()">' + divToPrint.innerHTML + '</html>');
+			popupWin.document.close();
+        }
+ 	</script>
 </html>

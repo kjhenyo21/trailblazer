@@ -5,17 +5,22 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '6e16a3a7a926cc16081f55eb3dbf607705da8351' => 
     array (
       0 => 'C:\\xampp\\htdocs\\trailblazer\\application/views\\audit_trail\\trans_details.tpl',
-      1 => 1363876285,
+      1 => 1364162172,
       2 => 'file',
     ),
   ),
   'nocache_hash' => '2792451493326ebe3a7-86730268',
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_514e6bced13a3',
+  'unifunc' => 'content_514f83fa50281',
   'has_nocache_code' => false,
   'cache_lifetime' => 1,
 ),true); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_514e6bced13a3')) {function content_514e6bced13a3($_smarty_tpl) {?><!-- Modal for Loading Transaction Details-->
+<?php if ($_valid && !is_callable('content_514f83fa50281')) {function content_514f83fa50281($_smarty_tpl) {?><!--
+ * Trailblazer Digital Accounting Audit Trail Program
+ * @author Kristian Jacob Abad Lora <kjalora92@yahoo.com>
+ * @date-created October 31, 2012
+-->
+<!-- Modal for Loading Transaction Details-->
 	<div id="trans-details" class="modal hide fade in" style="margin-top: -180px; width: 520px; display: block;" aria-hidden="false">
 		<div class="modal-header">
 			<div id="close"><a href="#" class="close" onClick="closeIt(); return false;">&times;</a></div>

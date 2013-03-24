@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-03-21 15:41:03
+<?php /* Smarty version Smarty-3.1.7, created on 2013-03-24 23:42:10
          compiled from "C:\xampp\htdocs\trailblazer\application/views\audit_trail\trans_details.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:2792451493326ebe3a7-86730268%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '6e16a3a7a926cc16081f55eb3dbf607705da8351' => 
     array (
       0 => 'C:\\xampp\\htdocs\\trailblazer\\application/views\\audit_trail\\trans_details.tpl',
-      1 => 1363876285,
+      1 => 1364162172,
       2 => 'file',
     ),
   ),
@@ -30,7 +30,12 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_514933271c8ed')) {function content_514933271c8ed($_smarty_tpl) {?><!-- Modal for Loading Transaction Details-->
+<?php if ($_valid && !is_callable('content_514933271c8ed')) {function content_514933271c8ed($_smarty_tpl) {?><!--
+ * Trailblazer Digital Accounting Audit Trail Program
+ * @author Kristian Jacob Abad Lora <kjalora92@yahoo.com>
+ * @date-created October 31, 2012
+-->
+<!-- Modal for Loading Transaction Details-->
 	<div id="trans-details" class="modal hide fade in" style="margin-top: -180px; width: 520px; display: block;" aria-hidden="false">
 		<div class="modal-header">
 			<div id="close"><a href="#" class="close" onClick="closeIt(); return false;">&times;</a></div>

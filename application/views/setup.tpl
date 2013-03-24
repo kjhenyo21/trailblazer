@@ -42,7 +42,8 @@
 							<div class="field-group">
 								<label class="field-label" for="sex">Sex</label>
 								<div class="control">
-									<select id="sex" name="sex" style="width: 100px">
+									<select id="sex" name="sex" style="width: 100px" placeholder="Sex">
+										<option></option>
 										<option>Male</option>
 										<option>Female</option>
 									</select>
@@ -140,8 +141,8 @@
 					<div style="font-style: italic; font-size: 8pt; color: red; margin-bottom: 10px">* - required fields</div>
 					<div class="field-group" style="margin-bottom: 0px; text-align: center">
 						<div class="control">
-							<a type="button" id="submit" class="btn btn-primary" disabled="disabled">Save</a>
-							<button type="reset" id="reset" class="btn">Reset</button>
+							<a type="button" id="submit" class="btn" disabled="disabled">Save</a>
+							<button type="reset" id="reset" class="btn" onClick="resetIt();">Reset</button>
 						</div>
 					</div>
 				</form>
@@ -174,6 +175,7 @@
 			val = $('#lname').val();
 			if (val != '') {
 				$('#submit').removeAttr("disabled");
+				$('#submit').addClass("btn-primary");
 				var js = "submitIt(); return false;";
 				var open = "(function(){";
 				var close = "});";
@@ -181,6 +183,7 @@
 				$("#submit").get(0).onclick = newclick;
 			} else {
 				$('#submit').attr("disabled", "disabled");
+				$('#submit').removeClass("btn-primary");
 				$("#submit").get(0).onclick = null;
 			}
 
@@ -188,6 +191,7 @@
 				val = $('#lname').val();
 				if (val != '') {
 					$('#submit').removeAttr("disabled");
+					$('#submit').addClass("btn-primary");
 					var js = "submitIt(); return false;";
 					var open = "(function(){";
 					var close = "});";
@@ -195,6 +199,7 @@
 					$("#submit").get(0).onclick = newclick;
 				} else {
 					$('#submit').attr("disabled", "disabled");
+					$('#submit').removeClass("btn-primary");
 					$("#submit").get(0).onclick = null;
 				}
 			}
@@ -277,5 +282,11 @@
 						}
 					}
 				}
+			}
+			
+			function resetIt() {
+				$('#submit').attr("disabled", "disabled");
+				$('#submit').removeClass("btn-primary");
+				$("#submit").get(0).onclick = null;
 			}
 		</script>

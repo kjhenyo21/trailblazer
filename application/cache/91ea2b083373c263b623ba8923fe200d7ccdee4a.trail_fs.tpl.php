@@ -5,22 +5,21 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '91ea2b083373c263b623ba8923fe200d7ccdee4a' => 
     array (
       0 => 'C:\\xampp\\htdocs\\trailblazer\\application/views\\audit_trail\\trail_fs.tpl',
-      1 => 1364037626,
+      1 => 1364161106,
       2 => 'file',
     ),
   ),
   'nocache_hash' => '2111351486ec38c4a67-69946801',
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_514e72fd510b8',
+  'unifunc' => 'content_514f812de771f',
   'has_nocache_code' => false,
   'cache_lifetime' => 1,
 ),true); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_514e72fd510b8')) {function content_514e72fd510b8($_smarty_tpl) {?>  <!--
- * Lalaine's Bookstore Computerized AIS
+<?php if ($_valid && !is_callable('content_514f812de771f')) {function content_514f812de771f($_smarty_tpl) {?>  <!--
+ * Trailblazer Digital Accounting Audit Trail Program
  * @author Kristian Jacob Abad Lora <kjalora92@yahoo.com>
  * @date-created October 31, 2012
 -->
-<!DOCTYPE html>
 	<head>
 		<title>Trailblazer - Financial Statement</title>
 	</head>

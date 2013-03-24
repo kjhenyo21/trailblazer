@@ -5,18 +5,18 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '0ec05981f24af0231dcae604535e6ca84eb6960b' => 
     array (
       0 => 'C:\\xampp\\htdocs\\trailblazer\\application/views\\audit_trail\\index.tpl',
-      1 => 1364141150,
+      1 => 1364160973,
       2 => 'file',
     ),
   ),
   'nocache_hash' => '79475146d0854cbc89-58047973',
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_514f40a0944b3',
+  'unifunc' => 'content_514f883b1236f',
   'has_nocache_code' => false,
   'cache_lifetime' => 1,
 ),true); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_514f40a0944b3')) {function content_514f40a0944b3($_smarty_tpl) {?>  <!--
- * WADWE Computerized AIS
+<?php if ($_valid && !is_callable('content_514f883b1236f')) {function content_514f883b1236f($_smarty_tpl) {?>  <!--
+ * Trailblazer Digital Accounting Audit Trail Program
  * @author Kristian Jacob Abad Lora <kjalora92@yahoo.com>
  * @date-created October 31, 2012
 -->
@@ -55,7 +55,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 							<div class="field-group" id="group-interest">
 								<label class="field-label" for="items">Items of Interest</label>
 								<div class="control">
-									<input type="text" class="span1" style="text-align: right" id="items" name="items" value="250" />
+									<a class="link" data-original-title="The number of item transactions that you are interested to audit.">
+										<input type="text" class="span1" style="text-align: right" id="items" name="items" value="250" />
+									</a>
 								</div>
 							</div>
 						</div>
@@ -93,6 +95,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 				$('body').append('<div id="backdropping" class="modal-backdrop fade in"></div> ');
 				$('#notif').show();
 			} else $('#backdropping').remove();
+			
+			$('.link').tooltip({
+				placement: 'right'
+			});
 			
 			function closeNotif() {
 				$('#notif').removeClass('in');

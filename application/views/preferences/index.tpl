@@ -42,7 +42,7 @@
 										<td>
 											<div class="table-column" id="group-type{$rowNo}">
 												<div class="control">
-													<a class="link" data-original-title="Enter numeric value only: 1=Journals, 2=Ledgers, 3=Transaction Files, 4=Financial Statements, 5=Log Files"><input type="text" class="type{$rowNo} span2" id="type{$rowNo}" name="type[]" style="width: 155px; float: left; text-align: right" value="{$p['type']}" placeholder="e.g. Journal, Ledger, etc"/></a>
+													<a class="link" data-original-title="Enter numeric value only: 1=Journals, 2=Ledgers, 3=Financial Statements, 4=Transaction Files, 5=Log Files"><input type="text" class="type{$rowNo} span2" id="type{$rowNo}" name="type[]" style="width: 155px; float: left; text-align: right" value="{$p['type']}" placeholder="e.g. Journal, Ledger, etc"/></a>
 												</div>
 											</div>
 										</td>
@@ -104,11 +104,10 @@
 					</table>
 					<a href="#" onclick="addMoreDocument(); return false;">Add Document</a>
 					<hr style="margin-bottom: 5px">
-					<div style="font-style: italic; font-size: 8pt; color: red;">^a red box indicates that the path cannot be found</div>
 					<div style="font-style: italic; font-size: 8pt; color: red; margin-bottom: 20px">* - required fields</div>
 					<div class="field-group" style="margin-bottom: 0px; text-align: center">
 						<div class="control">
-							<a id="submit" class="btn btn-primary" disabled="disabled">Save changes</a>
+							<a id="submit" class="btn" disabled="disabled">Save changes</a>
 							<a href="{url}" type="button" id="back" class="btn">Back</a>
 						</div>
 					</div>
@@ -166,6 +165,7 @@
 			val = $('#path1').val();
 			if (val != null) {
 				$('#submit').removeAttr("disabled");
+				$('#submit').addClass("btn-primary");
 				var js = "submitIt(); return false;";
 				var open = "(function(){";
 				var close = "});";
@@ -173,6 +173,7 @@
 				$("#submit").get(0).onclick = newclick;
 			} else {
 				$('#submit').attr("disabled", "disabled");
+				$('#submit').removeClass("btn-primary");
 				$("#submit").get(0).onclick = null;
 			}
 
@@ -216,6 +217,7 @@
 				console.log(id);
 				if (val != '') {
 					$('#submit').removeAttr("disabled");
+					$('#submit').addClass("btn-primary");
 					var js = "submitIt(); return false;";
 					var open = "(function(){";
 					var close = "});";
@@ -223,6 +225,7 @@
 					$("#submit").get(0).onclick = newclick;
 				} else {
 					$('#submit').attr("disabled", "disabled");
+					$('#submit').removeClass("btn-primary");
 					$("#submit").get(0).onclick = null;
 				}
 				
@@ -282,19 +285,88 @@
 			}
 			
 			function submitIt() {
-				$.ajax({
-					type: "POST",
-					url: 'preferences/index/updatePreferences',
-					data: $("#pref").serialize(),				
-					success: function(data){
-						window.location.href="{url}preferences?response=Profile has been successfully saved!";
-					},
-					error: function(data) {
-						$('#response').remove();
-						$('#pref').prepend('<div id="response" class="alert alert-error" style="margin: 0 auto; text-align:center; width: 280px"><button type="button" class="close" data-dismiss="alert">&times;</button><i class="icon-thumbs-down"></i> Saving unsuccessful! </div>')
-						$("html, body").animate({ scrollTop: 0 }, "slow");
-						window.history.pushState("saving unsuccessful", "Preferences", "{url}preferences");
+				error = 0;
+				doc_id = 0;
+				$('input[name="doc[]"]').each(function() {
+					if ($(this).val() == '') {
+						$('#notify-doc' + doc_id).remove();
+						$(this).parent().parent().addClass("error");
+						$(this).parent().parent().append('<div id="notify-doc' + doc_id + '" style="color: red; font-size: 9pt; font-style: italic; text-align: left; margin-left:15px">Must not be empty!</div>');
+						error++;
+					} else {
+						$(this).parent().parent().removeClass("error");
+						$('#notify-doc' + doc_id).remove();
+					}
+					doc_id++;
+				});
+				
+				type_id = 0;
+				$('input[name="type[]"]').each(function() {
+					if ($(this).val() == '') {
+						$('#notify-type' + type_id).remove();
+						$(this).parent().parent().addClass("error");
+						$(this).parent().parent().append('<div id="notify-type' + type_id + '" style="color: red; font-size: 9pt; font-style: italic; text-align: left; margin-left:15px">Must not be empty!</div>');
+						error++;
+					} else {
+						$(this).parent().parent().removeClass("error");
+						$('#notify-type' + type_id).remove();
+					}
+					type_id++;
+				});
+				
+				$('input[name="path[]"]').each(function() {
+					id = $(this).attr('id');
+					if ($(this).hasClass('error'))
+						error++;
+					else {
+						if ($(this).val() == '') {
+							$('#notify-' + id).remove();
+							$(this).parent().parent().addClass("error");
+							$(this).parent().parent().append('<div id="notify-' + id + '" style="color: red; font-size: 9pt; font-style: italic; text-align: left; margin-left:15px">Must not be empty!</div>');
+							error++;
+						} else {
+							$(this).parent().parent().removeClass("error");
+							$('#notify-' + id).remove();
+						}
+					}
+					
+				});
+				$('input[name="ext[]"]').each(function() {
+					id = $(this).attr('id');
+					if ($(this).val() == '') {
+						$('#notify-' + id).remove();
+						$(this).parent().parent().addClass("error");
+						$(this).parent().parent().append('<div id="notify-' + id + '" style="color: red; font-size: 9pt; font-style: italic; text-align: left; margin-left:15px">Must not be empty!</div>');
+						error++;
+					} else {
+						$(this).parent().parent().removeClass("error");
+						$('#notify-' + id).remove();
 					}
 				});
+				console.log("ERRORS: " + error);
+				if (error == 0) {
+					$.ajax({
+						type: "POST",
+						url: 'preferences/index/updatePreferences',
+						data: $("#pref").serialize(),				
+						success: function(data){
+							$('#response-validation').remove();
+							$('#pref').prepend('<div id="response" class="alert alert-success" style="margin: 0 auto; text-align:center; width: 280px"><button type="button" class="close" data-dismiss="alert">&times;</button><i class="icon-thumbs-up"></i> {$response}</div>');
+							window.location.href="{url}preferences?response=Profile has been successfully saved!";
+						},
+						error: function(data) {
+							$('#response').remove();
+							$('#response-validation').remove();
+							$('#pref').prepend('<div id="response" class="alert alert-error" style="margin: 0 auto; text-align:center; width: 280px"><button type="button" class="close" data-dismiss="alert">&times;</button><i class="icon-thumbs-down"></i> Saving unsuccessful! </div>')
+							$("html, body").animate({ scrollTop: 0 }, "slow");
+							window.history.pushState("saving unsuccessful", "Preferences", "{url}preferences");
+						}
+					});
+				} else {
+					$('#response').remove();
+					$('#response-validation').remove();
+					$('#pref').prepend('<div id="response-validation" class="alert alert-error" style="margin: 0 auto; text-align:center; width: 280px"><button type="button" class="close" data-dismiss="alert">&times;</button><i class="icon-thumbs-down"></i> Cannot save while there are errors.</div>');
+					$("html, body").animate({ scrollTop: 0 }, "slow");
+				}
 			}
 		</script>

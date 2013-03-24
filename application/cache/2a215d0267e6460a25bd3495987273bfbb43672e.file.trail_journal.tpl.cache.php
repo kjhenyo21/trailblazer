@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-03-23 12:21:45
+<?php /* Smarty version Smarty-3.1.7, created on 2013-03-24 22:41:25
          compiled from "C:\xampp\htdocs\trailblazer\application/views\audit_trail\trail_journal.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:88625148672100ba70-18825362%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '2a215d0267e6460a25bd3495987273bfbb43672e' => 
     array (
       0 => 'C:\\xampp\\htdocs\\trailblazer\\application/views\\audit_trail\\trail_journal.tpl',
-      1 => 1364037675,
+      1 => 1364161278,
       2 => 'file',
     ),
   ),
@@ -40,11 +40,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_51486721ab2f9')) {function content_51486721ab2f9($_smarty_tpl) {?><?php if (!is_callable('smarty_function_url')) include 'C:\\xampp\\htdocs\\trailblazer\\application\\libraries\\smarty\\plugins\\function.url.php';
 ?><!--
- * Lalaine's Bookstore Computerized AIS
+ * Trailblazer Digital Accounting Audit Trail Program
  * @author Kristian Jacob Abad Lora <kjalora92@yahoo.com>
  * @date-created October 31, 2012
 -->
-<!DOCTYPE html>
 	<head>
 		<title>Trailblazer - Trailing the Journal</title>
 	</head>
@@ -65,12 +64,12 @@ audit_trail"><i class="icon-home"></i></a>
 				<br>
 				<table id="table" style="text-align: left; color: black">
 					<thead>
-						<th>Date</th>
-						<th>Description</th>
-						<th>Reference</th>
-						<th>Cash (Dr)</th>
-						<th>Other (Dr)</th>
-						<th>Sales (Cr)</th>
+						<th style="text-align: center; vertical-align: center">Date</th>
+						<th style="text-align: center; vertical-align: center">Description</th>
+						<th style="text-align: center; vertical-align: center">Reference</th>
+						<th style="text-align: center; vertical-align: center">Cash (Dr)</th>
+						<th style="text-align: center; vertical-align: center">Other (Dr)</th>
+						<th style="text-align: center; vertical-align: center">Sales (Cr)</th>
 					</thead>
 					<tbody>
 						<?php $_smarty_tpl->tpl_vars['row'] = new Smarty_variable(0, null, 0);?>

@@ -1,3 +1,8 @@
+<!--
+ * Trailblazer Digital Accounting Audit Trail Program
+ * @author Kristian Jacob Abad Lora <kjalora92@yahoo.com>
+ * @date-created October 31, 2012
+-->
 			<div id="messages" style="margin: 0 auto; text-align: center">
 				<h2>Messages</h2>
 				<br>

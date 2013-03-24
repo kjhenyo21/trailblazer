@@ -5,13 +5,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '0b5e8fdee726408f101df7bd8f6a69fbb1c62a95' => 
     array (
       0 => 'C:\\xampp\\htdocs\\trailblazer\\application/views\\messages\\log_messages.tpl',
-      1 => 1364090903,
+      1 => 1364150015,
       2 => 'file',
     ),
   ),
   'nocache_hash' => '27926514e5ed83e4360-00774464',
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_514e601c4fb21',
+  'unifunc' => 'content_514f47020709d',
   'variables' => 
   array (
     'contents' => 0,
@@ -20,7 +20,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'has_nocache_code' => false,
   'cache_lifetime' => 1,
 ),true); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_514e601c4fb21')) {function content_514e601c4fb21($_smarty_tpl) {?><!--
+<?php if ($_valid && !is_callable('content_514f47020709d')) {function content_514f47020709d($_smarty_tpl) {?><!--
  * Lalaine's Bookstore Computerized AIS
  * @author Kristian Jacob Abad Lora <kjalora92@yahoo.com>
  * @date-created October 31, 2012
@@ -88,11 +88,14 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 											2013-03-24 10:05:09 deleted message with Ref. No. 9371
 
 											2013-03-24 10:06:32 deleted message with Ref. No. 9371
+
+											2013-03-24 10:58:35 deleted message with Ref. No. 9933
 									</textarea>
 			</div>
 			<div class="control-group" style="text-align: center; margin-top: 50px;">
 				<a href="http://localhost/trailblazer/messages/log_messages/saveLog" type="button" class="btn btn-primary">Save Log File</a>
 				<a href="#clearModal" type="button" class="btn" data-toggle="modal">Clear Log File</a>
+				<a type="button" class="btn" onClick="printIt(); return false;">Print Log File</a>
 				<a href="http://localhost/trailblazer/messages" type="button" class="btn">Back</a>
 			</div>
 		</div>
@@ -114,5 +117,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 				}
 			});
 		}
-	</script>
+		
+		function printIt() {    
+			var divToPrint = document.getElementById('messages');
+			var popupWin = window.open('', '_blank', 'width=300,height=300');
+			popupWin.document.open();
+			popupWin.document.write('<html><body onload="window.print()">' + divToPrint.innerHTML + '</html>');
+			popupWin.document.close();
+        }
+ 	</script>
 </html><?php }} ?>

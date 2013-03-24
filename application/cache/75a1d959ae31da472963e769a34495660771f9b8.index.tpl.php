@@ -11,11 +11,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'nocache_hash' => '1091514f34fd7837b0-32946381',
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_514f4072882e5',
+  'unifunc' => 'content_514f79f8d7bc2',
   'has_nocache_code' => false,
   'cache_lifetime' => 1,
 ),true); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_514f4072882e5')) {function content_514f4072882e5($_smarty_tpl) {?>  <!--
+<?php if ($_valid && !is_callable('content_514f79f8d7bc2')) {function content_514f79f8d7bc2($_smarty_tpl) {?>  <!--
  * WADWE Computerized AIS
  * @author Kristian Jacob Abad Lora <kjalora92@yahoo.com>
  * @date-created October 31, 2012
@@ -26,22 +26,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 	
 	<body>
 		<!-- Modal for Non-Existing Paths Notification-->
-					<div id="notif" class="modal hide fade in" style="margin-top: -100px; width: 480px">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-hidden="true" onClick="closeNotif(); return false;">&times;</button>
-					<h3 style="color: #DB1900">Paths Do Not Exist!</h3>
-				</div>
-				<div class="modal-body">
-					<p>There are <span style="color: #DB1900; font-weight: bold">1</span> document path(s) that is/are no longer existing. Check this/these document(s) in your computer and update its/their path(s) in this system now or you may udpate it/them later at the Preferences tab.</p>
-					<p><strong>Warning!</strong> Not updating the path of these documents will cause this application not to function properly.</p>
-				</div>
-				<div class="modal-footer">
-					<div style="margin: 0 auto">
-						<a href="http://localhost/trailblazer/preferences" class="btn btn-primary" type="button" id="update">OK, I'll update now</a>
-						<button class="btn" data-dismiss="modal" id="closeNotif" onClick="closeNotif(); return false;">I'll update later</button>
-					</div>
-				</div>
-			</div>
 				
 		<!-- Modal for Modified Files Notification-->
 				
@@ -106,22 +90,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 									<td style="text-align: center; vertical-align: center">2013-03-18 15:57:05</td>
 									<td style="text-align: center; vertical-align: center">1037</td>
 								</tr>
-															<tr>
-									<td style="text-align: center; vertical-align: center">st-1-2010_2.tf</td>
-									<td style="text-align: right; vertical-align: center">D:\Kristian Lora\My Documents\Lalaine's Bookstore\transaction_files\sale_transactions\New Folder</td>
-									<td style="text-align: center; vertical-align: center">2013-03-24 22:42:06</td>
-									<td style="text-align: center; vertical-align: center">2013-03-25 01:41:25</td>
-									<td style="text-align: center; vertical-align: center">2013-03-19 22:41:42</td>
-									<td style="text-align: center; vertical-align: center">721</td>
-								</tr>
-															<tr>
-									<td style="text-align: center; vertical-align: center">std-1-2010_2.tf</td>
-									<td style="text-align: right; vertical-align: center">D:\Kristian Lora\My Documents\Lalaine's Bookstore\transaction_files\sale_transactions\New Folder</td>
-									<td style="text-align: center; vertical-align: center">2013-03-24 22:42:06</td>
-									<td style="text-align: center; vertical-align: center">2013-03-25 01:31:01</td>
-									<td style="text-align: center; vertical-align: center">2013-03-18 15:57:05</td>
-									<td style="text-align: center; vertical-align: center">606</td>
-								</tr>
 													</tbody>
 					</table>
 							</div>
@@ -138,9 +106,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 				placement: 'top'
 			});
 			
-			if ((1 > 0) || (0 > 0)) {
+			if ((0 > 0) || (0 > 0)) {
 				$('body').append('<div id="backdropping" class="modal-backdrop fade in"></div> ');
-				if (1 > 0)
+				if (0 > 0)
 					$('#notif').show();
 				else if (0 > 0)
 					$('#notif-mod').show();

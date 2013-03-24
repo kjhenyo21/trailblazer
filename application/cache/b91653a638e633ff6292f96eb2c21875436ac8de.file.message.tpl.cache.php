@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-03-23 23:31:42
+<?php /* Smarty version Smarty-3.1.7, created on 2013-03-25 00:05:15
          compiled from "C:\xampp\htdocs\trailblazer\application/views\audit_trail\message.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:23425514bbe8b4ee512-63566459%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'b91653a638e633ff6292f96eb2c21875436ac8de' => 
     array (
       0 => 'C:\\xampp\\htdocs\\trailblazer\\application/views\\audit_trail\\message.tpl',
-      1 => 1364047058,
+      1 => 1364166312,
       2 => 'file',
     ),
   ),
@@ -25,12 +25,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'm' => 0,
     'noOfMessages' => 0,
     'contact' => 0,
+    'user' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_514bbe8b7a2df')) {function content_514bbe8b7a2df($_smarty_tpl) {?><?php if (!is_callable('smarty_function_url')) include 'C:\\xampp\\htdocs\\trailblazer\\application\\libraries\\smarty\\plugins\\function.url.php';
 ?><!--
- * WADWE Computerized AIS
+ * Trailblazer Digital Accounting Audit Trail Program
  * @author Kristian Jacob Abad Lora <kjalora92@yahoo.com>
  * @date-created October 31, 2012
 -->
@@ -180,7 +181,9 @@ assets/scripts/date-format.js" type="text/javascript"></script>
 				});
 				
 				$.ajax({
-					url: 'log_messages/writeToLog?data=' + today + ' ignored message with Ref. No. ' + no,
+					url: '<?php echo smarty_function_url(array(),$_smarty_tpl);?>
+messages/log_messages/writeToLog?data=' + today + ' <?php echo $_smarty_tpl->tpl_vars['user']->value;?>
+ ignored message with Ref. No. ' + no,
 					type: "GET",
 					success: function() {
 					}

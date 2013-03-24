@@ -19,6 +19,7 @@ class Messages extends CI_Controller {
 			$messages = new messages_db();
 			$allMessages = $messages->getMessages();
 			$this->mysmarty->assign('status', $this->session->userdata('status'));
+			$this->mysmarty->assign('user', $this->session->userdata('username'));
 			$this->mysmarty->assign('base_url', $this->config->item('base_url'));
 			$this->mysmarty->assign('messages', $allMessages);
 			$this->mysmarty->display('header.tpl');

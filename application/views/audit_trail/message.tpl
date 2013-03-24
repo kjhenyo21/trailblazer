@@ -1,5 +1,5 @@
 <!--
- * WADWE Computerized AIS
+ * Trailblazer Digital Accounting Audit Trail Program
  * @author Kristian Jacob Abad Lora <kjalora92@yahoo.com>
  * @date-created October 31, 2012
 -->
@@ -125,7 +125,7 @@
 				});
 				
 				$.ajax({
-					url: 'log_messages/writeToLog?data=' + today + ' ignored message with Ref. No. ' + no,
+					url: '{url}messages/log_messages/writeToLog?data=' + today + ' {$user} ignored message with Ref. No. ' + no,
 					type: "GET",
 					success: function() {
 					}

@@ -1,9 +1,8 @@
 <!--
- * Lalaine's Bookstore Computerized AIS
+ * Trailblazer Digital Accounting Audit Trail Program
  * @author Kristian Jacob Abad Lora <kjalora92@yahoo.com>
  * @date-created October 31, 2012
 -->
-<!DOCTYPE html>
 	<head>
 		<title>Trailblazer - Trailing the Journal</title>
 	</head>
@@ -22,12 +21,12 @@
 				<br>
 				<table id="table" style="text-align: left; color: black">
 					<thead>
-						<th>Date</th>
-						<th>Description</th>
-						<th>Reference</th>
-						<th>Cash (Dr)</th>
-						<th>Other (Dr)</th>
-						<th>Sales (Cr)</th>
+						<th style="text-align: center; vertical-align: center">Date</th>
+						<th style="text-align: center; vertical-align: center">Description</th>
+						<th style="text-align: center; vertical-align: center">Reference</th>
+						<th style="text-align: center; vertical-align: center">Cash (Dr)</th>
+						<th style="text-align: center; vertical-align: center">Other (Dr)</th>
+						<th style="text-align: center; vertical-align: center">Sales (Cr)</th>
 					</thead>
 					<tbody>
 						{$row = 0}

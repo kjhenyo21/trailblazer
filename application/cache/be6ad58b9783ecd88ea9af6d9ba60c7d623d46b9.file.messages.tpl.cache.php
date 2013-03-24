@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-03-24 03:07:37
+<?php /* Smarty version Smarty-3.1.7, created on 2013-03-25 00:11:59
          compiled from "C:\xampp\htdocs\trailblazer\application/views\messages\messages.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:2663514e5d8141bf08-26569175%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'be6ad58b9783ecd88ea9af6d9ba60c7d623d46b9' => 
     array (
       0 => 'C:\\xampp\\htdocs\\trailblazer\\application/views\\messages\\messages.tpl',
-      1 => 1364090855,
+      1 => 1364166176,
       2 => 'file',
     ),
   ),
@@ -21,16 +21,16 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   array (
     'messages' => 0,
     'm' => 0,
+    'user' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_514e5d81e54e3')) {function content_514e5d81e54e3($_smarty_tpl) {?><?php if (!is_callable('smarty_function_url')) include 'C:\\xampp\\htdocs\\trailblazer\\application\\libraries\\smarty\\plugins\\function.url.php';
 ?><!--
- * Lalaine's Bookstore Computerized AIS
+ * Trailblazer Digital Accounting Audit Trail Program
  * @author Kristian Jacob Abad Lora <kjalora92@yahoo.com>
  * @date-created October 31, 2012
 -->
-<!DOCTYPE html>
 	<head>
 		<title>Trailblazer - Messages</title>
 	</head>
@@ -239,7 +239,8 @@ assets/scripts/date-format.js" type="text/javascript"></script>
 			});
 			
 			$.ajax({
-				url: 'messages/log_messages/writeToLog?data=' + today + ' deleted message with Ref. No. ' + ref,
+				url: 'messages/log_messages/writeToLog?data=' + today + ' <?php echo $_smarty_tpl->tpl_vars['user']->value;?>
+ deleted message with Ref. No. ' + ref,
 				type: "GET",
 				success: function() {
 				}
@@ -257,7 +258,8 @@ assets/scripts/date-format.js" type="text/javascript"></script>
 			});
 			
 			$.ajax({
-				url: 'messages/log_messages/writeToLog?data=' + today + ' cleared messages archive',
+				url: 'messages/log_messages/writeToLog?data=' + today + ' <?php echo $_smarty_tpl->tpl_vars['user']->value;?>
+ cleared messages archive',
 				type: "GET",
 				success: function() {
 				}

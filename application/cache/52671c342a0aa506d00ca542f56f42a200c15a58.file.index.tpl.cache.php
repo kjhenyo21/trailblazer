@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-03-24 15:14:06
+<?php /* Smarty version Smarty-3.1.7, created on 2013-03-24 23:09:15
          compiled from "C:\xampp\htdocs\trailblazer\application/views\profile\index.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:19485514e7ec767f865-24683265%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '52671c342a0aa506d00ca542f56f42a200c15a58' => 
     array (
       0 => 'C:\\xampp\\htdocs\\trailblazer\\application/views\\profile\\index.tpl',
-      1 => 1364134444,
+      1 => 1364162952,
       2 => 'file',
     ),
   ),
@@ -45,7 +45,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 
 					</div>
 				<?php }?>
-				<form id="setup" class="form-horizontal">
+				<form id="profile" class="form-horizontal">
 					<h4>User Info</h4>
 					<?php if (($_smarty_tpl->tpl_vars['info']->value)){?>
 						<table style="width: 100%">
@@ -201,7 +201,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 "/>
 					<div class="field-group" style="margin-bottom: 0px; text-align: center">
 						<div class="control">
-							<a type="button" id="submit" class="btn btn-primary" disabled="disabled">Save changes</a>
+							<a type="button" id="submit" class="btn" disabled="disabled">Save changes</a>
 							<a href="<?php echo smarty_function_url(array(),$_smarty_tpl);?>
 " type="button" id="back" class="btn">Back</a>
 						</div>
@@ -244,6 +244,7 @@ assets/scripts/bootstrap-datepicker.js" type="text/javascript"></script>
 			val = $('#lname').val();
 			if (val != '') {
 				$('#submit').removeAttr("disabled");
+				$('#submit').addClass("btn-primary");
 				var js = "submitIt(); return false;";
 				var open = "(function(){";
 				var close = "});";
@@ -251,6 +252,7 @@ assets/scripts/bootstrap-datepicker.js" type="text/javascript"></script>
 				$("#submit").get(0).onclick = newclick;
 			} else {
 				$('#submit').attr("disabled", "disabled");
+				$('#submit').removeClass("btn-primary");
 				$("#submit").get(0).onclick = null;
 			}
 
@@ -258,6 +260,7 @@ assets/scripts/bootstrap-datepicker.js" type="text/javascript"></script>
 				val = $('#lname').val();
 				if (val != '') {
 					$('#submit').removeAttr("disabled");
+					$('#submit').addClass("btn-primary");
 					var js = "submitIt(); return false;";
 					var open = "(function(){";
 					var close = "});";
@@ -265,6 +268,7 @@ assets/scripts/bootstrap-datepicker.js" type="text/javascript"></script>
 					$("#submit").get(0).onclick = newclick;
 				} else {
 					$('#submit').attr("disabled", "disabled");
+					$('#submit').removeClass("btn-primary");
 					$("#submit").get(0).onclick = null;
 				}
 			}
@@ -360,9 +364,9 @@ assets/scripts/bootstrap-datepicker.js" type="text/javascript"></script>
 								url: 'profile/index/updateProfile',
 								data:  $("#profile").serialize(),
 								success: function(data){
-									$('#password').attr("disabled", "disabled");
 									window.location.href="<?php echo smarty_function_url(array(),$_smarty_tpl);?>
 profile?response=Profile has been successfully saved!";
+									$('#password').attr("disabled", "disabled");
 								},
 								error: function(data) {
 									$('#password').attr("disabled", "disabled");

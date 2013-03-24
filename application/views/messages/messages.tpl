@@ -1,9 +1,8 @@
 <!--
- * Lalaine's Bookstore Computerized AIS
+ * Trailblazer Digital Accounting Audit Trail Program
  * @author Kristian Jacob Abad Lora <kjalora92@yahoo.com>
  * @date-created October 31, 2012
 -->
-<!DOCTYPE html>
 	<head>
 		<title>Trailblazer - Messages</title>
 	</head>
@@ -170,7 +169,7 @@
 			});
 			
 			$.ajax({
-				url: 'messages/log_messages/writeToLog?data=' + today + ' deleted message with Ref. No. ' + ref,
+				url: 'messages/log_messages/writeToLog?data=' + today + ' {$user} deleted message with Ref. No. ' + ref,
 				type: "GET",
 				success: function() {
 				}
@@ -188,7 +187,7 @@
 			});
 			
 			$.ajax({
-				url: 'messages/log_messages/writeToLog?data=' + today + ' cleared messages archive',
+				url: 'messages/log_messages/writeToLog?data=' + today + ' {$user} cleared messages archive',
 				type: "GET",
 				success: function() {
 				}

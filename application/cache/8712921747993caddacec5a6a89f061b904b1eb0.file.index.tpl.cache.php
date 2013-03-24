@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-03-24 18:59:50
+<?php /* Smarty version Smarty-3.1.7, created on 2013-03-24 22:49:09
          compiled from "C:\xampp\htdocs\trailblazer\application/views\preferences\index.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:32387514e953def5aa4-24846542%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '8712921747993caddacec5a6a89f061b904b1eb0' => 
     array (
       0 => 'C:\\xampp\\htdocs\\trailblazer\\application/views\\preferences\\index.tpl',
-      1 => 1364147986,
+      1 => 1364161730,
       2 => 'file',
     ),
   ),
@@ -86,7 +86,7 @@ $_smarty_tpl->tpl_vars['p']->_loop = true;
 											<div class="table-column" id="group-type<?php echo $_smarty_tpl->tpl_vars['rowNo']->value;?>
 ">
 												<div class="control">
-													<a class="link" data-original-title="Enter numeric value only: 1=Journals, 2=Ledgers, 3=Transaction Files, 4=Financial Statements, 5=Log Files"><input type="text" class="type<?php echo $_smarty_tpl->tpl_vars['rowNo']->value;?>
+													<a class="link" data-original-title="Enter numeric value only: 1=Journals, 2=Ledgers, 3=Financial Statements, 4=Transaction Files, 5=Log Files"><input type="text" class="type<?php echo $_smarty_tpl->tpl_vars['rowNo']->value;?>
  span2" id="type<?php echo $_smarty_tpl->tpl_vars['rowNo']->value;?>
 " name="type[]" style="width: 155px; float: left; text-align: right" value="<?php echo $_smarty_tpl->tpl_vars['p']->value['type'];?>
 " placeholder="e.g. Journal, Ledger, etc"/></a>
@@ -169,11 +169,10 @@ $_smarty_tpl->tpl_vars['n']->_loop = true;
 					</table>
 					<a href="#" onclick="addMoreDocument(); return false;">Add Document</a>
 					<hr style="margin-bottom: 5px">
-					<div style="font-style: italic; font-size: 8pt; color: red;">^a red box indicates that the path cannot be found</div>
 					<div style="font-style: italic; font-size: 8pt; color: red; margin-bottom: 20px">* - required fields</div>
 					<div class="field-group" style="margin-bottom: 0px; text-align: center">
 						<div class="control">
-							<a id="submit" class="btn btn-primary" disabled="disabled">Save changes</a>
+							<a id="submit" class="btn" disabled="disabled">Save changes</a>
 							<a href="<?php echo smarty_function_url(array(),$_smarty_tpl);?>
 " type="button" id="back" class="btn">Back</a>
 						</div>
@@ -243,6 +242,7 @@ assets/scripts/bootstrap-combobox.js" type="text/javascript"></script>
 			val = $('#path1').val();
 			if (val != null) {
 				$('#submit').removeAttr("disabled");
+				$('#submit').addClass("btn-primary");
 				var js = "submitIt(); return false;";
 				var open = "(function(){";
 				var close = "});";
@@ -250,6 +250,7 @@ assets/scripts/bootstrap-combobox.js" type="text/javascript"></script>
 				$("#submit").get(0).onclick = newclick;
 			} else {
 				$('#submit').attr("disabled", "disabled");
+				$('#submit').removeClass("btn-primary");
 				$("#submit").get(0).onclick = null;
 			}
 
@@ -293,6 +294,7 @@ assets/scripts/bootstrap-combobox.js" type="text/javascript"></script>
 				console.log(id);
 				if (val != '') {
 					$('#submit').removeAttr("disabled");
+					$('#submit').addClass("btn-primary");
 					var js = "submitIt(); return false;";
 					var open = "(function(){";
 					var close = "});";
@@ -300,6 +302,7 @@ assets/scripts/bootstrap-combobox.js" type="text/javascript"></script>
 					$("#submit").get(0).onclick = newclick;
 				} else {
 					$('#submit').attr("disabled", "disabled");
+					$('#submit').removeClass("btn-primary");
 					$("#submit").get(0).onclick = null;
 				}
 				
@@ -365,21 +368,91 @@ $_smarty_tpl->tpl_vars['p']->_loop = true;
 			}
 			
 			function submitIt() {
-				$.ajax({
-					type: "POST",
-					url: 'preferences/index/updatePreferences',
-					data: $("#pref").serialize(),				
-					success: function(data){
-						window.location.href="<?php echo smarty_function_url(array(),$_smarty_tpl);?>
-preferences?response=Profile has been successfully saved!";
-					},
-					error: function(data) {
-						$('#response').remove();
-						$('#pref').prepend('<div id="response" class="alert alert-error" style="margin: 0 auto; text-align:center; width: 280px"><button type="button" class="close" data-dismiss="alert">&times;</button><i class="icon-thumbs-down"></i> Saving unsuccessful! </div>')
-						$("html, body").animate({ scrollTop: 0 }, "slow");
-						window.history.pushState("saving unsuccessful", "Preferences", "<?php echo smarty_function_url(array(),$_smarty_tpl);?>
-preferences");
+				error = 0;
+				doc_id = 0;
+				$('input[name="doc[]"]').each(function() {
+					if ($(this).val() == '') {
+						$('#notify-doc' + doc_id).remove();
+						$(this).parent().parent().addClass("error");
+						$(this).parent().parent().append('<div id="notify-doc' + doc_id + '" style="color: red; font-size: 9pt; font-style: italic; text-align: left; margin-left:15px">Must not be empty!</div>');
+						error++;
+					} else {
+						$(this).parent().parent().removeClass("error");
+						$('#notify-doc' + doc_id).remove();
+					}
+					doc_id++;
+				});
+				
+				type_id = 0;
+				$('input[name="type[]"]').each(function() {
+					if ($(this).val() == '') {
+						$('#notify-type' + type_id).remove();
+						$(this).parent().parent().addClass("error");
+						$(this).parent().parent().append('<div id="notify-type' + type_id + '" style="color: red; font-size: 9pt; font-style: italic; text-align: left; margin-left:15px">Must not be empty!</div>');
+						error++;
+					} else {
+						$(this).parent().parent().removeClass("error");
+						$('#notify-type' + type_id).remove();
+					}
+					type_id++;
+				});
+				
+				$('input[name="path[]"]').each(function() {
+					id = $(this).attr('id');
+					if ($(this).hasClass('error'))
+						error++;
+					else {
+						if ($(this).val() == '') {
+							$('#notify-' + id).remove();
+							$(this).parent().parent().addClass("error");
+							$(this).parent().parent().append('<div id="notify-' + id + '" style="color: red; font-size: 9pt; font-style: italic; text-align: left; margin-left:15px">Must not be empty!</div>');
+							error++;
+						} else {
+							$(this).parent().parent().removeClass("error");
+							$('#notify-' + id).remove();
+						}
+					}
+					
+				});
+				$('input[name="ext[]"]').each(function() {
+					id = $(this).attr('id');
+					if ($(this).val() == '') {
+						$('#notify-' + id).remove();
+						$(this).parent().parent().addClass("error");
+						$(this).parent().parent().append('<div id="notify-' + id + '" style="color: red; font-size: 9pt; font-style: italic; text-align: left; margin-left:15px">Must not be empty!</div>');
+						error++;
+					} else {
+						$(this).parent().parent().removeClass("error");
+						$('#notify-' + id).remove();
 					}
 				});
+				console.log("ERRORS: " + error);
+				if (error == 0) {
+					$.ajax({
+						type: "POST",
+						url: 'preferences/index/updatePreferences',
+						data: $("#pref").serialize(),				
+						success: function(data){
+							$('#response-validation').remove();
+							$('#pref').prepend('<div id="response" class="alert alert-success" style="margin: 0 auto; text-align:center; width: 280px"><button type="button" class="close" data-dismiss="alert">&times;</button><i class="icon-thumbs-up"></i> <?php echo $_smarty_tpl->tpl_vars['response']->value;?>
+</div>');
+							window.location.href="<?php echo smarty_function_url(array(),$_smarty_tpl);?>
+preferences?response=Profile has been successfully saved!";
+						},
+						error: function(data) {
+							$('#response').remove();
+							$('#response-validation').remove();
+							$('#pref').prepend('<div id="response" class="alert alert-error" style="margin: 0 auto; text-align:center; width: 280px"><button type="button" class="close" data-dismiss="alert">&times;</button><i class="icon-thumbs-down"></i> Saving unsuccessful! </div>')
+							$("html, body").animate({ scrollTop: 0 }, "slow");
+							window.history.pushState("saving unsuccessful", "Preferences", "<?php echo smarty_function_url(array(),$_smarty_tpl);?>
+preferences");
+						}
+					});
+				} else {
+					$('#response').remove();
+					$('#response-validation').remove();
+					$('#pref').prepend('<div id="response-validation" class="alert alert-error" style="margin: 0 auto; text-align:center; width: 280px"><button type="button" class="close" data-dismiss="alert">&times;</button><i class="icon-thumbs-down"></i> Cannot save while there are errors.</div>');
+					$("html, body").animate({ scrollTop: 0 }, "slow");
+				}
 			}
 		</script><?php }} ?>

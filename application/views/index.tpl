@@ -1,22 +1,13 @@
 <!--
- * Lalaine's Bookstore Computerized AIS
+ * Trailblazer Digital Accounting Audit Trail Program
  * @author Kristian Jacob Abad Lora <kjalora92@yahoo.com>
  * @date-created October 31, 2012
 -->
-<!DOCTYPE html>
 	<head>
 		<title>Trailblazer - Login</title>
-		<link href="{url}assets/stylesheets/bootstrap.css" rel="stylesheet"></link>
-		<link href="{url}assets/stylesheets/bootstrap-responsive.css" rel="stylesheet"></link>
-		<link href="{url}assets/stylesheets/main.css" rel="stylesheet"></link>
 	</head>
 	
 	<body>
-		
-		<!-- Navbar -->
-		<div id="banner" class="page-header"></div>
-		</div>
-		
 		<!-- Main -->
 		<h3 style="margin: 20px auto; text-align: center"> User Login </h3>
 		<div id="main-wrapper" style="width: 300px">
@@ -48,8 +39,20 @@
 				</div>
 				<div class="control-group" style="margin-bottom: 0px">
 					<div class="controls">
-						<button type="submit" class="btn">Log in</button>
+						<button type="submit" class="btn btn-primary">Log in</button>
 					</div>
 				</div>
 			</form>
 		</div>
+		<link href="{url}assets/stylesheets/bootstrap.css" rel="stylesheet"></link>
+		<link href="{url}assets/stylesheets/bootstrap-responsive.css" rel="stylesheet"></link>
+		<link href="{url}assets/stylesheets/main.css" rel="stylesheet"></link>
+		<script src="{url}assets/scripts/jquery.js" type="text/javascript"></script>
+		<script src="{url}assets/scripts/bootstrap.js" type="text/javascript"></script>
+		<script>
+			$('#form-login input').keydown(function(e) {
+				if (e.keyCode == 13) {
+					$('#form-login').submit();
+				}
+			});
+		</script>

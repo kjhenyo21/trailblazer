@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-03-24 03:08:28
+<?php /* Smarty version Smarty-3.1.7, created on 2013-03-24 19:33:37
          compiled from "C:\xampp\htdocs\trailblazer\application/views\messages\log_messages.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:27926514e5ed83e4360-00774464%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '0b5e8fdee726408f101df7bd8f6a69fbb1c62a95' => 
     array (
       0 => 'C:\\xampp\\htdocs\\trailblazer\\application/views\\messages\\log_messages.tpl',
-      1 => 1364090903,
+      1 => 1364150015,
       2 => 'file',
     ),
   ),
@@ -78,6 +78,7 @@ $_smarty_tpl->tpl_vars['c']->_loop = true;
 				<a href="<?php echo smarty_function_url(array(),$_smarty_tpl);?>
 messages/log_messages/saveLog" type="button" class="btn btn-primary">Save Log File</a>
 				<a href="#clearModal" type="button" class="btn" data-toggle="modal">Clear Log File</a>
+				<a type="button" class="btn" onClick="printIt(); return false;">Print Log File</a>
 				<a href="<?php echo smarty_function_url(array(),$_smarty_tpl);?>
 messages" type="button" class="btn">Back</a>
 			</div>
@@ -107,5 +108,13 @@ assets/scripts/jquery.plugin.html2canvas.js" type="text/javascript"></script>
 				}
 			});
 		}
-	</script>
+		
+		function printIt() {    
+			var divToPrint = document.getElementById('messages');
+			var popupWin = window.open('', '_blank', 'width=300,height=300');
+			popupWin.document.open();
+			popupWin.document.write('<html><body onload="window.print()">' + divToPrint.innerHTML + '</html>');
+			popupWin.document.close();
+        }
+ 	</script>
 </html><?php }} ?>

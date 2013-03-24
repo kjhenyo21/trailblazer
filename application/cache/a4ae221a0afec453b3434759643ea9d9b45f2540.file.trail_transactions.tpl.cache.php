@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-03-23 14:47:25
+<?php /* Smarty version Smarty-3.1.7, created on 2013-03-24 22:53:58
          compiled from "C:\xampp\htdocs\trailblazer\application/views\audit_trail\trail_transactions.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:19596514877de33d178-33889167%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'a4ae221a0afec453b3434759643ea9d9b45f2540' => 
     array (
       0 => 'C:\\xampp\\htdocs\\trailblazer\\application/views\\audit_trail\\trail_transactions.tpl',
-      1 => 1364046239,
+      1 => 1364162026,
       2 => 'file',
     ),
   ),
@@ -44,11 +44,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_514877de9f4a6')) {function content_514877de9f4a6($_smarty_tpl) {?><?php if (!is_callable('smarty_function_url')) include 'C:\\xampp\\htdocs\\trailblazer\\application\\libraries\\smarty\\plugins\\function.url.php';
 ?><!--
- * Lalaine's Bookstore Computerized AIS
+ * Trailblazer Digital Accounting Audit Trail Program
  * @author Kristian Jacob Abad Lora <kjalora92@yahoo.com>
  * @date-created October 31, 2012
 -->
-<!DOCTYPE html>
 	<head>
 		<title>Trailblazer - Trailing the Transactions</title>
 	</head>

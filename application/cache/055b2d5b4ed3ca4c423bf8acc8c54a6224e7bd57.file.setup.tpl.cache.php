@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-03-24 14:56:14
+<?php /* Smarty version Smarty-3.1.7, created on 2013-03-24 19:45:55
          compiled from "C:\xampp\htdocs\trailblazer\application/views\setup.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:207325145e3c9b5ec21-63530817%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '055b2d5b4ed3ca4c423bf8acc8c54a6224e7bd57' => 
     array (
       0 => 'C:\\xampp\\htdocs\\trailblazer\\application/views\\setup.tpl',
-      1 => 1364129064,
+      1 => 1364150753,
       2 => 'file',
     ),
   ),
@@ -64,7 +64,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 							<div class="field-group">
 								<label class="field-label" for="sex">Sex</label>
 								<div class="control">
-									<select id="sex" name="sex" style="width: 100px">
+									<select id="sex" name="sex" style="width: 100px" placeholder="Sex">
+										<option></option>
 										<option>Male</option>
 										<option>Female</option>
 									</select>
@@ -162,8 +163,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 					<div style="font-style: italic; font-size: 8pt; color: red; margin-bottom: 10px">* - required fields</div>
 					<div class="field-group" style="margin-bottom: 0px; text-align: center">
 						<div class="control">
-							<a type="button" id="submit" class="btn btn-primary" disabled="disabled">Save</a>
-							<button type="reset" id="reset" class="btn">Reset</button>
+							<a type="button" id="submit" class="btn" disabled="disabled">Save</a>
+							<button type="reset" id="reset" class="btn" onClick="resetIt();">Reset</button>
 						</div>
 					</div>
 				</form>
@@ -204,6 +205,7 @@ assets/scripts/bootstrap-datepicker.js" type="text/javascript"></script>
 			val = $('#lname').val();
 			if (val != '') {
 				$('#submit').removeAttr("disabled");
+				$('#submit').addClass("btn-primary");
 				var js = "submitIt(); return false;";
 				var open = "(function(){";
 				var close = "});";
@@ -211,6 +213,7 @@ assets/scripts/bootstrap-datepicker.js" type="text/javascript"></script>
 				$("#submit").get(0).onclick = newclick;
 			} else {
 				$('#submit').attr("disabled", "disabled");
+				$('#submit').removeClass("btn-primary");
 				$("#submit").get(0).onclick = null;
 			}
 
@@ -218,6 +221,7 @@ assets/scripts/bootstrap-datepicker.js" type="text/javascript"></script>
 				val = $('#lname').val();
 				if (val != '') {
 					$('#submit').removeAttr("disabled");
+					$('#submit').addClass("btn-primary");
 					var js = "submitIt(); return false;";
 					var open = "(function(){";
 					var close = "});";
@@ -225,6 +229,7 @@ assets/scripts/bootstrap-datepicker.js" type="text/javascript"></script>
 					$("#submit").get(0).onclick = newclick;
 				} else {
 					$('#submit').attr("disabled", "disabled");
+					$('#submit').removeClass("btn-primary");
 					$("#submit").get(0).onclick = null;
 				}
 			}
@@ -308,5 +313,11 @@ setup_preferences");
 						}
 					}
 				}
+			}
+			
+			function resetIt() {
+				$('#submit').attr("disabled", "disabled");
+				$('#submit').removeClass("btn-primary");
+				$("#submit").get(0).onclick = null;
 			}
 		</script><?php }} ?>

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-03-24 18:16:40
+<?php /* Smarty version Smarty-3.1.7, created on 2013-03-24 22:36:15
          compiled from "C:\xampp\htdocs\trailblazer\application/views\audit_trail\index.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:79475146d0854cbc89-58047973%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '0ec05981f24af0231dcae604535e6ca84eb6960b' => 
     array (
       0 => 'C:\\xampp\\htdocs\\trailblazer\\application/views\\audit_trail\\index.tpl',
-      1 => 1364141150,
+      1 => 1364160973,
       2 => 'file',
     ),
   ),
@@ -25,7 +25,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_5146d08580496')) {function content_5146d08580496($_smarty_tpl) {?><?php if (!is_callable('smarty_function_url')) include 'C:\\xampp\\htdocs\\trailblazer\\application\\libraries\\smarty\\plugins\\function.url.php';
 ?><!--
- * WADWE Computerized AIS
+ * Trailblazer Digital Accounting Audit Trail Program
  * @author Kristian Jacob Abad Lora <kjalora92@yahoo.com>
  * @date-created October 31, 2012
 -->
@@ -64,7 +64,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 							<div class="field-group" id="group-interest">
 								<label class="field-label" for="items">Items of Interest</label>
 								<div class="control">
-									<input type="text" class="span1" style="text-align: right" id="items" name="items" value="250" />
+									<a class="link" data-original-title="The number of item transactions that you are interested to audit.">
+										<input type="text" class="span1" style="text-align: right" id="items" name="items" value="250" />
+									</a>
 								</div>
 							</div>
 						</div>
@@ -134,6 +136,10 @@ assets/scripts/bootstrap.min.js" type="text/javascript"></script>
 				$('body').append('<div id="backdropping" class="modal-backdrop fade in"></div> ');
 				$('#notif').show();
 			} else $('#backdropping').remove();
+			
+			$('.link').tooltip({
+				placement: 'right'
+			});
 			
 			function closeNotif() {
 				$('#notif').removeClass('in');

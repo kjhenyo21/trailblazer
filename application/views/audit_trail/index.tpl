@@ -1,5 +1,5 @@
 <!--
- * WADWE Computerized AIS
+ * Trailblazer Digital Accounting Audit Trail Program
  * @author Kristian Jacob Abad Lora <kjalora92@yahoo.com>
  * @date-created October 31, 2012
 -->
@@ -38,7 +38,9 @@
 							<div class="field-group" id="group-interest">
 								<label class="field-label" for="items">Items of Interest</label>
 								<div class="control">
-									<input type="text" class="span1" style="text-align: right" id="items" name="items" value="250" />
+									<a class="link" data-original-title="The number of item transactions that you are interested to audit.">
+										<input type="text" class="span1" style="text-align: right" id="items" name="items" value="250" />
+									</a>
 								</div>
 							</div>
 						</div>
@@ -94,6 +96,10 @@
 				$('body').append('<div id="backdropping" class="modal-backdrop fade in"></div> ');
 				$('#notif').show();
 			} else $('#backdropping').remove();
+			
+			$('.link').tooltip({
+				placement: 'right'
+			});
 			
 			function closeNotif() {
 				$('#notif').removeClass('in');

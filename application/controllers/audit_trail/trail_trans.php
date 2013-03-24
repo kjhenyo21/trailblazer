@@ -39,8 +39,43 @@ class Trail_Trans extends CI_Controller {
 			
 			$path = $files->getFilePathByReference($doc_type, $ref);
 			if($path) {
-				//echo $path['path'];
-				//echo $path['full_path'];
+				$lines = file($path['full_path']);
+				foreach ($lines as $line) {
+					$temp = explode(",", $line);
+					$size = sizeOf($temp);
+
+					if ($row == 0) {
+						//echo "hey";
+						foreach ($temp as $heading) {
+							$headings[] = $heading;
+						}
+					} else {
+						if ($size > 1) {
+							if (strcasecmp($path['doc'], "sale transactions") == 0) {
+								$info[] = array(
+									0 => trim($temp[0]),
+									1 => trim($temp[1]),
+									2 => trim($temp[2]),
+									3 => trim($temp[3]),
+									4 => trim($temp[4]),
+									5 => trim($temp[5]),
+									6 => trim($temp[6])
+								);
+							} else if (strcasecmp($path['doc'], "purchase transactions") == 0) {
+								$info[] = array(
+									0 => trim($temp[0]),
+									1 => trim($temp[1]),
+									2 => trim($temp[2]),
+									3 => trim($temp[3]),
+									4 => trim($temp[4]),
+									5 => trim($temp[5]),
+									6 => trim($temp[6])
+								);
+							}
+						}
+					}
+					$row++;
+				}
 			} else $error_msg = "File not found!";
 
 			//path of transaction details
@@ -49,87 +84,45 @@ class Trail_Trans extends CI_Controller {
 			$detailsRef = $filename."-".trim($temp_ref[1])."-".trim($temp_ref[2]);
 			//echo $detailsRef;
 			$detailsPath = $files->getFilePathByReference($doc_type, $detailsRef);
-			if($path) {
-				//echo $detailsPath['path'];
-				//echo $detailsPath['full_path'];
+			if($detailsPath) {
+				//for transaction details
+				$row = 0;
+				$lines = file($detailsPath['full_path']);
+				foreach ($lines as $line) {
+					$temp = explode(",", $line);
+					$size = sizeOf($temp);
+					if ($row == 0) {
+						//echo "heyz";
+						foreach ($temp as $heading) {
+							$detHeadings[] = $heading;
+						}
+					} else {
+						if ($size > 1) {
+							if (strcasecmp($detailsPath['doc'], "sale transactions") == 0) {
+								$detInfo[] = array(
+									0 => trim($temp[0]),
+									1 => trim($temp[1]),
+									2 => trim($temp[2]),
+									3 => trim($temp[3]),
+									4 => trim($temp[4]),
+									5 => trim($temp[5])
+								);
+							} else if (strcasecmp($detailsPath['doc'], "purchase transactions") == 0) {
+								$detInfo[] = array(
+									0 => trim($temp[0]),
+									1 => trim($temp[1]),
+									2 => trim($temp[2]),
+									3 => trim($temp[3]),
+									4 => trim($temp[4]),
+									5 => trim($temp[5])
+								);
+							}
+						}
+					}
+					$row++;
+				}
 			} else $error_msg = "File not found!";
 
-			
-			$lines = file($path['full_path']);
-			foreach ($lines as $line) {
-				$temp = explode(",", $line);
-				$size = sizeOf($temp);
-
-				if ($row == 0) {
-					//echo "hey";
-					foreach ($temp as $heading) {
-						$headings[] = $heading;
-					}
-				} else {
-					if ($size > 1) {
-						if (strcasecmp($path['doc'], "sale transactions") == 0) {
-							$info[] = array(
-								0 => trim($temp[0]),
-								1 => trim($temp[1]),
-								2 => trim($temp[2]),
-								3 => trim($temp[3]),
-								4 => trim($temp[4]),
-								5 => trim($temp[5]),
-								6 => trim($temp[6])
-							);
-						} else if (strcasecmp($path['doc'], "purchase transactions") == 0) {
-							$info[] = array(
-								0 => trim($temp[0]),
-								1 => trim($temp[1]),
-								2 => trim($temp[2]),
-								3 => trim($temp[3]),
-								4 => trim($temp[4]),
-								5 => trim($temp[5]),
-								6 => trim($temp[6])
-							);
-						}
-					}
-				}
-				$row++;
-			}
-
-			//for transaction details
-			$row = 0;
-			$lines = file($detailsPath['full_path']);
-			foreach ($lines as $line) {
-				$temp = explode(",", $line);
-				$size = sizeOf($temp);
-				if ($row == 0) {
-					//echo "heyz";
-					foreach ($temp as $heading) {
-						$detHeadings[] = $heading;
-					}
-				} else {
-					if ($size > 1) {
-						if (strcasecmp($detailsPath['doc'], "sale transactions") == 0) {
-							$detInfo[] = array(
-								0 => trim($temp[0]),
-								1 => trim($temp[1]),
-								2 => trim($temp[2]),
-								3 => trim($temp[3]),
-								4 => trim($temp[4]),
-								5 => trim($temp[5])
-							);
-						} else if (strcasecmp($detailsPath['doc'], "purchase transactions") == 0) {
-							$detInfo[] = array(
-								0 => trim($temp[0]),
-								1 => trim($temp[1]),
-								2 => trim($temp[2]),
-								3 => trim($temp[3]),
-								4 => trim($temp[4]),
-								5 => trim($temp[5])
-							);
-						}
-					}
-				}
-				$row++;
-			}
-			
 			if (!$database->tableExists('transactions'))
 				$database->createTransactionsTable($headings);
 			else "EXISTS";
@@ -146,6 +139,7 @@ class Trail_Trans extends CI_Controller {
 			$messages = $database->getIgnoredMessages();
 			$this->mysmarty->assign('messages', $messages);
 			$this->mysmarty->assign('status', $this->session->userdata('status'));
+			$this->mysmarty->assign('user', $this->session->userdata('username'));
 			$this->mysmarty->assign('base_url', $this->config->item('base_url'));
 			$this->mysmarty->assign('month', $month);
 			$this->mysmarty->assign('year', $year);

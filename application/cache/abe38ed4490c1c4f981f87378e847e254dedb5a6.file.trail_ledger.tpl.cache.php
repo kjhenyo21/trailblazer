@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-03-23 12:20:36
+<?php /* Smarty version Smarty-3.1.7, created on 2013-03-24 22:40:37
          compiled from "C:\xampp\htdocs\trailblazer\application/views\audit_trail\trail_ledger.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:2273351482ff7a49822-97291323%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'abe38ed4490c1c4f981f87378e847e254dedb5a6' => 
     array (
       0 => 'C:\\xampp\\htdocs\\trailblazer\\application/views\\audit_trail\\trail_ledger.tpl',
-      1 => 1364037634,
+      1 => 1364161232,
       2 => 'file',
     ),
   ),
@@ -36,11 +36,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_51482ff8462ef')) {function content_51482ff8462ef($_smarty_tpl) {?><?php if (!is_callable('smarty_function_url')) include 'C:\\xampp\\htdocs\\trailblazer\\application\\libraries\\smarty\\plugins\\function.url.php';
 ?><!--
- * Lalaine's Bookstore Computerized AIS
+ * Trailblazer Digital Accounting Audit Trail Program
  * @author Kristian Jacob Abad Lora <kjalora92@yahoo.com>
  * @date-created October 31, 2012
 -->
-<!DOCTYPE html>
 	<head>
 		<title>Trailblazer - Trailing the Ledger</title>
 	</head>
@@ -67,11 +66,11 @@ audit_trail"><i class="icon-home"></i></a>
 				<br>
 				<table id="table" style="text-align: left; color: black">
 					<thead>
-						<th>Date</th>
-						<th>Description</th>
-						<th>Reference</th>
-						<th>Debit</th>
-						<th>Credit</th>
+						<th style="text-align: center; vertical-align: center">Date</th>
+						<th style="text-align: center; vertical-align: center">Description</th>
+						<th style="text-align: center; vertical-align: center">Reference</th>
+						<th style="text-align: center; vertical-align: center">Debit</th>
+						<th style="text-align: center; vertical-align: center">Credit</th>
 					</thead>
 					<tbody>
 						<?php $_smarty_tpl->tpl_vars['row'] = new Smarty_variable(0, null, 0);?>

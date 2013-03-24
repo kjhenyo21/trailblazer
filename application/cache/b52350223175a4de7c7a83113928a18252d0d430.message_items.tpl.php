@@ -5,22 +5,27 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'b52350223175a4de7c7a83113928a18252d0d430' => 
     array (
       0 => 'C:\\xampp\\htdocs\\trailblazer\\application/views\\messages\\message_items.tpl',
-      1 => 1364090333,
+      1 => 1364162210,
       2 => 'file',
     ),
   ),
   'nocache_hash' => '31477514e6bdf24c674-81304209',
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_514f884beae1c',
   'variables' => 
   array (
     'messages' => 0,
     'm' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_514e6bdf81202',
   'cache_lifetime' => 1,
 ),true); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_514e6bdf81202')) {function content_514e6bdf81202($_smarty_tpl) {?>			<div id="messages" style="margin: 0 auto; text-align: center">
+<?php if ($_valid && !is_callable('content_514f884beae1c')) {function content_514f884beae1c($_smarty_tpl) {?><!--
+ * Trailblazer Digital Accounting Audit Trail Program
+ * @author Kristian Jacob Abad Lora <kjalora92@yahoo.com>
+ * @date-created October 31, 2012
+-->
+			<div id="messages" style="margin: 0 auto; text-align: center">
 				<h2>Messages</h2>
 				<br>
 								<table class="table table-striped">
