@@ -63,7 +63,7 @@
 				</div>
 				<div class="modal-footer">
 					<div style="margin: 0 auto">
-						<button class="btn btn-primary" type="submit" id="update">OK, I'll update now</button>
+						<a href="{url}preferences" class="btn btn-primary" type="button" id="update">OK, I'll update now</a>
 						<button class="btn" data-dismiss="modal" id="closeNotif" onClick="closeNotif(); return false;">I'll update later</button>
 					</div>
 				</div>
@@ -78,6 +78,7 @@
 				<br><a href="{url}messages" role="button" class="btn" style="width: 190px; margin-bottom:10px">Messages</a>
 				<br><a href="{url}profile" role="button" class="btn" style="width: 190px; margin-bottom:10px">Profile</a>
 				<br><a href="{url}preferences" role="button" class="btn" style="width: 190px; margin-bottom:10px">Preferences</a>
+				<br><a href="{url}file_directory" role="button" class="btn" style="width: 190px; margin-bottom:10px">File Directory</a>
 				<br><a href="{url}index/logout" role="button" class="btn" style="width: 190px">Logout</a>
 			</div>
 		</div>

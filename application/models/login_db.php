@@ -28,7 +28,10 @@ class Login_DB extends CI_Model {
 				$data['validity'] = "invalid";
 				return $data;
 			}
-		} return false;
+		} else {
+			$data['validity'] = "invalid";
+			return $data;
+		}
 	}
 /**	
 	function getID($id) {

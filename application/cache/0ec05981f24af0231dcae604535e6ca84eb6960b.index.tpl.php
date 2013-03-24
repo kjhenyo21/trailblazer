@@ -5,17 +5,17 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '0ec05981f24af0231dcae604535e6ca84eb6960b' => 
     array (
       0 => 'C:\\xampp\\htdocs\\trailblazer\\application/views\\audit_trail\\index.tpl',
-      1 => 1364095712,
+      1 => 1364141150,
       2 => 'file',
     ),
   ),
   'nocache_hash' => '79475146d0854cbc89-58047973',
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_514e95359abd8',
+  'unifunc' => 'content_514f40a0944b3',
   'has_nocache_code' => false,
   'cache_lifetime' => 1,
 ),true); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_514e95359abd8')) {function content_514e95359abd8($_smarty_tpl) {?>  <!--
+<?php if ($_valid && !is_callable('content_514f40a0944b3')) {function content_514f40a0944b3($_smarty_tpl) {?>  <!--
  * WADWE Computerized AIS
  * @author Kristian Jacob Abad Lora <kjalora92@yahoo.com>
  * @date-created October 31, 2012
@@ -68,22 +68,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 		</div>
 		
 		<!-- Modal for Notification-->
-					<div id="notif" class="modal hide fade in" style="margin-top: -100px; width: 480px">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-hidden="true" onClick="closeNotif(); return false;">&times;</button>
-					<h3 style="color: #DB1900">Paths Do Not Exist!</h3>
-				</div>
-				<div class="modal-body">
-					<p>There are <span style="color: #DB1900; font-weight: bold">8</span> document path(s) that is/are no longer existing. Check these documents in your computer and update their paths in this system now or you may udpate them later at the Preferences tab.</p>
-					<p><strong>Warning!</strong> Not updating the path of these documents will cause this application not to function properly.</p>
-				</div>
-				<div class="modal-footer">
-					<div style="margin: 0 auto">
-						<button class="btn btn-primary" type="submit" id="update">OK, I'll update now</button>
-						<button class="btn" data-dismiss="modal" id="closeNotif" onClick="closeNotif(); return false;">I'll update later</button>
-					</div>
-				</div>
-			</div>
 				
 		<!-- Main -->
 		<h3 style="margin: 20px auto; text-align: center"> Switchboard </h3>
@@ -93,6 +77,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 				<br><a href="http://localhost/trailblazer/messages" role="button" class="btn" style="width: 190px; margin-bottom:10px">Messages</a>
 				<br><a href="http://localhost/trailblazer/profile" role="button" class="btn" style="width: 190px; margin-bottom:10px">Profile</a>
 				<br><a href="http://localhost/trailblazer/preferences" role="button" class="btn" style="width: 190px; margin-bottom:10px">Preferences</a>
+				<br><a href="http://localhost/trailblazer/file_directory" role="button" class="btn" style="width: 190px; margin-bottom:10px">File Directory</a>
 				<br><a href="http://localhost/trailblazer/index/logout" role="button" class="btn" style="width: 190px">Logout</a>
 			</div>
 		</div>
@@ -104,7 +89,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 		<script src="http://localhost/trailblazer/assets/scripts/jquery.js" type="text/javascript"></script>
 		<script src="http://localhost/trailblazer/assets/scripts/bootstrap.min.js" type="text/javascript"></script>
 		<script>
-			if (8 > 0) {
+			if (0 > 0) {
 				$('body').append('<div id="backdropping" class="modal-backdrop fade in"></div> ');
 				$('#notif').show();
 			} else $('#backdropping').remove();

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-03-24 04:56:38
+<?php /* Smarty version Smarty-3.1.7, created on 2013-03-24 14:56:14
          compiled from "C:\xampp\htdocs\trailblazer\application/views\setup.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:207325145e3c9b5ec21-63530817%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '055b2d5b4ed3ca4c423bf8acc8c54a6224e7bd57' => 
     array (
       0 => 'C:\\xampp\\htdocs\\trailblazer\\application/views\\setup.tpl',
-      1 => 1364091071,
+      1 => 1364129064,
       2 => 'file',
     ),
   ),
@@ -153,7 +153,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 							<div class="field-group" id="group-cpassword">
 								<label class="field-label" for="cpassword" style="width: 140px">Confirm Password<span class="asterisk">*</span></label>
 								<div class="control">
-									<input type="password" id="cpassword" name="cpassword" placeholder="Confirm Password*">
+									<input type="password" id="cpassword" name="cpassword" placeholder="Confirm Password">
 								</div>
 							</div>
 						</td>
@@ -283,7 +283,7 @@ assets/scripts/bootstrap-datepicker.js" type="text/javascript"></script>
 							$('#error-text').remove();
 						}
 					}
-					 $("html, body").animate({ scrollTop: 0 }, "slow");
+					$("html, body").animate({ scrollTop: 0 }, "slow");
 				} else {
 					if ((password!="") && (cpassword!="")) {
 						if (cpassword != password) {

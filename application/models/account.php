@@ -5,7 +5,7 @@ class Account extends CI_Model {
 		$this->load->library('session');
 		$mysql = new login_db();
 		$ensure_credentials = $mysql->verifyUser($uname, $pwd);
-		
+		echo $ensure_credentials['validity'];
 		if($ensure_credentials['validity'] == "valid") {
 			$newdata = array(
 						'status' => 'authorizedUser',

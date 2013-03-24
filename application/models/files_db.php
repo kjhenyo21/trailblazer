@@ -8,6 +8,42 @@ class Files_DB extends CI_Model {
 					  die('There was a problem connecting to the database.');*/
 	}
 
+	function addAllFiles($files) {
+		$this->db->truncate('files');
+		foreach ($files as $f) {
+			echo $f['filename'],
+			$file = array(
+				'path' => $f['path'],
+				'filename' => $f['filename'],
+				'date_created' => $f['date_created'],
+				'date_modified' => $f['date_modified'],
+				'date_accessed' => $f['date_accessed'],
+				'size' => $f['size'],
+				'checksum' => $f['checksum']
+			);
+			$this->db->insert('files', $file);
+		}
+	}
+	
+	function getAllFiles() {
+		$query = $this->db->query("SELECT *
+									FROM files");
+		if ($query->result()) {
+			foreach ($query->result() as $row) {
+				$files[] = array(
+					'path' => $row->path,
+					'filename' => $row->filename,
+					'date_created' => $row->date_created,
+					'date_modified' => $row->date_modified,
+					'date_accessed' => $row->date_accessed,
+					'size' => $row->size,
+					'checksum' => $row->checksum
+				);
+			}
+			return $files;
+		} else return false;
+	}
+	
 	function getFilePath($filename) {
 		$query = $this->db->query("SELECT path
 									FROM files

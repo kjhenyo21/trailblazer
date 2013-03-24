@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-03-24 04:28:38
+<?php /* Smarty version Smarty-3.1.7, created on 2013-03-24 18:16:40
          compiled from "C:\xampp\htdocs\trailblazer\application/views\audit_trail\index.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:79475146d0854cbc89-58047973%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '0ec05981f24af0231dcae604535e6ca84eb6960b' => 
     array (
       0 => 'C:\\xampp\\htdocs\\trailblazer\\application/views\\audit_trail\\index.tpl',
-      1 => 1364095712,
+      1 => 1364141150,
       2 => 'file',
     ),
   ),
@@ -90,7 +90,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 				</div>
 				<div class="modal-footer">
 					<div style="margin: 0 auto">
-						<button class="btn btn-primary" type="submit" id="update">OK, I'll update now</button>
+						<a href="<?php echo smarty_function_url(array(),$_smarty_tpl);?>
+preferences" class="btn btn-primary" type="button" id="update">OK, I'll update now</a>
 						<button class="btn" data-dismiss="modal" id="closeNotif" onClick="closeNotif(); return false;">I'll update later</button>
 					</div>
 				</div>
@@ -108,6 +109,8 @@ messages" role="button" class="btn" style="width: 190px; margin-bottom:10px">Mes
 profile" role="button" class="btn" style="width: 190px; margin-bottom:10px">Profile</a>
 				<br><a href="<?php echo smarty_function_url(array(),$_smarty_tpl);?>
 preferences" role="button" class="btn" style="width: 190px; margin-bottom:10px">Preferences</a>
+				<br><a href="<?php echo smarty_function_url(array(),$_smarty_tpl);?>
+file_directory" role="button" class="btn" style="width: 190px; margin-bottom:10px">File Directory</a>
 				<br><a href="<?php echo smarty_function_url(array(),$_smarty_tpl);?>
 index/logout" role="button" class="btn" style="width: 190px">Logout</a>
 			</div>

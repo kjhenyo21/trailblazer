@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-03-24 08:03:31
+<?php /* Smarty version Smarty-3.1.7, created on 2013-03-24 18:59:50
          compiled from "C:\xampp\htdocs\trailblazer\application/views\preferences\index.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:32387514e953def5aa4-24846542%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '8712921747993caddacec5a6a89f061b904b1eb0' => 
     array (
       0 => 'C:\\xampp\\htdocs\\trailblazer\\application/views\\preferences\\index.tpl',
-      1 => 1364108608,
+      1 => 1364147986,
       2 => 'file',
     ),
   ),
@@ -19,9 +19,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'unifunc' => 'content_514e953e16727',
   'variables' => 
   array (
+    'response' => 0,
     'paths' => 0,
     'rowNo' => 0,
     'p' => 0,
+    'nEPaths' => 0,
+    'n' => 0,
+    'ne' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
@@ -39,14 +43,21 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 		<!-- Main -->
 		<div id="main-wrapper-setup">
 			<div id="form-container">
-				<form id="setup-pref" class="form-horizontal">
+				<?php if (($_smarty_tpl->tpl_vars['response']->value!='')){?>
+					<div id="response" class="alert alert-success" style="margin: 0 auto; text-align:center; width: 280px">
+						<button type="button" class="close" data-dismiss="alert">&times;</button>
+						<i class="icon-thumbs-up"></i> <?php echo $_smarty_tpl->tpl_vars['response']->value;?>
+
+					</div>
+				<?php }?>
+				<form id="pref" class="form-horizontal">
 					<h4>Document Locations</h4>
 					<table id="files" class="table table-hover" style="width: 100%">
 						<thead>
-							<th style="text-align: center">Document</th>
-							<th style="text-align: center">Type</th>
-							<th style="text-align: center">Path</th>
-							<th style="text-align: center">File Extension</th>
+							<th style="text-align: center">Document<span class="asterisk">*</span></th>
+							<th style="text-align: center">Type<span class="asterisk">*</span></th>
+							<th style="text-align: center">Path<span class="asterisk">*</span></th>
+							<th style="text-align: center">File Extension<span class="asterisk">*</span></th>
 							<th></th>
 						</thead>
 						<tbody>
@@ -64,56 +75,77 @@ $_smarty_tpl->tpl_vars['p']->_loop = true;
 ">
 												<div id="control-doc<?php echo $_smarty_tpl->tpl_vars['rowNo']->value;?>
 " class="control">
-													<select class="doc<?php echo $_smarty_tpl->tpl_vars['rowNo']->value;?>
+													<input type="text" class="doc<?php echo $_smarty_tpl->tpl_vars['rowNo']->value;?>
 " id="doc<?php echo $_smarty_tpl->tpl_vars['rowNo']->value;?>
-" name="doc[]" placeholder="e.g. Cash Receipts" onChange="pathOnChange(this.id); docOnChange(this); return false;">
-														<option></option>
-														<option>Cash Receipts Journal</option>
-														<option>Cash Disbursements Journal</option>
-														<option>General Ledger</option>
-														<option>Sale Transactions</option>
-														<option>Purchase Transactions</option>
-														<option>Expense Transactions</option>
-														<option>Income Sheet</option>
-														<option>Balance Sheet</option>
-														<option>Other</option>
-													</select>
+" name="doc[]" style="width: 230px; margin-left:-15px;" placeholder="e.g. Cash Receipts"  value="<?php echo $_smarty_tpl->tpl_vars['p']->value['document'];?>
+"/>
 												</div>
 											</div>
 										</td>
 										<td>
-											<div class="table-column" id="group-type">
+											<div class="table-column" id="group-type<?php echo $_smarty_tpl->tpl_vars['rowNo']->value;?>
+">
 												<div class="control">
-													<select class="type<?php echo $_smarty_tpl->tpl_vars['rowNo']->value;?>
+													<a class="link" data-original-title="Enter numeric value only: 1=Journals, 2=Ledgers, 3=Transaction Files, 4=Financial Statements, 5=Log Files"><input type="text" class="type<?php echo $_smarty_tpl->tpl_vars['rowNo']->value;?>
  span2" id="type<?php echo $_smarty_tpl->tpl_vars['rowNo']->value;?>
-" name="type[]" style="width: 170px" placeholder="e.g. Journal, Ledger, etc" onChange="pathOnChange(this.id); return false;">
-														<option></option>
-														<option value=1>Journals</option>
-														<option value=2>Ledgers</option>
-														<option value=3>Transaction Files</option>
-														<option value=4>Financial Statements</option>
-														<option value=5>Log Files</option>
-													</select>
+" name="type[]" style="width: 155px; float: left; text-align: right" value="<?php echo $_smarty_tpl->tpl_vars['p']->value['type'];?>
+" placeholder="e.g. Journal, Ledger, etc"/></a>
 												</div>
 											</div>
 										</td>
 										<td>
-											<div class="table-column" id="group-path">
-												<div class="control">
-													<input type="text" class="span4" id="path<?php echo $_smarty_tpl->tpl_vars['rowNo']->value;?>
+											<?php if (($_smarty_tpl->tpl_vars['nEPaths']->value)){?>
+												<?php $_smarty_tpl->tpl_vars['ne'] = new Smarty_variable(1, null, 0);?>
+												<?php  $_smarty_tpl->tpl_vars['n'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['n']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['nEPaths']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['n']->key => $_smarty_tpl->tpl_vars['n']->value){
+$_smarty_tpl->tpl_vars['n']->_loop = true;
+?>
+													<?php if (($_smarty_tpl->tpl_vars['n']->value==$_smarty_tpl->tpl_vars['p']->value['path'])){?>
+														<?php $_smarty_tpl->tpl_vars['ne'] = new Smarty_variable($_smarty_tpl->tpl_vars['ne']->value*0, null, 0);?>
+													<?php }?>
+												<?php } ?>
+												<?php if (($_smarty_tpl->tpl_vars['ne']->value==0)){?>
+													<div class="table-column error" id="group-path<?php echo $_smarty_tpl->tpl_vars['rowNo']->value;?>
+">
+														<div class="control">
+															<input type="text" class="span4" id="path<?php echo $_smarty_tpl->tpl_vars['rowNo']->value;?>
 " name="path[]" value=
-													"<?php echo $_smarty_tpl->tpl_vars['p']->value['path'];?>
-" placeholder="Paste the full path of the directory here" onChange="pathOnChange(this.id); return false;">
+															"<?php echo $_smarty_tpl->tpl_vars['p']->value['path'];?>
+" placeholder="Paste the full path of the directory here" onfocus="this.value = this.value;" onChange="pathOnChange(this.id); return false;">
+														</div>
+													</div>
+												<?php }else{ ?>
+													<div class="table-column" id="group-path<?php echo $_smarty_tpl->tpl_vars['rowNo']->value;?>
+">
+														<div class="control">
+															<input type="text" class="span4" id="path<?php echo $_smarty_tpl->tpl_vars['rowNo']->value;?>
+" name="path[]" value=
+															"<?php echo $_smarty_tpl->tpl_vars['p']->value['path'];?>
+" placeholder="Paste the full path of the directory here" onfocus="this.value = this.value;" onChange="pathOnChange(this.id); return false;">
+														</div>
+													</div>
+												<?php }?>
+											<?php }else{ ?>
+												<div class="table-column" id="group-path<?php echo $_smarty_tpl->tpl_vars['rowNo']->value;?>
+">
+													<div class="control">
+														<input type="text" class="span4" id="path<?php echo $_smarty_tpl->tpl_vars['rowNo']->value;?>
+" name="path[]" value=
+														"<?php echo $_smarty_tpl->tpl_vars['p']->value['path'];?>
+" placeholder="Paste the full path of the directory here" onfocus="this.value = this.value;" onChange="pathOnChange(this.id); return false;">
+													</div>
 												</div>
-											</div>
+											<?php }?>
 										</div>
 										</td>
 											<td>
-												<div class="table-column">
+												<div class="table-column" id="group-ext<?php echo $_smarty_tpl->tpl_vars['rowNo']->value;?>
+">
 													<div class="control">
 														<input type="text" class="span1" id="ext<?php echo $_smarty_tpl->tpl_vars['rowNo']->value;?>
 " name="ext[]" value="<?php echo $_smarty_tpl->tpl_vars['p']->value['ext'];?>
-" placeholder="ex: txt" onChange="pathOnChange(this.id); return false;">
+" placeholder="ex: txt"/>
 													</div>
 												</div>
 											</td>
@@ -124,7 +156,8 @@ $_smarty_tpl->tpl_vars['p']->_loop = true;
 												<div class="table-column">
 													<div class="control"><a href="#" data-toggle="modal">
 														<i class="icon-remove" id="remove<?php echo $_smarty_tpl->tpl_vars['rowNo']->value;?>
-" style="color: red;" onClick="removeRow(this.id)"></i></a>
+" style="color: red;" onClick="removeRow(this.id, <?php echo $_smarty_tpl->tpl_vars['p']->value['id'];?>
+)"></i></a>
 													</div>
 												</div>
 											</td>
@@ -135,11 +168,14 @@ $_smarty_tpl->tpl_vars['p']->_loop = true;
 						</tbody>
 					</table>
 					<a href="#" onclick="addMoreDocument(); return false;">Add Document</a>
-					<hr>
+					<hr style="margin-bottom: 5px">
+					<div style="font-style: italic; font-size: 8pt; color: red;">^a red box indicates that the path cannot be found</div>
+					<div style="font-style: italic; font-size: 8pt; color: red; margin-bottom: 20px">* - required fields</div>
 					<div class="field-group" style="margin-bottom: 0px; text-align: center">
 						<div class="control">
-							<a id="submit" class="btn btn-primary" disabled="disabled">Save</a>
-							<button type="reset" id="reset" class="btn">Reset</button>
+							<a id="submit" class="btn btn-primary" disabled="disabled">Save changes</a>
+							<a href="<?php echo smarty_function_url(array(),$_smarty_tpl);?>
+" type="button" id="back" class="btn">Back</a>
 						</div>
 					</div>
 				</form>
@@ -175,7 +211,8 @@ assets/scripts/bootstrap-combobox.js" type="text/javascript"></script>
 			var password = $('#password').val();
 			var cpassword = $('#cpassword').val();
 			var form = $('#setup');
-			var rowNo = 0;
+			var rowNo = <?php echo $_smarty_tpl->tpl_vars['rowNo']->value;?>
+;
 			var rows = 0;
 			
 			/**function performClick(node) {
@@ -187,11 +224,16 @@ assets/scripts/bootstrap-combobox.js" type="text/javascript"></script>
 				var d = document.getElementById("theFile").value;
 				document.forms[0].path.value=document.getElementById("theFile").value;
 			}*/
+			
+			$('.link').tooltip({
+				animation: true,
+				placement: 'right'
+			});
 
 			function addMoreDocument() {
 				rowNo += 1;
 				rows += 1;
-				$('#files').append('<tr id="row' + rowNo + '"><td><div class="table-column" id="group-doc' + rowNo + '"><div id="control-doc' + rowNo + '" class="control"><select class="doc' + rowNo + '" id="doc' + rowNo + '" name="doc[]" placeholder="e.g. Cash Receipts" onChange="pathOnChange(this.id); docOnChange(this); return false;"><option></option><option>Cash Receipts Journal</option><option>Cash Disbursements Journal</option><option>General Ledger</option><option>Sale Transactions</option><option>Purchase Transactions</option><option>Expense Transactions</option><option>Income Sheet</option><option>Balance Sheet</option><option>Other</option></select></div></div></td><td><div class="table-column" id="group-type"><div class="control"><select class="type' + rowNo + ' span2" id="type' + rowNo + '" name="type[]" style="width: 170px" placeholder="e.g. Journal, Ledger, etc" onChange="pathOnChange(this.id); return false;"><option></option><option value=1>Journals</option><option value=2>Ledgers</option><option value=3>Transaction Files</option><option value=4>Financial Statements</option><option value=5>Log Files</option></select></div></div></td><td><div class="table-column" id="group-path"><div class="control"><input type="text" class="span4" id="path' + rowNo + '" name="path[]" placeholder="Paste the full path of the directory here" onChange="pathOnChange(this.id); return false;"></div></div></div></td><td><div class="table-column"><div class="control"><input type="text" class="span1" id="ext' + rowNo + '" name="ext[]" placeholder="ex: txt" onChange="pathOnChange(this.id); return false;"></div></div></td><td><div class="table-column"></div></td><td><div class="table-column"><div class="control"><a href="#" data-toggle="modal"><i class="icon-remove" id="remove' + rowNo + '" style="color: red;" onClick="removeRow(this.id)"></i></a></div></div></td></tr>');
+				$('#files').append('<tr id="row' + rowNo + '"><td><div class="table-column" id="group-doc' + rowNo + '"><div id="control-doc' + rowNo + '" class="control"><select class="doc' + rowNo + '" id="doc' + rowNo + '" name="doc[]" onChange="docOnChange(this); return false;" placeholder="e.g. Cash Receipts"><option></option><option>Cash Receipts Journal</option><option>Cash Disbursements Journal</option><option>General Ledger</option><option>Sale Transactions</option><option>Purchase Transactions</option><option>Expense Transactions</option><option>Income Sheet</option><option>Balance Sheet</option><option>Other</option></select></div></div></td><td><div class="table-column" id="group-type"><div class="control"><select class="type' + rowNo + ' span2" id="type' + rowNo + '" name="type[]" style="width: 170px" placeholder="e.g. Journal, Ledger, etc" ><option></option><option value=1>Journals</option><option value=2>Ledgers</option><option value=3>Transaction Files</option><option value=4>Financial Statements</option><option value=5>Log Files</option></select></div></div></td><td><div class="table-column" id="group-path' + rowNo + '"><div class="control"><input type="text" class="span4" id="path' + rowNo + '" name="path[]" placeholder="Paste the full path of the directory here" onChange="pathOnChange(this.id); return false;"></div></div></div></td><td><div class="table-column"><div class="control"><input type="text" class="span1" id="ext' + rowNo + '" name="ext[]" placeholder="ex: txt"></div></div></td><td><div class="table-column"></div></td><td><div class="table-column"><div class="control"><a href="#" data-toggle="modal"><i class="icon-remove" id="remove' + rowNo + '" style="color: red;" onClick="removeRow(this.id)"></i></a></div></div></td></tr>');
 				$('#doc' + rowNo).combobox();
 				$('#type' + rowNo).combobox();
 				$('.add-on btn dropdown-toggle').remove();
@@ -229,7 +271,57 @@ assets/scripts/bootstrap-combobox.js" type="text/javascript"></script>
 				}
 			}
 			
+			
+			function typeOnChange(id) {
+				val = $('#'+id).val();
+				console.log(id);
+				if (val != '') {
+					$('#submit').removeAttr("disabled");
+					var js = "submitIt(); return false;";
+					var open = "(function(){";
+					var close = "});";
+					var newclick = eval( open + js + close );
+					$("#submit").get(0).onclick = newclick;
+				} else {
+					$('#submit').attr("disabled", "disabled");
+					$("#submit").get(0).onclick = null;
+				}
+			}
+			
 			function pathOnChange(id) {
+				val = $('#'+id).val();
+				console.log(id);
+				if (val != '') {
+					$('#submit').removeAttr("disabled");
+					var js = "submitIt(); return false;";
+					var open = "(function(){";
+					var close = "});";
+					var newclick = eval( open + js + close );
+					$("#submit").get(0).onclick = newclick;
+				} else {
+					$('#submit').attr("disabled", "disabled");
+					$("#submit").get(0).onclick = null;
+				}
+				
+				$.ajax({
+					type: "POST",
+					url: 'preferences/index/doesPathExist?path=' + val,
+					dataType: 'text',
+					success: function(data){
+						console.log(data);
+						if (data == "true") {
+							$('#group-' + id).removeClass("error");
+							$('#notify-' + id).remove();
+						} else {
+							$('#notify-' + id).remove();
+							$('#group-' + id).addClass("error");
+							$('#group-' + id).append('<div id="notify-' + id + '" style="color: red; font-size: 9pt; font-style: italic; text-align: left; margin-left:15px">Path does not exist!</div>');
+						}
+					}
+				});
+			}
+			
+			function extOnChange(id) {
 				val = $('#'+id).val();
 				console.log(id);
 				if (val != '') {
@@ -253,30 +345,40 @@ assets/scripts/bootstrap-combobox.js" type="text/javascript"></script>
 foreach ($_from as $_smarty_tpl->tpl_vars['p']->key => $_smarty_tpl->tpl_vars['p']->value){
 $_smarty_tpl->tpl_vars['p']->_loop = true;
 ?>
-					
-					$('#doc<?php echo $_smarty_tpl->tpl_vars['rowNo']->value;?>
+					//$('#doc<?php echo $_smarty_tpl->tpl_vars['rowNo']->value;?>
 ').combobox();
-					$('#type<?php echo $_smarty_tpl->tpl_vars['rowNo']->value;?>
+					//$('#type<?php echo $_smarty_tpl->tpl_vars['rowNo']->value;?>
 ').combobox();
 					<?php $_smarty_tpl->tpl_vars['rowNo'] = new Smarty_variable($_smarty_tpl->tpl_vars['rowNo']->value+1, null, 0);?>
 				<?php } ?>
 			<?php }?>
 			
-			function removeRow(row) {
+			function removeRow(row, id) {
 				no = row.substring(6);
 				console.log(no);
 				$('#row' + no).remove();
 				rows--;
+				$.ajax({
+					type: "GET",
+					url: 'preferences/index/removePath?id=' + id
+				});
 			}
 			
 			function submitIt() {
 				$.ajax({
 					type: "POST",
-					url: 'setup_preferences/savePreferences',
-					data: $("#setup-pref").serialize(),				
+					url: 'preferences/index/updatePreferences',
+					data: $("#pref").serialize(),				
 					success: function(data){
-						location.replace("<?php echo smarty_function_url(array(),$_smarty_tpl);?>
-");
+						window.location.href="<?php echo smarty_function_url(array(),$_smarty_tpl);?>
+preferences?response=Profile has been successfully saved!";
+					},
+					error: function(data) {
+						$('#response').remove();
+						$('#pref').prepend('<div id="response" class="alert alert-error" style="margin: 0 auto; text-align:center; width: 280px"><button type="button" class="close" data-dismiss="alert">&times;</button><i class="icon-thumbs-down"></i> Saving unsuccessful! </div>')
+						$("html, body").animate({ scrollTop: 0 }, "slow");
+						window.history.pushState("saving unsuccessful", "Preferences", "<?php echo smarty_function_url(array(),$_smarty_tpl);?>
+preferences");
 					}
 				});
 			}

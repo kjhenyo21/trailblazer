@@ -131,7 +131,7 @@
 							<div class="field-group" id="group-cpassword">
 								<label class="field-label" for="cpassword" style="width: 140px">Confirm Password<span class="asterisk">*</span></label>
 								<div class="control">
-									<input type="password" id="cpassword" name="cpassword" placeholder="Confirm Password*">
+									<input type="password" id="cpassword" name="cpassword" placeholder="Confirm Password">
 								</div>
 							</div>
 						</td>

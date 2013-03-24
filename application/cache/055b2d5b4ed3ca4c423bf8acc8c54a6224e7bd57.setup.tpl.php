@@ -5,17 +5,17 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '055b2d5b4ed3ca4c423bf8acc8c54a6224e7bd57' => 
     array (
       0 => 'C:\\xampp\\htdocs\\trailblazer\\application/views\\setup.tpl',
-      1 => 1364091071,
+      1 => 1364129064,
       2 => 'file',
     ),
   ),
   'nocache_hash' => '207325145e3c9b5ec21-63530817',
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_514e797637da0',
+  'unifunc' => 'content_514f0afb2e8dd',
   'has_nocache_code' => false,
   'cache_lifetime' => 1,
 ),true); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_514e797637da0')) {function content_514e797637da0($_smarty_tpl) {?><!--
+<?php if ($_valid && !is_callable('content_514f0afb2e8dd')) {function content_514f0afb2e8dd($_smarty_tpl) {?>  <!--
  * Trailblazer Digital Accounting Audit Trail Program
  * @author Kristian Jacob Abad Lora <kjalora92@yahoo.com>
  * @date-created October 31, 2012
@@ -148,7 +148,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 							<div class="field-group" id="group-cpassword">
 								<label class="field-label" for="cpassword" style="width: 140px">Confirm Password<span class="asterisk">*</span></label>
 								<div class="control">
-									<input type="password" id="cpassword" name="cpassword" placeholder="Confirm Password*">
+									<input type="password" id="cpassword" name="cpassword" placeholder="Confirm Password">
 								</div>
 							</div>
 						</td>
@@ -270,7 +270,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 							$('#error-text').remove();
 						}
 					}
-					 $("html, body").animate({ scrollTop: 0 }, "slow");
+					$("html, body").animate({ scrollTop: 0 }, "slow");
 				} else {
 					if ((password!="") && (cpassword!="")) {
 						if (cpassword != password) {

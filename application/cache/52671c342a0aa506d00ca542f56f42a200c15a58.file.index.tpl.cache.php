@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-03-24 06:45:43
+<?php /* Smarty version Smarty-3.1.7, created on 2013-03-24 15:14:06
          compiled from "C:\xampp\htdocs\trailblazer\application/views\profile\index.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:19485514e7ec767f865-24683265%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '52671c342a0aa506d00ca542f56f42a200c15a58' => 
     array (
       0 => 'C:\\xampp\\htdocs\\trailblazer\\application/views\\profile\\index.tpl',
-      1 => 1364103942,
+      1 => 1364134444,
       2 => 'file',
     ),
   ),
@@ -36,7 +36,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 	
 	<body>
 		<!-- Main -->
-		<div id="main-wrapper-setup">
+		<div id="main-wrapper-profile">
 			<div id="form-container">
 				<?php if (($_smarty_tpl->tpl_vars['response']->value!='')){?>
 					<div id="response" class="alert alert-success" style="margin: 0 auto; text-align:center; width: 280px">
@@ -45,7 +45,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 
 					</div>
 				<?php }?>
-				<form id="profile" class="form-horizontal">
+				<form id="setup" class="form-horizontal">
 					<h4>User Info</h4>
 					<?php if (($_smarty_tpl->tpl_vars['info']->value)){?>
 						<table style="width: 100%">
@@ -84,7 +84,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 										<select id="sex" name="sex" style="width: 100px">
 											<?php if (($_smarty_tpl->tpl_vars['info']->value['sex']=="Male")){?>
 												<option selected="selected">Male</option>
+												<option>Female</option>
 											<?php }elseif(($_smarty_tpl->tpl_vars['info']->value['sex']=="Female")){?>
+												<option>Male</option>
 												<option selected="selected">Female</option>
 											<?php }?>
 										</select>
@@ -185,7 +187,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 									<label class="field-label" for="cpassword" style="width: 140px">Confirm Password<span class="asterisk">*</span></label>
 									<div class="control">
 										<input type="password" id="cpassword" name="cpassword" value="<?php echo $_smarty_tpl->tpl_vars['info']->value['password'];?>
-" placeholder="Confirm Password*">
+" placeholder="Confirm Password">
 									</div>
 								</div>
 							</td>
@@ -199,7 +201,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 "/>
 					<div class="field-group" style="margin-bottom: 0px; text-align: center">
 						<div class="control">
-							<a type="button" id="submit" class="btn btn-primary" disabled="disabled">Save</a>
+							<a type="button" id="submit" class="btn btn-primary" disabled="disabled">Save changes</a>
 							<a href="<?php echo smarty_function_url(array(),$_smarty_tpl);?>
 " type="button" id="back" class="btn">Back</a>
 						</div>
@@ -232,7 +234,7 @@ assets/scripts/bootstrap-datepicker.js" type="text/javascript"></script>
 			var uname = $('#uname').val();
 			var password = $('#password').val();
 			var cpassword = $('#cpassword').val();
-			var form = $('#setup');
+			var form = $('#profile');
 			
 			$('#bdate').datepicker({
 				format: 'yyyy-mm-dd'
@@ -355,10 +357,9 @@ assets/scripts/bootstrap-datepicker.js" type="text/javascript"></script>
 							
 							$.ajax({
 								type: "POST",
-								url: 'profile/indexs/updateProfile',
+								url: 'profile/index/updateProfile',
 								data:  $("#profile").serialize(),
 								success: function(data){
-									//$('#form-container').load('setup_preferences');
 									$('#password').attr("disabled", "disabled");
 									window.location.href="<?php echo smarty_function_url(array(),$_smarty_tpl);?>
 profile?response=Profile has been successfully saved!";

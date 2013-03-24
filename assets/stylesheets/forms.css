@@ -44,6 +44,39 @@
 	margin-left: 5px;
 }
 
+#setup-pref .field-label {
+	float: left;
+	margin-top: 2px;
+    text-align: left;
+	width: 100px;
+}
+
+#setup-pref .control {
+	margin-left: 5px;
+}
+
+#profile .field-label {
+	float: left;
+	margin-top: 2px;
+    text-align: left;
+	width: 100px;
+}
+
+#profile .control {
+	margin-left: 5px;
+}
+
+#pref .field-label {
+	float: left;
+	margin-top: 2px;
+    text-align: left;
+	width: 100px;
+}
+
+#pref .control {
+	margin-left: 5px;
+}
+
 .form-horizontal .control input {
 	height: 12pt;
 }

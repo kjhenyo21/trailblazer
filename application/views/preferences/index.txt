@@ -21,10 +21,10 @@
 					<h4>Document Locations</h4>
 					<table id="files" class="table table-hover" style="width: 100%">
 						<thead>
-							<th style="text-align: center">Document<span class="asterisk">*</span></th>
-							<th style="text-align: center">Type<span class="asterisk">*</span></th>
-							<th style="text-align: center">Path<span class="asterisk">*</span></th>
-							<th style="text-align: center">File Extension<span class="asterisk">*</span></th>
+							<th style="text-align: center">Document</th>
+							<th style="text-align: center">Type</th>
+							<th style="text-align: center">Path</th>
+							<th style="text-align: center">File Extension</th>
 							<th></th>
 						</thead>
 						<tbody>
@@ -35,14 +35,71 @@
 										<td>
 											<div class="table-column" id="group-doc{$rowNo}">
 												<div id="control-doc{$rowNo}" class="control">
-													<input type="text" class="doc{$rowNo}" id="doc{$rowNo}" name="doc[]" style="width: 230px; margin-left:-15px;" placeholder="e.g. Cash Receipts"  value="{$p['document']}"/>
+													<input type="text" class="doc{$rowNo}" id="doc{$rowNo}" name="doc[]" style="width: 230px; margin-left:-15px;" placeholder="e.g. Cash Receipts"  value="{$p['document']}" />
 												</div>
 											</div>
 										</td>
 										<td>
-											<div class="table-column" id="group-type{$rowNo}">
+											<div class="table-column" id="group-type">
 												<div class="control">
-													<a class="link" data-original-title="Enter numeric value only: 1=Journals, 2=Ledgers, 3=Transaction Files, 4=Financial Statements, 5=Log Files"><input type="text" class="type{$rowNo} span2" id="type{$rowNo}" name="type[]" style="width: 155px; float: left; text-align: right" value="{$p['type']}" placeholder="e.g. Journal, Ledger, etc"/></a>
+													<select class="type{$rowNo} span2" id="type{$rowNo}" name="type[]" style="width: 170px" placeholder="e.g. Journal, Ledger, etc" onChange="pathOnChange(this.id); return false;">
+														{if ($p['type'] == 0)}
+															<option selected="selected"></option>
+															<option value=1>Journals</option>
+															<option value=2>Ledgers</option>
+															<option value=3>Transaction Files</option>
+															<option value=4>Financial Statements</option>
+															<option value=5>Log Files</option>
+														{else if ($p['type'] == 1)}
+															<option></option>
+															<option value=1 selected="selected">Journals</option>
+															<option value=2>Ledgers</option>
+															<option value=3>Transaction Files</option>
+															<option value=4>Financial Statements</option>
+															<option value=5>Log Files</option>
+														{else if ($p['type'] == 2)}
+															<option></option>
+															<option value=1>Journals</option>
+															<option value=2 selected="selected">Ledgers</option>
+															<option value=3>Transaction Files</option>
+															<option value=4>Financial Statements</option>
+															<option value=5>Log Files</option>
+														{else if ($p['type'] == 3)}
+															<option></option>
+															<option value=1>Journals</option>
+															<option value=2>Ledgers</option>
+															<option value=3 selected="selected">Transaction Files</option>
+															<option value=4>Financial Statements</option>
+															<option value=5>Log Files</option>
+														{else if ($p['type'] == 4)}
+															<option></option>
+															<option value=1>Journals</option>
+															<option value=2>Ledgers</option>
+															<option value=3>Transaction Files</option>
+															<option value=4 selected="selected">Financial Statements</option>
+															<option value=5>Log Files</option>
+														{else if ($p['type'] == 5)}
+															<option></option>
+															<option value=1>Journals</option>
+															<option value=2>Ledgers</option>
+															<option value=3>Transaction Files</option>
+															<option value=4>Financial Statements</option>
+															<option value=5 selected="selected">Log Files</option>
+														{/if}
+														{if ($p['type'] == 0)}
+															<input type="hidden" name="type[]" value="0">
+														{else if ($p['type'] == 1)}
+															<input type="hidden" name="type[]" value="1">
+														{else if ($p['type'] == 2)}
+															<input type="hidden" name="type[]" value="2">
+														{else if ($p['type'] == 3)}
+															<input type="hidden" name="type[]" value="3">
+														{else if ($p['type'] == 4)}
+															<input type="hidden" name="type[]" value="4">
+														{else if ($p['type'] == 5)}
+															<input type="hidden" name="type[]" value="5">
+														{/if}
+													</select>
 												</div>
 											</div>
 										</td>
@@ -55,34 +112,34 @@
 													{/if}
 												{/foreach}
 												{if ($ne == 0)}
-													<div class="table-column error" id="group-path{$rowNo}">
+													<div class="table-column error" id="group-path">
 														<div class="control">
 															<input type="text" class="span4" id="path{$rowNo}" name="path[]" value=
-															"{$p['path']}" placeholder="Paste the full path of the directory here" onfocus="this.value = this.value;" onChange="pathOnChange(this.id); return false;">
+															"{$p['path']}" placeholder="Paste the full path of the directory here" onChange="pathOnChange(this.id); return false;">
 														</div>
 													</div>
 												{else}
-													<div class="table-column" id="group-path{$rowNo}">
+													<div class="table-column" id="group-path">
 														<div class="control">
 															<input type="text" class="span4" id="path{$rowNo}" name="path[]" value=
-															"{$p['path']}" placeholder="Paste the full path of the directory here" onfocus="this.value = this.value;" onChange="pathOnChange(this.id); return false;">
+															"{$p['path']}" placeholder="Paste the full path of the directory here" onChange="pathOnChange(this.id); return false;">
 														</div>
 													</div>
 												{/if}
 											{else}
-												<div class="table-column" id="group-path{$rowNo}">
+												<div class="table-column" id="group-path">
 													<div class="control">
 														<input type="text" class="span4" id="path{$rowNo}" name="path[]" value=
-														"{$p['path']}" placeholder="Paste the full path of the directory here" onfocus="this.value = this.value;" onChange="pathOnChange(this.id); return false;">
+														"{$p['path']}" placeholder="Paste the full path of the directory here" onChange="pathOnChange(this.id); return false;">
 													</div>
 												</div>
 											{/if}
 										</div>
 										</td>
 											<td>
-												<div class="table-column" id="group-ext{$rowNo}">
+												<div class="table-column">
 													<div class="control">
-														<input type="text" class="span1" id="ext{$rowNo}" name="ext[]" value="{$p['ext']}" placeholder="ex: txt"/>
+														<input type="text" class="span1" id="ext{$rowNo}" name="ext[]" value="{$p['ext']}" placeholder="ex: txt" onChange="pathOnChange(this.id); return false;">
 													</div>
 												</div>
 											</td>
@@ -103,13 +160,11 @@
 						</tbody>
 					</table>
 					<a href="#" onclick="addMoreDocument(); return false;">Add Document</a>
-					<hr style="margin-bottom: 5px">
-					<div style="font-style: italic; font-size: 8pt; color: red;">^a red box indicates that the path cannot be found</div>
-					<div style="font-style: italic; font-size: 8pt; color: red; margin-bottom: 20px">* - required fields</div>
+					<hr>
 					<div class="field-group" style="margin-bottom: 0px; text-align: center">
 						<div class="control">
-							<a id="submit" class="btn btn-primary" disabled="disabled">Save changes</a>
-							<a href="{url}" type="button" id="back" class="btn">Back</a>
+							<a id="submit" class="btn btn-primary" disabled="disabled">Save</a>
+							<button type="reset" id="reset" class="btn">Reset</button>
 						</div>
 					</div>
 				</form>
@@ -147,16 +202,11 @@
 				var d = document.getElementById("theFile").value;
 				document.forms[0].path.value=document.getElementById("theFile").value;
 			}*/
-			
-			$('.link').tooltip({
-				animation: true,
-				placement: 'right'
-			});
 
 			function addMoreDocument() {
 				rowNo += 1;
 				rows += 1;
-				$('#files').append('<tr id="row' + rowNo + '"><td><div class="table-column" id="group-doc' + rowNo + '"><div id="control-doc' + rowNo + '" class="control"><select class="doc' + rowNo + '" id="doc' + rowNo + '" name="doc[]" onChange="docOnChange(this); return false;" placeholder="e.g. Cash Receipts"><option></option><option>Cash Receipts Journal</option><option>Cash Disbursements Journal</option><option>General Ledger</option><option>Sale Transactions</option><option>Purchase Transactions</option><option>Expense Transactions</option><option>Income Sheet</option><option>Balance Sheet</option><option>Other</option></select></div></div></td><td><div class="table-column" id="group-type"><div class="control"><select class="type' + rowNo + ' span2" id="type' + rowNo + '" name="type[]" style="width: 170px" placeholder="e.g. Journal, Ledger, etc" ><option></option><option value=1>Journals</option><option value=2>Ledgers</option><option value=3>Transaction Files</option><option value=4>Financial Statements</option><option value=5>Log Files</option></select></div></div></td><td><div class="table-column" id="group-path' + rowNo + '"><div class="control"><input type="text" class="span4" id="path' + rowNo + '" name="path[]" placeholder="Paste the full path of the directory here" onChange="pathOnChange(this.id); return false;"></div></div></div></td><td><div class="table-column"><div class="control"><input type="text" class="span1" id="ext' + rowNo + '" name="ext[]" placeholder="ex: txt"></div></div></td><td><div class="table-column"></div></td><td><div class="table-column"><div class="control"><a href="#" data-toggle="modal"><i class="icon-remove" id="remove' + rowNo + '" style="color: red;" onClick="removeRow(this.id)"></i></a></div></div></td></tr>');
+				$('#files').append('<tr id="row' + rowNo + '"><td><div class="table-column" id="group-doc' + rowNo + '"><div id="control-doc' + rowNo + '" class="control"><select class="doc' + rowNo + '" id="doc' + rowNo + '" name="doc[]" placeholder="e.g. Cash Receipts" onChange="pathOnChange(this.id); docOnChange(this); return false;"><option></option><option>Cash Receipts Journal</option><option>Cash Disbursements Journal</option><option>General Ledger</option><option>Sale Transactions</option><option>Purchase Transactions</option><option>Expense Transactions</option><option>Income Sheet</option><option>Balance Sheet</option><option>Other</option></select></div></div></td><td><div class="table-column" id="group-type"><div class="control"><select class="type' + rowNo + ' span2" id="type' + rowNo + '" name="type[]" style="width: 170px" placeholder="e.g. Journal, Ledger, etc" onChange="pathOnChange(this.id); return false;"><option></option><option value=1>Journals</option><option value=2>Ledgers</option><option value=3>Transaction Files</option><option value=4>Financial Statements</option><option value=5>Log Files</option></select></div></div></td><td><div class="table-column" id="group-path"><div class="control"><input type="text" class="span4" id="path' + rowNo + '" name="path[]" placeholder="Paste the full path of the directory here" onChange="pathOnChange(this.id); return false;"></div></div></div></td><td><div class="table-column"><div class="control"><input type="text" class="span1" id="ext' + rowNo + '" name="ext[]" placeholder="ex: txt" onChange="pathOnChange(this.id); return false;"></div></div></td><td><div class="table-column"></div></td><td><div class="table-column"><div class="control"><a href="#" data-toggle="modal"><i class="icon-remove" id="remove' + rowNo + '" style="color: red;" onClick="removeRow(this.id)"></i></a></div></div></td></tr>');
 				$('#doc' + rowNo).combobox();
 				$('#type' + rowNo).combobox();
 				$('.add-on btn dropdown-toggle').remove();
@@ -194,57 +244,7 @@
 				}
 			}
 			
-			
-			function typeOnChange(id) {
-				val = $('#'+id).val();
-				console.log(id);
-				if (val != '') {
-					$('#submit').removeAttr("disabled");
-					var js = "submitIt(); return false;";
-					var open = "(function(){";
-					var close = "});";
-					var newclick = eval( open + js + close );
-					$("#submit").get(0).onclick = newclick;
-				} else {
-					$('#submit').attr("disabled", "disabled");
-					$("#submit").get(0).onclick = null;
-				}
-			}
-			
 			function pathOnChange(id) {
-				val = $('#'+id).val();
-				console.log(id);
-				if (val != '') {
-					$('#submit').removeAttr("disabled");
-					var js = "submitIt(); return false;";
-					var open = "(function(){";
-					var close = "});";
-					var newclick = eval( open + js + close );
-					$("#submit").get(0).onclick = newclick;
-				} else {
-					$('#submit').attr("disabled", "disabled");
-					$("#submit").get(0).onclick = null;
-				}
-				
-				$.ajax({
-					type: "POST",
-					url: 'preferences/index/doesPathExist?path=' + val,
-					dataType: 'text',
-					success: function(data){
-						console.log(data);
-						if (data == "true") {
-							$('#group-' + id).removeClass("error");
-							$('#notify-' + id).remove();
-						} else {
-							$('#notify-' + id).remove();
-							$('#group-' + id).addClass("error");
-							$('#group-' + id).append('<div id="notify-' + id + '" style="color: red; font-size: 9pt; font-style: italic; text-align: left; margin-left:15px">Path does not exist!</div>');
-						}
-					}
-				});
-			}
-			
-			function extOnChange(id) {
 				val = $('#'+id).val();
 				console.log(id);
 				if (val != '') {
@@ -265,7 +265,7 @@
 			{$rowNo = 0}
 				{foreach $paths as $p}
 					//$('#doc{$rowNo}').combobox();
-					//$('#type{$rowNo}').combobox();
+					$('#type{$rowNo}').combobox();
 					{$rowNo = $rowNo + 1}
 				{/foreach}
 			{/if}
@@ -287,7 +287,7 @@
 					url: 'preferences/index/updatePreferences',
 					data: $("#pref").serialize(),				
 					success: function(data){
-						window.location.href="{url}preferences?response=Profile has been successfully saved!";
+						//window.location.href="{url}preferences?response=Profile has been successfully saved!";
 					},
 					error: function(data) {
 						$('#response').remove();

@@ -6,7 +6,6 @@ class Setup_Preferences extends CI_Controller {
         parent::__construct();
 		$this->load->library('session');
 		$this->load->model('preferences_db');
-		//$this->load->model('account');
 		$this->load->helper('url');
 		$this->load->library('form_validation');
 	}
@@ -38,5 +37,18 @@ class Setup_Preferences extends CI_Controller {
 		}
 		unlink('./application/controllers/setup_preferences.php');
 		//header("location: ".$this->config->item('base_url')."audit_trail");
+	}
+	
+	public function doesPathExist() {
+		if (isset($_GET['path']))
+			$path = $_GET['path'];
+		//echo $path;
+		if (is_dir($path)) {
+			//echo "EXIST!";
+			echo "true";
+		} else {
+			//echo "nope";
+			echo "false";
+		}
 	}
 }

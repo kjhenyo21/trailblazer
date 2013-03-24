@@ -70,17 +70,8 @@ class Preferences_DB extends CI_Model {
 		} else return false;
 	}
 	
-	function removeTempItem($id) {
-		$query = $this->db->query("SELECT amount
-									FROM sales_invoice_temp
-									WHERE id = $id");
-		$row = $query->row(); 
-		$data['amount'] = $row->amount;
-		
-		$this->db->where('id', $id);
-		$this->db->delete('sales_invoice_temp');
-		
-		return $data;
+	function deleteAllPaths() {
+		$this->db->truncate('doc_locations');
 	}
 	
 	function emptyTempInvoices() {

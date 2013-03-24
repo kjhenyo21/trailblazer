@@ -44,6 +44,7 @@ $route['audit_trail'] = 'audit_trail/index';
 $route['messages'] = 'messages/messages';
 $route['profile'] = 'profile/index';
 $route['preferences'] = 'preferences/index';
+$route['file_directory'] = 'file_directory/index';
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

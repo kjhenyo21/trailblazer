@@ -26,6 +26,21 @@
 	position: relative;
 }
 
+#main-wrapper-setup-pref {
+	padding: 10px 20px 10px 20px;
+	position: relative;
+}
+
+#main-wrapper-profile {
+	padding: 10px 20px 10px 20px;
+	position: relative;
+}
+
+#main-wrapper-pref {
+	padding: 10px 20px 10px 20px;
+	position: relative;
+}
+
 #banner {
 	background: url(../images/banner.gif) top center no-repeat;
 	height: 130px;

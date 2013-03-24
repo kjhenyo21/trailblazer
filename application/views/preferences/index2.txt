@@ -9,7 +9,7 @@
 	
 	<body>
 		<!-- Main -->
-		<div id="main-wrapper-profile">
+		<div id="main-wrapper-setup">
 			<div id="form-container">
 				{if ($response != '')}
 					<div id="response" class="alert alert-success" style="margin: 0 auto; text-align:center; width: 280px">
@@ -17,7 +17,7 @@
 						<i class="icon-thumbs-up"></i> {$response}
 					</div>
 				{/if}
-				<form id="setup" class="form-horizontal">
+				<form id="profile" class="form-horizontal">
 					<h4>User Info</h4>
 					{if ($info)}
 						<table style="width: 100%">
@@ -180,7 +180,7 @@
 			var uname = $('#uname').val();
 			var password = $('#password').val();
 			var cpassword = $('#cpassword').val();
-			var form = $('#profile');
+			var form = $('#setup');
 			
 			$('#bdate').datepicker({
 				format: 'yyyy-mm-dd'

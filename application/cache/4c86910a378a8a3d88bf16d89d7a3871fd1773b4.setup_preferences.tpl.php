@@ -5,17 +5,17 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '4c86910a378a8a3d88bf16d89d7a3871fd1773b4' => 
     array (
       0 => 'C:\\xampp\\htdocs\\trailblazer\\application/views\\setup_preferences.tpl',
-      1 => 1364077024,
+      1 => 1364133334,
       2 => 'file',
     ),
   ),
   'nocache_hash' => '25650514621948c7d28-86108484',
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_514e8b16eed48',
+  'unifunc' => 'content_514f0b67d4944',
   'has_nocache_code' => false,
   'cache_lifetime' => 1,
 ),true); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_514e8b16eed48')) {function content_514e8b16eed48($_smarty_tpl) {?>  <!--
+<?php if ($_valid && !is_callable('content_514f0b67d4944')) {function content_514f0b67d4944($_smarty_tpl) {?>  <!--
  * Trailblazer Digital Accounting Audit Trail Program
  * @author Kristian Jacob Abad Lora <kjalora92@yahoo.com>
  * @date-created October 31, 2012
@@ -88,7 +88,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 			function addMoreDocument() {
 				rowNo += 1;
 				rows += 1;
-				$('#files').append('<tr id="row' + rowNo + '"><td><div class="table-column" id="group-doc' + rowNo + '"><div id="control-doc' + rowNo + '" class="control"><select class="doc' + rowNo + '" id="doc' + rowNo + '" name="doc[]" placeholder="e.g. Cash Receipts" onChange="pathOnChange(this.id); docOnChange(this); return false;"><option></option><option>Cash Receipts Journal</option><option>Cash Disbursements Journal</option><option>General Ledger</option><option>Sale Transactions</option><option>Purchase Transactions</option><option>Expense Transactions</option><option>Income Sheet</option><option>Balance Sheet</option><option>Other</option></select></div></div></td><td><div class="table-column" id="group-type"><div class="control"><select class="type' + rowNo + ' span2" id="type' + rowNo + '" name="type[]" style="width: 170px" placeholder="e.g. Journal, Ledger, etc" onChange="pathOnChange(this.id); return false;"><option></option><option value=1>Journals</option><option value=2>Ledgers</option><option value=3>Transaction Files</option><option value=4>Financial Statements</option><option value=5>Log Files</option></select></div></div></td><td><div class="table-column" id="group-path"><div class="control"><input type="text" class="span4" id="path' + rowNo + '" name="path[]" placeholder="Paste the full path of the directory here" onChange="pathOnChange(this.id); return false;"></div></div></div></td><td><div class="table-column"><div class="control"><input type="text" class="span1" id="ext' + rowNo + '" name="ext[]" placeholder="ex: txt" onChange="pathOnChange(this.id); return false;"></div></div></td><td><div class="table-column"></div></td><td><div class="table-column"><div class="control"><a href="#" data-toggle="modal"><i class="icon-remove" id="remove' + rowNo + '" style="color: red;" onClick="removeRow(this.id)"></i></a></div></div></td></tr>');
+				$('#files').append('<tr id="row' + rowNo + '"><td><div class="table-column" id="group-doc' + rowNo + '"><div id="control-doc' + rowNo + '" class="control"><select class="doc' + rowNo + '" id="doc' + rowNo + '" name="doc[]" placeholder="e.g. Cash Receipts" onChange="pathOnChange(this.id); docOnChange(this); return false;"><option></option><option>Cash Receipts Journal</option><option>Cash Disbursements Journal</option><option>General Ledger</option><option>Sale Transactions</option><option>Purchase Transactions</option><option>Expense Transactions</option><option>Income Sheet</option><option>Balance Sheet</option><option>Other</option></select></div></div></td><td><div class="table-column" id="group-type"><div class="control"><select class="type' + rowNo + ' span2" id="type' + rowNo + '" name="type[]" style="width: 170px" placeholder="e.g. Journal, Ledger, etc" onChange="pathOnChange(this.id); return false;"><option></option><option value=1>Journals</option><option value=2>Ledgers</option><option value=3>Transaction Files</option><option value=4>Financial Statements</option><option value=5>Log Files</option></select></div></div></td><td><div class="table-column" id="group-path' + rowNo + '"><div class="control"><input type="text" class="span4" id="path' + rowNo + '" name="path[]" placeholder="Paste the full path of the directory here" onChange="pathOnChange(this.id); return false;"></div></div></div></td><td><div class="table-column"><div class="control"><input type="text" class="span1" id="ext' + rowNo + '" name="ext[]" placeholder="ex: txt" onChange="pathOnChange(this.id); return false;"></div></div></td><td><div class="table-column"></div></td><td><div class="table-column"><div class="control"><a href="#" data-toggle="modal"><i class="icon-remove" id="remove' + rowNo + '" style="color: red;" onClick="removeRow(this.id)"></i></a></div></div></td></tr>');
 				$('#doc' + rowNo).combobox();
 				$('#type' + rowNo).combobox();
 				$('.add-on btn dropdown-toggle').remove();
@@ -140,6 +140,23 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 					$('#submit').attr("disabled", "disabled");
 					$("#submit").get(0).onclick = null;
 				}
+				
+				$.ajax({
+					type: "POST",
+					url: 'setup_preferences/doesPathExist?path=' + val,
+					dataType: 'text',
+					success: function(data){
+						console.log(data);
+						if (data == "true") {
+							$('#group-' + id).removeClass("error");
+							$('#notify-' + id).remove();
+						} else {
+							$('#notify-' + id).remove();
+							$('#group-' + id).addClass("error");
+							$('#group-' + id).append('<div id="notify-' + id + '" style="color: red; font-size: 9pt; font-style: italic; text-align: left; margin-left:15px">Path does not exist!</div>');
+						}
+					}
+				});
 			}
 			
 			

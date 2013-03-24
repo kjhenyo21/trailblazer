@@ -5,22 +5,17 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '52671c342a0aa506d00ca542f56f42a200c15a58' => 
     array (
       0 => 'C:\\xampp\\htdocs\\trailblazer\\application/views\\profile\\index.tpl',
-      1 => 1364103942,
+      1 => 1364134444,
       2 => 'file',
     ),
   ),
   'nocache_hash' => '19485514e7ec767f865-24683265',
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_514e930842e2f',
-  'variables' => 
-  array (
-    'response' => 0,
-    'info' => 0,
-  ),
+  'unifunc' => 'content_514f0b108f79f',
   'has_nocache_code' => false,
   'cache_lifetime' => 1,
 ),true); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_514e930842e2f')) {function content_514e930842e2f($_smarty_tpl) {?><!--
+<?php if ($_valid && !is_callable('content_514f0b108f79f')) {function content_514f0b108f79f($_smarty_tpl) {?>  <!--
  * Trailblazer Digital Accounting Audit Trail Program
  * @author Kristian Jacob Abad Lora <kjalora92@yahoo.com>
  * @date-created October 31, 2012
@@ -31,9 +26,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 	
 	<body>
 		<!-- Main -->
-		<div id="main-wrapper-setup">
+		<div id="main-wrapper-profile">
 			<div id="form-container">
-								<form id="profile" class="form-horizontal">
+								<form id="setup" class="form-horizontal">
 					<h4>User Info</h4>
 											<table style="width: 100%">
 							<td style="width: 50%">
@@ -66,6 +61,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 									<div class="control">
 										<select id="sex" name="sex" style="width: 100px">
 																							<option selected="selected">Male</option>
+												<option>Female</option>
 																					</select>
 									</div>
 								</div>
@@ -153,7 +149,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 								<div class="field-group" id="group-cpassword" style="display: none">
 									<label class="field-label" for="cpassword" style="width: 140px">Confirm Password<span class="asterisk">*</span></label>
 									<div class="control">
-										<input type="password" id="cpassword" name="cpassword" value="iluvuJesus" placeholder="Confirm Password*">
+										<input type="password" id="cpassword" name="cpassword" value="iluvuJesus" placeholder="Confirm Password">
 									</div>
 								</div>
 							</td>
@@ -164,7 +160,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 					<input type="hidden" name="id1" value="1"/>
 					<div class="field-group" style="margin-bottom: 0px; text-align: center">
 						<div class="control">
-							<a type="button" id="submit" class="btn btn-primary" disabled="disabled">Save</a>
+							<a type="button" id="submit" class="btn btn-primary" disabled="disabled">Save changes</a>
 							<a href="http://localhost/trailblazer/" type="button" id="back" class="btn">Back</a>
 						</div>
 					</div>
@@ -188,7 +184,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 			var uname = $('#uname').val();
 			var password = $('#password').val();
 			var cpassword = $('#cpassword').val();
-			var form = $('#setup');
+			var form = $('#profile');
 			
 			$('#bdate').datepicker({
 				format: 'yyyy-mm-dd'
@@ -309,10 +305,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 							
 							$.ajax({
 								type: "POST",
-								url: 'profile/indexs/updateProfile',
+								url: 'profile/index/updateProfile',
 								data:  $("#profile").serialize(),
 								success: function(data){
-									//$('#form-container').load('setup_preferences');
 									$('#password').attr("disabled", "disabled");
 									window.location.href="http://localhost/trailblazer/profile?response=Profile has been successfully saved!";
 								},
