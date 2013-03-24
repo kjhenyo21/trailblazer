@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-03-23 23:12:30
+<?php /* Smarty version Smarty-3.1.7, created on 2013-03-24 04:56:38
          compiled from "C:\xampp\htdocs\trailblazer\application/views\setup.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:207325145e3c9b5ec21-63530817%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '055b2d5b4ed3ca4c423bf8acc8c54a6224e7bd57' => 
     array (
       0 => 'C:\\xampp\\htdocs\\trailblazer\\application/views\\setup.tpl',
-      1 => 1364060600,
+      1 => 1364091071,
       2 => 'file',
     ),
   ),
@@ -199,6 +199,7 @@ assets/scripts/bootstrap-datepicker.js" type="text/javascript"></script>
 			$('#bdate').datepicker({
 				format: 'yyyy-mm-dd'
 			});
+			
 			 
 			val = $('#lname').val();
 			if (val != '') {
@@ -227,6 +228,7 @@ assets/scripts/bootstrap-datepicker.js" type="text/javascript"></script>
 					$("#submit").get(0).onclick = null;
 				}
 			}
+			
 			
 			function submitIt() {
 				id = $('#id').val();

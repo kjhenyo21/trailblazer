@@ -5,17 +5,17 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '055b2d5b4ed3ca4c423bf8acc8c54a6224e7bd57' => 
     array (
       0 => 'C:\\xampp\\htdocs\\trailblazer\\application/views\\setup.tpl',
-      1 => 1364060600,
+      1 => 1364091071,
       2 => 'file',
     ),
   ),
   'nocache_hash' => '207325145e3c9b5ec21-63530817',
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_514e290504c59',
+  'unifunc' => 'content_514e797637da0',
   'has_nocache_code' => false,
   'cache_lifetime' => 1,
 ),true); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_514e290504c59')) {function content_514e290504c59($_smarty_tpl) {?>  <!--
+<?php if ($_valid && !is_callable('content_514e797637da0')) {function content_514e797637da0($_smarty_tpl) {?><!--
  * Trailblazer Digital Accounting Audit Trail Program
  * @author Kristian Jacob Abad Lora <kjalora92@yahoo.com>
  * @date-created October 31, 2012
@@ -186,6 +186,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 			$('#bdate').datepicker({
 				format: 'yyyy-mm-dd'
 			});
+			
 			 
 			val = $('#lname').val();
 			if (val != '') {
@@ -214,6 +215,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 					$("#submit").get(0).onclick = null;
 				}
 			}
+			
 			
 			function submitIt() {
 				id = $('#id').val();

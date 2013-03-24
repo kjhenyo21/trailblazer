@@ -15,13 +15,14 @@
 				<h3>Load File</h3>
 			</div>
 			<div class="modal-body">
-				<form id="load-file-form" class="form-horizontal" method="post" action="{url}audit_trail/index/readFile">
+				<form id="load-file-form" class="form-horizontal">
 					<fieldset>
 						<div style="margin: 0 35px">
 							<div class="field-group" id="group-file">
 								<label class="field-label" for="file">File</label>
 								<div class="control">
-									<input type="file" class="span3" id="file" name="file" onChange="onChangeFile(); return false;" placeholder="Enter file directory">
+									<input type="file" class="span3" id="file_upload" name="file_upload" onChange="onChangeFile(); return false;" placeholder="Enter file directory">
+									<input type="hidden" class="span3" id="file" name="file">
 								</div>
 							</div>
 							<div class="field-group" id="group-doc">
@@ -42,7 +43,7 @@
 							</div>
 						</div>
 						<div style="margin: 0 156px">
-							<button class="btn btn-small" type="submit" id="add" disabled="disabled">Load File</button>
+							<a class="btn btn-small" type="submit" id="load" disabled="disabled">Load File</a>
 							<button class="btn btn-small" data-dismiss="modal" id="close" onClick="closeIt(); return false;">Cancel</button> </div>
 					</fieldset>
 				</form>
@@ -74,9 +75,9 @@
 		<div id="main-wrapper" style="width: 300px">
 			<div style="margin: 0 auto; text-align: center">
 				<a  href="#load_file" data-toggle="modal" role="button" class="btn" style="width: 190px; margin-bottom:10px">Start a Trail!</a>				
-				<br><a href="{url}audit_trail/messages" role="button" class="btn" style="width: 190px; margin-bottom:10px">Messages</a>
-				<br><a href="{url}audit_trail/profile" role="button" class="btn" style="width: 190px; margin-bottom:10px">Profile</a>
-				<br><a href="{url}audit_trail/preferences" role="button" class="btn" style="width: 190px; margin-bottom:10px">Preferences</a>
+				<br><a href="{url}messages" role="button" class="btn" style="width: 190px; margin-bottom:10px">Messages</a>
+				<br><a href="{url}profile" role="button" class="btn" style="width: 190px; margin-bottom:10px">Profile</a>
+				<br><a href="{url}preferences" role="button" class="btn" style="width: 190px; margin-bottom:10px">Preferences</a>
 				<br><a href="{url}index/logout" role="button" class="btn" style="width: 190px">Logout</a>
 			</div>
 		</div>
@@ -99,18 +100,90 @@
 				$('#backdropping').remove();
 			}
 			
-			function closeIt() {
-				document.getElementById('file').value = "";
-				$('#add').attr("disabled", "disabled");
-				$('#add').removeClass("btn-primary");
+			{literal} 
+			value = $('#file_upload').val();
+			console.log(value);
+			if (value != '') {
+				$('#file').val(value);
+				$('#load').removeAttr("disabled");
+				$('#load').addClass("btn-primary");
+				var js = "loadIt(); return false;";
+				var open = "(function(){";
+				var close = "});";
+				var newclick = eval( open + js + close );
+				$("#load").get(0).onclick = newclick;
+			} else {
+				$('#file').val('');
+				$('#load').attr("disabled", "disabled");
+				$("#load").get(0).onclick = null;
 			}
+
 			function onChangeFile() {
-				$('#add').removeAttr("disabled");
-				$('#add').addClass("btn-primary");
+				value = $('#file_upload').val();
+				if (value != '') {
+					$('#file').val(value);
+					$('#load').removeAttr("disabled");
+					$('#load').addClass("btn-primary");
+					var js = "loadIt(); return false;";
+					var open = "(function(){";
+					var close = "});";
+					var newclick = eval( open + js + close );
+					$("#load").get(0).onclick = newclick;
+				} else {
+					$('#file').val('');
+					$('#load').attr("disabled", "disabled");
+					$("#load").get(0).onclick = null;
+				}
+			}
+			{/literal}
+			
+			function loadIt() {
+				file = $('#file').val();
+				doc = $('#doc').val();
+				items = $('#items').val();
+				
+				if ((doc == '') || (items == '') || (items <= 0)) {
+					if (doc == '') {
+						$('#group-doc').addClass("error");
+						$('.error-doc-empty').remove();
+						$('#doc').after('<div id="error-text" class="error-doc-empty">Must not be empty!</div>');
+					} else {
+						$('.error-doc-empty').remove();
+						$('#group-doc').removeClass("error");
+					}
+					
+					if (items == '') {
+						$('#group-interest').addClass("error");
+						$('.error-items-empty').remove();
+						$('.error-items-zero').remove();
+						$('#items').after('<span id="error-text" class="error-items-empty">Must not be empty!</span>');
+					} else {
+						if (items <= 0) {
+							$('#group-interest').addClass("error");
+							$('.error-items-zero').remove();
+							$('.error-items-empty').remove();
+							$('#items').after('<span id="error-text" class="error-items-zero">Must be greater than zero!</span>');
+						} else if (items > 0){
+							$('.error-items-zero').remove();
+							$('.error-items-empty').remove();
+							$('#group-interest').removeClass("error");
+						} else {
+							$('.error-items-zero').remove();
+							$('.error-items-empty').remove();
+							$('#group-interest').removeClass("error");
+						}
+					}
+				} else window.location.href = '{url}audit_trail/index/readFile?file=' + file + '&doc=' + doc + '&items=' + items;
 			}
 			
-			function onChangeFile() {
-				$('#add').removeAttr("disabled");
-				$('#add').addClass("btn-primary");
+			function closeIt() {
+				$('#file_upload').val('');
+				$('#file').val('');
+				$('#doc').val('');
+				$('#items').val('250');
+				$('#load').attr("disabled", "disabled");
+				$('#load').removeClass("btn-primary");
 			}
+			
+			
 		</script>

@@ -11,11 +11,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'nocache_hash' => '6863514dcda9528c20-15705602',
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_514dd61d92675',
+  'unifunc' => 'content_514e5b74db57d',
   'has_nocache_code' => false,
   'cache_lifetime' => 1,
 ),true); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_514dd61d92675')) {function content_514dd61d92675($_smarty_tpl) {?>  <!--
+<?php if ($_valid && !is_callable('content_514e5b74db57d')) {function content_514e5b74db57d($_smarty_tpl) {?>  <!--
  * Lalaine's Bookstore Computerized AIS
  * @author Kristian Jacob Abad Lora <kjalora92@yahoo.com>
  * @date-created October 31, 2012
@@ -37,11 +37,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 		<!-- Main -->
 		<h3 style="margin: 20px auto; text-align: center"> User Login </h3>
 		<div id="main-wrapper" style="width: 300px">
+			
 							<div class="alert alert-error">
 				  <button type="button" class="close" data-dismiss="alert">&times;</button>
-				  <strong>Oops!</strong> Please enter a correct ID number and password.
+				  <strong>Oops!</strong> You are not authorized to access this application without logging in.
 				</div>
-			
 						<form id="form-login" class="form-horizontal" method="post" action="http://localhost/trailblazer/login">
 				<div class="control-group">
 					<label class="control-label" for="uname">Username</label>

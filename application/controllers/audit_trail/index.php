@@ -20,6 +20,7 @@ class Index extends CI_Controller {
 			$this->mysmarty->assign('user', $this->session->userdata('username'));
 			$this->mysmarty->assign('base_url', $this->config->item('base_url'));
 			$this->mysmarty->assign('nonExistentPaths', $this->checkPaths());
+			$this->mysmarty->assign('nEPaths', $this->getNonExistentPaths());
 			$this->mysmarty->display('header.tpl');
 			$this->mysmarty->display('audit_trail/index.tpl');
 			$this->mysmarty->display('footer.tpl');
@@ -28,10 +29,12 @@ class Index extends CI_Controller {
 	
 	public function readFile() {
 		$files = new files_db();
-		$filename = $this->input->post('file');
-		//echo $filename;
-		$doc = $this->input->post('doc');
-		$items = $this->input->post('items');
+		$filename = $_GET['file'];
+		//$filename = $this->input->post('file');
+		$doc = $_GET['doc'];
+		//$doc = $this->input->post('doc');
+		$items = $_GET['items'];
+		//$items = $this->input->post('items');
 		$error_msg = false;
 		$path = $files->getFilePath($filename);
 		$full_path = $path."\\".$filename;
@@ -96,6 +99,17 @@ class Index extends CI_Controller {
 				$noOfNonExistentPaths++;
 		}
 		return $noOfNonExistentPaths;
+	}
+	
+	public function getNonExistentPaths() {
+		$preferences = new preferences_db();
+		$paths = $preferences->getDocPaths();
+		$nonExistentPaths = array();
+		foreach ($paths as $p) {
+			if (!$this->pathExists($p['path']))
+				$nonExistentPaths[] = $p['path'];
+		}
+		return $nonExistentPaths;
 	}
 
 	public function pathExists($path) {

@@ -12,10 +12,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'nocache_hash' => '23425514bbe8b4ee512-63566459',
   'cache_lifetime' => 1,
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_514e2d8205a59',
+  'unifunc' => 'content_514e7309401cf',
   'has_nocache_code' => false,
 ),true); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_514e2d8205a59')) {function content_514e2d8205a59($_smarty_tpl) {?><!--
+<?php if ($_valid && !is_callable('content_514e7309401cf')) {function content_514e7309401cf($_smarty_tpl) {?><!--
  * WADWE Computerized AIS
  * @author Kristian Jacob Abad Lora <kjalora92@yahoo.com>
  * @date-created October 31, 2012
@@ -23,50 +23,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 	<body onload="JavaScript:refresh(3000);">
 		<div id="messages">
 		<!-- Modal for Messages-->
-																				<div id="ignored-message0" class="modal fade in" style="margin-top: -120px; margin-left: -180px; width: 320px; display: block;" aria-hidden="false">
-						<div class="modal-header">
-							<div id="close"><a href="#" class="close" onClick="closeMessage(0, 2, 9371); return false;">&times;</a></div>
-							<h3 style="color: maroon">Confirmation Message</h3>
-						</div>
-						<div class="modal-body">
-							<div class="input" style="margin: 0 10px">
-								<div>Name: Kristian Lora</div>
-								<div>Contact: 9336925206</div>
-								<div>Date: 2010-01-05</div>
-								<div>OR No: 6263</div>
-								<div>Amount: Php 33</div>
-								<div>Reply: <strong>no</strong></div>
-								<div>Date/Time Received: 2013-03-23 21:24:20</div>
-																	<div>Status: <span style="color: red">ignored</span></div>
-															</div>
-						</div>
-						<div class="modal-footer">
-							<div style="text-align: center">
-								<!--<a href="skype:+63<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
-
-<h4>A PHP Error was encountered</h4>
-
-<p>Severity: Notice</p>
-<p>Message:  Undefined index: contact</p>
-<p>Filename: cache/b91653a638e633ff6292f96eb2c21875436ac8de.file.message.tpl.cache.php</p>
-<p>Line Number: 84</p>
-
-</div><div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
-
-<h4>A PHP Error was encountered</h4>
-
-<p>Severity: Notice</p>
-<p>Message:  Trying to get property of non-object</p>
-<p>Filename: cache/b91653a638e633ff6292f96eb2c21875436ac8de.file.message.tpl.cache.php</p>
-<p>Line Number: 84</p>
-
-</div>?call" class="btn btn-small btn-primary" type="submit" id="call">Call</a>-->
-								<a href="#" class="btn btn-small btn-primary" type="button" id="text" onClick="confirmMessage(0, 2); return false;">Update Confirmation</a>
-								<button class="btn btn-small" data-dismiss="modal" id="close" onClick="closeMessage(0, 2, 9371); return false;">Update Later</button>
-							</div>
-						</div>
-					</div>
-																		<audio><source src="http://localhost/trailblazer/assets/audio/message-beep.wav" type="audio/wav" /></audio>
 					</div>
 				<script src="http://localhost/trailblazer/assets/scripts/date-format.js" type="text/javascript"></script>
 		<script>

@@ -169,6 +169,7 @@
 			$('#bdate').datepicker({
 				format: 'yyyy-mm-dd'
 			});
+			
 			{literal} 
 			val = $('#lname').val();
 			if (val != '') {
@@ -198,6 +199,7 @@
 				}
 			}
 			{/literal}
+			
 			function submitIt() {
 				id = $('#id').val();
 				lname = $('#lname').val();
@@ -251,7 +253,7 @@
 							$('#error-text').remove();
 						}
 					}
-					 $("html, body").animate({ scrollTop: 0 }, "slow");
+					$("html, body").animate({ scrollTop: 0 }, "slow");
 				} else {
 					if ((password!="") && (cpassword!="")) {
 						if (cpassword != password) {

@@ -11,11 +11,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'nocache_hash' => '11975514c12e20bf2a2-43938155',
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_514db1b22b1b5',
+  'unifunc' => 'content_514e731587bfe',
   'has_nocache_code' => false,
   'cache_lifetime' => 1,
 ),true); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_514db1b22b1b5')) {function content_514db1b22b1b5($_smarty_tpl) {?>  <!--
+<?php if ($_valid && !is_callable('content_514e731587bfe')) {function content_514e731587bfe($_smarty_tpl) {?>  <!--
  * Lalaine's Bookstore Computerized AIS
  * @author Kristian Jacob Abad Lora <kjalora92@yahoo.com>
  * @date-created October 31, 2012
@@ -53,7 +53,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 					<div>Account: Sales</div>
 					<div>Acct. #: 201</div>
 											<div>Credit: Php 0.00</div>
-																<div>Debit: Php 587.00</div>
+																<div>Debit: Php 1,338.00</div>
 									</div>
 				<div class="arrow">
 					<img src="http://localhost/trailblazer/assets/images/arrow-left-small.PNG"></img>
@@ -61,17 +61,17 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 				<div class="sub-summary-container">
 					<strong>Cash Receipts Journal</strong>
 					<div>Ref. #: CRJ-1-2010</div>
-					<div>Desc.: 6256-6260</div>
+					<div>Desc.: 6253-6255</div>
 				</div>
 				<div class="arrow">
 					<img src="http://localhost/trailblazer/assets/images/arrow-left-small.PNG"></img>
 				</div>
 				<div class="sub-summary-container">
 					<strong>Sale Transactions</strong>
-										<div>Date: 2010-01-02</div>
-					<div>OR No.: <a href="#trans-details6255" data-toggle="modal" onClick="getDetails('or_no=6255&amt=304.50&name=Mae Carmel Boquia&address=Dumanjug&contact=9332567821'); return false;">6255</a></div>
-					<div>Amount Due: 304.50</div>
-					<div>Name: Mae Carmel Boquia</div>
+										<div>Date: 2010-01-04</div>
+					<div>OR No.: <a href="#trans-details6259" data-toggle="modal" onClick="getDetails('or_no=6259&amt=99.50&name=Elaine Pahang&address=Talisay City&contact=9332567821'); return false;">6259</a></div>
+					<div>Amount Due: 99.50</div>
+					<div>Name: Elaine Pahang</div>
 					<div>Contact: 9332567821</div>
 				</div>
 			</div>

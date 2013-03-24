@@ -11,11 +11,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'nocache_hash' => '2792451493326ebe3a7-86730268',
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_514dacb20dfc8',
+  'unifunc' => 'content_514e6bced13a3',
   'has_nocache_code' => false,
   'cache_lifetime' => 1,
 ),true); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_514dacb20dfc8')) {function content_514dacb20dfc8($_smarty_tpl) {?><!-- Modal for Loading Transaction Details-->
+<?php if ($_valid && !is_callable('content_514e6bced13a3')) {function content_514e6bced13a3($_smarty_tpl) {?><!-- Modal for Loading Transaction Details-->
 	<div id="trans-details" class="modal hide fade in" style="margin-top: -180px; width: 520px; display: block;" aria-hidden="false">
 		<div class="modal-header">
 			<div id="close"><a href="#" class="close" onClick="closeIt(); return false;">&times;</a></div>

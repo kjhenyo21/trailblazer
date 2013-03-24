@@ -1,27 +1,10 @@
-<?php /*%%SmartyHeaderCode:25650514621948c7d28-86108484%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
-$_valid = $_smarty_tpl->decodeProperties(array (
-  'file_dependency' => 
-  array (
-    '4c86910a378a8a3d88bf16d89d7a3871fd1773b4' => 
-    array (
-      0 => 'C:\\xampp\\htdocs\\trailblazer\\application/views\\setup_preferences.tpl',
-      1 => 1364077024,
-      2 => 'file',
-    ),
-  ),
-  'nocache_hash' => '25650514621948c7d28-86108484',
-  'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_514e8b16eed48',
-  'has_nocache_code' => false,
-  'cache_lifetime' => 1,
-),true); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_514e8b16eed48')) {function content_514e8b16eed48($_smarty_tpl) {?>  <!--
+<!--
  * Trailblazer Digital Accounting Audit Trail Program
  * @author Kristian Jacob Abad Lora <kjalora92@yahoo.com>
  * @date-created October 31, 2012
 -->
 	<head>
-		<title>Setup Page - Preferences</title>
+		<title>Trailblazer - Preferences</title>
 	</head>
 	
 	<body>
@@ -39,6 +22,72 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 							<th></th>
 						</thead>
 						<tbody>
+							{if ($paths)}
+								{$rowNo = 0}
+								{foreach $paths as $p}
+									<tr id="row{$rowNo}">
+										<td>
+											<div class="table-column" id="group-doc{$rowNo}">
+												<div id="control-doc{$rowNo}" class="control">
+													<select class="doc{$rowNo}" id="doc{$rowNo}" name="doc[]" placeholder="e.g. Cash Receipts" onChange="pathOnChange(this.id); docOnChange(this); return false;">
+														<option></option>
+														<option>Cash Receipts Journal</option>
+														<option>Cash Disbursements Journal</option>
+														<option>General Ledger</option>
+														<option>Sale Transactions</option>
+														<option>Purchase Transactions</option>
+														<option>Expense Transactions</option>
+														<option>Income Sheet</option>
+														<option>Balance Sheet</option>
+														<option>Other</option>
+													</select>
+												</div>
+											</div>
+										</td>
+										<td>
+											<div class="table-column" id="group-type">
+												<div class="control">
+													<select class="type{$rowNo} span2" id="type{$rowNo}" name="type[]" style="width: 170px" placeholder="e.g. Journal, Ledger, etc" onChange="pathOnChange(this.id); return false;">
+														<option></option>
+														<option value=1>Journals</option>
+														<option value=2>Ledgers</option>
+														<option value=3>Transaction Files</option>
+														<option value=4>Financial Statements</option>
+														<option value=5>Log Files</option>
+													</select>
+												</div>
+											</div>
+										</td>
+										<td>
+											<div class="table-column" id="group-path">
+												<div class="control">
+													<input type="text" class="span4" id="path{$rowNo}" name="path[]" value=
+													"{$p['path']}" placeholder="Paste the full path of the directory here" onChange="pathOnChange(this.id); return false;">
+												</div>
+											</div>
+										</div>
+										</td>
+											<td>
+												<div class="table-column">
+													<div class="control">
+														<input type="text" class="span1" id="ext{$rowNo}" name="ext[]" value="{$p['ext']}" placeholder="ex: txt" onChange="pathOnChange(this.id); return false;">
+													</div>
+												</div>
+											</td>
+											<td>
+												<div class="table-column"></div>
+											</td>
+											<td>
+												<div class="table-column">
+													<div class="control"><a href="#" data-toggle="modal">
+														<i class="icon-remove" id="remove{$rowNo}" style="color: red;" onClick="removeRow(this.id)"></i></a>
+													</div>
+												</div>
+											</td>
+										</tr>
+									{$rowNo = $rowNo + 1}
+								{/foreach}
+							{/if}
 						</tbody>
 					</table>
 					<a href="#" onclick="addMoreDocument(); return false;">Add Document</a>
@@ -52,16 +101,16 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 				</form>
 			</div>
 		</div>
-		<link href="http://localhost/trailblazer/assets/stylesheets/bootstrap.css" rel="stylesheet"></link>
-		<link href="http://localhost/trailblazer/assets/stylesheets/bootstrap-responsive.css" rel="stylesheet"></link>
-		<link href="http://localhost/trailblazer/assets/stylesheets/main.css" rel="stylesheet"></link>
-		<link href="http://localhost/trailblazer/assets/stylesheets/forms.css" rel="stylesheet"></link>
-		<link href="http://localhost/trailblazer/assets/stylesheets/datepicker.css" rel="stylesheet"></link>
-		<link href="http://localhost/trailblazer/assets/stylesheets/bootstrap-combobox.css" rel="stylesheet"></link>
-		<script src="http://localhost/trailblazer/assets/scripts/jquery.js" type="text/javascript"></script>
-		<script src="http://localhost/trailblazer/assets/scripts/bootstrap.min.js" type="text/javascript"></script>
-		<script src="http://localhost/trailblazer/assets/scripts/bootstrap-datepicker.js" type="text/javascript"></script>
-		<script src="http://localhost/trailblazer/assets/scripts/bootstrap-combobox.js" type="text/javascript"></script>
+		<link href="{url}assets/stylesheets/bootstrap.css" rel="stylesheet"></link>
+		<link href="{url}assets/stylesheets/bootstrap-responsive.css" rel="stylesheet"></link>
+		<link href="{url}assets/stylesheets/main.css" rel="stylesheet"></link>
+		<link href="{url}assets/stylesheets/forms.css" rel="stylesheet"></link>
+		<link href="{url}assets/stylesheets/datepicker.css" rel="stylesheet"></link>
+		<link href="{url}assets/stylesheets/bootstrap-combobox.css" rel="stylesheet"></link>
+		<script src="{url}assets/scripts/jquery.js" type="text/javascript"></script>
+		<script src="{url}assets/scripts/bootstrap.min.js" type="text/javascript"></script>
+		<script src="{url}assets/scripts/bootstrap-datepicker.js" type="text/javascript"></script>
+		<script src="{url}assets/scripts/bootstrap-combobox.js" type="text/javascript"></script>
 		<script>
 			var id = $('#id').val();
 			var lname = $('#lname').val();
@@ -94,7 +143,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 				$('.add-on btn dropdown-toggle').remove();
 			}
 			
-			 
+			{literal} 
 			val = $('#path1').val();
 			if (val != null) {
 				$('#submit').removeAttr("disabled");
@@ -141,10 +190,17 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 					$("#submit").get(0).onclick = null;
 				}
 			}
+			{/literal}
 			
-			
-			$('.doc').combobox();
-			$('.type').combobox();
+			{if ($paths)}
+			{$rowNo = 0}
+				{foreach $paths as $p}
+					
+					$('#doc{$rowNo}').combobox();
+					$('#type{$rowNo}').combobox();
+					{$rowNo = $rowNo + 1}
+				{/foreach}
+			{/if}
 			
 			function removeRow(row) {
 				no = row.substring(6);
@@ -159,8 +215,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 					url: 'setup_preferences/savePreferences',
 					data: $("#setup-pref").serialize(),				
 					success: function(data){
-						location.replace("http://localhost/trailblazer/");
+						location.replace("{url}");
 					}
 				});
 			}
-		</script><?php }} ?>
+		</script>

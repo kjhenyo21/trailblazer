@@ -41,6 +41,9 @@
 $route['default_controller'] = "index";
 $route['404_override'] = '';
 $route['audit_trail'] = 'audit_trail/index';
+$route['messages'] = 'messages/messages';
+$route['profile'] = 'profile/index';
+$route['preferences'] = 'preferences/index';
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */
