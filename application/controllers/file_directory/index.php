@@ -92,6 +92,15 @@ class Index extends CI_Controller {
 		return $modifiedFiles;
 	}
 	
+	public function restoreFiles() {
+		$modFiles = $this->getModifiedFiles();
+		foreach ($modFiles as $mf) {
+			$file_contents = file_get_contents('files/temp/'.$mf['filename']);
+			$newFile = $mf['path']."\\".$mf['filename'];
+			file_put_contents($newFile, $file_contents);
+		}
+	}
+	
 	public function logout() {
 		$account = new account();
 		$account->logOut();

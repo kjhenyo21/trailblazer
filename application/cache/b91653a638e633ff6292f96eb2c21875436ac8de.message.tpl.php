@@ -1,4 +1,4 @@
-<?php /*%%SmartyHeaderCode:23425514bbe8b4ee512-63566459%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:325335152921f5eb205-01938401%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
@@ -9,13 +9,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '23425514bbe8b4ee512-63566459',
-  'cache_lifetime' => 1,
+  'nocache_hash' => '325335152921f5eb205-01938401',
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_514f880e015f3',
+  'unifunc' => 'content_51546c7517bda',
   'has_nocache_code' => false,
+  'cache_lifetime' => 1,
 ),true); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_514f880e015f3')) {function content_514f880e015f3($_smarty_tpl) {?><!--
+<?php if ($_valid && !is_callable('content_51546c7517bda')) {function content_51546c7517bda($_smarty_tpl) {?><!--
  * Trailblazer Digital Accounting Audit Trail Program
  * @author Kristian Jacob Abad Lora <kjalora92@yahoo.com>
  * @date-created October 31, 2012
@@ -23,50 +23,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 	<body onload="JavaScript:refresh(3000);">
 		<div id="messages">
 		<!-- Modal for Messages-->
-																				<div id="ignored-message0" class="modal fade in" style="margin-top: -120px; margin-left: -180px; width: 320px; display: block;" aria-hidden="false">
-						<div class="modal-header">
-							<div id="close"><a href="#" class="close" onClick="closeMessage(0, 1, 8359); return false;">&times;</a></div>
-							<h3 style="color: maroon">Confirmation Message</h3>
-						</div>
-						<div class="modal-body">
-							<div class="input" style="margin: 0 10px">
-								<div>Name: Kristian Lora</div>
-								<div>Contact: 9336925206</div>
-								<div>Date: 2010-01-05</div>
-								<div>OR No: 6263</div>
-								<div>Amount: Php 33</div>
-								<div>Reply: <strong>yes</strong></div>
-								<div>Date/Time Received: 2013-03-25 06:57:23</div>
-																	<div>Status: <span style="color: red">ignored</span></div>
-															</div>
-						</div>
-						<div class="modal-footer">
-							<div style="text-align: center">
-								<!--<a href="skype:+63<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
-
-<h4>A PHP Error was encountered</h4>
-
-<p>Severity: Notice</p>
-<p>Message:  Undefined index: contact</p>
-<p>Filename: cache/b91653a638e633ff6292f96eb2c21875436ac8de.file.message.tpl.cache.php</p>
-<p>Line Number: 85</p>
-
-</div><div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
-
-<h4>A PHP Error was encountered</h4>
-
-<p>Severity: Notice</p>
-<p>Message:  Trying to get property of non-object</p>
-<p>Filename: cache/b91653a638e633ff6292f96eb2c21875436ac8de.file.message.tpl.cache.php</p>
-<p>Line Number: 85</p>
-
-</div>?call" class="btn btn-small btn-primary" type="submit" id="call">Call</a>-->
-								<a href="#" class="btn btn-small btn-primary" type="button" id="text" onClick="confirmMessage(0, 1); return false;">Update Confirmation</a>
-								<button class="btn btn-small" data-dismiss="modal" id="close" onClick="closeMessage(0, 1, 8359); return false;">Update Later</button>
-							</div>
-						</div>
-					</div>
-																		<audio><source src="http://localhost/trailblazer/assets/audio/message-beep.wav" type="audio/wav" /></audio>
 					</div>
 				<script src="http://localhost/trailblazer/assets/scripts/date-format.js" type="text/javascript"></script>
 		<script>
@@ -147,7 +103,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 				});
 				
 				$.ajax({
-					url: 'http://localhost/trailblazer/messages/log_messages/writeToLog?data=' + today + ' kjhenyo21 ignored message with Ref. No. ' + no,
+					url: 'http://localhost/trailblazer/messages/log_messages/writeToLog?data=' + today + ' admin ignored message with Ref. No. ' + no,
 					type: "GET",
 					success: function() {
 					}

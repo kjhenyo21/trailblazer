@@ -7,6 +7,10 @@
 @import url('font-awesome.css');
 @import url('font.css');
 
+.page-header {
+	border-bottom: 0px !important;
+}
+
 #main-wrapper {
 	width: 850px;
 	height: auto;
@@ -97,7 +101,7 @@ body {
 }
 
 .amount {
-	text-align: right;
+	text-align: right !important;
 }
 /**
 .btn-primary:hover, .btn-primary:active, .btn-primary.active, .btn-primary.disabled, .btn-primary[disabled] {
@@ -111,16 +115,9 @@ body {
 }
 
 .sub-summary-container {
-	background: #237fbc; /* Old browsers */
-	background: -moz-linear-gradient(top,  #237fbc 0%, #64ade5 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#237fbc), color-stop(100%,#64ade5)); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top,  #237fbc 0%,#64ade5 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top,  #237fbc 0%,#64ade5 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top,  #237fbc 0%,#64ade5 100%); /* IE10+ */
-	background: linear-gradient(to bottom,  #237fbc 0%,#64ade5 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#237fbc', endColorstr='#64ade5',GradientType=0 ); /* IE6-9 */
+	background: #237fbc;
 	border: 4px solid;
-	border-color: white;
+	border-color: black;
 	border-radius: 10px;
 	-webkit-box-shadow: 1px 1px 8px 2px rgba(50, 50, 50, .75), inset 1px 1px 10px 0px rgba(100, 100, 100, .75);
 	box-shadow: 1px 1px 8px 2px rgba(50, 50, 50, .75),  inset 1px 1px 10px 0px rgba(100, 100, 100, .75);
@@ -140,10 +137,23 @@ body {
 	text-decoration:underline;
 }
 
+.results-container {
+	/**font-family: "Courier New", Courier, monospace;*/
+	margin: 0 15px;
+}
+
 .arrow {
 	margin: 20px 2px 0px 2px;
 	position: relative;
 	float: left;
+}
+
+.dead-end {
+	color: #B32B21;
+    float: left;
+    font-size: 100px;
+    margin-top: -5px;
+    margin-left: 10px;
 }
 
 #log {
@@ -186,4 +196,5 @@ th{
 
 td{
 	padding: 0 10px;
+	vertical-align: middle !important;
 }

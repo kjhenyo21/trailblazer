@@ -35,6 +35,7 @@ class Setup_Preferences extends CI_Controller {
 			);
 			$pref->addPath($info);
 		}
+		$this->searchFiles();
 		unlink('./application/controllers/setup_preferences.php');
 		//header("location: ".$this->config->item('base_url')."audit_trail");
 	}
@@ -50,5 +51,42 @@ class Setup_Preferences extends CI_Controller {
 			//echo "nope";
 			echo "false";
 		}
+	}
+	
+	public function searchFiles() {
+		date_default_timezone_set('Asia/Hong_Kong');
+		$preferences = new preferences_db();
+		$file_handler = new files_db();
+		$paths = $preferences->getDocPaths();
+		foreach ($paths as $p) {
+			if ($this->pathExists($p['path'])) {
+				$directory = $p['path'];
+				
+				//echo $directory;
+				$files = glob($directory.'/*');
+				foreach($files as $file) {
+					if (is_file($file)) {
+						$stat = stat($file);
+						$new_files[] = array(
+							'filename' => basename($file),
+							'path' => dirname($file),
+							'date_created' => date("Y-m-d H:i:s", $stat['ctime']),
+							'date_modified' => date("Y-m-d H:i:s", $stat['mtime']),
+							'date_accessed' => date("Y-m-d H:i:s", $stat['atime']),
+							'size' => $stat['size'],
+							'checksum' => crc32(file_get_contents($file))
+						);
+					}
+					/**echo $file."\r\n";
+					echo basename($file)."\r\n";
+					echo dirname($file)."\r\n";
+					echo date("Y-m-d H:i:s", $stat['ctime'])."\r\n";
+					echo date("Y-m-d H:i:s", $stat['mtime'])."\r\n";
+					echo date("Y-m-d H:i:s", $stat['atime'])."\r\n";*/
+				}
+			}
+		}
+		$file_handler->addAllFiles($new_files);
+		return $files;
 	}
 }

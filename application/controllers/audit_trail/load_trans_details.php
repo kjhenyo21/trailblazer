@@ -19,18 +19,23 @@ class Load_Trans_Details extends CI_Controller {
 		$amt_due = $_GET['amt'];
 		$address = $_GET['address'];
 		$contact = $_GET['contact'];
+		$date = "";
+		$data = false;
+		$error_msg_det = "";
 		$details = $database->getTransactionDetailsByOR($or_no);
-		foreach ($details as $d) {
-			$date = $d[0];
-			$data[] = array(
-				0 => $d[0],
-				1 => $d[1],
-				2 => $d[2],
-				3 => $d[3],
-				4 => $d[4],
-				5 => $d[5]
-			);
-		}
+		if ($details) {
+			foreach ($details as $d) {
+				$date = $d[0];
+				$data[] = array(
+					0 => $d[0],
+					1 => $d[1],
+					2 => $d[2],
+					3 => $d[3],
+					4 => $d[4],
+					5 => $d[5]
+				);
+			}
+		} else $error_msg_det = "No data found.";
 		//echo json_encode($data);
 		$this->mysmarty->assign('or_no', $or_no);
 		$this->mysmarty->assign('date', $date);
@@ -39,6 +44,7 @@ class Load_Trans_Details extends CI_Controller {
 		$this->mysmarty->assign('address', $address);
 		$this->mysmarty->assign('contact', $contact);
 		$this->mysmarty->assign('details', $data);
+		$this->mysmarty->assign('error_msg_det', $error_msg_det);
 		$this->mysmarty->display('audit_trail/trans_details.tpl');
 	}
 	

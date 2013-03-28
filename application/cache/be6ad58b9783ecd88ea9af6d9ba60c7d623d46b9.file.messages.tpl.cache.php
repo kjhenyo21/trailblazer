@@ -1,22 +1,20 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-03-25 00:11:59
+<?php /* Smarty version Smarty-3.1.7, created on 2013-03-27 08:04:35
          compiled from "C:\xampp\htdocs\trailblazer\application/views\messages\messages.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:2663514e5d8141bf08-26569175%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:402551529a0393d2d2-40820855%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'be6ad58b9783ecd88ea9af6d9ba60c7d623d46b9' => 
     array (
       0 => 'C:\\xampp\\htdocs\\trailblazer\\application/views\\messages\\messages.tpl',
-      1 => 1364166176,
+      1 => 1364287009,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '2663514e5d8141bf08-26569175',
+  'nocache_hash' => '402551529a0393d2d2-40820855',
   'function' => 
   array (
   ),
-  'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_514e5d81e54e3',
   'variables' => 
   array (
     'messages' => 0,
@@ -24,8 +22,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'user' => 0,
   ),
   'has_nocache_code' => false,
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_51529a0449f69',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_514e5d81e54e3')) {function content_514e5d81e54e3($_smarty_tpl) {?><?php if (!is_callable('smarty_function_url')) include 'C:\\xampp\\htdocs\\trailblazer\\application\\libraries\\smarty\\plugins\\function.url.php';
+<?php if ($_valid && !is_callable('content_51529a0449f69')) {function content_51529a0449f69($_smarty_tpl) {?><?php if (!is_callable('smarty_function_url')) include 'C:\\xampp\\htdocs\\trailblazer\\application\\libraries\\smarty\\plugins\\function.url.php';
 ?><!--
  * Trailblazer Digital Accounting Audit Trail Program
  * @author Kristian Jacob Abad Lora <kjalora92@yahoo.com>
@@ -172,21 +172,21 @@ $_smarty_tpl->tpl_vars['m']->_loop = true;
 						</tbody>
 					</table>
 				<?php }else{ ?>
-				<table class="table table-striped">
-					<thead>
-						<th style="text-align: center">Ref. #</th>
-						<th style="text-align: center">Name</th>
-						<th style="text-align: center">Contact</th>
-						<th style="text-align: center">Transaction Date</th>
-						<th style="text-align: center">OR #</th>
-						<th style="text-align: center">Amount (Php)</th>
-						<th style="text-align: center">Date Sent</th>
-						<th style="text-align: center">Reply</th>
-						<th style="text-align: center">Date Received</th>
-						<th style="text-align: center">Confirmation Status</th>
-						<th style="text-align: center">Date Confirmed</th>
-						<th></th>
-					</thead>
+					<table class="table table-striped">
+						<thead>
+							<th style="text-align: center">Ref. #</th>
+							<th style="text-align: center">Name</th>
+							<th style="text-align: center">Contact</th>
+							<th style="text-align: center">Transaction Date</th>
+							<th style="text-align: center">OR #</th>
+							<th style="text-align: center">Amount (Php)</th>
+							<th style="text-align: center">Date Sent</th>
+							<th style="text-align: center">Reply</th>
+							<th style="text-align: center">Date Received</th>
+							<th style="text-align: center">Confirmation Status</th>
+							<th style="text-align: center">Date Confirmed</th>
+							<th></th>
+						</thead>
 					</table>
 					<table class="table table-striped">
 						<tbody>

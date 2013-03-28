@@ -1,29 +1,29 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-03-24 22:36:15
+<?php /* Smarty version Smarty-3.1.7, created on 2013-03-27 06:21:37
          compiled from "C:\xampp\htdocs\trailblazer\application/views\audit_trail\index.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:79475146d0854cbc89-58047973%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:13767515281e1ed0ea7-49065407%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '0ec05981f24af0231dcae604535e6ca84eb6960b' => 
     array (
       0 => 'C:\\xampp\\htdocs\\trailblazer\\application/views\\audit_trail\\index.tpl',
-      1 => 1364160973,
+      1 => 1364257712,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '79475146d0854cbc89-58047973',
+  'nocache_hash' => '13767515281e1ed0ea7-49065407',
   'function' => 
   array (
   ),
-  'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_5146d08580496',
   'variables' => 
   array (
     'nonExistentPaths' => 0,
   ),
   'has_nocache_code' => false,
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_515281e22cb10',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5146d08580496')) {function content_5146d08580496($_smarty_tpl) {?><?php if (!is_callable('smarty_function_url')) include 'C:\\xampp\\htdocs\\trailblazer\\application\\libraries\\smarty\\plugins\\function.url.php';
+<?php if ($_valid && !is_callable('content_515281e22cb10')) {function content_515281e22cb10($_smarty_tpl) {?><?php if (!is_callable('smarty_function_url')) include 'C:\\xampp\\htdocs\\trailblazer\\application\\libraries\\smarty\\plugins\\function.url.php';
 ?><!--
  * Trailblazer Digital Accounting Audit Trail Program
  * @author Kristian Jacob Abad Lora <kjalora92@yahoo.com>
@@ -62,10 +62,17 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 								</div>
 							</div>
 							<div class="field-group" id="group-interest">
-								<label class="field-label" for="items">Items of Interest</label>
-								<div class="control">
-									<a class="link" data-original-title="The number of item transactions that you are interested to audit.">
-										<input type="text" class="span1" style="text-align: right" id="items" name="items" value="250" />
+								<label class="field-label" for="items">Items of Interest (Sampling)</label>
+								<div id="control-interest" class="control">
+									<a class="link" data-original-title="The number of item transactions that you are interested to audit; must be greater than zero.">
+										<select style="width: 80px" id="items" name="items" onChange="noOfItemsOnChange(); return false;">
+											<option selected="selected">250</option>
+											<option>200</option>
+											<option>150</option>
+											<option>100</option>
+											<option>50</option>
+											<option>Other</option>
+										</select>
 									</a>
 								</div>
 							</div>
@@ -184,6 +191,17 @@ assets/scripts/bootstrap.min.js" type="text/javascript"></script>
 			}
 			
 			
+			function noOfItemsOnChange() {
+				var noOfItems = $('#items').val();
+				if (noOfItems == "Other") {
+					$('#control-interest').remove();
+					$('#group-interest').append('<div id="control-interest" class="control"><a class="link" data-original-title="The number of item transactions that you are interested to audit; must be greater than zero."><input type="text" class="span1" id="items" name="items"/></a></div>');
+				}
+				$('.link').tooltip({
+					placement: 'right'
+				});
+			}
+				
 			function loadIt() {
 				file = $('#file').val();
 				doc = $('#doc').val();
@@ -228,7 +246,8 @@ audit_trail/index/readFile?file=' + file + '&doc=' + doc + '&items=' + items;
 				$('#file_upload').val('');
 				$('#file').val('');
 				$('#doc').val('');
-				$('#items').val('250');
+				$('#control-interest').remove();
+				$('#group-interest').append('<div id="control-interest" class="control"><a class="link" data-original-title="The number of item transactions that you are interested to audit; must be greater than zero."><select style="width: 80px" id="items" name="items" onChange="noOfItemsOnChange(); return false;"><option selected="selected">250</option><option>200</option><option>150</option>			<option>100</option><option>50</option><option>Other</option></select></a></div>');
 				$('#load').attr("disabled", "disabled");
 				$('#load').removeClass("btn-primary");
 			}

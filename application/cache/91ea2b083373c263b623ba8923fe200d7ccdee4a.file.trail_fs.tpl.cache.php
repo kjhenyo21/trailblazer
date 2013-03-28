@@ -1,22 +1,20 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-03-24 22:38:30
+<?php /* Smarty version Smarty-3.1.7, created on 2013-03-27 06:46:54
          compiled from "C:\xampp\htdocs\trailblazer\application/views\audit_trail\trail_fs.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:2111351486ec38c4a67-69946801%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:13820515287ce641271-12826943%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '91ea2b083373c263b623ba8923fe200d7ccdee4a' => 
     array (
       0 => 'C:\\xampp\\htdocs\\trailblazer\\application/views\\audit_trail\\trail_fs.tpl',
-      1 => 1364161106,
+      1 => 1364317832,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '2111351486ec38c4a67-69946801',
+  'nocache_hash' => '13820515287ce641271-12826943',
   'function' => 
   array (
   ),
-  'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_51486ec447e0e',
   'variables' => 
   array (
     'fr_kind' => 0,
@@ -31,8 +29,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'source' => 0,
   ),
   'has_nocache_code' => false,
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_515287cf02e9f',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_51486ec447e0e')) {function content_51486ec447e0e($_smarty_tpl) {?><?php if (!is_callable('smarty_function_url')) include 'C:\\xampp\\htdocs\\trailblazer\\application\\libraries\\smarty\\plugins\\function.url.php';
+<?php if ($_valid && !is_callable('content_515287cf02e9f')) {function content_515287cf02e9f($_smarty_tpl) {?><?php if (!is_callable('smarty_function_url')) include 'C:\\xampp\\htdocs\\trailblazer\\application\\libraries\\smarty\\plugins\\function.url.php';
 ?><!--
  * Trailblazer Digital Accounting Audit Trail Program
  * @author Kristian Jacob Abad Lora <kjalora92@yahoo.com>
@@ -57,14 +57,14 @@ audit_trail"><i class="icon-home"></i></a>
 			<div style="margin: 0 auto; text-align: center">
 				<h2><?php echo $_smarty_tpl->tpl_vars['fr_kind']->value;?>
 </h2>
-				<div id="date-heading">As of <?php echo $_smarty_tpl->tpl_vars['date']->value;?>
+				<div id="date-heading">For the period of <?php echo $_smarty_tpl->tpl_vars['date']->value;?>
 </div>
 				<div style="margin-bottom: 20px; font-style: italic">In Philippine Peso</div>
 				<table id="table" style="text-align: left; color: black">
 					<thead>
-						<th></th>
-						<th></th>
-						<th></th>
+						<th style="width: 250px"></th>
+						<th style="width: 100px"></th>
+						<th style="width: 100px"></th>
 					</thead>
 					<tbody>
 						<?php $_smarty_tpl->tpl_vars['column'] = new Smarty_variable('', null, 0);?>

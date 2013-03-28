@@ -1,21 +1,26 @@
-<?php /*%%SmartyHeaderCode:19485514e7ec767f865-24683265%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:4305153cbb09b2556-11264324%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '52671c342a0aa506d00ca542f56f42a200c15a58' => 
     array (
       0 => 'C:\\xampp\\htdocs\\trailblazer\\application/views\\profile\\index.tpl',
-      1 => 1364162952,
+      1 => 1364252341,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '19485514e7ec767f865-24683265',
-  'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_514f79caa60ab',
+  'nocache_hash' => '4305153cbb09b2556-11264324',
+  'variables' => 
+  array (
+    'response' => 0,
+    'info' => 0,
+  ),
   'has_nocache_code' => false,
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_5153cbb106ab8',
   'cache_lifetime' => 1,
 ),true); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_514f79caa60ab')) {function content_514f79caa60ab($_smarty_tpl) {?>  <!--
+<?php if ($_valid && !is_callable('content_5153cbb106ab8')) {function content_5153cbb106ab8($_smarty_tpl) {?><!--
  * Trailblazer Digital Accounting Audit Trail Program
  * @author Kristian Jacob Abad Lora <kjalora92@yahoo.com>
  * @date-created October 31, 2012
@@ -102,7 +107,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 								<div class="field-group" id="group-license_no">
 									<label class="field-label" for="license_no">License No.<span class="asterisk">*</span></label>
 									<div class="control">
-										<input type="text" class="span2" id="license_no" name="license_no" value="4763467" placeholder="License Number">
+										<input type="text" class="span2" id="license_no" name="license_no" value="5478547" placeholder="License Number">
 									</div>
 								</div>
 								<div class="field-group" id="group-cname">
@@ -128,13 +133,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 								<div class="field-group">
 									<label class="field-label" for="position">Position</label>
 									<div class="control">
-										<input type="text" id="position" name="position" placeholder="Company" value="kjalora92@yahoo.com" Position">
+										<input type="text" id="position" name="position" placeholder="Company" value="Auditor" Position">
 									</div>
 								</div>
 								<div class="field-group" id="group-uname">
 									<label class="field-label" for="uname">Username<span class="asterisk">*</span></label>
 									<div class="control">
-										<input type="text" class="error" id="uname" name="uname" value="kjhenyo21" placeholder="Username">
+										<input type="text" class="error" id="uname" name="uname" value="admin" placeholder="Username">
 									</div>
 								</div>
 							</td>
@@ -142,14 +147,14 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 								<div class="field-group" id="group-password">
 									<label class="field-label" for="password" style="width: 140px">Password<span class="asterisk">*</span></label>
 									<div class="control">
-										<input type="password" id="password" name="password" value="iluvuJesus" placeholder="Password" disabled="disabled">
+										<input type="password" id="password" name="password" value="admin" placeholder="Password" disabled="disabled">
 									</div>
 									<div id="changePass"><a href="#" style="font-size: 9pt" onClick="changePass(); return false;">Change password</a></div>
 								</div>
 								<div class="field-group" id="group-cpassword" style="display: none">
 									<label class="field-label" for="cpassword" style="width: 140px">Confirm Password<span class="asterisk">*</span></label>
 									<div class="control">
-										<input type="password" id="cpassword" name="cpassword" value="iluvuJesus" placeholder="Confirm Password">
+										<input type="password" id="cpassword" name="cpassword" value="admin" placeholder="Confirm Password">
 									</div>
 								</div>
 							</td>
@@ -235,8 +240,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 			function undo() {
 				$('#changePass').remove();
 				$('#group-password').append('<div id="changePass"><a href="#" style="font-size: 9pt" onClick="changePass(); return false;">Change password</a></div>');
-				$('#password').val('iluvuJesus');
-				$('#cpassword').val('iluvuJesus');
+				$('#password').val('admin');
+				$('#cpassword').val('admin');
 				$('#password').attr("disabled", "disabled");
 				$('#group-cpassword').hide();
 			}
@@ -312,8 +317,15 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 								url: 'profile/index/updateProfile',
 								data:  $("#profile").serialize(),
 								success: function(data){
-									window.location.href="http://localhost/trailblazer/profile?response=Profile has been successfully saved!";
-									$('#password').attr("disabled", "disabled");
+									$.ajax({
+										type: "POST",
+										url: 'http://localhost/trailblazer/login',
+										data: { uname: uname, password: password },
+										success: function() {
+											window.location.href="http://localhost/trailblazer/profile?response=Profile has been successfully saved!";
+											$('#password').attr("disabled", "disabled");
+										}
+									});
 								},
 								error: function(data) {
 									$('#password').attr("disabled", "disabled");

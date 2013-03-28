@@ -1,21 +1,21 @@
-<?php /*%%SmartyHeaderCode:32387514e953def5aa4-24846542%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:73785152c134c9f228-83346293%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '8712921747993caddacec5a6a89f061b904b1eb0' => 
     array (
       0 => 'C:\\xampp\\htdocs\\trailblazer\\application/views\\preferences\\index.tpl',
-      1 => 1364161730,
+      1 => 1364445736,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '32387514e953def5aa4-24846542',
+  'nocache_hash' => '73785152c134c9f228-83346293',
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_514f79d4aac2d',
+  'unifunc' => 'content_5153cbc08cc17',
   'has_nocache_code' => false,
   'cache_lifetime' => 1,
 ),true); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_514f79d4aac2d')) {function content_514f79d4aac2d($_smarty_tpl) {?>  <!--
+<?php if ($_valid && !is_callable('content_5153cbc08cc17')) {function content_5153cbc08cc17($_smarty_tpl) {?>  <!--
  * Trailblazer Digital Accounting Audit Trail Program
  * @author Kristian Jacob Abad Lora <kjalora92@yahoo.com>
  * @date-created October 31, 2012
@@ -28,7 +28,19 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 		<!-- Main -->
 		<div id="main-wrapper-setup">
 			<div id="form-container">
-								<form id="pref" class="form-horizontal">
+									<div id="response" class="alert alert-success" style="margin: 0 auto; text-align:center; width: 280px">
+						<button type="button" class="close" data-dismiss="alert">&times;</button>
+						<i class="icon-thumbs-up"></i> Profile has been successfully saved!
+					</div>
+								<!-- Modal for Saving -->
+				<div id="progressModal" class="modal hide fade" style="margin-top: -50px; margin-left: -150px; width: 30%; height: 60px; padding-top: 10px;">
+					<div class="progress progress-striped active" style="height:30px; width: 90%; margin: 0 auto;">
+						<div id="progressBar" class="bar" style="width:0%;"></div>
+					</div>					
+					<div style="text-align: center">Saving...</div>
+				</div>
+
+				<form id="pref" class="form-horizontal">
 					<h4>Document Locations</h4>
 					<table id="files" class="table table-hover" style="width: 100%">
 						<thead>
@@ -58,7 +70,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 																							<div class="table-column" id="group-path0">
 													<div class="control">
 														<input type="text" class="span4" id="path0" name="path[]" value=
-														"D:\Kristian Lora\My Documents\Lalaine's Bookstore\journals\cash_receipts" placeholder="Paste the full path of the directory here" onfocus="this.value = this.value;" onChange="pathOnChange(this.id); return false;">
+														"D:\Kristian Lora\My Documents\Lalaine's Bookstore\journals\cash_receipts" placeholder="Paste the full path of the directory here" onfocus="this.value = this.value;">
 													</div>
 												</div>
 																					</div>
@@ -100,7 +112,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 																							<div class="table-column" id="group-path1">
 													<div class="control">
 														<input type="text" class="span4" id="path1" name="path[]" value=
-														"D:\Kristian Lora\My Documents\Lalaine's Bookstore\journals\cash_disbursements" placeholder="Paste the full path of the directory here" onfocus="this.value = this.value;" onChange="pathOnChange(this.id); return false;">
+														"D:\Kristian Lora\My Documents\Lalaine's Bookstore\journals\cash_disbursements" placeholder="Paste the full path of the directory here" onfocus="this.value = this.value;">
 													</div>
 												</div>
 																					</div>
@@ -142,7 +154,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 																							<div class="table-column" id="group-path2">
 													<div class="control">
 														<input type="text" class="span4" id="path2" name="path[]" value=
-														"D:\Kristian Lora\My Documents\Lalaine's Bookstore\ledgers\general_ledgers" placeholder="Paste the full path of the directory here" onfocus="this.value = this.value;" onChange="pathOnChange(this.id); return false;">
+														"D:\Kristian Lora\My Documents\Lalaine's Bookstore\ledgers\general_ledgers" placeholder="Paste the full path of the directory here" onfocus="this.value = this.value;">
 													</div>
 												</div>
 																					</div>
@@ -184,7 +196,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 																							<div class="table-column" id="group-path3">
 													<div class="control">
 														<input type="text" class="span4" id="path3" name="path[]" value=
-														"D:\Kristian Lora\My Documents\Lalaine's Bookstore\financial_statements\income_statements" placeholder="Paste the full path of the directory here" onfocus="this.value = this.value;" onChange="pathOnChange(this.id); return false;">
+														"D:\Kristian Lora\My Documents\Lalaine's Bookstore\financial_statements\income_statements" placeholder="Paste the full path of the directory here" onfocus="this.value = this.value;">
 													</div>
 												</div>
 																					</div>
@@ -211,14 +223,14 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 										<td>
 											<div class="table-column" id="group-doc4">
 												<div id="control-doc4" class="control">
-													<input type="text" class="doc4" id="doc4" name="doc[]" style="width: 230px; margin-left:-15px;" placeholder="e.g. Cash Receipts"  value="Balance Sheet"/>
+													<input type="text" class="doc4" id="doc4" name="doc[]" style="width: 230px; margin-left:-15px;" placeholder="e.g. Cash Receipts"  value="Sale Transactions"/>
 												</div>
 											</div>
 										</td>
 										<td>
 											<div class="table-column" id="group-type4">
 												<div class="control">
-													<a class="link" data-original-title="Enter numeric value only: 1=Journals, 2=Ledgers, 3=Financial Statements, 4=Transaction Files, 5=Log Files"><input type="text" class="type4 span2" id="type4" name="type[]" style="width: 155px; float: left; text-align: right" value="3" placeholder="e.g. Journal, Ledger, etc"/></a>
+													<a class="link" data-original-title="Enter numeric value only: 1=Journals, 2=Ledgers, 3=Financial Statements, 4=Transaction Files, 5=Log Files"><input type="text" class="type4 span2" id="type4" name="type[]" style="width: 155px; float: left; text-align: right" value="4" placeholder="e.g. Journal, Ledger, etc"/></a>
 												</div>
 											</div>
 										</td>
@@ -226,7 +238,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 																							<div class="table-column" id="group-path4">
 													<div class="control">
 														<input type="text" class="span4" id="path4" name="path[]" value=
-														"D:\Kristian Lora\My Documents\Lalaine's Bookstore\financial_statements\balance_sheets" placeholder="Paste the full path of the directory here" onfocus="this.value = this.value;" onChange="pathOnChange(this.id); return false;">
+														"D:\Kristian Lora\My Documents\Lalaine's Bookstore\transaction_files\sale_transactions" placeholder="Paste the full path of the directory here" onfocus="this.value = this.value;">
 													</div>
 												</div>
 																					</div>
@@ -234,7 +246,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 											<td>
 												<div class="table-column" id="group-ext4">
 													<div class="control">
-														<input type="text" class="span1" id="ext4" name="ext[]" value="fh" placeholder="ex: txt"/>
+														<input type="text" class="span1" id="ext4" name="ext[]" value="tf" placeholder="ex: txt"/>
 													</div>
 												</div>
 											</td>
@@ -253,7 +265,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 										<td>
 											<div class="table-column" id="group-doc5">
 												<div id="control-doc5" class="control">
-													<input type="text" class="doc5" id="doc5" name="doc[]" style="width: 230px; margin-left:-15px;" placeholder="e.g. Cash Receipts"  value="Sale Transactions"/>
+													<input type="text" class="doc5" id="doc5" name="doc[]" style="width: 230px; margin-left:-15px;" placeholder="e.g. Cash Receipts"  value="Purchase Transactions"/>
 												</div>
 											</div>
 										</td>
@@ -268,7 +280,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 																							<div class="table-column" id="group-path5">
 													<div class="control">
 														<input type="text" class="span4" id="path5" name="path[]" value=
-														"D:\Kristian Lora\My Documents\Lalaine's Bookstore\transaction_files\sale_transactions" placeholder="Paste the full path of the directory here" onfocus="this.value = this.value;" onChange="pathOnChange(this.id); return false;">
+														"D:\Kristian Lora\My Documents\Lalaine's Bookstore\transaction_files\purchase_transactions" placeholder="Paste the full path of the directory here" onfocus="this.value = this.value;">
 													</div>
 												</div>
 																					</div>
@@ -276,7 +288,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 											<td>
 												<div class="table-column" id="group-ext5">
 													<div class="control">
-														<input type="text" class="span1" id="ext5" name="ext[]" value="tf" placeholder="ex: txt"/>
+														<input type="text" class="span1" id="ext5" name="ext[]" value="gf" placeholder="ex: txt"/>
 													</div>
 												</div>
 											</td>
@@ -295,7 +307,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 										<td>
 											<div class="table-column" id="group-doc6">
 												<div id="control-doc6" class="control">
-													<input type="text" class="doc6" id="doc6" name="doc[]" style="width: 230px; margin-left:-15px;" placeholder="e.g. Cash Receipts"  value="Purchase Transactions"/>
+													<input type="text" class="doc6" id="doc6" name="doc[]" style="width: 230px; margin-left:-15px;" placeholder="e.g. Cash Receipts"  value="Expense Transactions"/>
 												</div>
 											</div>
 										</td>
@@ -310,7 +322,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 																							<div class="table-column" id="group-path6">
 													<div class="control">
 														<input type="text" class="span4" id="path6" name="path[]" value=
-														"D:\Kristian Lora\My Documents\Lalaine's Bookstore\transaction_files\purchase_transactions" placeholder="Paste the full path of the directory here" onfocus="this.value = this.value;" onChange="pathOnChange(this.id); return false;">
+														"D:\Kristian Lora\My Documents\Lalaine's Bookstore\transaction_files\expense_transactions" placeholder="Paste the full path of the directory here" onfocus="this.value = this.value;">
 													</div>
 												</div>
 																					</div>
@@ -318,7 +330,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 											<td>
 												<div class="table-column" id="group-ext6">
 													<div class="control">
-														<input type="text" class="span1" id="ext6" name="ext[]" value="gf" placeholder="ex: txt"/>
+														<input type="text" class="span1" id="ext6" name="ext[]" value="tf" placeholder="ex: txt"/>
 													</div>
 												</div>
 											</td>
@@ -333,48 +345,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 												</div>
 											</td>
 										</tr>
-																										<tr id="row7">
-										<td>
-											<div class="table-column" id="group-doc7">
-												<div id="control-doc7" class="control">
-													<input type="text" class="doc7" id="doc7" name="doc[]" style="width: 230px; margin-left:-15px;" placeholder="e.g. Cash Receipts"  value="Expense Transactions"/>
-												</div>
-											</div>
-										</td>
-										<td>
-											<div class="table-column" id="group-type7">
-												<div class="control">
-													<a class="link" data-original-title="Enter numeric value only: 1=Journals, 2=Ledgers, 3=Financial Statements, 4=Transaction Files, 5=Log Files"><input type="text" class="type7 span2" id="type7" name="type[]" style="width: 155px; float: left; text-align: right" value="4" placeholder="e.g. Journal, Ledger, etc"/></a>
-												</div>
-											</div>
-										</td>
-										<td>
-																							<div class="table-column" id="group-path7">
-													<div class="control">
-														<input type="text" class="span4" id="path7" name="path[]" value=
-														"D:\Kristian Lora\My Documents\Lalaine's Bookstore\transaction_files\expense_transactions" placeholder="Paste the full path of the directory here" onfocus="this.value = this.value;" onChange="pathOnChange(this.id); return false;">
-													</div>
-												</div>
-																					</div>
-										</td>
-											<td>
-												<div class="table-column" id="group-ext7">
-													<div class="control">
-														<input type="text" class="span1" id="ext7" name="ext[]" value="tf" placeholder="ex: txt"/>
-													</div>
-												</div>
-											</td>
-											<td>
-												<div class="table-column"></div>
-											</td>
-											<td>
-												<div class="table-column">
-													<div class="control"><a href="#" data-toggle="modal">
-														<i class="icon-remove" id="remove7" style="color: red;" onClick="removeRow(this.id, 8)"></i></a>
-													</div>
-												</div>
-											</td>
-										</tr>
 																														</tbody>
 					</table>
 					<a href="#" onclick="addMoreDocument(); return false;">Add Document</a>
@@ -382,7 +352,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 					<div style="font-style: italic; font-size: 8pt; color: red; margin-bottom: 20px">* - required fields</div>
 					<div class="field-group" style="margin-bottom: 0px; text-align: center">
 						<div class="control">
-							<a id="submit" class="btn" disabled="disabled">Save changes</a>
+							<a id="submit" class="btn btn-primary">Save changes</a>
 							<a href="http://localhost/trailblazer/" type="button" id="back" class="btn">Back</a>
 						</div>
 					</div>
@@ -409,8 +379,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 			var password = $('#password').val();
 			var cpassword = $('#cpassword').val();
 			var form = $('#setup');
-			var rowNo = 8;
+			var rowNo = 7;
 			var rows = 0;
+			
 			
 			/**function performClick(node) {
 			   node.click();
@@ -487,12 +458,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 				}
 			}
 			
-			function pathOnChange(id) {
+			/**function pathOnChange(id) {
 				val = $('#'+id).val();
 				console.log(id);
 				if (val != '') {
 					$('#submit').removeAttr("disabled");
 					$('#submit').addClass("btn-primary");
+					$('#' + id).addClass("error");
 					var js = "submitIt(); return false;";
 					var open = "(function(){";
 					var close = "});";
@@ -516,11 +488,12 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 						} else {
 							$('#notify-' + id).remove();
 							$('#group-' + id).addClass("error");
+							$('#' + id).addClass("error");
 							$('#group-' + id).append('<div id="notify-' + id + '" style="color: red; font-size: 9pt; font-style: italic; text-align: left; margin-left:15px">Path does not exist!</div>');
 						}
 					}
 				});
-			}
+			}*/
 			
 			function extOnChange(id) {
 				val = $('#'+id).val();
@@ -539,23 +512,21 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 			}
 			
 			
-															//$('#doc0').combobox();
+			//			//			//						//$('#doc0').combobox();
 					//$('#type0').combobox();
-														//$('#doc1').combobox();
+			//											//$('#doc1').combobox();
 					//$('#type1').combobox();
-														//$('#doc2').combobox();
+			//											//$('#doc2').combobox();
 					//$('#type2').combobox();
-														//$('#doc3').combobox();
+			//											//$('#doc3').combobox();
 					//$('#type3').combobox();
-														//$('#doc4').combobox();
+			//											//$('#doc4').combobox();
 					//$('#type4').combobox();
-														//$('#doc5').combobox();
+			//											//$('#doc5').combobox();
 					//$('#type5').combobox();
-														//$('#doc6').combobox();
+			//											//$('#doc6').combobox();
 					//$('#type6').combobox();
-														//$('#doc7').combobox();
-					//$('#type7').combobox();
-															
+			//												
 			function removeRow(row, id) {
 				no = row.substring(6);
 				console.log(no);
@@ -570,6 +541,14 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 			function submitIt() {
 				error = 0;
 				doc_id = 0;
+				accomp = 0;
+				pathsWithErrors = new Array();
+				pathsWithNoErrors = new Array();
+				
+				$('#progressModal').removeClass('hide');
+				$('#progressModal').addClass('in');
+				$('body').append("<div id='backdrop' class='modal-backdrop fade in'></div>");
+				
 				$('input[name="doc[]"]').each(function() {
 					if ($(this).val() == '') {
 						$('#notify-doc' + doc_id).remove();
@@ -599,21 +578,59 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 				
 				$('input[name="path[]"]').each(function() {
 					id = $(this).attr('id');
-					if ($(this).hasClass('error'))
+					if ($(this).val() == '') {
+						$('#notify-' + id).remove();
+						$(this).parent().parent().addClass("error");
+						$(this).parent().parent().append('<div id="notify-' + id + '" style="color: red; font-size: 9pt; font-style: italic; text-align: left; margin-left:15px">Must not be empty!</div>');
 						error++;
-					else {
-						if ($(this).val() == '') {
-							$('#notify-' + id).remove();
-							$(this).parent().parent().addClass("error");
-							$(this).parent().parent().append('<div id="notify-' + id + '" style="color: red; font-size: 9pt; font-style: italic; text-align: left; margin-left:15px">Must not be empty!</div>');
-							error++;
-						} else {
-							$(this).parent().parent().removeClass("error");
-							$('#notify-' + id).remove();
-						}
-					}
-					
+					} else {
+						$.ajax({
+							type: "POST",
+							url: 'preferences/index/doesPathExist?path=' + $(this).val(),
+							dataType: 'text',
+							async: false,
+							success: function(data){
+								console.log(data);
+								accomp++;
+								percentage = (accomp/rowNo)*100;
+								console.log(accomp + '/' + rowNo);
+								document.getElementById('progressBar').style.width = percentage+'%';
+								if (data == "true") {
+									pathsWithNoErrors.push(id);
+									//$(this).parent().parent().removeClass("error");
+									//$('#notify-' + id).remove();
+								} else {
+									error++;									
+									pathsWithErrors.push(id);
+									//console.log(id);
+									//$('#notify-' + id).remove();
+									//$(this).parent().parent().addClass("error");
+									//$('#' + id).addClass("error");
+									//$(this).parent().parent().append('<div id="notify-' + id + '" style="color: red; font-size: 9pt; font-style: italic; text-align: left; margin-left:15px">Must not be empty!</div>');
+								}
+								
+							}
+						});						
+					}					
 				});
+				
+				var length = pathsWithErrors.length;
+				for (var i = 0; i < length; i++) {
+					console.log(pathsWithErrors[i]);
+					$('#notify-' + pathsWithErrors[i]).remove();
+					$('#group-' + pathsWithErrors[i]).addClass("error");
+					$('#' + pathsWithErrors[i]).addClass("error");
+					$('#group-' + pathsWithErrors[i]).append('<div id="notify-' + pathsWithErrors[i] + '" style="color: red; font-size: 9pt; font-style: italic; text-align: left; margin-left:15px">Path does not exist!</div>');
+				}
+				pathsWithErrors = [];
+				
+				var length1 = pathsWithNoErrors.length;
+				for (var j = 0; j < length1; j++) {
+					$('#group-' + pathsWithNoErrors[j]).removeClass("error");
+					$('#notify-' + pathsWithNoErrors[j]).remove();
+				}
+				pathsWithNoErrors = [];
+				
 				$('input[name="ext[]"]').each(function() {
 					id = $(this).attr('id');
 					if ($(this).val() == '') {
@@ -626,15 +643,17 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 						$('#notify-' + id).remove();
 					}
 				});
+				
 				console.log("ERRORS: " + error);
 				if (error == 0) {
 					$.ajax({
 						type: "POST",
 						url: 'preferences/index/updatePreferences',
-						data: $("#pref").serialize(),				
+						data: $("#pref").serialize(),
+						async: false,
 						success: function(data){
 							$('#response-validation').remove();
-							$('#pref').prepend('<div id="response" class="alert alert-success" style="margin: 0 auto; text-align:center; width: 280px"><button type="button" class="close" data-dismiss="alert">&times;</button><i class="icon-thumbs-up"></i> </div>');
+							$('#pref').prepend('<div id="response" class="alert alert-success" style="margin: 0 auto; text-align:center; width: 280px"><button type="button" class="close" data-dismiss="alert">&times;</button><i class="icon-thumbs-up"></i> Profile has been successfully saved!</div>');
 							window.location.href="http://localhost/trailblazer/preferences?response=Profile has been successfully saved!";
 						},
 						error: function(data) {
@@ -648,6 +667,12 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 				} else {
 					$('#response').remove();
 					$('#response-validation').remove();
+					setTimeout(function(){
+						$('#progressModal').addClass('hide');
+						$('#progressModal').removeClass('in');
+						$('#backdrop').remove();
+						document.getElementById('progressBar').style.width = '0%';
+					}, 2000);
 					$('#pref').prepend('<div id="response-validation" class="alert alert-error" style="margin: 0 auto; text-align:center; width: 280px"><button type="button" class="close" data-dismiss="alert">&times;</button><i class="icon-thumbs-down"></i> Cannot save while there are errors.</div>');
 					$("html, body").animate({ scrollTop: 0 }, "slow");
 				}

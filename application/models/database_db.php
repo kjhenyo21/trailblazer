@@ -16,6 +16,7 @@ class Database_DB extends CI_Model {
 	}
 	
 	function createTransactionsTable($columns) {
+		$query = "DROP TABLE `transactions`";
 		$query_string = "CREATE TABLE `transactions` (";
 		foreach($columns as $c) {
 			$query_string .= "`".trim($c)."` varchar(255),";
@@ -24,10 +25,12 @@ class Database_DB extends CI_Model {
 		$query_string .= ") ENGINE = InnoDB DEFAULT CHARSET = latin1;";
 		//echo $query_string;
 		
+		$this->db->query($query);
 		$this->db->query($query_string);
 	}
 
 	function createTransactionDetailsTable($columns) {
+		$query = "DROP TABLE `transaction_details`";
 		$query_string = "CREATE TABLE `transaction_details` (";
 		foreach($columns as $c) {
 			$query_string .= "`".trim($c)."` varchar(255),";
@@ -36,6 +39,7 @@ class Database_DB extends CI_Model {
 		$query_string .= ") ENGINE = InnoDB DEFAULT CHARSET = latin1;";
 		//echo $query_string;
 		
+		$this->db->query($query);
 		$this->db->query($query_string);
 	}
 	
@@ -109,7 +113,7 @@ class Database_DB extends CI_Model {
 		$sampleSize = $items_of_interest / $percentageOfDeductions;
 		$sampleSize = round($sampleSize);
 		
-		$query = $this->db->query("SELECT Date as date, `OR No` as or_no, `Amount Due` as amt_due, `VAT Amount` as vat_amt, `Customer Name` as cust_name, `Customer Address` as cust_address, `Customer Contact` as cust_contact
+		$query = $this->db->query("SELECT Date as date, `OR No` as or_no, `Amount Due` as amt_due, `Name` as name, `Address` as address, `Contact` as contact
 									FROM transactions
 									ORDER BY RAND()
 									LIMIT $sampleSize");
@@ -119,21 +123,96 @@ class Database_DB extends CI_Model {
 					0 => $row->date,
 					1 => $row->or_no,
 					2 => $row->amt_due,
-					3 => $row->vat_amt,
-					4 => $row->cust_name,
-					5 => $row->cust_address,
-					6 => $row->cust_contact
+					3 => $row->name,
+					4 => $row->address,
+					5 => $row->contact
+				);
+			}
+			return $items;
+		} else return false;		
+	}
+	
+	function getSamplesWithRange($sizeOfTrans, $info, $from, $to) {
+		$totalAmountDue = 0;
+		$totalTaxableAmount = 0;
+		$auditedDeductions = 0;
+		$percentageOfDeductions = 0;
+		$items_of_interest = $this->session->userdata('items_of_interest');
+		$sampleSize = 0;
+		
+		foreach ($info as $i) {
+			$totalAmountDue += $i[2];
+			$totalTaxableAmount += $i[3];
+		}
+		
+		$auditedDeductions = $totalAmountDue - $totalTaxableAmount;
+		$percentageOfDeductions = $auditedDeductions / $totalAmountDue;
+		$sampleSize = $items_of_interest / $percentageOfDeductions;
+		$sampleSize = round($sampleSize);
+		
+		$query = $this->db->query("SELECT Date as date, `OR No` as or_no, `Amount Due` as amt_due, `Name` as name, `Address` as address, `Contact` as contact
+									FROM transactions
+									WHERE `OR No` BETWEEN $from and $to
+									ORDER BY RAND()
+									LIMIT $sampleSize");
+		if ($query->result()) {
+			foreach ($query->result() as $row) {
+				$items[] = array(
+					0 => $row->date,
+					1 => $row->or_no,
+					2 => $row->amt_due,
+					3 => $row->name,
+					4 => $row->address,
+					5 => $row->contact
 				);
 			}
 			return $items;
 		} else return false;		
 	}
 
+	function getTransactionsWithRange($sizeOfTrans, $info, $from, $to) {
+		$totalAmountDue = 0;
+		$totalTaxableAmount = 0;
+		$auditedDeductions = 0;
+		$percentageOfDeductions = 0;
+		$items_of_interest = $this->session->userdata('items_of_interest');
+		$sampleSize = 0;
+		
+		foreach ($info as $i) {
+			$totalAmountDue += $i[2];
+			$totalTaxableAmount += $i[3];
+		}
+		
+		$auditedDeductions = $totalAmountDue - $totalTaxableAmount;
+		$percentageOfDeductions = $auditedDeductions / $totalAmountDue;
+		$sampleSize = $items_of_interest / $percentageOfDeductions;
+		$sampleSize = round($sampleSize);
+		
+		$query = $this->db->query("SELECT Date as date, `OR No` as or_no, `Amount Due` as amt_due, `Name` as name, `Address` as address, `Contact` as contact
+									FROM transactions
+									WHERE `OR No` BETWEEN $from and $to
+									ORDER BY RAND()");
+		if ($query->result()) {
+			foreach ($query->result() as $row) {
+				$items[] = array(
+					0 => $row->date,
+					1 => $row->or_no,
+					2 => $row->amt_due,
+					3 => $row->name,
+					4 => $row->address,
+					5 => $row->contact
+				);
+			}
+			return $items;
+		} else return false;		
+	}
+	
 	function getTransactionDetailsByOR($or_no) {
 		$query = $this->db->query("SELECT Date as date, `OR No` as or_no, `Item` as item, `Quantity` as qty, `Unit Price` as price, `Amount` as amt
 									FROM transaction_details
-									WHERE `OR No` = $or_no");
+									WHERE `OR No` = '$or_no'");
 		if ($query->result()) {
+			//echo "hey";
 			foreach ($query->result() as $row) {
 				$items[] = array(
 					0 => $row->date,
@@ -148,8 +227,46 @@ class Database_DB extends CI_Model {
 		} else return false;
 	}
 
+	function getTransactionByDesc($or_no) {
+		$query = $this->db->query("SELECT Date as date, `OR No` as or_no, `Amount Due` as amt_due, `Name` as name, `Address` as address, `Contact` as contact
+									FROM transactions
+									WHERE `OR No` = '$or_no'");
+		if ($query->result()) {
+			foreach ($query->result() as $row) {
+				$items[] = array(
+					0 => $row->date,
+					1 => $row->or_no,
+					2 => $row->amt_due,
+					3 => $row->name,
+					4 => $row->address,
+					5 => $row->contact
+				);
+			}
+			return $items;
+		} else return false;
+	}
+	
+	function getTransactionViaOR($or_no) {
+		$query = $this->db->query("SELECT Date as date, `OR No` as or_no, `Amount Due` as amt_due, `Name` as name, `Address` as address, `Contact` as contact
+									FROM transactions
+									WHERE `OR No` = $or_no");
+		if ($query->result()) {
+			foreach ($query->result() as $row) {
+				$items[] = array(
+					0 => $row->date,
+					1 => $row->or_no,
+					2 => $row->amt_due,
+					3 => $row->name,
+					4 => $row->address,
+					5 => $row->contact
+				);
+			}
+			return $items;
+		} else return false;
+	}	
+	
 	function getTransactionByOR($or_no) {
-		$query = $this->db->query("SELECT Date as date, `OR No` as or_no, `Amount Due` as amt, `Customer Name` as name, `Customer Address` as address, `Customer Contact` as contact
+		$query = $this->db->query("SELECT Date as date, `OR No` as or_no, `Amount Due` as amt, `Name` as name, `Address` as address, `Contact` as contact
 									FROM transactions
 									WHERE `OR No` = $or_no");
 		if ($query->result()) {

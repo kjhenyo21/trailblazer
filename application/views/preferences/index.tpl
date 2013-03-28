@@ -17,6 +17,14 @@
 						<i class="icon-thumbs-up"></i> {$response}
 					</div>
 				{/if}
+				<!-- Modal for Saving -->
+				<div id="progressModal" class="modal hide fade" style="margin-top: -50px; margin-left: -150px; width: 30%; height: 60px; padding-top: 10px;">
+					<div class="progress progress-striped active" style="height:30px; width: 90%; margin: 0 auto;">
+						<div id="progressBar" class="bar" style="width:0%;"></div>
+					</div>					
+					<div style="text-align: center">Saving...</div>
+				</div>
+
 				<form id="pref" class="form-horizontal">
 					<h4>Document Locations</h4>
 					<table id="files" class="table table-hover" style="width: 100%">
@@ -58,14 +66,14 @@
 													<div class="table-column error" id="group-path{$rowNo}">
 														<div class="control">
 															<input type="text" class="span4" id="path{$rowNo}" name="path[]" value=
-															"{$p['path']}" placeholder="Paste the full path of the directory here" onfocus="this.value = this.value;" onChange="pathOnChange(this.id); return false;">
+															"{$p['path']}" placeholder="Paste the full path of the directory here" onfocus="this.value = this.value;" >
 														</div>
 													</div>
 												{else}
 													<div class="table-column" id="group-path{$rowNo}">
 														<div class="control">
 															<input type="text" class="span4" id="path{$rowNo}" name="path[]" value=
-															"{$p['path']}" placeholder="Paste the full path of the directory here" onfocus="this.value = this.value;" onChange="pathOnChange(this.id); return false;">
+															"{$p['path']}" placeholder="Paste the full path of the directory here" onfocus="this.value = this.value;">
 														</div>
 													</div>
 												{/if}
@@ -73,7 +81,7 @@
 												<div class="table-column" id="group-path{$rowNo}">
 													<div class="control">
 														<input type="text" class="span4" id="path{$rowNo}" name="path[]" value=
-														"{$p['path']}" placeholder="Paste the full path of the directory here" onfocus="this.value = this.value;" onChange="pathOnChange(this.id); return false;">
+														"{$p['path']}" placeholder="Paste the full path of the directory here" onfocus="this.value = this.value;">
 													</div>
 												</div>
 											{/if}
@@ -107,7 +115,7 @@
 					<div style="font-style: italic; font-size: 8pt; color: red; margin-bottom: 20px">* - required fields</div>
 					<div class="field-group" style="margin-bottom: 0px; text-align: center">
 						<div class="control">
-							<a id="submit" class="btn" disabled="disabled">Save changes</a>
+							<a id="submit" class="btn btn-primary">Save changes</a>
 							<a href="{url}" type="button" id="back" class="btn">Back</a>
 						</div>
 					</div>
@@ -136,6 +144,7 @@
 			var form = $('#setup');
 			var rowNo = {$rowNo};
 			var rows = 0;
+			
 			
 			/**function performClick(node) {
 			   node.click();
@@ -212,12 +221,13 @@
 				}
 			}
 			
-			function pathOnChange(id) {
+			/**function pathOnChange(id) {
 				val = $('#'+id).val();
 				console.log(id);
 				if (val != '') {
 					$('#submit').removeAttr("disabled");
 					$('#submit').addClass("btn-primary");
+					$('#' + id).addClass("error");
 					var js = "submitIt(); return false;";
 					var open = "(function(){";
 					var close = "});";
@@ -241,11 +251,12 @@
 						} else {
 							$('#notify-' + id).remove();
 							$('#group-' + id).addClass("error");
+							$('#' + id).addClass("error");
 							$('#group-' + id).append('<div id="notify-' + id + '" style="color: red; font-size: 9pt; font-style: italic; text-align: left; margin-left:15px">Path does not exist!</div>');
 						}
 					}
 				});
-			}
+			}*/
 			
 			function extOnChange(id) {
 				val = $('#'+id).val();
@@ -264,12 +275,12 @@
 			}
 			{/literal}
 			
-			{if ($paths)}
-			{$rowNo = 0}
-				{foreach $paths as $p}
+			//{if ($paths)}
+			//{$rowNo = 0}
+			//	{foreach $paths as $p}
 					//$('#doc{$rowNo}').combobox();
 					//$('#type{$rowNo}').combobox();
-					{$rowNo = $rowNo + 1}
+			//		{$rowNo = $rowNo + 1}
 				{/foreach}
 			{/if}
 			
@@ -287,6 +298,14 @@
 			function submitIt() {
 				error = 0;
 				doc_id = 0;
+				accomp = 0;
+				pathsWithErrors = new Array();
+				pathsWithNoErrors = new Array();
+				
+				$('#progressModal').removeClass('hide');
+				$('#progressModal').addClass('in');
+				$('body').append("<div id='backdrop' class='modal-backdrop fade in'></div>");
+				
 				$('input[name="doc[]"]').each(function() {
 					if ($(this).val() == '') {
 						$('#notify-doc' + doc_id).remove();
@@ -316,21 +335,59 @@
 				
 				$('input[name="path[]"]').each(function() {
 					id = $(this).attr('id');
-					if ($(this).hasClass('error'))
+					if ($(this).val() == '') {
+						$('#notify-' + id).remove();
+						$(this).parent().parent().addClass("error");
+						$(this).parent().parent().append('<div id="notify-' + id + '" style="color: red; font-size: 9pt; font-style: italic; text-align: left; margin-left:15px">Must not be empty!</div>');
 						error++;
-					else {
-						if ($(this).val() == '') {
-							$('#notify-' + id).remove();
-							$(this).parent().parent().addClass("error");
-							$(this).parent().parent().append('<div id="notify-' + id + '" style="color: red; font-size: 9pt; font-style: italic; text-align: left; margin-left:15px">Must not be empty!</div>');
-							error++;
-						} else {
-							$(this).parent().parent().removeClass("error");
-							$('#notify-' + id).remove();
-						}
-					}
-					
+					} else {
+						$.ajax({
+							type: "POST",
+							url: 'preferences/index/doesPathExist?path=' + $(this).val(),
+							dataType: 'text',
+							async: false,
+							success: function(data){
+								console.log(data);
+								accomp++;
+								percentage = (accomp/rowNo)*100;
+								console.log(accomp + '/' + rowNo);
+								document.getElementById('progressBar').style.width = percentage+'%';
+								if (data == "true") {
+									pathsWithNoErrors.push(id);
+									//$(this).parent().parent().removeClass("error");
+									//$('#notify-' + id).remove();
+								} else {
+									error++;									
+									pathsWithErrors.push(id);
+									//console.log(id);
+									//$('#notify-' + id).remove();
+									//$(this).parent().parent().addClass("error");
+									//$('#' + id).addClass("error");
+									//$(this).parent().parent().append('<div id="notify-' + id + '" style="color: red; font-size: 9pt; font-style: italic; text-align: left; margin-left:15px">Must not be empty!</div>');
+								}
+								
+							}
+						});						
+					}					
 				});
+				
+				var length = pathsWithErrors.length;
+				for (var i = 0; i < length; i++) {
+					console.log(pathsWithErrors[i]);
+					$('#notify-' + pathsWithErrors[i]).remove();
+					$('#group-' + pathsWithErrors[i]).addClass("error");
+					$('#' + pathsWithErrors[i]).addClass("error");
+					$('#group-' + pathsWithErrors[i]).append('<div id="notify-' + pathsWithErrors[i] + '" style="color: red; font-size: 9pt; font-style: italic; text-align: left; margin-left:15px">Path does not exist!</div>');
+				}
+				pathsWithErrors = [];
+				
+				var length1 = pathsWithNoErrors.length;
+				for (var j = 0; j < length1; j++) {
+					$('#group-' + pathsWithNoErrors[j]).removeClass("error");
+					$('#notify-' + pathsWithNoErrors[j]).remove();
+				}
+				pathsWithNoErrors = [];
+				
 				$('input[name="ext[]"]').each(function() {
 					id = $(this).attr('id');
 					if ($(this).val() == '') {
@@ -343,12 +400,14 @@
 						$('#notify-' + id).remove();
 					}
 				});
+				
 				console.log("ERRORS: " + error);
 				if (error == 0) {
 					$.ajax({
 						type: "POST",
 						url: 'preferences/index/updatePreferences',
-						data: $("#pref").serialize(),				
+						data: $("#pref").serialize(),
+						async: false,
 						success: function(data){
 							$('#response-validation').remove();
 							$('#pref').prepend('<div id="response" class="alert alert-success" style="margin: 0 auto; text-align:center; width: 280px"><button type="button" class="close" data-dismiss="alert">&times;</button><i class="icon-thumbs-up"></i> {$response}</div>');
@@ -365,6 +424,12 @@
 				} else {
 					$('#response').remove();
 					$('#response-validation').remove();
+					setTimeout(function(){
+						$('#progressModal').addClass('hide');
+						$('#progressModal').removeClass('in');
+						$('#backdrop').remove();
+						document.getElementById('progressBar').style.width = '0%';
+					}, 2000);
 					$('#pref').prepend('<div id="response-validation" class="alert alert-error" style="margin: 0 auto; text-align:center; width: 280px"><button type="button" class="close" data-dismiss="alert">&times;</button><i class="icon-thumbs-down"></i> Cannot save while there are errors.</div>');
 					$("html, body").animate({ scrollTop: 0 }, "slow");
 				}

@@ -1,6 +1,6 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-03-25 00:05:15
+<?php /* Smarty version Smarty-3.1.7, created on 2013-03-27 07:30:55
          compiled from "C:\xampp\htdocs\trailblazer\application/views\audit_trail\message.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:23425514bbe8b4ee512-63566459%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:325335152921f5eb205-01938401%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
@@ -11,13 +11,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '23425514bbe8b4ee512-63566459',
+  'nocache_hash' => '325335152921f5eb205-01938401',
   'function' => 
   array (
   ),
-  'cache_lifetime' => 1,
-  'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_514bbe8b7a2df',
   'variables' => 
   array (
     'messages' => 0,
@@ -28,8 +25,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'user' => 0,
   ),
   'has_nocache_code' => false,
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_5152921fa8c3f',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_514bbe8b7a2df')) {function content_514bbe8b7a2df($_smarty_tpl) {?><?php if (!is_callable('smarty_function_url')) include 'C:\\xampp\\htdocs\\trailblazer\\application\\libraries\\smarty\\plugins\\function.url.php';
+<?php if ($_valid && !is_callable('content_5152921fa8c3f')) {function content_5152921fa8c3f($_smarty_tpl) {?><?php if (!is_callable('smarty_function_url')) include 'C:\\xampp\\htdocs\\trailblazer\\application\\libraries\\smarty\\plugins\\function.url.php';
 ?><!--
  * Trailblazer Digital Accounting Audit Trail Program
  * @author Kristian Jacob Abad Lora <kjalora92@yahoo.com>

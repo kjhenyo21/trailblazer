@@ -1,22 +1,22 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-03-24 18:55:14
+<?php /* Smarty version Smarty-3.1.7, created on 2013-03-28 06:08:59
          compiled from "C:\xampp\htdocs\trailblazer\application/views\file_directory\index.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:1091514f34fd7837b0-32946381%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:1788515281c9a63d97-79340784%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '75a1d959ae31da472963e769a34495660771f9b8' => 
     array (
       0 => 'C:\\xampp\\htdocs\\trailblazer\\application/views\\file_directory\\index.tpl',
-      1 => 1364147712,
+      1 => 1364447336,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '1091514f34fd7837b0-32946381',
+  'nocache_hash' => '1788515281c9a63d97-79340784',
   'function' => 
   array (
   ),
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_514f34fdc54a3',
+  'unifunc' => 'content_515281ca0a35d',
   'variables' => 
   array (
     'nonExistentPaths' => 0,
@@ -28,9 +28,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_514f34fdc54a3')) {function content_514f34fdc54a3($_smarty_tpl) {?><?php if (!is_callable('smarty_function_url')) include 'C:\\xampp\\htdocs\\trailblazer\\application\\libraries\\smarty\\plugins\\function.url.php';
+<?php if ($_valid && !is_callable('content_515281ca0a35d')) {function content_515281ca0a35d($_smarty_tpl) {?><?php if (!is_callable('smarty_function_url')) include 'C:\\xampp\\htdocs\\trailblazer\\application\\libraries\\smarty\\plugins\\function.url.php';
 ?><!--
- * WADWE Computerized AIS
+ * Trailblazer Digital Accounting Audit Trail Program
  * @author Kristian Jacob Abad Lora <kjalora92@yahoo.com>
  * @date-created October 31, 2012
 -->
@@ -79,11 +79,12 @@ $_smarty_tpl->tpl_vars['mf']->_loop = true;
 "><?php echo $_smarty_tpl->tpl_vars['mf']->value['filename'];?>
    on   <?php echo $_smarty_tpl->tpl_vars['mf']->value['date_modified'];?>
 </span><br><?php } ?></pre>
-					<p>Do you want to update the system on these files now? You can always update the system via Preferences.</p>
+					<p>Do you want to update the system on these files now? This dialog will keep on popping up every time you reload this page to consistently remind you.</p>
 				</div>
 				<div class="modal-footer">
 					<div style="margin: 0 auto">
 						<a class="btn btn-primary" type="button" id="update" onClick="updateSystem(); return false;">OK, I'll update now</a>
+						<a class="btn btn-primary" type="button" id="update" onClick="restoreFile(); return false;">No, I'll restore the file</a>
 						<button class="btn" data-dismiss="modal" id="closeNotif" onClick="closeNotifMod(); return false;">I'll update later</button>
 					</div>
 				</div>
@@ -205,6 +206,20 @@ assets/scripts/bootstrap.min.js" type="text/javascript"></script>
 					data: $("#pref").serialize(),				
 					success: function(data){
 						alert("Update succesfull!");
+						closeNotifMod();
+					},
+					error: function(data) {
+						alert("Update unsuccesfull!");
+					}
+				});
+			}
+			
+			function restoreFile() {
+				$.ajax({
+					type: "POST",
+					url: 'file_directory/index/restoreFiles',			
+					success: function(data){
+						alert("File(s) has/have been successfuly restored!");
 						closeNotifMod();
 					},
 					error: function(data) {

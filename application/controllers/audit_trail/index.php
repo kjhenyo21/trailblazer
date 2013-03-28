@@ -28,66 +28,91 @@ class Index extends CI_Controller {
 	}
 	
 	public function readFile() {
-		$files = new files_db();
-		$filename = $_GET['file'];
-		//$filename = $this->input->post('file');
-		$doc = $_GET['doc'];
-		//$doc = $this->input->post('doc');
-		$items = $_GET['items'];
-		//$items = $this->input->post('items');
-		$error_msg = false;
-		$path = $files->getFilePath($filename);
-		$full_path = $path."\\".$filename;
-		if($path) {
-			//echo $full_path;
-		} else $error_msg = "No results to display. Either file is not found or no results at all.";
-		
-		$temp = explode("-", $filename);
-		$month_in_num = $temp[1];
-		$month = date("F", mktime(0, 0, 0, $temp[1], 10));
-		$year = substr($temp[2], 0, strpos($temp[2], "."));
-		$date = $month." ".$year;
-		
-		$lines = file($full_path);
-		/**foreach ($lines as $line_num => $line) {
-			echo "Line #<b>{$line_num}</b> : " . htmlspecialchars($line) . "<br />\n";
-		}*/
-		if ($doc == "Income Statement") {
-			foreach ($lines as $line) {
-				$temp = explode(",", $line);
-				$size = sizeOf($temp);
-				if ($size > 1) {
-					$info[] = array(
-						'account' => trim($temp[0]),
-						'amount' => trim($temp[1])
-					);
-				} else {
-					$info[] = array(
-						'account' => trim($temp[0]),
-						'amount' => ""
-					);
-				}
+		if ($this->session->userdata('status') != 'authorizedUser') {
+			header("location:".$this->config->item('base_url')."index.php?status=unauthorizedAccess");
+		} else {
+			$files = new files_db();
+			//Chrome automatically replaces path with C:\fakepath
+			$init_filename = $_GET['file'];
+			if (strpos($init_filename, "C:\\fakepath\\") === false)
+				$filename = $init_filename;
+			else {
+				$filename = str_replace("C:\\fakepath\\", "", $init_filename);
 			}
+			//$filename = $this->input->post('file');
+			$doc = $_GET['doc'];
+			//$doc = $this->input->post('doc');
+			$items = $_GET['items'];
+			//$items = $this->input->post('items');
+			$error_msg = false;
+			$expected_columns = 2;
+			$path = $files->getFilePath($filename);
+			$full_path = $path."\\".$filename;
+			$temp = explode("-", $filename);
+			$month_in_num = $temp[1];
+			$month = date("F", mktime(0, 0, 0, $temp[1], 10));
+			$year = substr($temp[2], 0, strpos($temp[2], "."));
+			$date = $month." ".$year;
+			$info = "";
+			$protocol = strpos(strtolower($_SERVER['SERVER_PROTOCOL']),'https') === FALSE ? 'http' : 'https';
+			$host = $_SERVER['HTTP_HOST'];
+			$script = $_SERVER['SCRIPT_NAME'];
+			$uri = $_SERVER["REQUEST_URI"];
+			$params = $_SERVER['QUERY_STRING'];
+			 
+			$firstPageURL = $protocol . '://' . $host . $uri;
+			$this->session->set_userdata('firstPageURL', $firstPageURL);
 			
-			$size = sizeOf($info);		
-			foreach ($info as $i) {
-				//echo $i['account'];
-				//echo $i['amount'];
-			}
+			if(file_exists($full_path)) {
+				$errors = 0;
+				if (($handle = fopen($full_path, "r") or die("File not found!")) !== FALSE) {
+					while (($test = fgetcsv($handle, 1000, ",")) !== FALSE) {
+						$size = count($test);
+						if ($size != $expected_columns) {
+							$errors++;
+						}
+					}
+					//echo $errors;
+					//$lines = file($full_path);
+					/**foreach ($lines as $line_num => $line) {
+						echo "Line #<b>{$line_num}</b> : " . htmlspecialchars($line) . "<br />\n";
+					}*/
+					if ($errors == 0) {
+						$handle = fopen($full_path, "r");
+						if ($doc == "Income Statement") {
+							while (($temp = fgetcsv($handle, 1000, ",")) !== FALSE) {
+								$size = count($temp);
+					
+								if ($size > 1) {
+									$info[] = array(
+										'account' => trim($temp[0]),
+										'amount' => trim($temp[1])
+									);
+								} else {
+									$info[] = array(
+										'account' => trim($temp[0]),
+										'amount' => ""
+									);
+								}
+							}
+						}
+					} else $error_msg = "Certain line(s) of the file or the entire file may not be in the required format of this system for ledgers: [account,revenue_amt,expense_amt]";
+				}
+			} else $error_msg = "No results to display. Either file is not found or no results at all.";
+					
+			$this->mysmarty->assign('fr_kind', $doc);
+			$this->mysmarty->assign('info', $info);
+			$this->mysmarty->assign('source', $full_path);
+			$this->mysmarty->assign('error_msg', $error_msg);
+			$this->mysmarty->assign('date', $date);
+			$this->mysmarty->assign('month', $month_in_num);
+			$this->mysmarty->assign('year', $year);
+			$this->mysmarty->assign('file', $filename);
+			$this->session->set_userdata('items_of_interest', $items);
+			$this->mysmarty->display('header.tpl');
+			$this->mysmarty->display('audit_trail/trail_fs.tpl');
+			$this->mysmarty->display('footer.tpl');
 		}
-		
-		$this->mysmarty->assign('fr_kind', $doc);
-		$this->mysmarty->assign('info', $info);
-		$this->mysmarty->assign('source', $full_path);
-		$this->mysmarty->assign('error_msg', $error_msg);
-		$this->mysmarty->assign('date', $date);
-		$this->mysmarty->assign('month', $month_in_num);
-		$this->mysmarty->assign('year', $year);
-		$this->mysmarty->assign('file', $filename);
-		$this->session->set_userdata('items_of_interest', $items);
-		$this->mysmarty->display('header.tpl');
-		$this->mysmarty->display('audit_trail/trail_fs.tpl');
-		$this->mysmarty->display('footer.tpl');
 	}
 	
 	public function checkPaths() {
@@ -139,12 +164,14 @@ class Index extends CI_Controller {
 					$reply_msg = "Thank you for your confirmation! We will call you should there be a need for further customer validation. Thank you and have a good day!";
 					$database->saveReceivedMessage($ref, 'yes');
 					$info = $messages->getMessageByRef($ref);
-					header("location: ".$this->config->item('base_url')."messages/log_messages/writeToLog?data=".$info['date_received']." ".$info['name']."(0".$info['contact'].") replied 'yes' on Ref. No. ".$info['ref']);
+					echo $reply_msg;
+					//header("location: ".$this->config->item('base_url')."messages/log_messages/writeToLog?data=".$info['date_received']." ".$info['name']."(0".$info['contact'].") replied 'yes' on Ref. No. ".$info['ref']);
 				} else if (strcasecmp($ans, "no") == 0) {
 					$reply_msg = "We are very sorry for bothering you. Thank you for your response, anyway. Have a good day!";
 					$database->saveReceivedMessage($ref, 'no');
 					$info = $messages->getMessageByRef($ref);
-					header("location: ".$this->config->item('base_url')."messages/log_messages/writeToLog?data=".$info['date_received']." ".$info['name']."(0".$info['contact'].") replied 'no' on Ref. No. ".$info['ref']);
+					echo $reply_msg;
+					//header("location: ".$this->config->item('base_url')."messages/log_messages/writeToLog?data=".$info['date_received']." ".$info['name']."(0".$info['contact'].") replied 'no' on Ref. No. ".$info['ref']);
 				} else $reply_msg = "Sorry, you have entered an invalid parameter. Please reply TRAIL<space><Ref No><space><Yes or No>. Thank you.";
 			} else $reply_msg = "You have already sent your confirmation on this transaction with Ref. No.: ". $ref .". Thank you for your cooperation!";
 			echo $reply_msg;

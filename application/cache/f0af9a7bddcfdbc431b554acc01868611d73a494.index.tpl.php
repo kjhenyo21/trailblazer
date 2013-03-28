@@ -1,4 +1,4 @@
-<?php /*%%SmartyHeaderCode:6863514dcda9528c20-15705602%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:228965152992313a2c1-26550995%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
@@ -9,13 +9,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '6863514dcda9528c20-15705602',
+  'nocache_hash' => '228965152992313a2c1-26550995',
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_514f7e6a56a90',
+  'unifunc' => 'content_51542447427e1',
   'has_nocache_code' => false,
   'cache_lifetime' => 1,
 ),true); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_514f7e6a56a90')) {function content_514f7e6a56a90($_smarty_tpl) {?>  <!--
+<?php if ($_valid && !is_callable('content_51542447427e1')) {function content_51542447427e1($_smarty_tpl) {?>  <!--
  * Trailblazer Digital Accounting Audit Trail Program
  * @author Kristian Jacob Abad Lora <kjalora92@yahoo.com>
  * @date-created October 31, 2012
@@ -28,11 +28,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 		<!-- Main -->
 		<h3 style="margin: 20px auto; text-align: center"> User Login </h3>
 		<div id="main-wrapper" style="width: 300px">
+			
 							<div class="alert alert-error">
 				  <button type="button" class="close" data-dismiss="alert">&times;</button>
-				  <strong>Oops!</strong> Please enter a correct username and password.
+				  <strong>Oops!</strong> You are not authorized to access this application without logging in.
 				</div>
-			
 						<form id="form-login" class="form-horizontal" method="post" action="http://localhost/trailblazer/login">
 				<div class="control-group">
 					<label class="control-label" for="uname">Username</label>

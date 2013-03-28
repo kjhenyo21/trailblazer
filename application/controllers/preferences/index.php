@@ -98,9 +98,12 @@ class Index extends CI_Controller {
 		foreach ($paths as $p) {
 			if ($this->pathExists($p['path'])) {
 				$directory = $p['path'];
-				
 				//echo $directory;
 				$files = glob($directory.'/*');
+				$folder = 'files/temp';
+				if (!is_dir($folder)) {
+					mkdir($folder);
+				}
 				foreach($files as $file) {
 					if (is_file($file)) {
 						$stat = stat($file);
@@ -113,13 +116,10 @@ class Index extends CI_Controller {
 							'size' => $stat['size'],
 							'checksum' => crc32(file_get_contents($file))
 						);
+						$file_contents = file_get_contents($file);
+						$newFile = $folder.'/'.basename($file);
+						file_put_contents($newFile, $file_contents);
 					}
-					/**echo $file."\r\n";
-					echo basename($file)."\r\n";
-					echo dirname($file)."\r\n";
-					echo date("Y-m-d H:i:s", $stat['ctime'])."\r\n";
-					echo date("Y-m-d H:i:s", $stat['mtime'])."\r\n";
-					echo date("Y-m-d H:i:s", $stat['atime'])."\r\n";*/
 				}
 			}
 		}

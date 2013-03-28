@@ -1,32 +1,44 @@
-<?php /*%%SmartyHeaderCode:11975514c12e20bf2a2-43938155%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:426551529573306f26-90970638%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '923dcf16fcc3a3095815a601768554fbdcd17b59' => 
     array (
       0 => 'C:\\xampp\\htdocs\\trailblazer\\application/views\\audit_trail\\summary.tpl',
-      1 => 1364037700,
+      1 => 1364487032,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '11975514c12e20bf2a2-43938155',
+  'nocache_hash' => '426551529573306f26-90970638',
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_514e731587bfe',
+  'unifunc' => 'content_51546c78a4e18',
   'has_nocache_code' => false,
   'cache_lifetime' => 1,
 ),true); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_514e731587bfe')) {function content_514e731587bfe($_smarty_tpl) {?>  <!--
- * Lalaine's Bookstore Computerized AIS
+<?php if ($_valid && !is_callable('content_51546c78a4e18')) {function content_51546c78a4e18($_smarty_tpl) {?>  <!--
+ * Trailblazer Digital Accounting Audit Trail Program
  * @author Kristian Jacob Abad Lora <kjalora92@yahoo.com>
  * @date-created October 31, 2012
 -->
-<!DOCTYPE html>
 	<head>
-		<title>Trailblazer - Trailing the Ledger</title>
+		<title>Trailblazer - The Trail</title>
 	</head>
 	
 	<body>
 		<div id="transDetailsModal">
+		</div>
+		<!-- Modal for Downloading Summary File -->
+		<div id="dloadModal" class="modal hide fade" style="margin-top: -150px">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h3>Download has finished!</h3>
+			</div>
+			<div id="dload-modal-body" class="modal-body">
+			</div>
+			<div class="modal-footer">
+				<a type="button" class="btn btn-primary" id="locateFileButton">Yes</a>
+				<a type="button" class="btn" data-dismiss="modal" aria-hidden="true" onClick="closeDloadModal(); return false;">No</a>
+			</div>
 		</div>
 		<!-- Main -->
 		<br>
@@ -36,89 +48,178 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 				<span> | </span>
 				<a href="http://localhost/trailblazer/audit_trail"><i class="icon-home"></i></a>
 			</div>
-			<div id="summary-container" style="margin: 0 auto; text-align: center">
+			<div id="summary-container" style="height: 300px; margin: 0 auto; text-align: center">
 				<h2>Audit Trail Summary</h2>
 				<br>
 				<br>
 				<div class="sub-summary-container">
 					<div><strong>Income Statement</strong></div>
-					<div>Account: Sales</div>
-					<div>Amount: Php 2,656.00</div>
+					<div>Account: Freight-In</div>
+					<div>Amount: Php 1,380.00</div>
 				</div>
-				<div class="arrow">
-					<img src="http://localhost/trailblazer/assets/images/arrow-left-small.PNG"></img>
-				</div>
-				<div class="sub-summary-container">
-					<strong>General Ledger</strong>
-					<div>Account: Sales</div>
-					<div>Acct. #: 201</div>
-											<div>Credit: Php 0.00</div>
-																<div>Debit: Php 1,338.00</div>
-									</div>
-				<div class="arrow">
-					<img src="http://localhost/trailblazer/assets/images/arrow-left-small.PNG"></img>
-				</div>
-				<div class="sub-summary-container">
-					<strong>Cash Receipts Journal</strong>
-					<div>Ref. #: CRJ-1-2010</div>
-					<div>Desc.: 6253-6255</div>
-				</div>
-				<div class="arrow">
-					<img src="http://localhost/trailblazer/assets/images/arrow-left-small.PNG"></img>
-				</div>
-				<div class="sub-summary-container">
-					<strong>Sale Transactions</strong>
-										<div>Date: 2010-01-04</div>
-					<div>OR No.: <a href="#trans-details6259" data-toggle="modal" onClick="getDetails('or_no=6259&amt=99.50&name=Elaine Pahang&address=Talisay City&contact=9332567821'); return false;">6259</a></div>
-					<div>Amount Due: 99.50</div>
-					<div>Name: Elaine Pahang</div>
-					<div>Contact: 9332567821</div>
-				</div>
-			</div>
-		
-		<input type="submit" value="Take Screenshot Of Div" onclick="capture();" />
-		<form method="POST" enctype="multipart/form-data" action="http://localhost/trailblazer/audit_trail/summary/saveImage" id="myForm">
-			<input type="hidden" name="img_val" id="img_val" value="" />
-		</form>
-		<img name="summary_image" src="http://localhost/trailblazer/assets/images/arrow-left.PNG">
-
-  <!--<a href="#" onClick="saveImage(document.summary_image); return false;">Save</a>-->
-    <a href="http://localhost/trailblazer/audit_trail/summary/save">Save</a>
-	<a href="#" onClick="saveAs('http://localhost/trailblazer/assets/images/arrow-left.PNG', 'k.png'); return false;">Convert To PDF</a>
+									<div class="arrow">
+						<img src="http://localhost/trailblazer/assets/images/arrow-left-small.PNG"></img>
+					</div>
+					<div class="sub-summary-container">
+						<strong>General Ledger</strong>
+						<div>Account: Freight-In</div>
+						<div>Acct. #: 604</div>
+													<div>Debit: Php 0.00</div>
+																			<div>Credit: Php 1,380.00</div>
+											</div>
+													<div class="arrow">
+						<img src="http://localhost/trailblazer/assets/images/arrow-left-small.PNG"></img>
+					</div>
+					<div class="sub-summary-container">
+						<strong>Cash Disbursements Journal</strong>
+						<div>Ref. #: CDJ-1-2010</div>
+						<div>Desc.: 4367332</div>
+						<div>Amount: Php 1,380.00</div>
+					</div>
+													<div class="arrow">
+						<img src="http://localhost/trailblazer/assets/images/arrow-left-small.PNG"></img>
+					</div>
+					<div class="sub-summary-container">
+													<strong>Expense Transactions</strong>
+							<!---->
+							<div>Date: 2010-01-08</div>
+							<div>OR No.: <a href="#trans-details4367332" data-toggle="modal" onClick="getDetails('or_no=4367332&amt=1380&name=Roble Shipping Lines&address=Smo. Rosario, Naval, Biliran&contact='); return false;">4367332</a></div>
+							<div>Amount: Php 1,380.00</div>
+							<div>Name: Roble Shipping Lines</div>
+							<div>Contact: </div>
+											</div>
+											</div>
+			
+			<div class="results-container">
+				<h3>Results</h3>
+														
+						<table style="margin-bottom: 5px">						
+							<td><i class="icon-ok" style="color: green"></i></td>
+							<td>The amount of Freight-In Account selected from the Income Statement MATCHES the total amount of the ledger entries in the General Ledger.</td>
+						</table>
+																								<table style="margin-bottom: 5px">
+							<td><i class="icon-ok" style="color: green"></i></td>
+							<td>The amount of the entry selected from the General Ledger MATCHES the amount of the journal entry highlighted in the Cash Disbursements Journal.</td>
+						</table>
+																								<table style="margin-bottom: 5px">
+							<td><i class="icon-ok" style="color: green"></i></td>
+							<td>The amount of the entry selected from the Cash Disbursements Journal MATCHES the amount of the entry displayed in the Expense Transactions File.</td>
+						</table>
+																							
+						<table style="margin-bottom: 5px">
+							<td><i class="icon-ok" style="color: green"></i></td>
+							<td>The amount of the entry selected from the Expense Transactions MATCHES the amount of the entry displayed in the Expense Transactions Details.</td>
+						</table>
+																		<table style="margin-bottom: 5px">
+						<td><i class="icon-ok" style="color: green"></i></td>
+						<td>Transactions are traceable from the financial statement to the transaction file.</td>
+					</table>
+								
+									<table>
+						<td><i class="icon-ok" style="color: green"></i></td>
+						<td><strong>Overall: TRAIL SUCCESSFUL!</strong></td>
+					</table>
+							</div>
+		</div>
+		<div class="control-group" style="text-align: center; margin-top: 15px;">
+			<a type='button' id="save" class="btn btn-primary" onClick="downloadFile(); return false;">Save the Trail</a>
+			<a type='button' class="btn" onclick='javascript: window.print();'>Print the Trail</a>
+			<!--<a type='button' id="open" class="btn">Open</a>-->
+			<a type="button" class="btn" onclick="history.go(-1);return false;">Back</a>
+			<a href="http://localhost/trailblazer/audit_trail/index/readFile?file=is-1-2010.is&doc=Income%20Statement&items=250" type="button" class="btn">Back to First Step</a>
 		</div>
 	<link href="http://localhost/trailblazer/assets/stylesheets/bootstrap.css" rel="stylesheet"></link>
 	<link href="http://localhost/trailblazer/assets/stylesheets/bootstrap-responsive.css" rel="stylesheet"></link>
 	<link href="http://localhost/trailblazer/assets/stylesheets/main.css" rel="stylesheet"></link>
+	<link href="http://localhost/trailblazer/assets/stylesheets/print.css" rel="stylesheet"  media="print"></link>
 	<script src="http://localhost/trailblazer/assets/scripts/jquery.js" type="text/javascript"></script>
 	<script src="http://localhost/trailblazer/assets/scripts/bootstrap.js" type="text/javascript"></script>
 	<script src="http://localhost/trailblazer/assets/scripts/html2canvas.js" type="text/javascript"></script>
 	<script src="http://localhost/trailblazer/assets/scripts/jquery.plugin.html2canvas.js" type="text/javascript"></script>
 	<script>
-	function capture() {
-    $('#summary-container').html2canvas({
-        onrendered: function (canvas) {
-            //Set hidden field's value to image data (base-64 string)
-            $('#img_val').val(canvas.toDataURL("image/png"));
-            //Submit the form manually
-            document.getElementById("myForm").submit();
-        }
-    });
-}
-	
-function saveAs(fileUrl, fileName) {
-   var save = document.createElement("a");
-   save.href = fileUrl;
-   save.target = "_blank";
-   save.download = fileName || fileUrl;
+		var target = $('#main-wrapper');
+		var summaryFilePath;
+		var summaryDownloadedFilePath;
+		
+		html2canvas(target, {
+			onrendered: function(canvas) {
+				var datas = canvas.toDataURL("image/png;base64;");
+				//$('#save').attr("href", "http://localhost/trailblazer/audit_trail/summary/save?data=" + data);
+				//data = data.replace("image/png","image/octet-stream"); 
+				//window.open(data,"","width=700,height=700");
+				//document.body.innerHTML="<br/><br/><br/><br/><br/><br/><img src="+data+" />";
+				jQuery.ajax({
+					url: 'http://localhost/trailblazer/audit_trail/summary/save',
+					type: 'POST',
+					dataType: 'text',
+					data: {
+						data: datas
+					},
+					complete: function(data, status) {
+						if(status=='success') {
+							console.log(data.responseText);
+							//alert('saved!');
+							//$('#save').attr("href", 'http://localhost/trailblazer/audit_trail/summary/download?data=' + data.responseText);
+							summaryFilePath = data.responseText;
+						}
+						//alert('Error has been occurred');
+					}
+				});
+			}
+		});
 
-   var evt = document.createEvent('MouseEvents');
-   evt.initMouseEvent('click', true, true, 
-                      window, 1, 0, 0, 0, 0, 
-                      false, false, false, false, 0, null);
+		function downloadFile() {
+			jQuery.ajax({
+				url: 'http://localhost/trailblazer/audit_trail/summary/download?data=' + summaryFilePath,
+				type: 'GET',
+				dataType: 'text',
+				success: function(data) {
+					summaryDownloadedFilePath = data;
+					$('#content').remove();
+					$('#dload-modal-body').append('<p id="content">Your downloaded file has been saved to ' + data + '. Do you want to locate the file?</p>');
+					$('#dloadModal').removeClass('hide');
+					$('#dloadModal').addClass('in');
+					$('body').append('<div id="backdropping" class="modal-backdrop fade in"></div>');
+					$('#locateFileButton').attr("href", "http://localhost/trailblazer/audit_trail/summary/open?path=" + summaryDownloadedFilePath);
+				}
+			});
+		}
+		
+		function locateFile() {
+			window.location='http://localhost/trailblazer/audit_trail/summary/open?path=' + summaryDownloadedFilePath;
+			jQuery.ajax({
+				url: 'summary/open?path=' + summaryDownloadedFilePath,
+				type: 'GET',
+				success: function() {
+				}
+			});
+		}
+		
+		function capture() {
+			$('#summary-container').html2canvas({
+				onrendered: function (canvas) {
+					//Set hidden field's value to image data (base-64 string)
+					$('#img_val').val(canvas.toDataURL("image/png"));
+					//Submit the form manually
+					document.getElementById("myForm").submit();
+				}
+			});
+		}
+			
+		function saveAs(fileUrl, fileName) {
+		   var save = document.createElement("a");
+		   save.href = fileUrl;
+		   save.target = "_blank";
+		   save.download = fileName || fileUrl;
 
-   save.dispatchEvent(evt);
-   (window.URL || window.webkitURL).revokeObjectURL(save.href)
-}
+		   var evt = document.createEvent('MouseEvents');
+		   evt.initMouseEvent('click', true, true, 
+							  window, 1, 0, 0, 0, 0, 
+							  false, false, false, false, 0, null);
+
+		   save.dispatchEvent(evt);
+		   (window.URL || window.webkitURL).revokeObjectURL(save.href)
+		}
 
 
 	
@@ -137,13 +238,19 @@ function saveAs(fileUrl, fileName) {
 			url = url.replace(/\s/g,"%20");
 			console.log(url);
 			$('#transDetailsModal').load('load_trans_details/index?' + url);
-			$('#trans-details').modal('show');
+			$('#trans-details').show();
 			$('body').append("<div id='backdrop' class='modal-backdrop fade in'></div>");
 		}
 		
 		function closeIt() {
-			$('#trans-details').remove();
+			$('#trans-details').hide();
 			$('#backdrop').remove();
+		}
+		
+		function closeDloadModal() {
+			$('#dloadModal').addClass('hide');
+			$('#dloadModal').removeClass('in');
+			$('#backdropping').remove();
 		}
 		
 		function textIt(name, contact_no, date, or_no, amt_due) {

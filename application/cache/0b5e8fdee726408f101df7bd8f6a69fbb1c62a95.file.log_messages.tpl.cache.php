@@ -1,36 +1,35 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-03-24 19:33:37
+<?php /* Smarty version Smarty-3.1.7, created on 2013-03-27 08:04:49
          compiled from "C:\xampp\htdocs\trailblazer\application/views\messages\log_messages.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:27926514e5ed83e4360-00774464%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:37551529a110ecbb0-96590664%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '0b5e8fdee726408f101df7bd8f6a69fbb1c62a95' => 
     array (
       0 => 'C:\\xampp\\htdocs\\trailblazer\\application/views\\messages\\log_messages.tpl',
-      1 => 1364150015,
+      1 => 1364161125,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '27926514e5ed83e4360-00774464',
+  'nocache_hash' => '37551529a110ecbb0-96590664',
   'function' => 
   array (
   ),
-  'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_514e5ed85cd92',
   'variables' => 
   array (
     'contents' => 0,
     'c' => 0,
   ),
   'has_nocache_code' => false,
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_51529a1137292',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_514e5ed85cd92')) {function content_514e5ed85cd92($_smarty_tpl) {?><?php if (!is_callable('smarty_function_url')) include 'C:\\xampp\\htdocs\\trailblazer\\application\\libraries\\smarty\\plugins\\function.url.php';
+<?php if ($_valid && !is_callable('content_51529a1137292')) {function content_51529a1137292($_smarty_tpl) {?><?php if (!is_callable('smarty_function_url')) include 'C:\\xampp\\htdocs\\trailblazer\\application\\libraries\\smarty\\plugins\\function.url.php';
 ?><!--
- * Lalaine's Bookstore Computerized AIS
+ * Trailblazer Digital Accounting Audit Trail Program
  * @author Kristian Jacob Abad Lora <kjalora92@yahoo.com>
  * @date-created October 31, 2012
 -->
-<!DOCTYPE html>
 	<head>
 		<title>Trailblazer - Messages Log File</title>
 	</head>

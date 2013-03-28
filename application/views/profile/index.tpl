@@ -308,8 +308,15 @@
 								url: 'profile/index/updateProfile',
 								data:  $("#profile").serialize(),
 								success: function(data){
-									window.location.href="{url}profile?response=Profile has been successfully saved!";
-									$('#password').attr("disabled", "disabled");
+									$.ajax({
+										type: "POST",
+										url: '{url}login',
+										data: { uname: uname, password: password },
+										success: function() {
+											window.location.href="{url}profile?response=Profile has been successfully saved!";
+											$('#password').attr("disabled", "disabled");
+										}
+									});
 								},
 								error: function(data) {
 									$('#password').attr("disabled", "disabled");

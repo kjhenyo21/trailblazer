@@ -36,10 +36,17 @@
 								</div>
 							</div>
 							<div class="field-group" id="group-interest">
-								<label class="field-label" for="items">Items of Interest</label>
-								<div class="control">
-									<a class="link" data-original-title="The number of item transactions that you are interested to audit.">
-										<input type="text" class="span1" style="text-align: right" id="items" name="items" value="250" />
+								<label class="field-label" for="items">Items of Interest (Sampling)</label>
+								<div id="control-interest" class="control">
+									<a class="link" data-original-title="The number of item transactions that you are interested to audit; must be greater than zero.">
+										<select style="width: 80px" id="items" name="items" onChange="noOfItemsOnChange(); return false;">
+											<option selected="selected">250</option>
+											<option>200</option>
+											<option>150</option>
+											<option>100</option>
+											<option>50</option>
+											<option>Other</option>
+										</select>
 									</a>
 								</div>
 							</div>
@@ -144,6 +151,17 @@
 			}
 			{/literal}
 			
+			function noOfItemsOnChange() {
+				var noOfItems = $('#items').val();
+				if (noOfItems == "Other") {
+					$('#control-interest').remove();
+					$('#group-interest').append('<div id="control-interest" class="control"><a class="link" data-original-title="The number of item transactions that you are interested to audit; must be greater than zero."><input type="text" class="span1" id="items" name="items"/></a></div>');
+				}
+				$('.link').tooltip({
+					placement: 'right'
+				});
+			}
+				
 			function loadIt() {
 				file = $('#file').val();
 				doc = $('#doc').val();
@@ -187,7 +205,8 @@
 				$('#file_upload').val('');
 				$('#file').val('');
 				$('#doc').val('');
-				$('#items').val('250');
+				$('#control-interest').remove();
+				$('#group-interest').append('<div id="control-interest" class="control"><a class="link" data-original-title="The number of item transactions that you are interested to audit; must be greater than zero."><select style="width: 80px" id="items" name="items" onChange="noOfItemsOnChange(); return false;"><option selected="selected">250</option><option>200</option><option>150</option>			<option>100</option><option>50</option><option>Other</option></select></a></div>');
 				$('#load').attr("disabled", "disabled");
 				$('#load').removeClass("btn-primary");
 			}

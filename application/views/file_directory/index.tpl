@@ -38,11 +38,12 @@
 				<div class="modal-body">
 					<p><span style="color: #DB1900; font-weight: bold">{$noOfModFiles}</span> file(s) have been modified (hover on filename to know the filepath):</p>
 					<pre style="padding: 5px 30px;">{foreach $modFiles as $mf}<i class="icon-file"></i> <span class="link" data-original-title="{$mf['path']}">{$mf['filename']}   on   {$mf['date_modified']}</span><br>{/foreach}</pre>
-					<p>Do you want to update the system on these files now? You can always update the system via Preferences.</p>
+					<p>Do you want to update the system on these files now? This dialog will keep on popping up every time you reload this page to consistently remind you.</p>
 				</div>
 				<div class="modal-footer">
 					<div style="margin: 0 auto">
-						<a class="btn btn-primary" type="button" id="update" onClick="updateSystem(); return false;">OK, I'll update now</a>
+						<a class="btn" type="button" id="update" onClick="updateSystem(); return false;">OK, I'll update now</a>
+						<a class="btn btn-primary" type="button" id="update" onClick="restoreFile(); return false;">No, I'll restore the file(s)</a>
 						<button class="btn" data-dismiss="modal" id="closeNotif" onClick="closeNotifMod(); return false;">I'll update later</button>
 					</div>
 				</div>
@@ -143,6 +144,20 @@
 					data: $("#pref").serialize(),				
 					success: function(data){
 						alert("Update succesfull!");
+						closeNotifMod();
+					},
+					error: function(data) {
+						alert("Update unsuccesfull!");
+					}
+				});
+			}
+			
+			function restoreFile() {
+				$.ajax({
+					type: "POST",
+					url: 'file_directory/index/restoreFiles',			
+					success: function(data){
+						alert("File(s) has/have been successfuly restored!");
 						closeNotifMod();
 					},
 					error: function(data) {

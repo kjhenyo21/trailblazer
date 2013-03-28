@@ -39,7 +39,7 @@ class Index extends CI_Controller {
 		$info['license_no'] = $this->security->xss_clean($this->input->post('license_no'));	
 		$info['cname'] = $this->security->xss_clean($this->input->post('cname'));	
 		$info['caddress'] = $this->input->post('caddress');		
-		$info['position'] = $this->security->xss_clean($this->input->post('email'));	
+		$info['position'] = $this->security->xss_clean($this->input->post('position'));	
 		$info['uname'] = $this->security->xss_clean($this->input->post('uname'));
 		$info['password'] = $this->security->xss_clean($this->input->post('password'));
 		$info['no'] = $this->security->xss_clean($this->input->post('no'));

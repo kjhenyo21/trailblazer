@@ -26,53 +26,69 @@ class Trail_Ledger extends CI_Controller {
 			$fs_amt = $_GET['fs_amt'];
 			$fs_file = $_GET['fs_file'];
 			$within_the_account = false;
+			$info = false;
+			$detail = false;
+			$expected_columns = 5;
+			$error_msg = "";
+			$lg_total_amt = 0;
 			
 			$path = $files->getFilePathByDocTypeAndDate($doc_type, $month_num, $year);
-			if($path) {
-				//echo $path['path'];
-				//echo $path['full_path'];
-			} else $error_msg = "File not found!";
-
-			$lines = file($path['full_path']);
-			foreach ($lines as $line) {
-				$temp = explode(",", $line);
-				$size = sizeOf($temp);
-				
-				if ($size > 1) {
-					//echo "date: ".trim($temp[0]);
-					$date = explode("-", trim($temp[0]));
-					$day = $date[2];
-					if ($within_the_account) {
-						$info[] = array(
-							'day' => $day,
-							'desc' => trim($temp[1]),
-							'ref' => trim($temp[2]),
-							'debit' => trim($temp[3]),
-							'credit' => trim($temp[4])
-						);
+			
+			if(file_exists($path['full_path'])) {
+				$errors = 0;
+				if (($handle = fopen($path['full_path'], "r")) !== FALSE) {
+					while (($test = fgetcsv($handle, 1000, ",")) !== FALSE) {
+						$size = count($test);
+						if ($size != $expected_columns)
+							$errors++;
 					}
-				} else {
-					$temp2 = explode(" ", $line);
-					if (trim($temp2[0]) == $account) {
-						$detail['acct_name'] = trim($temp2[0]);
-						$detail['acct_no'] = trim($temp2[1]);
-						$within_the_account = true;
-					} else $within_the_account = false;
-				}
-			}
 
+					if ($errors == 0) {
+						$handle = fopen($path['full_path'], "r");
+						while (($temp = fgetcsv($handle, 1000, ",")) !== FALSE) {
+							$size = count($temp);
+							if ($temp[0] != 'a' && $temp[0] != '') {
+								//echo "date: ".trim($temp[0]);
+								$date = explode("-", trim($temp[0]));
+								$day = $date[2];
+								if ($within_the_account) {
+									$info[] = array(
+										'day' => $day,
+										'desc' => trim($temp[1]),
+										'ref' => trim($temp[2]),
+										'debit' => trim($temp[3]),
+										'credit' => trim($temp[4])
+									);
+									$lg_total_amt += trim($temp[3]) - trim($temp[4]);
+								}
+							} else {
+								//$temp2 = explode(",", $temp[1]);
+								//echo $temp2[0];
+								if (trim($temp[1]) == $account) {
+									$detail['acct_name'] = trim($temp[1]);
+									$detail['acct_no'] = trim($temp[2]);
+									$within_the_account = true;
+								} else $within_the_account = false;
+							}
+						}
+					} else $error_msg = "Certain line(s) of the file or the entire file may not be in the required format of this system for ledgers: [date,description,reference,debit,credit]";
+				}
+			} else $error_msg = "File not found!";
+			
 			$this->mysmarty->assign('status', $this->session->userdata('status'));
 			$this->mysmarty->assign('base_url', $this->config->item('base_url'));
 			$this->mysmarty->assign('month', $month);
 			$this->mysmarty->assign('year', $year);
 			$this->mysmarty->assign('fs', $fs);
 			$this->mysmarty->assign('info', $info);
+			$this->mysmarty->assign('error_msg', $error_msg);
 			$this->mysmarty->assign('detail', $detail);
 			$this->mysmarty->assign('acct', $account);
 			$this->mysmarty->assign('source', $path['full_path']);
 			$this->mysmarty->assign('doc', $path['doc']);
 			$this->mysmarty->assign('fs_amt', $fs_amt);
 			$this->mysmarty->assign('fs_file', $fs_file);
+			$this->mysmarty->assign('lg_total_amt', abs($lg_total_amt));
 			$this->mysmarty->display('header.tpl');
 			$this->mysmarty->display('audit_trail/trail_ledger.tpl');
 			$this->mysmarty->display('footer.tpl');

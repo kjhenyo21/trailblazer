@@ -1,0 +1,189 @@
+/**
+ * UP Cebu CSG Treasury Online v1.0.0
+ * @author Kristian Jacob Abad Lora <kjalora92@yahoo.com>
+ * date-created May 09, 2012
+ */
+@import url('bootstrap.min.css');
+@import url('font-awesome.css');
+@import url('font.css');
+
+#main-wrapper {
+	width: 850px;
+	height: auto;
+	margin: 0px auto;
+	background: white;
+	border-radius: 20px;
+	-moz-box-shadow: 0px 2px 2px #a0a0a0;
+	-webkit-box-shadow: 0px 2px 2px #a0a0a0;
+	box-shadow: 0px 2px 2px #a0a0a0;
+	padding: 40px;
+	font-size: 11pt !important;
+	position: relative;
+}
+
+#main-wrapper-setup {
+	padding: 10px 20px 10px 20px;
+	position: relative;
+}
+
+#main-wrapper-setup-pref {
+	padding: 10px 20px 10px 20px;
+	position: relative;
+}
+
+#main-wrapper-profile {
+	padding: 10px 20px 10px 20px;
+	position: relative;
+}
+
+#main-wrapper-pref {
+	padding: 10px 20px 10px 20px;
+	position: relative;
+}
+
+#banner {
+	background: url(../images/banner.gif) top center no-repeat;
+	height: 130px;
+	margin: 0px;
+	background-color: white;
+}
+
+#form-login {
+	margin-left:-100px;
+	margin-bottom: 0px
+}
+
+/*******************/
+/**** BODY ****/
+
+body {
+	/*background: #f4f0ed url(../img/bbg.jpg) top center no-repeat fixed;
+	background: #ffffff;
+	background-color: #a0a0a0;*/
+	/*background: #f0f0f0;*/
+}
+
+#body-wrapper {
+	-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
+	border-radius: 20px;
+	/*background: #f0f0f0;*/
+	box-shadow: 0px 0px 10px black;
+	padding: 20px 15px 0px 0px;
+	position: relative;
+	float: left;
+	width: 100%
+}
+
+#date-heading {
+	font-style: italic;
+}
+
+#source-file {
+	font-size: 10px;
+	font-style: italic;
+	text-align: left;
+	margin-top: 15px;
+}
+
+.ledger-subhead {
+	margin: 2px 0 !important;
+	text-align: left;
+}
+
+.ledger-subhead h4{
+	margin: 2px 0 !important;
+	text-align: left;
+}
+
+.amount {
+	text-align: right;
+}
+/**
+.btn-primary:hover, .btn-primary:active, .btn-primary.active, .btn-primary.disabled, .btn-primary[disabled] {
+	background-color: #E6E6E6 !important;
+	color: red important!;
+} */
+
+#summary-container {
+	font-size: 10pt !important;
+	position: relative;
+}
+
+.sub-summary-container {
+	background: #237fbc; /* Old browsers */
+	background: -moz-linear-gradient(top,  #237fbc 0%, #64ade5 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#237fbc), color-stop(100%,#64ade5)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #237fbc 0%,#64ade5 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #237fbc 0%,#64ade5 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #237fbc 0%,#64ade5 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #237fbc 0%,#64ade5 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#237fbc', endColorstr='#64ade5',GradientType=0 ); /* IE6-9 */
+	border: 4px solid;
+	border-color: white;
+	border-radius: 10px;
+	-webkit-box-shadow: 1px 1px 8px 2px rgba(50, 50, 50, .75), inset 1px 1px 10px 0px rgba(100, 100, 100, .75);
+	box-shadow: 1px 1px 8px 2px rgba(50, 50, 50, .75),  inset 1px 1px 10px 0px rgba(100, 100, 100, .75);
+	text-shadow: 1px 1px 3px #2e2c2e;
+    filter: dropshadow(color=#2e2c2e, offx=1, offy=1);
+	width: 160px;
+	margin: 0 10px;
+	padding: 10px;
+	float: left;
+	position: relative;
+	color: white;
+	text-align: left;
+}
+
+.sub-summary-container a{
+	color: white;
+	text-decoration:underline;
+}
+
+.arrow {
+	margin: 20px 2px 0px 2px;
+	position: relative;
+	float: left;
+}
+
+#log {
+	font-family: "Courier New", Courier, monospace;
+}
+
+#navi{
+	float: right;
+	font-size: 14pt
+}
+
+/*******************/
+/**** FOOTER ****/
+#footer {
+	margin-top: 20px;
+	font-size: 10px;
+	text-align: center;
+}
+
+h3 {
+	color: #005580;
+}
+
+label {
+	color: black;
+	font-size: 10pt;
+}
+
+thead {
+	color: black;
+}
+
+table {
+	font-size: 11pt;
+}
+
+th{
+	padding: 0 10px;
+}
+
+td{
+	padding: 0 10px;
+}

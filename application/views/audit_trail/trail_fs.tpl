@@ -19,13 +19,13 @@
 			<br>
 			<div style="margin: 0 auto; text-align: center">
 				<h2>{$fr_kind}</h2>
-				<div id="date-heading">As of {$date}</div>
+				<div id="date-heading">For the period of {$date}</div>
 				<div style="margin-bottom: 20px; font-style: italic">In Philippine Peso</div>
 				<table id="table" style="text-align: left; color: black">
 					<thead>
-						<th></th>
-						<th></th>
-						<th></th>
+						<th style="width: 250px"></th>
+						<th style="width: 100px"></th>
+						<th style="width: 100px"></th>
 					</thead>
 					<tbody>
 						{$column = ""}

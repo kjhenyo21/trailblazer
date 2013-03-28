@@ -112,21 +112,21 @@
 						</tbody>
 					</table>
 				{else}
-				<table class="table table-striped">
-					<thead>
-						<th style="text-align: center">Ref. #</th>
-						<th style="text-align: center">Name</th>
-						<th style="text-align: center">Contact</th>
-						<th style="text-align: center">Transaction Date</th>
-						<th style="text-align: center">OR #</th>
-						<th style="text-align: center">Amount (Php)</th>
-						<th style="text-align: center">Date Sent</th>
-						<th style="text-align: center">Reply</th>
-						<th style="text-align: center">Date Received</th>
-						<th style="text-align: center">Confirmation Status</th>
-						<th style="text-align: center">Date Confirmed</th>
-						<th></th>
-					</thead>
+					<table class="table table-striped">
+						<thead>
+							<th style="text-align: center">Ref. #</th>
+							<th style="text-align: center">Name</th>
+							<th style="text-align: center">Contact</th>
+							<th style="text-align: center">Transaction Date</th>
+							<th style="text-align: center">OR #</th>
+							<th style="text-align: center">Amount (Php)</th>
+							<th style="text-align: center">Date Sent</th>
+							<th style="text-align: center">Reply</th>
+							<th style="text-align: center">Date Received</th>
+							<th style="text-align: center">Confirmation Status</th>
+							<th style="text-align: center">Date Confirmed</th>
+							<th></th>
+						</thead>
 					</table>
 					<table class="table table-striped">
 						<tbody>

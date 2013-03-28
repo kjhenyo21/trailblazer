@@ -1,30 +1,30 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-03-24 23:09:15
+<?php /* Smarty version Smarty-3.1.7, created on 2013-03-28 05:48:48
          compiled from "C:\xampp\htdocs\trailblazer\application/views\profile\index.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:19485514e7ec767f865-24683265%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:4305153cbb09b2556-11264324%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '52671c342a0aa506d00ca542f56f42a200c15a58' => 
     array (
       0 => 'C:\\xampp\\htdocs\\trailblazer\\application/views\\profile\\index.tpl',
-      1 => 1364162952,
+      1 => 1364252341,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '19485514e7ec767f865-24683265',
+  'nocache_hash' => '4305153cbb09b2556-11264324',
   'function' => 
   array (
   ),
-  'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_514e7ec7a9034',
   'variables' => 
   array (
     'response' => 0,
     'info' => 0,
   ),
   'has_nocache_code' => false,
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_5153cbb101347',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_514e7ec7a9034')) {function content_514e7ec7a9034($_smarty_tpl) {?><?php if (!is_callable('smarty_function_url')) include 'C:\\xampp\\htdocs\\trailblazer\\application\\libraries\\smarty\\plugins\\function.url.php';
+<?php if ($_valid && !is_callable('content_5153cbb101347')) {function content_5153cbb101347($_smarty_tpl) {?><?php if (!is_callable('smarty_function_url')) include 'C:\\xampp\\htdocs\\trailblazer\\application\\libraries\\smarty\\plugins\\function.url.php';
 ?><!--
  * Trailblazer Digital Accounting Audit Trail Program
  * @author Kristian Jacob Abad Lora <kjalora92@yahoo.com>
@@ -364,9 +364,17 @@ assets/scripts/bootstrap-datepicker.js" type="text/javascript"></script>
 								url: 'profile/index/updateProfile',
 								data:  $("#profile").serialize(),
 								success: function(data){
-									window.location.href="<?php echo smarty_function_url(array(),$_smarty_tpl);?>
+									$.ajax({
+										type: "POST",
+										url: '<?php echo smarty_function_url(array(),$_smarty_tpl);?>
+login',
+										data: { uname: uname, password: password },
+										success: function() {
+											window.location.href="<?php echo smarty_function_url(array(),$_smarty_tpl);?>
 profile?response=Profile has been successfully saved!";
-									$('#password').attr("disabled", "disabled");
+											$('#password').attr("disabled", "disabled");
+										}
+									});
 								},
 								error: function(data) {
 									$('#password').attr("disabled", "disabled");
