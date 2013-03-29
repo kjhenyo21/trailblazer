@@ -5,17 +5,17 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '91ea2b083373c263b623ba8923fe200d7ccdee4a' => 
     array (
       0 => 'C:\\xampp\\htdocs\\trailblazer\\application/views\\audit_trail\\trail_fs.tpl',
-      1 => 1364317832,
+      1 => 1364527059,
       2 => 'file',
     ),
   ),
   'nocache_hash' => '13820515287ce641271-12826943',
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_51546c68ef183',
+  'unifunc' => 'content_51551d709d41d',
   'has_nocache_code' => false,
   'cache_lifetime' => 1,
 ),true); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_51546c68ef183')) {function content_51546c68ef183($_smarty_tpl) {?>  <!--
+<?php if ($_valid && !is_callable('content_51551d709d41d')) {function content_51551d709d41d($_smarty_tpl) {?>  <!--
  * Trailblazer Digital Accounting Audit Trail Program
  * @author Kristian Jacob Abad Lora <kjalora92@yahoo.com>
  * @date-created October 31, 2012
@@ -36,8 +36,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 			<br>
 			<div style="margin: 0 auto; text-align: center">
 				<h2>Income Statement</h2>
-				<div id="date-heading">For the period of January 2010</div>
-				<div style="margin-bottom: 20px; font-style: italic">In Philippine Peso</div>
+									<div id="date-heading">For the period of January 2010</div>
+								<div style="margin-bottom: 20px; font-style: italic">In Philippine Peso</div>
 				<table id="table" style="text-align: left; color: black">
 					<thead>
 						<th style="width: 250px"></th>

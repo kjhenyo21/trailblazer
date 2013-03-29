@@ -11,11 +11,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'nocache_hash' => '43005152921ea15cb2-80609588',
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_51546c750cdb3',
+  'unifunc' => 'content_51551c52f1e5e',
   'has_nocache_code' => false,
   'cache_lifetime' => 1,
 ),true); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_51546c750cdb3')) {function content_51546c750cdb3($_smarty_tpl) {?>  <!--
+<?php if ($_valid && !is_callable('content_51551c52f1e5e')) {function content_51551c52f1e5e($_smarty_tpl) {?>  <!--
  * Trailblazer Digital Accounting Audit Trail Program
  * @author Kristian Jacob Abad Lora <kjalora92@yahoo.com>
  * @date-created October 31, 2012
@@ -36,7 +36,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 				<a href="http://localhost/trailblazer/audit_trail"><i class="icon-home"></i></a>
 			</div>
 			<div style="margin: 0 auto; text-align: center">
-				<h2>Expense Transactions</h2>
+				<h2>Purchase Transactions</h2>
 				<br>
 													<table id="table" class="table table-hover" style="text-align: left; color: black">
 						<thead>
@@ -51,18 +51,18 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 						</thead>
 						<tbody>
 																																<tr>
-										<td style="text-align: center; vertical-align: center">2010-01-08</td>
-										<td style="text-align: center; vertical-align: center"><a href="#trans-details4367332" data-toggle="modal" onClick="getDetails('or_no=4367332&amt=1380&name=Roble Shipping Lines&address=Smo. Rosario, Naval, Biliran&contact='); return false;">4367332</a></td>
-										<td class="amount" style="text-align: right;">Php 1,380.00</td>
-										<td style="text-align: center; vertical-align: center">Roble Shipping Lines</td>
-										<td style="text-align: center; vertical-align: center">Smo. Rosario, Naval, Biliran</td>
+										<td style="text-align: center; vertical-align: center">2010-01-12</td>
+										<td style="text-align: center; vertical-align: center"><a href="#trans-details25626" data-toggle="modal" onClick="getDetails('or_no=25626&amt=2152.18&name=Cebu Educational Supply&address=D. Del Rosario Street, Cebu City, Cebu&contact='); return false;">25626</a></td>
+										<td class="amount" style="text-align: right;">Php 2,152.18</td>
+										<td style="text-align: center; vertical-align: center">Cebu Educational Supply</td>
+										<td style="text-align: center; vertical-align: center">D. Del Rosario Street, Cebu City, Cebu</td>
 										<td style="text-align: center; vertical-align: center"></td>
-										<td style="text-align: center; vertical-align: center; width: 30px"><a href="http://localhost/trailblazer/audit_trail/summary?ref=ET-1-2010&or_no=4367332&acct=Freight-In&fs=Income Statement&fs_amt=1380.00&fs_file=is-1-2010.is&ledger=General Ledger&lg_ref=604&lg_desc=4367332&lg_debit=&lg_credit=1380&lg_total_amt=1380&journal=Cash Disbursements Journal&jl_ref=CDJ-1-2010&jl_desc=4367332&jl_amt=1380&trans=Expense Transactions&trans_amt=1380&trans_total_amt=1380">View</a></td>
+										<td style="text-align: center; vertical-align: center; width: 30px"><a href="http://localhost/trailblazer/audit_trail/summary?ref=PT-1-2010&or_no=25626&acct=Purchases&fs=Income Statement&fs_amt=29738.36&fs_file=is-2010.is&ledger=General Ledger&lg_ref=501&lg_desc=25626&lg_debit=2152.18&lg_credit=&lg_total_amt=29738.36&journal=Cash Disbursements Journal&jl_ref=CDJ-1-2010&jl_desc=25626&jl_amt=2152.18&trans=Purchase Transactions&trans_amt=2152.18&trans_total_amt=2152.18">View</a></td>
 										<!--<td style="text-align: center; vertical-align: center; width: 30px"><a>System Audit</a></td>-->
 									</tr>
 																													</tbody>
 					</table>
-								<div id="source-file">Source File: D:\Kristian Lora\My Documents\Lalaine's Bookstore\transaction_files\expense_transactions\et-1-2010.tf</div>
+								<div id="source-file">Source File: D:\Kristian Lora\My Documents\Lalaine's Bookstore\transaction_files\purchase_transactions\pt-1-2010.tf</div>
 			</div>
 		</div>
 	

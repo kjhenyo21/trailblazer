@@ -49,11 +49,17 @@ class Index extends CI_Controller {
 			$path = $files->getFilePath($filename);
 			$full_path = $path."\\".$filename;
 			$temp = explode("-", $filename);
-			$month_in_num = $temp[1];
-			$month = date("F", mktime(0, 0, 0, $temp[1], 10));
-			$year = substr($temp[2], 0, strpos($temp[2], "."));
-			$date = $month." ".$year;
-			$info = "";
+			if (sizeOf($temp) == 3) {
+				$month_in_num = $temp[1];
+				$month = date("F", mktime(0, 0, 0, $temp[1], 10));
+				$year = substr($temp[2], 0, strpos($temp[2], "."));
+				$date = $month." ".$year;
+			} else if (sizeOf($temp) == 2) {
+				$month_in_num = false;
+				$year = substr($temp[1], 0, strpos($temp[1], "."));
+				$date = $year;
+			}
+			$info = false;
 			$protocol = strpos(strtolower($_SERVER['SERVER_PROTOCOL']),'https') === FALSE ? 'http' : 'https';
 			$host = $_SERVER['HTTP_HOST'];
 			$script = $_SERVER['SCRIPT_NAME'];

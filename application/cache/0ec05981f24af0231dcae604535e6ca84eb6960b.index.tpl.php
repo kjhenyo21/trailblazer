@@ -5,17 +5,17 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '0ec05981f24af0231dcae604535e6ca84eb6960b' => 
     array (
       0 => 'C:\\xampp\\htdocs\\trailblazer\\application/views\\audit_trail\\index.tpl',
-      1 => 1364257712,
+      1 => 1364523183,
       2 => 'file',
     ),
   ),
   'nocache_hash' => '13767515281e1ed0ea7-49065407',
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_51546be12ee62',
+  'unifunc' => 'content_51551d33efd7c',
   'has_nocache_code' => false,
   'cache_lifetime' => 1,
 ),true); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_51546be12ee62')) {function content_51546be12ee62($_smarty_tpl) {?>  <!--
+<?php if ($_valid && !is_callable('content_51551d33efd7c')) {function content_51551d33efd7c($_smarty_tpl) {?>  <!--
  * Trailblazer Digital Accounting Audit Trail Program
  * @author Kristian Jacob Abad Lora <kjalora92@yahoo.com>
  * @date-created October 31, 2012
@@ -26,13 +26,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 	
 	<body>
 		<!-- Modal for Loading a File for Audit Trail-->
-		<div id="load_file" class="modal hide fade" style="margin-top: -50px; width: 480px">
+		<div id="load_file" class="modal hide fade" style="margin-top: -100px; width: 480px">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true" onClick="closeIt(); return false;">&times;</button>
 				<h3>Load File</h3>
 			</div>
 			<div class="modal-body">
-				<form id="load-file-form" class="form-horizontal">
+				<form id="load-file-form" class="form-horizontal" style="margin-bottom: 0px">
 					<fieldset>
 						<div style="margin: 0 35px">
 							<div class="field-group" id="group-file">
@@ -68,26 +68,39 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 								</div>
 							</div>
 						</div>
-						<div style="margin: 0 156px">
-							<a class="btn btn-small" type="submit" id="load" disabled="disabled">Load File</a>
-							<button class="btn btn-small" data-dismiss="modal" id="close" onClick="closeIt(); return false;">Cancel</button> </div>
 					</fieldset>
 				</form>
+			</div>
+			<div class="modal-footer" style="text-align: center">
+				<a class="btn btn-small" type="submit" id="load" disabled="disabled">Load File</a>
+				<button class="btn btn-small" data-dismiss="modal" id="close" onClick="closeIt(); return false;">Cancel</button>
 			</div>
 		</div>
 		
 		<!-- Modal for Notification-->
 				
 		<!-- Main -->
-		<h3 style="margin: 20px auto; text-align: center"> Switchboard </h3>
-		<div id="main-wrapper" style="width: 300px">
-			<div style="margin: 0 auto; text-align: center">
-				<a  href="#load_file" data-toggle="modal" role="button" class="btn" style="width: 190px; margin-bottom:10px">Start a Trail!</a>				
-				<br><a href="http://localhost/trailblazer/messages" role="button" class="btn" style="width: 190px; margin-bottom:10px">Messages</a>
-				<br><a href="http://localhost/trailblazer/profile" role="button" class="btn" style="width: 190px; margin-bottom:10px">Profile</a>
-				<br><a href="http://localhost/trailblazer/preferences" role="button" class="btn" style="width: 190px; margin-bottom:10px">Preferences</a>
-				<br><a href="http://localhost/trailblazer/file_directory" role="button" class="btn" style="width: 190px; margin-bottom:10px">File Directory</a>
-				<br><a href="http://localhost/trailblazer/index/logout" role="button" class="btn" style="width: 190px">Logout</a>
+		<div class="container-fluid">
+			<div class="row-fluid" id="main-wrapper-home">
+				<div class="span3" id="left-col">
+					<ul id="navi-menu" class="nav nav-list">
+						<li class="active"><a href="http://localhost/trailblazer/">Home <i class="icon-home"></i></a></li>				
+						<li><a href="#load_file" data-toggle="modal" style="color: orange; font-weight: bold; font-style: italic">Start a Trail! <i class="icon-road"></i></a></li>				
+						<li><a href="http://localhost/trailblazer/messages">Messages <i class="icon-envelope"></i></a></li>
+						<li><a href="http://localhost/trailblazer/profile">Profile <i class="icon-user"></i></a></li>
+						<li><a href="http://localhost/trailblazer/preferences">Preferences <i class="icon-wrench"></i></a></li>
+						<li><a href="http://localhost/trailblazer/file_directory">File Directory <i class="icon-th-list"></i></a></li>
+						<li><a href="http://localhost/trailblazer/index/logout">Logout <i class="icon-lock"></i></a></li>
+					</ul>
+				</div>
+				<div class="span9" id="right-col">
+					<h3>Welcome <i>Trailblazer!</i></h3>
+					<p>Are you spending too much time in conducting audit trail of the transactions of your business? <i><strong>Trailblazer</strong></i> can help you!</p>
+					<p><i><strong>Trailblazer</i></strong> is a stand-alone, external accounting audit trail system that enables one to trace transactions from financial statements down to the transaction file or source documents, if available. This process of audit trail is called <i>vouching</i>.</p>
+					<p>Aside from the main process of audit trail, <i><strong>Trailblazer</i></strong> also has features like transactee (customer, supplier, etc) validation where one can automatically contact the transactee via SMS for further confirmation about the transaction in question.</p>
+					<p><i><strong>Trailblazer</i></strong> is designed to speed up the manual audit trail process to aid you in detecting fraud in your business in a timely manner.</p>
+					<center><a href="#load_file" data-toggle="modal" class="btn btn-small btn-primary"><strong>Start a Trail, NOW!</strong></a></center>
+				</div>
 			</div>
 		</div>
 	

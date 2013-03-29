@@ -32,10 +32,14 @@
 						</thead>
 						<tbody>
 							{$row = 0}							
+							{$curr_month = ""}						
 							{foreach $info as $i}
+								{if ($curr_month != $i['month'])}
+									{$row = 0}									
+								{/if}
 								{if $row == 0}
 									<tr>
-										<td style="text-align: right">{$month} {$i['day']}</td>
+										<td style="text-align: right">{$month}{$i['month']} {$i['day']}</td>
 										<td style="text-align: center;">{$i['desc']}</td>
 										<td style="text-align: center;"><a href="{url}audit_trail/trail_journal?ref={$i['ref']}&acct={$acct}&fs={$fs}&fs_amt={$fs_amt}&fs_file={$fs_file}&ledger={$doc}&lg_ref={$detail['acct_no']}&lg_desc={$i['desc']}&lg_debit={$i['debit']}&lg_credit={$i['credit']}&lg_total_amt={$lg_total_amt}&jl_ref={$i['ref']}">{$i['ref']}</a></td>
 										{if $i['debit'] != ""}
@@ -67,6 +71,7 @@
 									</tr>
 								{/if}
 								{$row = $row + 1}
+								{$curr_month = $i['month']}
 							{/foreach}
 						</tbody>
 					</table>

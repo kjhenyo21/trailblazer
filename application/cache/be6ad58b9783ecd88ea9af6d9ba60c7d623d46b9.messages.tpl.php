@@ -11,11 +11,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'nocache_hash' => '402551529a0393d2d2-40820855',
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_5152c81805a4c',
+  'unifunc' => 'content_5154f6bc5d5a0',
   'has_nocache_code' => false,
   'cache_lifetime' => 1,
 ),true); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5152c81805a4c')) {function content_5152c81805a4c($_smarty_tpl) {?>  <!--
+<?php if ($_valid && !is_callable('content_5154f6bc5d5a0')) {function content_5154f6bc5d5a0($_smarty_tpl) {?>  <!--
  * Trailblazer Digital Accounting Audit Trail Program
  * @author Kristian Jacob Abad Lora <kjalora92@yahoo.com>
  * @date-created October 31, 2012
@@ -102,6 +102,19 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 						</div>
 						<div class="modal-footer">
 							<a class="btn" id="removeButton6" href="#" data-url="http://localhost/trailblazer/audit_trail/messages/removeMessage?id=6&ref=4677" onClick="removeMessage(6, 4677); return false;">Yes</a>
+							<a href="" class="btn btn-primary" data-dismiss="modal" aria-hidden="true">No</a>
+						</div>
+					</div>
+									<div id="remove7" class="modal hide fade" style="margin-top: -150px">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+							<h3>Remove Message</h3>
+						</div>
+						<div class="modal-body">
+							<p>Are you sure you want to remove the message from the archive? You can always view it later in the Messages Log File.</p>
+						</div>
+						<div class="modal-footer">
+							<a class="btn" id="removeButton7" href="#" data-url="http://localhost/trailblazer/audit_trail/messages/removeMessage?id=7&ref=3599" onClick="removeMessage(7, 3599); return false;">Yes</a>
 							<a href="" class="btn btn-primary" data-dismiss="modal" aria-hidden="true">No</a>
 						</div>
 					</div>
@@ -228,9 +241,23 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 									<td style="text-align: center; vertical-align: center">2013-03-27 18:11:49</td>
 																			<td style="text-align: center; font-weight: bold; color: #289909; vertical-align: center">yes</td>
 																												<td style="text-align: center; vertical-align: center">2013-03-27 18:14:43</td>
-																												<td style="text-align: center; font-weight: bold; color: grey; vertical-align: center">ignored</td>
-																												<td style="text-align: center; vertical-align: center">--</td>
+																												<td style="text-align: center; font-weight: bold; color: #289909; vertical-align: center">confirmed</td>
+																												<td style="text-align: center; vertical-align: center">2013-03-28 01:38:45</td>
 																		<td><a href="#remove6" data-toggle="modal"><i class="icon-remove" style="color: red"></i></a></td>
+								</tr>
+															<tr>
+									<td style="text-align: center; vertical-align: center">3599</td>
+									<td style="text-align: center; vertical-align: center">Yvette Doyongan</td>
+									<td style="text-align: center; vertical-align: center">9179414753</td>
+									<td style="text-align: center; vertical-align: center">2010-01-02</td>
+									<td style="text-align: center; vertical-align: center">6254</td>
+									<td class="amount" style="text-align: right;">36.00</td>
+									<td style="text-align: center; vertical-align: center">2013-03-28 16:31:35</td>
+																			<td style="text-align: center; vertical-align: center">--</td>
+																												<td style="text-align: center; vertical-align: center">--</td>
+																												<td style="text-align: center; font-weight: bold; color: orange; vertical-align: center">sent</td>
+																												<td style="text-align: center; vertical-align: center">--</td>
+																		<td><a href="#remove7" data-toggle="modal"><i class="icon-remove" style="color: red"></i></a></td>
 								</tr>
 													</tbody>
 					</table>

@@ -9,13 +9,13 @@
 	
 	<body>
 		<!-- Modal for Loading a File for Audit Trail-->
-		<div id="load_file" class="modal hide fade" style="margin-top: -50px; width: 480px">
+		<div id="load_file" class="modal hide fade" style="margin-top: -100px; width: 480px">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true" onClick="closeIt(); return false;">&times;</button>
 				<h3>Load File</h3>
 			</div>
 			<div class="modal-body">
-				<form id="load-file-form" class="form-horizontal">
+				<form id="load-file-form" class="form-horizontal" style="margin-bottom: 0px">
 					<fieldset>
 						<div style="margin: 0 35px">
 							<div class="field-group" id="group-file">
@@ -51,11 +51,12 @@
 								</div>
 							</div>
 						</div>
-						<div style="margin: 0 156px">
-							<a class="btn btn-small" type="submit" id="load" disabled="disabled">Load File</a>
-							<button class="btn btn-small" data-dismiss="modal" id="close" onClick="closeIt(); return false;">Cancel</button> </div>
 					</fieldset>
 				</form>
+			</div>
+			<div class="modal-footer" style="text-align: center">
+				<a class="btn btn-small" type="submit" id="load" disabled="disabled">Load File</a>
+				<button class="btn btn-small" data-dismiss="modal" id="close" onClick="closeIt(); return false;">Cancel</button>
 			</div>
 		</div>
 		
@@ -80,15 +81,27 @@
 		{/if}
 		
 		<!-- Main -->
-		<h3 style="margin: 20px auto; text-align: center"> Switchboard </h3>
-		<div id="main-wrapper" style="width: 300px">
-			<div style="margin: 0 auto; text-align: center">
-				<a  href="#load_file" data-toggle="modal" role="button" class="btn" style="width: 190px; margin-bottom:10px">Start a Trail!</a>				
-				<br><a href="{url}messages" role="button" class="btn" style="width: 190px; margin-bottom:10px">Messages</a>
-				<br><a href="{url}profile" role="button" class="btn" style="width: 190px; margin-bottom:10px">Profile</a>
-				<br><a href="{url}preferences" role="button" class="btn" style="width: 190px; margin-bottom:10px">Preferences</a>
-				<br><a href="{url}file_directory" role="button" class="btn" style="width: 190px; margin-bottom:10px">File Directory</a>
-				<br><a href="{url}index/logout" role="button" class="btn" style="width: 190px">Logout</a>
+		<div class="container-fluid">
+			<div class="row-fluid" id="main-wrapper-home">
+				<div class="span3" id="left-col">
+					<ul id="navi-menu" class="nav nav-list">
+						<li class="active"><a href="{url}">Home <i class="icon-home"></i></a></li>				
+						<li><a href="#load_file" data-toggle="modal" style="color: orange; font-weight: bold; font-style: italic">Start a Trail! <i class="icon-road"></i></a></li>				
+						<li><a href="{url}messages">Messages <i class="icon-envelope"></i></a></li>
+						<li><a href="{url}profile">Profile <i class="icon-user"></i></a></li>
+						<li><a href="{url}preferences">Preferences <i class="icon-wrench"></i></a></li>
+						<li><a href="{url}file_directory">File Directory <i class="icon-th-list"></i></a></li>
+						<li><a href="{url}index/logout">Logout <i class="icon-lock"></i></a></li>
+					</ul>
+				</div>
+				<div class="span9" id="right-col">
+					<h3>Welcome <i>Trailblazer!</i></h3>
+					<p>Are you spending too much time in conducting audit trail of the transactions of your business? <i><strong>Trailblazer</strong></i> can help you!</p>
+					<p><i><strong>Trailblazer</i></strong> is a stand-alone, external accounting audit trail system that enables one to trace transactions from financial statements down to the transaction file or source documents, if available. This process of audit trail is called <i>vouching</i>.</p>
+					<p>Aside from the main process of audit trail, <i><strong>Trailblazer</i></strong> also has features like transactee (customer, supplier, etc) validation where one can automatically contact the transactee via SMS for further confirmation about the transaction in question.</p>
+					<p><i><strong>Trailblazer</i></strong> is designed to speed up the manual audit trail process to aid you in detecting fraud in your business in a timely manner.</p>
+					<center><a href="#load_file" data-toggle="modal" class="btn btn-small btn-primary"><strong>Start a Trail, NOW!</strong></a></center>
+				</div>
 			</div>
 		</div>
 	

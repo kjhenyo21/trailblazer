@@ -11,11 +11,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'nocache_hash' => '325335152921f5eb205-01938401',
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_51546c7517bda',
+  'unifunc' => 'content_51551c530278c',
   'has_nocache_code' => false,
   'cache_lifetime' => 1,
 ),true); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_51546c7517bda')) {function content_51546c7517bda($_smarty_tpl) {?><!--
+<?php if ($_valid && !is_callable('content_51551c530278c')) {function content_51551c530278c($_smarty_tpl) {?><!--
  * Trailblazer Digital Accounting Audit Trail Program
  * @author Kristian Jacob Abad Lora <kjalora92@yahoo.com>
  * @date-created October 31, 2012

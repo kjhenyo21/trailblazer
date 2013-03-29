@@ -5,17 +5,17 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '75a1d959ae31da472963e769a34495660771f9b8' => 
     array (
       0 => 'C:\\xampp\\htdocs\\trailblazer\\application/views\\file_directory\\index.tpl',
-      1 => 1364447336,
+      1 => 1364447443,
       2 => 'file',
     ),
   ),
   'nocache_hash' => '1788515281c9a63d97-79340784',
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_5153d07711578',
+  'unifunc' => 'content_51551d389e458',
   'has_nocache_code' => false,
   'cache_lifetime' => 1,
 ),true); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5153d07711578')) {function content_5153d07711578($_smarty_tpl) {?>  <!--
+<?php if ($_valid && !is_callable('content_51551d389e458')) {function content_51551d389e458($_smarty_tpl) {?>  <!--
  * Trailblazer Digital Accounting Audit Trail Program
  * @author Kristian Jacob Abad Lora <kjalora92@yahoo.com>
  * @date-created October 31, 2012
@@ -67,28 +67,44 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 									<td style="text-align: center; vertical-align: center">599</td>
 								</tr>
 															<tr>
+									<td style="text-align: center; vertical-align: center">cdj-2-2010.jl</td>
+									<td style="text-align: right; vertical-align: center">D:\Kristian Lora\My Documents\Lalaine's Bookstore\journals\cash_disbursements</td>
+									<td style="text-align: center; vertical-align: center">2013-03-29 11:02:20</td>
+									<td style="text-align: center; vertical-align: center">2013-03-27 17:11:50</td>
+									<td style="text-align: center; vertical-align: center">2013-03-27 08:03:48</td>
+									<td style="text-align: center; vertical-align: center">599</td>
+								</tr>
+															<tr>
 									<td style="text-align: center; vertical-align: center">gl-1-2010.lg</td>
 									<td style="text-align: right; vertical-align: center">D:\Kristian Lora\My Documents\Lalaine's Bookstore\ledgers\general_ledgers</td>
 									<td style="text-align: center; vertical-align: center">2013-03-18 21:23:45</td>
-									<td style="text-align: center; vertical-align: center">2013-03-28 01:37:23</td>
+									<td style="text-align: center; vertical-align: center">2013-03-29 00:14:06</td>
 									<td style="text-align: center; vertical-align: center">2013-03-18 20:41:01</td>
-									<td style="text-align: center; vertical-align: center">1795</td>
+									<td style="text-align: center; vertical-align: center">1796</td>
+								</tr>
+															<tr>
+									<td style="text-align: center; vertical-align: center">gl-2-2010.lg</td>
+									<td style="text-align: right; vertical-align: center">D:\Kristian Lora\My Documents\Lalaine's Bookstore\ledgers\general_ledgers</td>
+									<td style="text-align: center; vertical-align: center">2013-03-29 11:00:30</td>
+									<td style="text-align: center; vertical-align: center">2013-03-29 12:37:54</td>
+									<td style="text-align: center; vertical-align: center">2013-03-18 20:41:01</td>
+									<td style="text-align: center; vertical-align: center">1796</td>
 								</tr>
 															<tr>
 									<td style="text-align: center; vertical-align: center">is-1-2010.is</td>
 									<td style="text-align: right; vertical-align: center">D:\Kristian Lora\My Documents\Lalaine's Bookstore\financial_statements\income_statements</td>
-									<td style="text-align: center; vertical-align: center">2013-03-26 19:27:35</td>
-									<td style="text-align: center; vertical-align: center">2013-03-27 17:01:38</td>
+									<td style="text-align: center; vertical-align: center">2013-03-29 12:48:14</td>
+									<td style="text-align: center; vertical-align: center">2013-03-26 19:46:43</td>
 									<td style="text-align: center; vertical-align: center">2013-03-18 16:26:59</td>
-									<td style="text-align: center; vertical-align: center">313</td>
+									<td style="text-align: center; vertical-align: center">95</td>
 								</tr>
 															<tr>
 									<td style="text-align: center; vertical-align: center">is-2010.is</td>
 									<td style="text-align: right; vertical-align: center">D:\Kristian Lora\My Documents\Lalaine's Bookstore\financial_statements\income_statements</td>
-									<td style="text-align: center; vertical-align: center">2013-03-18 21:15:47</td>
-									<td style="text-align: center; vertical-align: center">2013-03-26 19:46:43</td>
+									<td style="text-align: center; vertical-align: center">2013-03-26 19:27:35</td>
+									<td style="text-align: center; vertical-align: center">2013-03-29 12:44:35</td>
 									<td style="text-align: center; vertical-align: center">2013-03-18 16:26:59</td>
-									<td style="text-align: center; vertical-align: center">95</td>
+									<td style="text-align: center; vertical-align: center">313</td>
 								</tr>
 															<tr>
 									<td style="text-align: center; vertical-align: center">new  3.txt</td>
@@ -123,6 +139,14 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 									<td style="text-align: center; vertical-align: center">231</td>
 								</tr>
 															<tr>
+									<td style="text-align: center; vertical-align: center">pt-2-2010.tf</td>
+									<td style="text-align: right; vertical-align: center">D:\Kristian Lora\My Documents\Lalaine's Bookstore\transaction_files\purchase_transactions</td>
+									<td style="text-align: center; vertical-align: center">2013-03-29 11:03:43</td>
+									<td style="text-align: center; vertical-align: center">2013-03-27 09:09:53</td>
+									<td style="text-align: center; vertical-align: center">2013-03-27 08:55:14</td>
+									<td style="text-align: center; vertical-align: center">231</td>
+								</tr>
+															<tr>
 									<td style="text-align: center; vertical-align: center">ptd-1-2010.tf</td>
 									<td style="text-align: right; vertical-align: center">D:\Kristian Lora\My Documents\Lalaine's Bookstore\transaction_files\purchase_transactions</td>
 									<td style="text-align: center; vertical-align: center">2013-03-27 11:05:46</td>
@@ -131,10 +155,18 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 									<td style="text-align: center; vertical-align: center">762</td>
 								</tr>
 															<tr>
+									<td style="text-align: center; vertical-align: center">ptd-2-2010.tf</td>
+									<td style="text-align: right; vertical-align: center">D:\Kristian Lora\My Documents\Lalaine's Bookstore\transaction_files\purchase_transactions</td>
+									<td style="text-align: center; vertical-align: center">2013-03-29 11:03:43</td>
+									<td style="text-align: center; vertical-align: center">2013-03-27 11:05:47</td>
+									<td style="text-align: center; vertical-align: center">2013-03-27 11:05:47</td>
+									<td style="text-align: center; vertical-align: center">762</td>
+								</tr>
+															<tr>
 									<td style="text-align: center; vertical-align: center">et-1-2010.tf</td>
 									<td style="text-align: right; vertical-align: center">D:\Kristian Lora\My Documents\Lalaine's Bookstore\transaction_files\expense_transactions</td>
 									<td style="text-align: center; vertical-align: center">2013-03-27 11:20:46</td>
-									<td style="text-align: center; vertical-align: center">2013-03-27 18:36:04</td>
+									<td style="text-align: center; vertical-align: center">2013-03-28 20:04:34</td>
 									<td style="text-align: center; vertical-align: center">2013-03-27 11:20:46</td>
 									<td style="text-align: center; vertical-align: center">733</td>
 								</tr>

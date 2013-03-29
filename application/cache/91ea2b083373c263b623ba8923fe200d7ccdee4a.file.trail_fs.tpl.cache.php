@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-03-27 06:46:54
+<?php /* Smarty version Smarty-3.1.7, created on 2013-03-29 05:43:34
          compiled from "C:\xampp\htdocs\trailblazer\application/views\audit_trail\trail_fs.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:13820515287ce641271-12826943%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '91ea2b083373c263b623ba8923fe200d7ccdee4a' => 
     array (
       0 => 'C:\\xampp\\htdocs\\trailblazer\\application/views\\audit_trail\\trail_fs.tpl',
-      1 => 1364317832,
+      1 => 1364527059,
       2 => 'file',
     ),
   ),
@@ -15,13 +15,15 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_515287cf02e9f',
   'variables' => 
   array (
     'fr_kind' => 0,
+    'month' => 0,
     'date' => 0,
     'info' => 0,
     'i' => 0,
-    'month' => 0,
     'year' => 0,
     'file' => 0,
     'column' => 0,
@@ -29,8 +31,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'source' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_515287cf02e9f',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_515287cf02e9f')) {function content_515287cf02e9f($_smarty_tpl) {?><?php if (!is_callable('smarty_function_url')) include 'C:\\xampp\\htdocs\\trailblazer\\application\\libraries\\smarty\\plugins\\function.url.php';
 ?><!--
@@ -57,8 +57,13 @@ audit_trail"><i class="icon-home"></i></a>
 			<div style="margin: 0 auto; text-align: center">
 				<h2><?php echo $_smarty_tpl->tpl_vars['fr_kind']->value;?>
 </h2>
-				<div id="date-heading">For the period of <?php echo $_smarty_tpl->tpl_vars['date']->value;?>
+				<?php if (($_smarty_tpl->tpl_vars['month']->value)){?>
+					<div id="date-heading">For the period of <?php echo $_smarty_tpl->tpl_vars['date']->value;?>
 </div>
+				<?php }else{ ?>
+					<div id="date-heading">For the year <?php echo $_smarty_tpl->tpl_vars['date']->value;?>
+</div>
+				<?php }?>
 				<div style="margin-bottom: 20px; font-style: italic">In Philippine Peso</div>
 				<table id="table" style="text-align: left; color: black">
 					<thead>

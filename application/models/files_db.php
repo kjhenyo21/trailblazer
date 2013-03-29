@@ -70,6 +70,27 @@ class Files_DB extends CI_Model {
 			return $path;
 		} else return false;
 	}
+	
+	function getFilePathByDocTypeAndYear($doc_type, $year) {
+		$query = $this->db->query("SELECT dl.path, f.filename, dl.document
+									FROM files f, doc_locations dl, doc_types dt
+									WHERE dt.type = '$doc_type'
+										AND dt.id = dl.type
+										AND filename LIKE '%-".$year."%'
+										AND f.path = dl.path");
+
+		if ($query->result()) {
+			foreach ($query->result() as $row) {
+				$paths[] = array(
+					'path' => $row->path,
+					'filename' => $row->filename,
+					'full_path' => $row->path."\\".$row->filename,
+					'doc' => $row->document
+				);
+			}
+			return $paths;
+		} else return false;
+	}
 
 	function getFilePathByReference($doc_type, $ref) {
 		

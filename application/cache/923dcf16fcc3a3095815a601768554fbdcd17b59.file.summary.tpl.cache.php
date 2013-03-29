@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-03-28 17:11:08
+<?php /* Smarty version Smarty-3.1.7, created on 2013-03-28 17:25:05
          compiled from "C:\xampp\htdocs\trailblazer\application/views\audit_trail\summary.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:426551529573306f26-90970638%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '923dcf16fcc3a3095815a601768554fbdcd17b59' => 
     array (
       0 => 'C:\\xampp\\htdocs\\trailblazer\\application/views\\audit_trail\\summary.tpl',
-      1 => 1364487032,
+      1 => 1364487390,
       2 => 'file',
     ),
   ),
@@ -267,7 +267,7 @@ assets/images/arrow-left-small.PNG"></img>
 				<?php }else{ ?>
 					<table>
 						<td><i class="icon-warning-sign" style="color: orange"></i></td>
-						<td><strong>Overall: Trail PARTIALLY Successful: Transactions are traceable but there are figures that do not match.</strong></td>
+						<td><strong>Conclusion: Trail PARTIALLY Successful: Transactions are traceable but there are figures that do not match.</strong></td>
 					</table>
 				<?php }?>
 			</div>
