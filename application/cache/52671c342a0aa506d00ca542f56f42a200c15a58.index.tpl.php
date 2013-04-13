@@ -10,17 +10,12 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     ),
   ),
   'nocache_hash' => '4305153cbb09b2556-11264324',
-  'variables' => 
-  array (
-    'response' => 0,
-    'info' => 0,
-  ),
-  'has_nocache_code' => false,
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_5153cbb106ab8',
+  'unifunc' => 'content_51659ab5e4723',
+  'has_nocache_code' => false,
   'cache_lifetime' => 1,
 ),true); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5153cbb106ab8')) {function content_5153cbb106ab8($_smarty_tpl) {?><!--
+<?php if ($_valid && !is_callable('content_51659ab5e4723')) {function content_51659ab5e4723($_smarty_tpl) {?>  <!--
  * Trailblazer Digital Accounting Audit Trail Program
  * @author Kristian Jacob Abad Lora <kjalora92@yahoo.com>
  * @date-created October 31, 2012
@@ -58,15 +53,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 								<div class="field-group">
 									<label class="field-label" for="mname">Middle Name</label>
 									<div class="control">
-										<input type="text" id="mname" name="mname" value="Abad" placeholder="Middle Name">
+										<input type="text" id="mname" name="mname" value="" placeholder="Middle Name">
 									</div>
 								</div>
 								<div class="field-group">
 									<label class="field-label" for="sex">Sex</label>
 									<div class="control">
 										<select id="sex" name="sex" style="width: 100px">
-																							<option selected="selected">Male</option>
-												<option>Female</option>
 																					</select>
 									</div>
 								</div>
@@ -75,25 +68,25 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 								<div class="field-group">
 									<label class="field-label" for="bdate">Birthdate</label>
 									<div class="control">
-										<input type="text" id="bdate" name="bdate" style="width: 80px" value="1992-12-12 00:00:00" placeholder="yyyy-mm-dd">
+										<input type="text" id="bdate" name="bdate" style="width: 80px" value="0000-00-00 00:00:00" placeholder="yyyy-mm-dd">
 									</div>
 								</div>
 								<div class="field-group">
 									<label class="field-label" for="address">Address</label>
 									<div class="control">
-										<input type="text" class="span4" id="address" name="address" value="Cebu" placeholder="Address">
+										<input type="text" class="span4" id="address" name="address" value="" placeholder="Address">
 									</div>
 								</div>
 								<div class="field-group">
 									<label class="field-label" for="contact">Contact</label>
 									<div class="control">
-										<input type="text" class="span2" id="contact" name="contact" value="09327331859" placeholder="Phone/Mobile Number">
+										<input type="text" class="span2" id="contact" name="contact" value="" placeholder="Phone/Mobile Number">
 									</div>
 								</div>
 								<div class="field-group">
 									<label class="field-label" for="email">E-mail</label>
 									<div class="control">
-										<input type="text" id="e-mail" name="email" value="kjalora92@yahoo.com"placeholder="E-mail Address">
+										<input type="text" id="e-mail" name="email" value=""placeholder="E-mail Address">
 									</div>
 								</div>
 							</td>
@@ -107,19 +100,19 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 								<div class="field-group" id="group-license_no">
 									<label class="field-label" for="license_no">License No.<span class="asterisk">*</span></label>
 									<div class="control">
-										<input type="text" class="span2" id="license_no" name="license_no" value="5478547" placeholder="License Number">
+										<input type="text" class="span2" id="license_no" name="license_no" value="45745748" placeholder="License Number">
 									</div>
 								</div>
 								<div class="field-group" id="group-cname">
 									<label class="field-label" for="cname">Name<span class="asterisk">*</span></label>
 									<div class="control">
-										<input type="text" id="cname" name="cname" value="Lalaine's Bookstore" placeholder="Company Name">
+										<input type="text" id="cname" name="cname" value="SGV" placeholder="Company Name">
 									</div>
 								</div>
 								<div class="field-group">
 									<label class="field-label" for="caddress">Address</label>
 									<div class="control">
-										<input type="text" class="span4" id="caddress" name="caddress" value="Naval, Biliran" placeholder="Address">
+										<input type="text" class="span4" id="caddress" name="caddress" value="" placeholder="Address">
 									</div>
 								</div>
 							</td>
@@ -133,7 +126,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 								<div class="field-group">
 									<label class="field-label" for="position">Position</label>
 									<div class="control">
-										<input type="text" id="position" name="position" placeholder="Company" value="Auditor" Position">
+										<input type="text" id="position" name="position" placeholder="Company" value="" Position">
 									</div>
 								</div>
 								<div class="field-group" id="group-uname">
@@ -161,8 +154,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 						</table>
 										<hr style="margin-bottom: 2px">
 					<div style="font-style: italic; font-size: 8pt; color: red; margin-bottom: 10px">* - required fields</div>
-					<input type="hidden" name="no" value="1"/>
-					<input type="hidden" name="id1" value="1"/>
+					<input type="hidden" name="no" value="2"/>
+					<input type="hidden" name="id1" value="2"/>
 					<div class="field-group" style="margin-bottom: 0px; text-align: center">
 						<div class="control">
 							<a type="button" id="submit" class="btn" disabled="disabled">Save changes</a>

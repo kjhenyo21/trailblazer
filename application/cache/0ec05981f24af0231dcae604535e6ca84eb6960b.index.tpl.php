@@ -5,17 +5,17 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '0ec05981f24af0231dcae604535e6ca84eb6960b' => 
     array (
       0 => 'C:\\xampp\\htdocs\\trailblazer\\application/views\\audit_trail\\index.tpl',
-      1 => 1364523183,
+      1 => 1365619852,
       2 => 'file',
     ),
   ),
   'nocache_hash' => '13767515281e1ed0ea7-49065407',
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_51551d33efd7c',
+  'unifunc' => 'content_51695bbd3da53',
   'has_nocache_code' => false,
   'cache_lifetime' => 1,
 ),true); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_51551d33efd7c')) {function content_51551d33efd7c($_smarty_tpl) {?>  <!--
+<?php if ($_valid && !is_callable('content_51695bbd3da53')) {function content_51695bbd3da53($_smarty_tpl) {?>  <!--
  * Trailblazer Digital Accounting Audit Trail Program
  * @author Kristian Jacob Abad Lora <kjalora92@yahoo.com>
  * @date-created October 31, 2012
@@ -52,21 +52,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 									</select>
 								</div>
 							</div>
-							<div class="field-group" id="group-interest">
-								<label class="field-label" for="items">Items of Interest (Sampling)</label>
-								<div id="control-interest" class="control">
-									<a class="link" data-original-title="The number of item transactions that you are interested to audit; must be greater than zero.">
-										<select style="width: 80px" id="items" name="items" onChange="noOfItemsOnChange(); return false;">
-											<option selected="selected">250</option>
-											<option>200</option>
-											<option>150</option>
-											<option>100</option>
-											<option>50</option>
-											<option>Other</option>
-										</select>
-									</a>
-								</div>
-							</div>
 						</div>
 					</fieldset>
 				</form>
@@ -86,10 +71,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 					<ul id="navi-menu" class="nav nav-list">
 						<li class="active"><a href="http://localhost/trailblazer/">Home <i class="icon-home"></i></a></li>				
 						<li><a href="#load_file" data-toggle="modal" style="color: orange; font-weight: bold; font-style: italic">Start a Trail! <i class="icon-road"></i></a></li>				
-						<li><a href="http://localhost/trailblazer/messages">Messages <i class="icon-envelope"></i></a></li>
-						<li><a href="http://localhost/trailblazer/profile">Profile <i class="icon-user"></i></a></li>
+													<li><a href="http://localhost/trailblazer/messages">Messages <i class="icon-envelope"></i></a></li>
+												<li><a href="http://localhost/trailblazer/profile">Profile <i class="icon-user"></i></a></li>
 						<li><a href="http://localhost/trailblazer/preferences">Preferences <i class="icon-wrench"></i></a></li>
-						<li><a href="http://localhost/trailblazer/file_directory">File Directory <i class="icon-th-list"></i></a></li>
+													<li><a href="http://localhost/trailblazer/file_directory">File Directory <i class="icon-th-list"></i></a></li>
+												<!--<li><a href="http://localhost/trailblazer/system_audit">System Audit <i class="icon-cog"></i></a></li>-->
 						<li><a href="http://localhost/trailblazer/index/logout">Logout <i class="icon-lock"></i></a></li>
 					</ul>
 				</div>
@@ -118,6 +104,12 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 			
 			$('.link').tooltip({
 				placement: 'right'
+			});
+			
+			$('.link-alert').tooltip({
+				animation: true,
+				placement: 'top',
+				trigger: 'manual'
 			});
 			
 			function closeNotif() {

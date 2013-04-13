@@ -216,6 +216,7 @@
 						url: 'setup_preferences/savePreferences',
 						data: $("#setup-pref").serialize(),				
 						success: function(data){
+							alert('Setup successful! You will now be directed to the Login Page.');
 							location.replace("{url}");
 						}
 					});

@@ -23,26 +23,32 @@
 						<table id="table" style="text-align: center; color: black">
 							<thead>
 								<th style="padding: 0 10px;">Item</th>
-								<th>Quantity</th>
+								<th style="width:5%">Qty</th>
 								<th>Unit Price</th>
-								<th>Amount</th>
+								<th style="width:25%">Amount</th>
 							</thead>
 							<tbody>
 								{foreach $details as $d}
 									<tr>
 										<td style="padding: 0 10px;">{$d[2]}</td>
 										<td>{$d[3]}</td>
-										<td>{$d[4]|number_format:2:".":","}</td>
-										<td>{$d[5]|number_format:2:".":","}</td>
+										<td class="amount">{$d[4]|number_format:2:".":","}</td>
+										<td class="amount">{$d[5]|number_format:2:".":","}</td>
 									</tr>
 								{/foreach}
-							</tbody>	
+								<tr id=total-trans-amt>
+									<td></td>
+									<td></td>
+									<td style="font-weight: bold; text-align: right">TOTAL</td>
+									<td class="amount" style="font-weight: bold">Php {$dets_total_amt|number_format:2:".":","}</td>								
+								</tr>
+							</tbody>
 						</table>
 					{else}
 						<table id="table" style="text-align: center; color: black">
 							<thead>
 								<th style="padding: 0 10px;">Item</th>
-								<th>Quantity</th>
+								<th>Qty</th>
 								<th>Unit Price</th>
 								<th>Amount</th>
 							</thead>

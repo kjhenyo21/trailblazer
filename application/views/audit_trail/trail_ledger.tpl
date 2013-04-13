@@ -39,7 +39,7 @@
 								{/if}
 								{if $row == 0}
 									<tr>
-										<td style="text-align: right">{$month}{$i['month']} {$i['day']}</td>
+										<td style="text-align: right">{$month} {$i['day']}</td>
 										<td style="text-align: center;">{$i['desc']}</td>
 										<td style="text-align: center;"><a href="{url}audit_trail/trail_journal?ref={$i['ref']}&acct={$acct}&fs={$fs}&fs_amt={$fs_amt}&fs_file={$fs_file}&ledger={$doc}&lg_ref={$detail['acct_no']}&lg_desc={$i['desc']}&lg_debit={$i['debit']}&lg_credit={$i['credit']}&lg_total_amt={$lg_total_amt}&jl_ref={$i['ref']}">{$i['ref']}</a></td>
 										{if $i['debit'] != ""}
@@ -50,7 +50,7 @@
 										{if $i['credit'] != ""}
 											<td class="amount">Php {$i['credit']|number_format:2:".":","}</td>
 										{else}
-											<td class="amount">{$i['credit']}</td>
+											<td class="amount">Php 0.00</td>
 										{/if}
 									</tr>
 								{else}
@@ -66,13 +66,20 @@
 										{if $i['credit'] != ""}
 											<td class="amount">{$i['credit']|number_format:2:".":","}</td>
 										{else}
-											<td class="amount">{$i['credit']}</td>
+											<td class="amount">0.00</td>
 										{/if}
 									</tr>
 								{/if}
 								{$row = $row + 1}
 								{$curr_month = $i['month']}
 							{/foreach}
+							<tr id="total-ledger-bal">
+								<td></td>
+								<td></td>
+								<td style="font-weight: bold; text-align: right">TOTAL</td>
+								<td class="amount" style="font-weight: bold">Php {$lg_total_dr_disp|number_format:2:".":","}</td>
+								<td class="amount" style="font-weight: bold">Php {$lg_total_cr_disp|number_format:2:".":","}</td>
+							</tr>
 						</tbody>
 					</table>
 				{else}

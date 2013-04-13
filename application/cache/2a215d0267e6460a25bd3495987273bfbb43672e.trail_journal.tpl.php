@@ -5,17 +5,17 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '2a215d0267e6460a25bd3495987273bfbb43672e' => 
     array (
       0 => 'C:\\xampp\\htdocs\\trailblazer\\application/views\\audit_trail\\trail_journal.tpl',
-      1 => 1364480912,
+      1 => 1365851102,
       2 => 'file',
     ),
   ),
   'nocache_hash' => '31701515289bfb0b223-35774772',
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_51551c3db0e88',
+  'unifunc' => 'content_51695bac433db',
   'has_nocache_code' => false,
   'cache_lifetime' => 1,
 ),true); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_51551c3db0e88')) {function content_51551c3db0e88($_smarty_tpl) {?>  <!--
+<?php if ($_valid && !is_callable('content_51695bac433db')) {function content_51695bac433db($_smarty_tpl) {?>  <!--
  * Trailblazer Digital Accounting Audit Trail Program
  * @author Kristian Jacob Abad Lora <kjalora92@yahoo.com>
  * @date-created October 31, 2012
@@ -40,7 +40,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 						<thead>
 															<th style="text-align: center; vertical-align: center">Date</th>
 								<th style="text-align: center; vertical-align: center">Account</th>
-								<th style="text-align: center; vertical-align: center">Description</th>
+								<th style="text-align: center; vertical-align: center">Particular</th>
 								<th style="text-align: center; vertical-align: center">Reference</th>
 								<th style="text-align: center; vertical-align: center">Purchases (Dr)</th>
 								<th style="text-align: center; vertical-align: center">Other (Dr)</th>
@@ -75,22 +75,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 																																					<td class="amount">300.00</td>
 																																	</tr>
 																																																											<tr>
-																							<td style="text-align: right">06</td>
-												<td>Stall Rent</td>
-												<td>86</td>
-												<td style="text-align: center;">ET-1-2010</a></td>
-																									<td class="amount"></td>
-																																					<td class="amount">11,460.00</td>
-																																					<td class="amount">11,460.00</td>
-																																	</tr>
-																																																											<tr>
-																							<td style="text-align: right">08</td>
-												<td>Freight-In</td>
-												<td>4367332</td>
-												<td style="text-align: center;">ET-1-2010</a></td>
-																									<td class="amount"></td>
-																																					<td class="amount">1,380.00</td>
-																																					<td class="amount">1,380.00</td>
+																							<td style="text-align: right; font-weight: bold">06</td>
+												<td style="font-weight: bold">Stall Rent</td>
+												<td style="font-weight: bold">86</td>
+												<td style="text-align: center; font-weight: bold"><a href="http://localhost/trailblazer/audit_trail/trail_trans?ref=ET-1-2010&acct=Stall Rent&fs=Income Statement&fs_amt=11460&fs_file=is-1-2010.is&ledger=General Ledger&lg_ref=605&lg_desc=86&lg_debit=11460&lg_credit=&lg_amt=11460&lg_total_amt=11460&journal=Cash Disbursements Journal&jl_ref=CDJ-1-2010&jl_desc=86&jl_amt=11460">ET-1-2010</a></td>
+																									<td class="amount" style="font-weight: bold"></td>
+																																					<td class="amount" style="font-weight: bold">11,460.00</td>
+																																					<td class="amount" style="font-weight: bold">11,460.00</td>
 																																	</tr>
 																																																											<tr>
 																							<td style="text-align: right">11</td>
@@ -102,13 +93,22 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 																																					<td class="amount">12,717.00</td>
 																																	</tr>
 																																																											<tr>
-																							<td style="text-align: right; font-weight: bold">12</td>
-												<td style="font-weight: bold">Purchases</td>
-												<td style="font-weight: bold">25626</td>
-												<td style="text-align: center; font-weight: bold"><a href="http://localhost/trailblazer/audit_trail/trail_trans?ref=PT-1-2010&acct=Purchases&fs=Income Statement&fs_amt=29738.36&fs_file=is-2010.is&ledger=General Ledger&lg_ref=501&lg_desc=25626&lg_debit=2152.18&lg_credit=&lg_amt=2152.18&lg_total_amt=29738.36&journal=Cash Disbursements Journal&jl_ref=CDJ-1-2010&jl_desc=25626&jl_amt=2152.18">PT-1-2010</a></td>
-																									<td class="amount" style="font-weight: bold">2,152.18</td>
-																																					<td class="amount" style="font-weight: bold"></td>
-																																					<td class="amount" style="font-weight: bold">2,152.18</td>
+																							<td style="text-align: right">12</td>
+												<td>Purchases</td>
+												<td>25626</td>
+												<td style="text-align: center;">PT-1-2010</a></td>
+																									<td class="amount">2,152.18</td>
+																																					<td class="amount"></td>
+																																					<td class="amount">2,152.18</td>
+																																	</tr>
+																																																											<tr>
+																							<td style="text-align: right">08</td>
+												<td>Freight-in</td>
+												<td>4367332</td>
+												<td style="text-align: center;">ET-1-2010</a></td>
+																									<td class="amount"></td>
+																																					<td class="amount">1,380.00</td>
+																																					<td class="amount">1,380.00</td>
 																																	</tr>
 																																																											<tr>
 																							<td style="text-align: right">15</td>
@@ -146,9 +146,18 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 																																					<td class="amount">1,600.00</td>
 																																					<td class="amount">1,600.00</td>
 																																	</tr>
-																																						</tbody>
+																																							<tr id="total-journal-bal">
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td class="amount" style="font-weight: bold">Php 14,869.18</td>
+								<td class="amount" style="font-weight: bold">Php 30,608.11</td>
+								<td class="amount" style="font-weight: bold">Php 45,477.29</td>
+							</tr>
+						</tbody>
 					</table>
-								<div id="source-file">Source File: D:\Kristian Lora\My Documents\Lalaine's Bookstore\journals\cash_disbursements\cdj-1-2010.jl</div>
+								<div id="source-file">Source File: D:\Kristian Lora\My Documents\Trailblazer Test\journals\cash_disbursements\cdj-1-2010.jl</div>
 			</div>
 		</div>
 	

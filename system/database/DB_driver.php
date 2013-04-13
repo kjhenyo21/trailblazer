@@ -133,13 +133,13 @@ class CI_DB_driver {
 		{
 			if ( ! $this->db_select())
 			{
-				log_message('error', 'Unable to select database: '.$this->database);
+				/**log_message('error', 'Unable to select database: '.$this->database);
 
 				if ($this->db_debug)
 				{
 					$this->display_error('db_unable_to_select', $this->database);
 				}
-				return FALSE;
+				return FALSE;*/
 			}
 			else
 			{

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-03-28 17:46:37
+<?php /* Smarty version Smarty-3.1.7, created on 2013-04-10 19:00:48
          compiled from "C:\xampp\htdocs\trailblazer\application/views\file_directory\index.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:1788515281c9a63d97-79340784%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '75a1d959ae31da472963e769a34495660771f9b8' => 
     array (
       0 => 'C:\\xampp\\htdocs\\trailblazer\\application/views\\file_directory\\index.tpl',
-      1 => 1364447443,
+      1 => 1364789633,
       2 => 'file',
     ),
   ),
@@ -63,7 +63,7 @@ preferences" class="btn btn-primary" type="button" id="update">OK, I'll update n
 		
 		<!-- Modal for Modified Files Notification-->
 		<?php if (($_smarty_tpl->tpl_vars['noOfModFiles']->value>0)){?>
-			<div id="notif-mod" class="modal hide fade in" style="margin-top: -100px; width: 480px">
+			<div id="notif-mod" class="modal hide fade in" style="margin-top: -100px; width: 500px">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true" onClick="closeNotif(); return false;">&times;</button>
 					<h3 style="color: #DB1900">File(s) Modified!</h3>

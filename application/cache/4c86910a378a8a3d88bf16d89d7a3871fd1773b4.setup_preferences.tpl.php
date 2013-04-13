@@ -1,21 +1,21 @@
-<?php /*%%SmartyHeaderCode:25650514621948c7d28-86108484%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:1232151659a2b948289-20465267%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '4c86910a378a8a3d88bf16d89d7a3871fd1773b4' => 
     array (
       0 => 'C:\\xampp\\htdocs\\trailblazer\\application/views\\setup_preferences.tpl',
-      1 => 1364159845,
+      1 => 1365618321,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '25650514621948c7d28-86108484',
+  'nocache_hash' => '1232151659a2b948289-20465267',
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_514f7c62023dd',
+  'unifunc' => 'content_5165b0555e593',
   'has_nocache_code' => false,
   'cache_lifetime' => 1,
 ),true); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_514f7c62023dd')) {function content_514f7c62023dd($_smarty_tpl) {?>  <!--
+<?php if ($_valid && !is_callable('content_5165b0555e593')) {function content_5165b0555e593($_smarty_tpl) {?>  <!--
  * Trailblazer Digital Accounting Audit Trail Program
  * @author Kristian Jacob Abad Lora <kjalora92@yahoo.com>
  * @date-created October 31, 2012
@@ -233,6 +233,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 						url: 'setup_preferences/savePreferences',
 						data: $("#setup-pref").serialize(),				
 						success: function(data){
+							alert('Setup successful! You will now be directed to the Login Page.');
 							location.replace("http://localhost/trailblazer/");
 						}
 					});

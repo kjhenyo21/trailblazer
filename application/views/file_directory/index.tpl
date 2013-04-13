@@ -30,7 +30,7 @@
 		
 		<!-- Modal for Modified Files Notification-->
 		{if ($noOfModFiles > 0) }
-			<div id="notif-mod" class="modal hide fade in" style="margin-top: -100px; width: 480px">
+			<div id="notif-mod" class="modal hide fade in" style="margin-top: -100px; width: 500px">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true" onClick="closeNotif(); return false;">&times;</button>
 					<h3 style="color: #DB1900">File(s) Modified!</h3>

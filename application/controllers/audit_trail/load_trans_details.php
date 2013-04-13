@@ -17,6 +17,7 @@ class Load_Trans_Details extends CI_Controller {
 		$or_no = $_GET['or_no'];
 		$name = $_GET['name'];
 		$amt_due = $_GET['amt'];
+		$dets_total_amt = 0;
 		$address = $_GET['address'];
 		$contact = $_GET['contact'];
 		$date = "";
@@ -34,6 +35,7 @@ class Load_Trans_Details extends CI_Controller {
 					4 => $d[4],
 					5 => $d[5]
 				);
+				$dets_total_amt += $d[5];
 			}
 		} else $error_msg_det = "No data found.";
 		//echo json_encode($data);
@@ -41,6 +43,7 @@ class Load_Trans_Details extends CI_Controller {
 		$this->mysmarty->assign('date', $date);
 		$this->mysmarty->assign('name', $name);
 		$this->mysmarty->assign('amt_due', $amt_due);
+		$this->mysmarty->assign('dets_total_amt', $dets_total_amt);
 		$this->mysmarty->assign('address', $address);
 		$this->mysmarty->assign('contact', $contact);
 		$this->mysmarty->assign('details', $data);

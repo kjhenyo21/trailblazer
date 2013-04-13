@@ -6,6 +6,7 @@ class Setup_Preferences extends CI_Controller {
         parent::__construct();
 		$this->load->library('session');
 		$this->load->model('preferences_db');
+		$this->load->model('files_db');
 		$this->load->helper('url');
 		$this->load->library('form_validation');
 	}
@@ -36,8 +37,20 @@ class Setup_Preferences extends CI_Controller {
 			$pref->addPath($info);
 		}
 		$this->searchFiles();
+		//echo "<script type='text/javascript'>window.alert('Setup successful! You will now be directed to the Login Page.'); window.location.href='".$this->config->item('base_url')."audit_trail'</script>";
 		unlink('./application/controllers/setup_preferences.php');
 		//header("location: ".$this->config->item('base_url')."audit_trail");
+	}
+
+	public function pathExists($path) {
+		//echo $path;
+		if (is_dir($path)) {
+			//echo "EXIST!";
+			return true;
+		} else {
+			//echo "nope";
+			return false;
+		}
 	}
 	
 	public function doesPathExist() {
@@ -58,35 +71,41 @@ class Setup_Preferences extends CI_Controller {
 		$preferences = new preferences_db();
 		$file_handler = new files_db();
 		$paths = $preferences->getDocPaths();
-		foreach ($paths as $p) {
-			if ($this->pathExists($p['path'])) {
-				$directory = $p['path'];
-				
-				//echo $directory;
-				$files = glob($directory.'/*');
-				foreach($files as $file) {
-					if (is_file($file)) {
-						$stat = stat($file);
-						$new_files[] = array(
-							'filename' => basename($file),
-							'path' => dirname($file),
-							'date_created' => date("Y-m-d H:i:s", $stat['ctime']),
-							'date_modified' => date("Y-m-d H:i:s", $stat['mtime']),
-							'date_accessed' => date("Y-m-d H:i:s", $stat['atime']),
-							'size' => $stat['size'],
-							'checksum' => crc32(file_get_contents($file))
-						);
-					}
-					/**echo $file."\r\n";
-					echo basename($file)."\r\n";
-					echo dirname($file)."\r\n";
-					echo date("Y-m-d H:i:s", $stat['ctime'])."\r\n";
-					echo date("Y-m-d H:i:s", $stat['mtime'])."\r\n";
-					echo date("Y-m-d H:i:s", $stat['atime'])."\r\n";*/
+		if ($paths) {
+			foreach ($paths as $p) {		
+				echo "hey";
+				echo sizeOf($paths);
+				if ($this->pathExists($p['path'])) {
+					$directory = $p['path'];
+					
+					//echo $directory;
+					$files = glob($directory.'/*');
+					if ($files) {
+						foreach($files as $file) {
+							if (is_file($file)) {
+								$stat = stat($file);
+								$new_files[] = array(
+									'filename' => basename($file),
+									'path' => dirname($file),
+									'date_created' => date("Y-m-d H:i:s", $stat['ctime']),
+									'date_modified' => date("Y-m-d H:i:s", $stat['mtime']),
+									'date_accessed' => date("Y-m-d H:i:s", $stat['atime']),
+									'size' => $stat['size'],
+									'checksum' => crc32(file_get_contents($file))
+								);
+							}
+							/**echo $file."\r\n";
+							echo basename($file)."\r\n";
+							echo dirname($file)."\r\n";
+							echo date("Y-m-d H:i:s", $stat['ctime'])."\r\n";
+							echo date("Y-m-d H:i:s", $stat['mtime'])."\r\n";
+							echo date("Y-m-d H:i:s", $stat['atime'])."\r\n";*/
+						}
+					} else return false;
 				}
 			}
-		}
-		$file_handler->addAllFiles($new_files);
-		return $files;
+			$file_handler->addAllFiles($new_files);
+			return $files;
+		} else return false;
 	}
 }

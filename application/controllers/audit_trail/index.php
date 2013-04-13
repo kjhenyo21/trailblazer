@@ -16,11 +16,14 @@ class Index extends CI_Controller {
 		if ($this->session->userdata('status') != 'authorizedUser') {
 			header("location:".$this->config->item('base_url')."index.php?status=unauthorizedAccess");
 		} else {
+			$database = new database_db();
 			$this->mysmarty->assign('status', $this->session->userdata('status'));
 			$this->mysmarty->assign('user', $this->session->userdata('username'));
 			$this->mysmarty->assign('base_url', $this->config->item('base_url'));
 			$this->mysmarty->assign('nonExistentPaths', $this->checkPaths());
+			$this->mysmarty->assign('noOfModFiles', $this->checkFiles());
 			$this->mysmarty->assign('nEPaths', $this->getNonExistentPaths());
+			$this->mysmarty->assign('noOfNewAndIgnoredMessages', $database->countIgnoredAndNewMessages());
 			$this->mysmarty->display('header.tpl');
 			$this->mysmarty->display('audit_trail/index.tpl');
 			$this->mysmarty->display('footer.tpl');
@@ -102,7 +105,7 @@ class Index extends CI_Controller {
 								}
 							}
 						}
-					} else $error_msg = "Certain line(s) of the file or the entire file may not be in the required format of this system for ledgers: [account,revenue_amt,expense_amt]";
+					} else $error_msg = "Certain line(s) of the file or the entire file may not be in the required format of this system for financial statements.";
 				}
 			} else $error_msg = "No results to display. Either file is not found or no results at all.";
 					
@@ -125,9 +128,11 @@ class Index extends CI_Controller {
 		$preferences = new preferences_db();
 		$paths = $preferences->getDocPaths();
 		$noOfNonExistentPaths = 0;
-		foreach ($paths as $p) {
-			if (!$this->pathExists($p['path']))
-				$noOfNonExistentPaths++;
+		if ($paths) {
+			foreach ($paths as $p) {
+				if (!$this->pathExists($p['path']))
+					$noOfNonExistentPaths++;
+			}
 		}
 		return $noOfNonExistentPaths;
 	}
@@ -136,11 +141,13 @@ class Index extends CI_Controller {
 		$preferences = new preferences_db();
 		$paths = $preferences->getDocPaths();
 		$nonExistentPaths = array();
-		foreach ($paths as $p) {
-			if (!$this->pathExists($p['path']))
-				$nonExistentPaths[] = $p['path'];
-		}
-		return $nonExistentPaths;
+		if ($paths) {
+			foreach ($paths as $p) {
+				if (!$this->pathExists($p['path']))
+					$nonExistentPaths[] = $p['path'];
+			}
+			return $nonExistentPaths;
+		} else return false;
 	}
 
 	public function pathExists($path) {
@@ -154,6 +161,22 @@ class Index extends CI_Controller {
 		}
 	}
 	
+	public function checkFiles() {
+		$files = new files_db();
+		$filesToCheck = $files->getAllFiles();
+		$noOfModifiedFiles = 0;
+		if ($filesToCheck) {
+			foreach ($filesToCheck as $f) {
+				if ($this->pathExists($f['path']."\\".$f['filename'])) {
+					$newCheckSum = crc32(file_get_contents($f['path']."\\".$f['filename']));
+					if ($f['checksum'] != $newCheckSum)
+						$noOfModifiedFiles++;
+				}
+			}
+			return $noOfModifiedFiles;
+		} else return false;
+	}
+	
 	public function replyPerson() {
 		$database = new database_db();
 		$messages = new messages_db();
@@ -165,7 +188,9 @@ class Index extends CI_Controller {
 			$ans = $temp[1];
 
 			$status = $database->checkMessageStatus($ref);
-			if ($status != "confirmed") {
+			if (($status == "confirmed") || ($status == "ignored"))
+				$reply_msg = "You have already sent your confirmation on this transaction with Ref. No.: ". $ref .". Thank you for your cooperation!";
+			else {
 				if (strcasecmp($ans, "yes") == 0) {
 					$reply_msg = "Thank you for your confirmation! We will call you should there be a need for further customer validation. Thank you and have a good day!";
 					$database->saveReceivedMessage($ref, 'yes');
@@ -179,7 +204,7 @@ class Index extends CI_Controller {
 					echo $reply_msg;
 					//header("location: ".$this->config->item('base_url')."messages/log_messages/writeToLog?data=".$info['date_received']." ".$info['name']."(0".$info['contact'].") replied 'no' on Ref. No. ".$info['ref']);
 				} else $reply_msg = "Sorry, you have entered an invalid parameter. Please reply TRAIL<space><Ref No><space><Yes or No>. Thank you.";
-			} else $reply_msg = "You have already sent your confirmation on this transaction with Ref. No.: ". $ref .". Thank you for your cooperation!";
+			}
 			echo $reply_msg;
 		} else {
 			$reply_msg = "Sorry, you have entered an invalid parameter. Please reply TRAIL<space><Ref No><space><Yes or No>. Thank you.";

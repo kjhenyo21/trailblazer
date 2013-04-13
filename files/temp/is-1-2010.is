@@ -1,8 +1,15 @@
-Revenue:
+Revenue:,
 Sales,48659.27
 Total Revenue,48659.27
-
-Less: Expenses:
-Rent
-
-Net Income,2656.00
+Less: Expenses:,
+Freight-in,1380
+Electricity,417.80
+Communications,300
+Purchases,14869.18
+Stall Rent,11460
+Other Taxes/Licenses,3650.31
+Registration,1000
+Salaries,10800
+Honorarium,1600
+Total Expenses,45537.29
+Net Income,3121.98

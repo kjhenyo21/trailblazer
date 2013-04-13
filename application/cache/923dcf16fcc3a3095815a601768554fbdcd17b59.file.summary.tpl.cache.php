@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-03-28 17:25:05
+<?php /* Smarty version Smarty-3.1.7, created on 2013-04-10 20:38:55
          compiled from "C:\xampp\htdocs\trailblazer\application/views\audit_trail\summary.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:426551529573306f26-90970638%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '923dcf16fcc3a3095815a601768554fbdcd17b59' => 
     array (
       0 => 'C:\\xampp\\htdocs\\trailblazer\\application/views\\audit_trail\\summary.tpl',
-      1 => 1364487390,
+      1 => 1364792761,
       2 => 'file',
     ),
   ),
@@ -215,7 +215,7 @@ assets/images/arrow-left-small.PNG"></img>
 					<?php }elseif(($_smarty_tpl->tpl_vars['jl_trans_result_stat']->value===0)){?>
 						<table style="margin-bottom: 5px">
 							<td><i class="icon-remove" style="color: red"></i></td>
-							<td><?php echo $_smarty_tpl->tpl_vars['jl_trans_result_stat']->value;?>
+							<td><?php echo $_smarty_tpl->tpl_vars['jl_trans_result']->value;?>
 </td>
 						</table>
 					<?php }else{ ?>
@@ -274,7 +274,7 @@ assets/images/arrow-left-small.PNG"></img>
 		</div>
 		<div class="control-group" style="text-align: center; margin-top: 15px;">
 			<a type='button' id="save" class="btn btn-primary" onClick="downloadFile(); return false;">Save the Trail</a>
-			<a type='button' class="btn" onclick='javascript: window.print();'>Print the Trail</a>
+			<a type='button' class="btn" onclick='printSummary(); return false'>Print the Trail</a>
 			<!--<a type='button' id="open" class="btn">Open</a>-->
 			<a type="button" class="btn" onclick="history.go(-1);return false;">Back</a>
 			<a href="<?php echo $_smarty_tpl->tpl_vars['firstPageURL']->value;?>
@@ -359,6 +359,12 @@ audit_trail/summary/open?path=' + summaryDownloadedFilePath;
 				success: function() {
 				}
 			});
+		}
+		
+		function printSummary() {
+			var w = window.open('<?php echo smarty_function_url(array(),$_smarty_tpl);?>
+files/' + summaryFilePath);
+			w.print();
 		}
 		
 		function capture() {

@@ -132,7 +132,7 @@
 					{else if ($jl_trans_result_stat === 0)}
 						<table style="margin-bottom: 5px">
 							<td><i class="icon-remove" style="color: red"></i></td>
-							<td>{$jl_trans_result_stat}</td>
+							<td>{$jl_trans_result}</td>
 						</table>
 					{else}
 						<table style="margin-bottom: 5px">
@@ -187,7 +187,7 @@
 		</div>
 		<div class="control-group" style="text-align: center; margin-top: 15px;">
 			<a type='button' id="save" class="btn btn-primary" onClick="downloadFile(); return false;">Save the Trail</a>
-			<a type='button' class="btn" onclick='javascript: window.print();'>Print the Trail</a>
+			<a type='button' class="btn" onclick='printSummary(); return false'>Print the Trail</a>
 			<!--<a type='button' id="open" class="btn">Open</a>-->
 			<a type="button" class="btn" onclick="history.go(-1);return false;">Back</a>
 			<a href="{$firstPageURL}" type="button" class="btn">Back to First Step</a>
@@ -257,6 +257,11 @@
 				success: function() {
 				}
 			});
+		}
+		
+		function printSummary() {
+			var w = window.open('{url}files/' + summaryFilePath);
+			w.print();
 		}
 		
 		function capture() {

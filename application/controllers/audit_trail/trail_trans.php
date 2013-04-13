@@ -41,6 +41,8 @@ class Trail_Trans extends CI_Controller {
 				if (is_numeric($range[0]) && is_numeric($range[1])) {
 					$from = $range[0];
 					$to = $range[1];
+					$this->mysmarty->assign('from', $from);
+					$this->mysmarty->assign('to', $to);
 				} else $range = false;
 			} else $range = false;
 			$date_temp = explode("-", $ref);
@@ -57,9 +59,9 @@ class Trail_Trans extends CI_Controller {
 			$detHeadings = "";
 			$detInfo = "";
 			$trans_total_amt = 0;
+			$sizeOfTrans = 0;
 			
 			$path = $files->getFilePathByReference($doc_type, $ref);
-			
 			if(file_exists($path['full_path'])) {
 				$errors = 0;
 				if (($handle = fopen($path['full_path'], "r")) !== FALSE) {
@@ -83,8 +85,7 @@ class Trail_Trans extends CI_Controller {
 								}
 							} else {
 								if ($size > 1) {
-									if (strcasecmp($path['doc'], "sale transactions") == 0) {
-										
+									if (strcasecmp($path['doc'], "sale transactions") == 0) {										
 										$info[] = array(
 											0 => trim($temp[1]),
 											1 => trim($temp[2]),
@@ -194,23 +195,25 @@ class Trail_Trans extends CI_Controller {
 					}
 				} else $error_msg_det = "File not found!";
 				
-				$sizeOfTrans = sizeOf($info);
+				
 				$min = 8;
 				if (is_numeric($jl_desc)) {
 					$info = $database->getTransactionViaOR($jl_desc);
 				} else {
 					if ($range) {
-						if ($sizeOfTrans > $min)
-							$info = $database->getSamplesWithRange($sizeOfTrans, $info, $from, $to);
-						else $info = $database->getTransactionsWithRange($sizeOfTrans, $info, $from, $to);
+						$info = $database->getTransactionsWithRange($from, $to);
 					} else {
 						$info = $database->getTransactionByDesc($jl_desc);
 					}
 				}
+				$sizeOfTrans = sizeOf($info);
 				if ($info) {
 					foreach ($info as $i) {
 						$trans_total_amt += $i[2];
 					}
+				} else { 
+					$info = false;
+					$error_msg = "Cannot find transaction.";
 				}
 			} else $error_msg = "File not found!";
 			$messages = $database->getIgnoredMessages();
@@ -245,6 +248,7 @@ class Trail_Trans extends CI_Controller {
 			$this->mysmarty->assign('doc', $path['doc']);
 			$this->mysmarty->assign('ref', $ref);
 			$this->mysmarty->assign('acct', $account);
+			$this->mysmarty->assign('sizeOfTrans', $sizeOfTrans);
 			$this->mysmarty->display('header.tpl');
 			$this->mysmarty->display('audit_trail/trail_transactions.tpl');
 			$this->mysmarty->display('audit_trail/message.tpl');
@@ -257,20 +261,22 @@ class Trail_Trans extends CI_Controller {
 		$or_no = $_GET['or_no'];
 		$details = $database->getTransactionDetailsByOR($or_no);
 		$total_amt = 0;
-		foreach ($details as $d) {
-			$data[] = array(
-				0 => $d[0],
-				1 => $d[1],
-				2 => $d[2],
-				3 => $d[3],
-				4 => $d[4],
-				5 => $d[5]
-			);
-			$total_amt += $d[5];
-		}
-		//echo json_encode($data);
-		echo $data;
-		return $data;
+		if ($details) {
+			foreach ($details as $d) {
+				$data[] = array(
+					0 => $d[0],
+					1 => $d[1],
+					2 => $d[2],
+					3 => $d[3],
+					4 => $d[4],
+					5 => $d[5]
+				);
+				$total_amt += $d[5];
+			}
+			//echo json_encode($data);
+			echo $data;
+			return $data;
+		} else return false;
 	}
 	
 	public function call() {

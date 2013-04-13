@@ -5,17 +5,17 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '8712921747993caddacec5a6a89f061b904b1eb0' => 
     array (
       0 => 'C:\\xampp\\htdocs\\trailblazer\\application/views\\preferences\\index.tpl',
-      1 => 1364445736,
+      1 => 1365614278,
       2 => 'file',
     ),
   ),
   'nocache_hash' => '73785152c134c9f228-83346293',
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_51551d2ee1d2a',
+  'unifunc' => 'content_51695b969d781',
   'has_nocache_code' => false,
   'cache_lifetime' => 1,
 ),true); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_51551d2ee1d2a')) {function content_51551d2ee1d2a($_smarty_tpl) {?>  <!--
+<?php if ($_valid && !is_callable('content_51695b969d781')) {function content_51695b969d781($_smarty_tpl) {?>  <!--
  * Trailblazer Digital Accounting Audit Trail Program
  * @author Kristian Jacob Abad Lora <kjalora92@yahoo.com>
  * @date-created October 31, 2012
@@ -55,14 +55,14 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 										<td>
 											<div class="table-column" id="group-doc0">
 												<div id="control-doc0" class="control">
-													<input type="text" class="doc0" id="doc0" name="doc[]" style="width: 230px; margin-left:-15px;" placeholder="e.g. Cash Receipts"  value="Cash Receipts Journal"/>
+													<input type="text" class="doc0" id="doc0" name="doc[]" style="width: 230px; margin-left:-15px;" placeholder="e.g. Cash Receipts"  value="Income Sheet"/>
 												</div>
 											</div>
 										</td>
 										<td>
 											<div class="table-column" id="group-type0">
 												<div class="control">
-													<a class="link" data-original-title="Enter numeric value only: 1=Journals, 2=Ledgers, 3=Financial Statements, 4=Transaction Files, 5=Log Files"><input type="text" class="type0 span2" id="type0" name="type[]" style="width: 155px; float: left; text-align: right" value="1" placeholder="e.g. Journal, Ledger, etc"/></a>
+													<a class="link" data-original-title="Enter numeric value only: 1=Journals, 2=Ledgers, 3=Financial Statements, 4=Transaction Files, 5=Log Files"><input type="text" class="type0 span2" id="type0" name="type[]" style="width: 155px; float: left; text-align: right" value="4" placeholder="e.g. Journal, Ledger, etc"/></a>
 												</div>
 											</div>
 										</td>
@@ -70,7 +70,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 																							<div class="table-column" id="group-path0">
 													<div class="control">
 														<input type="text" class="span4" id="path0" name="path[]" value=
-														"D:\Kristian Lora\My Documents\Lalaine's Bookstore\journals\cash_receipts" placeholder="Paste the full path of the directory here" onfocus="this.value = this.value;">
+														"D:\Kristian Lora\My Documents\Trailblazer Test\financial_statements\income_statements" placeholder="Paste the full path of the directory here" onfocus="this.value = this.value;">
 													</div>
 												</div>
 																					</div>
@@ -78,7 +78,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 											<td>
 												<div class="table-column" id="group-ext0">
 													<div class="control">
-														<input type="text" class="span1" id="ext0" name="ext[]" value="jl" placeholder="ex: txt"/>
+														<input type="text" class="span1" id="ext0" name="ext[]" value="is" placeholder="ex: txt"/>
 													</div>
 												</div>
 											</td>
@@ -97,14 +97,14 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 										<td>
 											<div class="table-column" id="group-doc1">
 												<div id="control-doc1" class="control">
-													<input type="text" class="doc1" id="doc1" name="doc[]" style="width: 230px; margin-left:-15px;" placeholder="e.g. Cash Receipts"  value="Cash Disbursements Journal"/>
+													<input type="text" class="doc1" id="doc1" name="doc[]" style="width: 230px; margin-left:-15px;" placeholder="e.g. Cash Receipts"  value="General Ledger"/>
 												</div>
 											</div>
 										</td>
 										<td>
 											<div class="table-column" id="group-type1">
 												<div class="control">
-													<a class="link" data-original-title="Enter numeric value only: 1=Journals, 2=Ledgers, 3=Financial Statements, 4=Transaction Files, 5=Log Files"><input type="text" class="type1 span2" id="type1" name="type[]" style="width: 155px; float: left; text-align: right" value="1" placeholder="e.g. Journal, Ledger, etc"/></a>
+													<a class="link" data-original-title="Enter numeric value only: 1=Journals, 2=Ledgers, 3=Financial Statements, 4=Transaction Files, 5=Log Files"><input type="text" class="type1 span2" id="type1" name="type[]" style="width: 155px; float: left; text-align: right" value="2" placeholder="e.g. Journal, Ledger, etc"/></a>
 												</div>
 											</div>
 										</td>
@@ -112,7 +112,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 																							<div class="table-column" id="group-path1">
 													<div class="control">
 														<input type="text" class="span4" id="path1" name="path[]" value=
-														"D:\Kristian Lora\My Documents\Lalaine's Bookstore\journals\cash_disbursements" placeholder="Paste the full path of the directory here" onfocus="this.value = this.value;">
+														"D:\Kristian Lora\My Documents\Trailblazer Test\ledgers\general_ledgers" placeholder="Paste the full path of the directory here" onfocus="this.value = this.value;">
 													</div>
 												</div>
 																					</div>
@@ -120,7 +120,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 											<td>
 												<div class="table-column" id="group-ext1">
 													<div class="control">
-														<input type="text" class="span1" id="ext1" name="ext[]" value="jl" placeholder="ex: txt"/>
+														<input type="text" class="span1" id="ext1" name="ext[]" value="lg" placeholder="ex: txt"/>
 													</div>
 												</div>
 											</td>
@@ -139,14 +139,14 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 										<td>
 											<div class="table-column" id="group-doc2">
 												<div id="control-doc2" class="control">
-													<input type="text" class="doc2" id="doc2" name="doc[]" style="width: 230px; margin-left:-15px;" placeholder="e.g. Cash Receipts"  value="General Ledger"/>
+													<input type="text" class="doc2" id="doc2" name="doc[]" style="width: 230px; margin-left:-15px;" placeholder="e.g. Cash Receipts"  value="Cash Receipts Journal"/>
 												</div>
 											</div>
 										</td>
 										<td>
 											<div class="table-column" id="group-type2">
 												<div class="control">
-													<a class="link" data-original-title="Enter numeric value only: 1=Journals, 2=Ledgers, 3=Financial Statements, 4=Transaction Files, 5=Log Files"><input type="text" class="type2 span2" id="type2" name="type[]" style="width: 155px; float: left; text-align: right" value="2" placeholder="e.g. Journal, Ledger, etc"/></a>
+													<a class="link" data-original-title="Enter numeric value only: 1=Journals, 2=Ledgers, 3=Financial Statements, 4=Transaction Files, 5=Log Files"><input type="text" class="type2 span2" id="type2" name="type[]" style="width: 155px; float: left; text-align: right" value="1" placeholder="e.g. Journal, Ledger, etc"/></a>
 												</div>
 											</div>
 										</td>
@@ -154,7 +154,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 																							<div class="table-column" id="group-path2">
 													<div class="control">
 														<input type="text" class="span4" id="path2" name="path[]" value=
-														"D:\Kristian Lora\My Documents\Lalaine's Bookstore\ledgers\general_ledgers" placeholder="Paste the full path of the directory here" onfocus="this.value = this.value;">
+														"D:\Kristian Lora\My Documents\Trailblazer Test\journals\cash_receipts" placeholder="Paste the full path of the directory here" onfocus="this.value = this.value;">
 													</div>
 												</div>
 																					</div>
@@ -162,7 +162,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 											<td>
 												<div class="table-column" id="group-ext2">
 													<div class="control">
-														<input type="text" class="span1" id="ext2" name="ext[]" value="lg" placeholder="ex: txt"/>
+														<input type="text" class="span1" id="ext2" name="ext[]" value="crj" placeholder="ex: txt"/>
 													</div>
 												</div>
 											</td>
@@ -181,14 +181,14 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 										<td>
 											<div class="table-column" id="group-doc3">
 												<div id="control-doc3" class="control">
-													<input type="text" class="doc3" id="doc3" name="doc[]" style="width: 230px; margin-left:-15px;" placeholder="e.g. Cash Receipts"  value="Income Statement"/>
+													<input type="text" class="doc3" id="doc3" name="doc[]" style="width: 230px; margin-left:-15px;" placeholder="e.g. Cash Receipts"  value="Cash Disbursements Journal"/>
 												</div>
 											</div>
 										</td>
 										<td>
 											<div class="table-column" id="group-type3">
 												<div class="control">
-													<a class="link" data-original-title="Enter numeric value only: 1=Journals, 2=Ledgers, 3=Financial Statements, 4=Transaction Files, 5=Log Files"><input type="text" class="type3 span2" id="type3" name="type[]" style="width: 155px; float: left; text-align: right" value="3" placeholder="e.g. Journal, Ledger, etc"/></a>
+													<a class="link" data-original-title="Enter numeric value only: 1=Journals, 2=Ledgers, 3=Financial Statements, 4=Transaction Files, 5=Log Files"><input type="text" class="type3 span2" id="type3" name="type[]" style="width: 155px; float: left; text-align: right" value="1" placeholder="e.g. Journal, Ledger, etc"/></a>
 												</div>
 											</div>
 										</td>
@@ -196,7 +196,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 																							<div class="table-column" id="group-path3">
 													<div class="control">
 														<input type="text" class="span4" id="path3" name="path[]" value=
-														"D:\Kristian Lora\My Documents\Lalaine's Bookstore\financial_statements\income_statements" placeholder="Paste the full path of the directory here" onfocus="this.value = this.value;">
+														"D:\Kristian Lora\My Documents\Trailblazer Test\journals\cash_disbursements" placeholder="Paste the full path of the directory here" onfocus="this.value = this.value;">
 													</div>
 												</div>
 																					</div>
@@ -204,7 +204,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 											<td>
 												<div class="table-column" id="group-ext3">
 													<div class="control">
-														<input type="text" class="span1" id="ext3" name="ext[]" value="is" placeholder="ex: txt"/>
+														<input type="text" class="span1" id="ext3" name="ext[]" value="cdj" placeholder="ex: txt"/>
 													</div>
 												</div>
 											</td>
@@ -230,7 +230,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 										<td>
 											<div class="table-column" id="group-type4">
 												<div class="control">
-													<a class="link" data-original-title="Enter numeric value only: 1=Journals, 2=Ledgers, 3=Financial Statements, 4=Transaction Files, 5=Log Files"><input type="text" class="type4 span2" id="type4" name="type[]" style="width: 155px; float: left; text-align: right" value="4" placeholder="e.g. Journal, Ledger, etc"/></a>
+													<a class="link" data-original-title="Enter numeric value only: 1=Journals, 2=Ledgers, 3=Financial Statements, 4=Transaction Files, 5=Log Files"><input type="text" class="type4 span2" id="type4" name="type[]" style="width: 155px; float: left; text-align: right" value="3" placeholder="e.g. Journal, Ledger, etc"/></a>
 												</div>
 											</div>
 										</td>
@@ -238,7 +238,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 																							<div class="table-column" id="group-path4">
 													<div class="control">
 														<input type="text" class="span4" id="path4" name="path[]" value=
-														"D:\Kristian Lora\My Documents\Lalaine's Bookstore\transaction_files\sale_transactions" placeholder="Paste the full path of the directory here" onfocus="this.value = this.value;">
+														"D:\Kristian Lora\My Documents\Trailblazer Test\transaction_files\sale_transactions" placeholder="Paste the full path of the directory here" onfocus="this.value = this.value;">
 													</div>
 												</div>
 																					</div>
@@ -246,7 +246,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 											<td>
 												<div class="table-column" id="group-ext4">
 													<div class="control">
-														<input type="text" class="span1" id="ext4" name="ext[]" value="tf" placeholder="ex: txt"/>
+														<input type="text" class="span1" id="ext4" name="ext[]" value="st" placeholder="ex: txt"/>
 													</div>
 												</div>
 											</td>
@@ -272,7 +272,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 										<td>
 											<div class="table-column" id="group-type5">
 												<div class="control">
-													<a class="link" data-original-title="Enter numeric value only: 1=Journals, 2=Ledgers, 3=Financial Statements, 4=Transaction Files, 5=Log Files"><input type="text" class="type5 span2" id="type5" name="type[]" style="width: 155px; float: left; text-align: right" value="4" placeholder="e.g. Journal, Ledger, etc"/></a>
+													<a class="link" data-original-title="Enter numeric value only: 1=Journals, 2=Ledgers, 3=Financial Statements, 4=Transaction Files, 5=Log Files"><input type="text" class="type5 span2" id="type5" name="type[]" style="width: 155px; float: left; text-align: right" value="3" placeholder="e.g. Journal, Ledger, etc"/></a>
 												</div>
 											</div>
 										</td>
@@ -280,7 +280,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 																							<div class="table-column" id="group-path5">
 													<div class="control">
 														<input type="text" class="span4" id="path5" name="path[]" value=
-														"D:\Kristian Lora\My Documents\Lalaine's Bookstore\transaction_files\purchase_transactions" placeholder="Paste the full path of the directory here" onfocus="this.value = this.value;">
+														"D:\Kristian Lora\My Documents\Trailblazer Test\transaction_files\purchase_transactions" placeholder="Paste the full path of the directory here" onfocus="this.value = this.value;">
 													</div>
 												</div>
 																					</div>
@@ -288,7 +288,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 											<td>
 												<div class="table-column" id="group-ext5">
 													<div class="control">
-														<input type="text" class="span1" id="ext5" name="ext[]" value="gf" placeholder="ex: txt"/>
+														<input type="text" class="span1" id="ext5" name="ext[]" value="pt" placeholder="ex: txt"/>
 													</div>
 												</div>
 											</td>
@@ -314,7 +314,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 										<td>
 											<div class="table-column" id="group-type6">
 												<div class="control">
-													<a class="link" data-original-title="Enter numeric value only: 1=Journals, 2=Ledgers, 3=Financial Statements, 4=Transaction Files, 5=Log Files"><input type="text" class="type6 span2" id="type6" name="type[]" style="width: 155px; float: left; text-align: right" value="4" placeholder="e.g. Journal, Ledger, etc"/></a>
+													<a class="link" data-original-title="Enter numeric value only: 1=Journals, 2=Ledgers, 3=Financial Statements, 4=Transaction Files, 5=Log Files"><input type="text" class="type6 span2" id="type6" name="type[]" style="width: 155px; float: left; text-align: right" value="3" placeholder="e.g. Journal, Ledger, etc"/></a>
 												</div>
 											</div>
 										</td>
@@ -322,7 +322,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 																							<div class="table-column" id="group-path6">
 													<div class="control">
 														<input type="text" class="span4" id="path6" name="path[]" value=
-														"D:\Kristian Lora\My Documents\Lalaine's Bookstore\transaction_files\expense_transactions" placeholder="Paste the full path of the directory here" onfocus="this.value = this.value;">
+														"D:\Kristian Lora\My Documents\Trailblazer Test\transaction_files\expense_transactions" placeholder="Paste the full path of the directory here" onfocus="this.value = this.value;">
 													</div>
 												</div>
 																					</div>
@@ -330,7 +330,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 											<td>
 												<div class="table-column" id="group-ext6">
 													<div class="control">
-														<input type="text" class="span1" id="ext6" name="ext[]" value="tf" placeholder="ex: txt"/>
+														<input type="text" class="span1" id="ext6" name="ext[]" value="et" placeholder="ex: txt"/>
 													</div>
 												</div>
 											</td>
@@ -458,7 +458,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 				}
 			}
 			
-			/**function pathOnChange(id) {
+			function pathOnChange(id) {
 				val = $('#'+id).val();
 				console.log(id);
 				if (val != '') {
@@ -493,7 +493,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 						}
 					}
 				});
-			}*/
+			}
 			
 			function extOnChange(id) {
 				val = $('#'+id).val();

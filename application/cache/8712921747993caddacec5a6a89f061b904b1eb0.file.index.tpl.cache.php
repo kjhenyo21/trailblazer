@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-03-28 05:42:27
+<?php /* Smarty version Smarty-3.1.7, created on 2013-04-10 19:17:59
          compiled from "C:\xampp\htdocs\trailblazer\application/views\preferences\index.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:73785152c134c9f228-83346293%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '8712921747993caddacec5a6a89f061b904b1eb0' => 
     array (
       0 => 'C:\\xampp\\htdocs\\trailblazer\\application/views\\preferences\\index.tpl',
-      1 => 1364445736,
+      1 => 1365614278,
       2 => 'file',
     ),
   ),
@@ -298,7 +298,7 @@ assets/scripts/bootstrap-combobox.js" type="text/javascript"></script>
 				}
 			}
 			
-			/**function pathOnChange(id) {
+			function pathOnChange(id) {
 				val = $('#'+id).val();
 				console.log(id);
 				if (val != '') {
@@ -333,7 +333,7 @@ assets/scripts/bootstrap-combobox.js" type="text/javascript"></script>
 						}
 					}
 				});
-			}*/
+			}
 			
 			function extOnChange(id) {
 				val = $('#'+id).val();

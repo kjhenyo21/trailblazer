@@ -221,7 +221,7 @@
 				}
 			}
 			
-			/**function pathOnChange(id) {
+			function pathOnChange(id) {
 				val = $('#'+id).val();
 				console.log(id);
 				if (val != '') {
@@ -256,7 +256,7 @@
 						}
 					}
 				});
-			}*/
+			}
 			
 			function extOnChange(id) {
 				val = $('#'+id).val();

@@ -41,6 +41,11 @@ class Trail_Ledger extends CI_Controller {
 			$expected_columns = 5;
 			$error_msg = "";
 			$lg_total_amt = 0;
+			$lg_total_dr = 0;
+			$lg_total_cr = 0;
+			$lg_total_dr_disp = 0;
+			$lg_total_cr_disp = 0;
+			$lg_total_amt_disp = 0;
 			
 			if ($path) {
 				if (file_exists($path['full_path'])) {
@@ -56,12 +61,13 @@ class Trail_Ledger extends CI_Controller {
 							$handle = fopen($path['full_path'], "r");
 							while (($temp = fgetcsv($handle, 1000, ",")) !== FALSE) {
 								$size = count($temp);
-								if ($temp[0] != 'a' && $temp[0] != '') {
+								if ((($temp[0] != 'a') && ($temp[0] != 't')) && ($temp[0] != '')) {
 									//echo "date: ".trim($temp[0]);
 									$date = explode("-", trim($temp[0]));
 									$day = $date[2];
 									if ($within_the_account) {
 										$info[] = array(
+											'month' => $month,
 											'day' => $day,
 											'desc' => trim($temp[1]),
 											'ref' => trim($temp[2]),
@@ -69,11 +75,19 @@ class Trail_Ledger extends CI_Controller {
 											'credit' => trim($temp[4])
 										);
 										$lg_total_amt += trim($temp[3]) - trim($temp[4]);
+										$lg_total_dr += trim($temp[3]);
+										$lg_total_cr += trim($temp[4]);
+									}
+								} else if ($temp[0] == 't' && $temp[0] != '') {
+									if ($within_the_account) {
+										$lg_total_dr_disp += trim($temp[3]);
+										$lg_total_cr_disp += trim($temp[4]);
+										$lg_total_amt_disp = $lg_total_dr_disp - $lg_total_cr_disp;
 									}
 								} else {
 									//$temp2 = explode(",", $temp[1]);
 									//echo $temp2[0];
-									if (trim($temp[1]) == $account) {
+									if (strcasecmp(trim($temp[1]), $account) == 0) {
 										$detail['acct_name'] = trim($temp[1]);
 										$detail['acct_no'] = trim($temp[2]);
 										$within_the_account = true;
@@ -90,6 +104,7 @@ class Trail_Ledger extends CI_Controller {
 					if (file_exists($path['full_path'])) {
 						$temp_date = explode("-", $path['filename']);
 						$month_in_num = $temp_date[1];
+						//echo $month_in_num;
 						$per_month = date("F", mktime(0, 0, 0, $month_in_num, 10));
 						$errors = 0;
 						if (($handle = fopen($path['full_path'], "r")) !== FALSE) {
@@ -103,7 +118,7 @@ class Trail_Ledger extends CI_Controller {
 								$handle = fopen($path['full_path'], "r");
 								while (($temp = fgetcsv($handle, 1000, ",")) !== FALSE) {
 									$size = count($temp);
-									if ($temp[0] != 'a' && $temp[0] != '') {
+									if ((($temp[0] != 'a') && ($temp[0] != 't')) && ($temp[0] != '')) {
 										//echo "date: ".trim($temp[0]);
 										$date = explode("-", trim($temp[0]));
 										$day = $date[2];
@@ -117,6 +132,12 @@ class Trail_Ledger extends CI_Controller {
 												'credit' => trim($temp[4])
 											);
 											$lg_total_amt += trim($temp[3]) - trim($temp[4]);
+										}
+									} else if ($temp[0] == 't' && $temp[0] != '') {
+										if ($within_the_account) {
+											$lg_total_dr_disp += trim($temp[3]);
+											$lg_total_cr_disp += trim($temp[4]);
+											$lg_total_amt_disp = $lg_total_dr_disp - $lg_total_cr_disp;
 										}
 									} else {
 										//$temp2 = explode(",", $temp[1]);
@@ -148,6 +169,12 @@ class Trail_Ledger extends CI_Controller {
 			$this->mysmarty->assign('fs_amt', $fs_amt);
 			$this->mysmarty->assign('fs_file', $fs_file);
 			$this->mysmarty->assign('lg_total_amt', abs($lg_total_amt));
+			$this->mysmarty->assign('lg_total_dr', $lg_total_dr);
+			$this->mysmarty->assign('lg_total_cr', $lg_total_cr);
+			$this->mysmarty->assign('lg_total_amt_disp', abs($lg_total_amt_disp));
+			$this->mysmarty->assign('lg_total_dr_disp', $lg_total_dr_disp);
+			$this->mysmarty->assign('lg_total_cr_disp', $lg_total_cr_disp);
+									
 			$this->mysmarty->display('header.tpl');
 			$this->mysmarty->display('audit_trail/trail_ledger.tpl');
 			$this->mysmarty->display('footer.tpl');

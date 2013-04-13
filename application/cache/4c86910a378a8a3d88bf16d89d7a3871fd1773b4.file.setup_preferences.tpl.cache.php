@@ -1,25 +1,25 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-03-24 22:19:22
+<?php /* Smarty version Smarty-3.1.7, created on 2013-04-10 20:26:41
          compiled from "C:\xampp\htdocs\trailblazer\application/views\setup_preferences.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:25650514621948c7d28-86108484%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:1232151659a2b948289-20465267%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '4c86910a378a8a3d88bf16d89d7a3871fd1773b4' => 
     array (
       0 => 'C:\\xampp\\htdocs\\trailblazer\\application/views\\setup_preferences.tpl',
-      1 => 1364159845,
+      1 => 1365618321,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '25650514621948c7d28-86108484',
+  'nocache_hash' => '1232151659a2b948289-20465267',
   'function' => 
   array (
   ),
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_51462194a6986',
+  'unifunc' => 'content_51659a2bc5fe4',
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_51462194a6986')) {function content_51462194a6986($_smarty_tpl) {?><?php if (!is_callable('smarty_function_url')) include 'C:\\xampp\\htdocs\\trailblazer\\application\\libraries\\smarty\\plugins\\function.url.php';
+<?php if ($_valid && !is_callable('content_51659a2bc5fe4')) {function content_51659a2bc5fe4($_smarty_tpl) {?><?php if (!is_callable('smarty_function_url')) include 'C:\\xampp\\htdocs\\trailblazer\\application\\libraries\\smarty\\plugins\\function.url.php';
 ?><!--
  * Trailblazer Digital Accounting Audit Trail Program
  * @author Kristian Jacob Abad Lora <kjalora92@yahoo.com>
@@ -249,6 +249,7 @@ assets/scripts/jquery.validate.min.js" type="text/javascript"></script>
 						url: 'setup_preferences/savePreferences',
 						data: $("#setup-pref").serialize(),				
 						success: function(data){
+							alert('Setup successful! You will now be directed to the Login Page.');
 							location.replace("<?php echo smarty_function_url(array(),$_smarty_tpl);?>
 ");
 						}

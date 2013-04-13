@@ -93,7 +93,6 @@ class Files_DB extends CI_Model {
 	}
 
 	function getFilePathByReference($doc_type, $ref) {
-		
 		$query = $this->db->query("SELECT dl.path, f.filename, dl.document
 									FROM files f, doc_locations dl, doc_types dt
 									WHERE dt.type = '$doc_type'
@@ -107,6 +106,18 @@ class Files_DB extends CI_Model {
 			$path['full_path'] = $row->path."\\".$row->filename;
 			$path['doc'] = $row->document;
 			return $path;
+		} else return false;
+	}
+	
+	function getFilePathsByName($filename) {
+		$query = $this->db->query("SELECT *
+									FROM files
+									WHERE filename LIKE '%".$filename."%'");
+		if ($query->result()) {
+			foreach ($query->result() as $row) {			
+				$paths[] = $row->path."\\".$row->filename;
+			}
+			return $paths;
 		} else return false;
 	}
 	

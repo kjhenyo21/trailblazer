@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-03-29 03:13:07
+<?php /* Smarty version Smarty-3.1.7, created on 2013-04-10 20:52:46
          compiled from "C:\xampp\htdocs\trailblazer\application/views\audit_trail\index.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:13767515281e1ed0ea7-49065407%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '0ec05981f24af0231dcae604535e6ca84eb6960b' => 
     array (
       0 => 'C:\\xampp\\htdocs\\trailblazer\\application/views\\audit_trail\\index.tpl',
-      1 => 1364523183,
+      1 => 1365619852,
       2 => 'file',
     ),
   ),
@@ -20,6 +20,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'variables' => 
   array (
     'nonExistentPaths' => 0,
+    'noOfNewAndIgnoredMessages' => 0,
+    'noOfModFiles' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
@@ -59,21 +61,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 										<option>Income Statement</option>
 										<option>Balance Sheet</option>
 									</select>
-								</div>
-							</div>
-							<div class="field-group" id="group-interest">
-								<label class="field-label" for="items">Items of Interest (Sampling)</label>
-								<div id="control-interest" class="control">
-									<a class="link" data-original-title="The number of item transactions that you are interested to audit; must be greater than zero.">
-										<select style="width: 80px" id="items" name="items" onChange="noOfItemsOnChange(); return false;">
-											<option selected="selected">250</option>
-											<option>200</option>
-											<option>150</option>
-											<option>100</option>
-											<option>50</option>
-											<option>Other</option>
-										</select>
-									</a>
 								</div>
 							</div>
 						</div>
@@ -116,14 +103,26 @@ preferences" class="btn btn-primary" type="button" id="update">OK, I'll update n
 						<li class="active"><a href="<?php echo smarty_function_url(array(),$_smarty_tpl);?>
 ">Home <i class="icon-home"></i></a></li>				
 						<li><a href="#load_file" data-toggle="modal" style="color: orange; font-weight: bold; font-style: italic">Start a Trail! <i class="icon-road"></i></a></li>				
-						<li><a href="<?php echo smarty_function_url(array(),$_smarty_tpl);?>
+						<?php if (($_smarty_tpl->tpl_vars['noOfNewAndIgnoredMessages']->value==0)){?>
+							<li><a href="<?php echo smarty_function_url(array(),$_smarty_tpl);?>
 messages">Messages <i class="icon-envelope"></i></a></li>
+						<?php }else{ ?>
+							<li class="alerta"><a href="<?php echo smarty_function_url(array(),$_smarty_tpl);?>
+messages" class="link-alert" data-original-title="You have NEW and/or ignored messages! Check it out now!" style="color: white; float: right;"><i class="icon-exclamation-sign"></i>   Messages <i class="icon-envelope"></i></a></li>
+						<?php }?>
 						<li><a href="<?php echo smarty_function_url(array(),$_smarty_tpl);?>
 profile">Profile <i class="icon-user"></i></a></li>
 						<li><a href="<?php echo smarty_function_url(array(),$_smarty_tpl);?>
 preferences">Preferences <i class="icon-wrench"></i></a></li>
-						<li><a href="<?php echo smarty_function_url(array(),$_smarty_tpl);?>
+						<?php if (($_smarty_tpl->tpl_vars['noOfModFiles']->value==0)){?>
+							<li><a href="<?php echo smarty_function_url(array(),$_smarty_tpl);?>
 file_directory">File Directory <i class="icon-th-list"></i></a></li>
+						<?php }else{ ?>
+							<li class="alerta"><a href="<?php echo smarty_function_url(array(),$_smarty_tpl);?>
+file_directory" class="link-alert" data-original-title="Alert! There is/are file(s) that has/have been modified. Check it out now!" style="color: white; float: right;"><i class="icon-exclamation-sign"></i>  File Directory <i class="icon-th-list"></i></a></li>
+						<?php }?>
+						<!--<li><a href="<?php echo smarty_function_url(array(),$_smarty_tpl);?>
+system_audit">System Audit <i class="icon-cog"></i></a></li>-->
 						<li><a href="<?php echo smarty_function_url(array(),$_smarty_tpl);?>
 index/logout">Logout <i class="icon-lock"></i></a></li>
 					</ul>
@@ -160,6 +159,12 @@ assets/scripts/bootstrap.min.js" type="text/javascript"></script>
 			
 			$('.link').tooltip({
 				placement: 'right'
+			});
+			
+			$('.link-alert').tooltip({
+				animation: true,
+				placement: 'top',
+				trigger: 'manual'
 			});
 			
 			function closeNotif() {

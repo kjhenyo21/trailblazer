@@ -25,15 +25,15 @@
 							{if ($doc == "Cash Receipts Journal")}
 								<th style="text-align: center; vertical-align: center">Date</th>
 								<th style="text-align: center; vertical-align: center">Account</th>
-								<th style="text-align: center; vertical-align: center">Description</th>
+								<th style="text-align: center; vertical-align: center">Particular</th>
 								<th style="text-align: center; vertical-align: center">Reference</th>
 								<th style="text-align: center; vertical-align: center">Cash (Dr)</th>
-								<th style="text-align: center; vertical-align: center">Other (Dr)</th>
+								<th style="text-align: center; vertical-align: center">Other (Cr)</th>
 								<th style="text-align: center; vertical-align: center">Sales (Cr)</th>
 							{else if ($doc == "Cash Disbursements Journal")}
 								<th style="text-align: center; vertical-align: center">Date</th>
 								<th style="text-align: center; vertical-align: center">Account</th>
-								<th style="text-align: center; vertical-align: center">Description</th>
+								<th style="text-align: center; vertical-align: center">Particular</th>
 								<th style="text-align: center; vertical-align: center">Reference</th>
 								<th style="text-align: center; vertical-align: center">Purchases (Dr)</th>
 								<th style="text-align: center; vertical-align: center">Other (Dr)</th>
@@ -226,6 +226,15 @@
 								{/if}
 								{$row = $row + 1}
 							{/foreach}
+							<tr id="total-journal-bal">
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td class="amount" style="font-weight: bold">Php {$jl_total_dr_disp|number_format:2:".":","}</td>
+								<td class="amount" style="font-weight: bold">Php {$jl_total_other_disp|number_format:2:".":","}</td>
+								<td class="amount" style="font-weight: bold">Php {$jl_total_cr_disp|number_format:2:".":","}</td>
+							</tr>
 						</tbody>
 					</table>
 				{else}

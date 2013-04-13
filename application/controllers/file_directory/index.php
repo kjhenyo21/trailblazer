@@ -35,9 +35,11 @@ class Index extends CI_Controller {
 		$preferences = new preferences_db();
 		$paths = $preferences->getDocPaths();
 		$noOfNonExistentPaths = 0;
-		foreach ($paths as $p) {
-			if (!$this->pathExists($p['path']))
-				$noOfNonExistentPaths++;
+		if ($paths) {
+			foreach ($paths as $p) {
+				if (!$this->pathExists($p['path']))
+					$noOfNonExistentPaths++;
+			}
 		}
 		return $noOfNonExistentPaths;
 	}
@@ -46,11 +48,13 @@ class Index extends CI_Controller {
 		$preferences = new preferences_db();
 		$paths = $preferences->getDocPaths();
 		$nonExistentPaths = array();
-		foreach ($paths as $p) {
-			if (!$this->pathExists($p['path']))
-				$nonExistentPaths[] = $p['path'];
-		}
-		return $nonExistentPaths;
+		if ($paths) {
+			foreach ($paths as $p) {
+				if (!$this->pathExists($p['path']))
+					$nonExistentPaths[] = $p['path'];
+			}
+			return $nonExistentPaths;
+		} else return false;
 	}
 
 	public function pathExists($path) {
@@ -68,37 +72,43 @@ class Index extends CI_Controller {
 		$files = new files_db();
 		$filesToCheck = $files->getAllFiles();
 		$noOfModifiedFiles = 0;
-		foreach ($filesToCheck as $f) {
-			if ($this->pathExists($f['path'])) {
-				$newCheckSum = crc32(file_get_contents($f['path']."\\".$f['filename']));
-				if ($f['checksum'] != $newCheckSum)
-					$noOfModifiedFiles++;
+		if ($filesToCheck) {
+			foreach ($filesToCheck as $f) {
+				if ($this->pathExists($f['path']."\\".$f['filename'])) {
+					$newCheckSum = crc32(file_get_contents($f['path']."\\".$f['filename']));
+					if ($f['checksum'] != $newCheckSum)
+						$noOfModifiedFiles++;
+				}
 			}
-		}
-		return $noOfModifiedFiles;
+			return $noOfModifiedFiles;
+		} else return false;
 	}
 	
 	public function getModifiedFiles() {
 		$files = new files_db();
 		$filesToCheck = $files->getAllFiles();
 		$modifiedFiles = array();
-		foreach ($filesToCheck as $f) {
-			if ($this->pathExists($f['path'])) {
-				$newCheckSum = crc32(file_get_contents($f['path']."\\".$f['filename']));
-				if ($f['checksum'] != $newCheckSum)
-					$modifiedFiles[] = $f;
+		if ($filesToCheck) {
+			foreach ($filesToCheck as $f) {
+				if ($this->pathExists($f['path']."\\".$f['filename'])) {
+					$newCheckSum = crc32(file_get_contents($f['path']."\\".$f['filename']));
+					if ($f['checksum'] != $newCheckSum)
+						$modifiedFiles[] = $f;
+				}
 			}
-		}
-		return $modifiedFiles;
+			return $modifiedFiles;
+		} else return false;
 	}
 	
 	public function restoreFiles() {
 		$modFiles = $this->getModifiedFiles();
-		foreach ($modFiles as $mf) {
-			$file_contents = file_get_contents('files/temp/'.$mf['filename']);
-			$newFile = $mf['path']."\\".$mf['filename'];
-			file_put_contents($newFile, $file_contents);
-		}
+		if ($modFiles) {
+			foreach ($modFiles as $mf) {
+				$file_contents = file_get_contents('files/temp/'.$mf['filename']);
+				$newFile = $mf['path']."\\".$mf['filename'];
+				file_put_contents($newFile, $file_contents);
+			}
+		} else return false;
 	}
 	
 	public function logout() {

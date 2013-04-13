@@ -5,17 +5,17 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '923dcf16fcc3a3095815a601768554fbdcd17b59' => 
     array (
       0 => 'C:\\xampp\\htdocs\\trailblazer\\application/views\\audit_trail\\summary.tpl',
-      1 => 1364487390,
+      1 => 1364792761,
       2 => 'file',
     ),
   ),
   'nocache_hash' => '426551529573306f26-90970638',
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_51551c565b449',
+  'unifunc' => 'content_51695bb686362',
   'has_nocache_code' => false,
   'cache_lifetime' => 1,
 ),true); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_51551c565b449')) {function content_51551c565b449($_smarty_tpl) {?>  <!--
+<?php if ($_valid && !is_callable('content_51695bb686362')) {function content_51695bb686362($_smarty_tpl) {?>  <!--
  * Trailblazer Digital Accounting Audit Trail Program
  * @author Kristian Jacob Abad Lora <kjalora92@yahoo.com>
  * @date-created October 31, 2012
@@ -54,17 +54,17 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 				<br>
 				<div class="sub-summary-container">
 					<div><strong>Income Statement</strong></div>
-					<div>Account: Purchases</div>
-					<div>Amount: Php 29,738.36</div>
+					<div>Account: Stall Rent</div>
+					<div>Amount: Php 11,460.00</div>
 				</div>
 									<div class="arrow">
 						<img src="http://localhost/trailblazer/assets/images/arrow-left-small.PNG"></img>
 					</div>
 					<div class="sub-summary-container">
 						<strong>General Ledger</strong>
-						<div>Account: Purchases</div>
-						<div>Acct. #: 501</div>
-													<div>Debit: Php 2,152.18</div>
+						<div>Account: Stall Rent</div>
+						<div>Acct. #: 605</div>
+													<div>Debit: Php 11,460.00</div>
 																			<div>Credit: Php 0.00</div>
 											</div>
 													<div class="arrow">
@@ -73,19 +73,19 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 					<div class="sub-summary-container">
 						<strong>Cash Disbursements Journal</strong>
 						<div>Ref. #: CDJ-1-2010</div>
-						<div>Desc.: 25626</div>
-						<div>Amount: Php 2,152.18</div>
+						<div>Desc.: 86</div>
+						<div>Amount: Php 11,460.00</div>
 					</div>
 													<div class="arrow">
 						<img src="http://localhost/trailblazer/assets/images/arrow-left-small.PNG"></img>
 					</div>
 					<div class="sub-summary-container">
-													<strong>Purchase Transactions</strong>
+													<strong>Expense Transactions</strong>
 							<!---->
-							<div>Date: 2010-01-12</div>
-							<div>OR No.: <a href="#trans-details25626" data-toggle="modal" onClick="getDetails('or_no=25626&amt=2152.18&name=Cebu Educational Supply&address=D. Del Rosario Street, Cebu City, Cebu&contact='); return false;">25626</a></div>
-							<div>Amount: Php 2,152.18</div>
-							<div>Name: Cebu Educational Supply</div>
+							<div>Date: 2010-01-06</div>
+							<div>OR No.: <a href="#trans-details86" data-toggle="modal" onClick="getDetails('or_no=86&amt=11460&name=Charlie Chong&address=Brgy. Calumpang, Naval, Biliran&contact='); return false;">86</a></div>
+							<div>Amount: Php 11,460.00</div>
+							<div>Name: Charlie Chong</div>
 							<div>Contact: </div>
 											</div>
 											</div>
@@ -95,7 +95,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 														
 						<table style="margin-bottom: 5px">						
 							<td><i class="icon-ok" style="color: green"></i></td>
-							<td>The amount of Purchases Account selected from the Income Statement MATCHES the total amount of the ledger entries in the General Ledger.</td>
+							<td>The amount of Stall Rent Account selected from the Income Statement MATCHES the total amount of the ledger entries in the General Ledger.</td>
 						</table>
 																								<table style="margin-bottom: 5px">
 							<td><i class="icon-ok" style="color: green"></i></td>
@@ -103,12 +103,12 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 						</table>
 																								<table style="margin-bottom: 5px">
 							<td><i class="icon-ok" style="color: green"></i></td>
-							<td>The amount of the entry selected from the Cash Disbursements Journal MATCHES the amount of the entry displayed in the Purchase Transactions File.</td>
+							<td>The amount of the entry selected from the Cash Disbursements Journal MATCHES the amount of the entry displayed in the Expense Transactions File.</td>
 						</table>
 																							
 						<table style="margin-bottom: 5px">
 							<td><i class="icon-ok" style="color: green"></i></td>
-							<td>The amount of the entry selected from the Purchase Transactions MATCHES the amount of the entry displayed in the Purchase Transactions Details.</td>
+							<td>The amount of the entry selected from the Expense Transactions MATCHES the amount of the entry displayed in the Expense Transactions Details.</td>
 						</table>
 																		<table style="margin-bottom: 5px">
 						<td><i class="icon-ok" style="color: green"></i></td>
@@ -123,10 +123,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 		</div>
 		<div class="control-group" style="text-align: center; margin-top: 15px;">
 			<a type='button' id="save" class="btn btn-primary" onClick="downloadFile(); return false;">Save the Trail</a>
-			<a type='button' class="btn" onclick='javascript: window.print();'>Print the Trail</a>
+			<a type='button' class="btn" onclick='printSummary(); return false'>Print the Trail</a>
 			<!--<a type='button' id="open" class="btn">Open</a>-->
 			<a type="button" class="btn" onclick="history.go(-1);return false;">Back</a>
-			<a href="http://localhost/trailblazer/audit_trail/index/readFile?file=is-2010.is&doc=Income%20Statement&items=250" type="button" class="btn">Back to First Step</a>
+			<a href="http://localhost/trailblazer/audit_trail/index/readFile?file=C:\fakepath\is-1-2010.is&doc=Income%20Statement&items=undefined" type="button" class="btn">Back to First Step</a>
 		</div>
 	<link href="http://localhost/trailblazer/assets/stylesheets/bootstrap.css" rel="stylesheet"></link>
 	<link href="http://localhost/trailblazer/assets/stylesheets/bootstrap-responsive.css" rel="stylesheet"></link>
@@ -193,6 +193,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 				success: function() {
 				}
 			});
+		}
+		
+		function printSummary() {
+			var w = window.open('http://localhost/trailblazer/files/' + summaryFilePath);
+			w.print();
 		}
 		
 		function capture() {

@@ -5,17 +5,17 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'a4ae221a0afec453b3434759643ea9d9b45f2540' => 
     array (
       0 => 'C:\\xampp\\htdocs\\trailblazer\\application/views\\audit_trail\\trail_transactions.tpl',
-      1 => 1364480833,
+      1 => 1365855782,
       2 => 'file',
     ),
   ),
   'nocache_hash' => '43005152921ea15cb2-80609588',
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_51551c52f1e5e',
+  'unifunc' => 'content_51695baed7340',
   'has_nocache_code' => false,
   'cache_lifetime' => 1,
 ),true); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_51551c52f1e5e')) {function content_51551c52f1e5e($_smarty_tpl) {?>  <!--
+<?php if ($_valid && !is_callable('content_51695baed7340')) {function content_51695baed7340($_smarty_tpl) {?>  <!--
  * Trailblazer Digital Accounting Audit Trail Program
  * @author Kristian Jacob Abad Lora <kjalora92@yahoo.com>
  * @date-created October 31, 2012
@@ -27,6 +27,39 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 	<body>
 		<div id="transDetailsModal">
 		</div>
+		<!-- Modal for Sampling-->
+		<div id="sample-selection-modal" class="modal hide fade" style="margin-top: -200px; width: 480px">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true" onClick="closeSelectSample(); return false;">&times;</button>
+				<h3>Select a Sample</h3>
+			</div>
+			<div class="modal-body" style="font-size: 10pt">
+				<p>This sytem employs Pareto's Principle of Distribution in selecting a sample. To be able to select a sample, sample size must be determined first. You can set the size either based upon your judgement or let the system do it:</p>
+				<form id="sample-selection-form" class="form-horizontal" style="margin-bottom: 0px">
+					<fieldset>
+						<div style="margin: 0 35px">
+							<div class="field-group" id="group-options">
+								<label class="radio">
+									<input type="radio" name="optionsSetSize" id="optionsSetSizeBySystem" value="standard" onClick="setAuto();" checked>
+									Let the system do it, please
+								</label>
+								<label class="radio">
+									<input type="radio" name="optionsSetSize" id="optionsSetSizeManually" value="manual" onClick="setManual();">
+									Set manually
+								</label>
+								<span class="control" style="margin-left: 5px">
+									<input type="text" class="span1" name="sampleSize" id="sampleSize" style="font-size: 10pt; height: 11pt !important; text-align: right" disabled="disabled"/>
+								</span>
+							</div>
+						</div>
+					</fieldset>
+				</form>
+			</div>
+			<div class="modal-footer" style="text-align: center">
+				<a class="btn btn-small btn-primary" id="set" onClick="selectSample(); return false;">Go</a>
+				<button class="btn btn-small" data-dismiss="modal" onClick="closeSelectSample(); return false;">Cancel</button>
+			</div>
+		</div>
 		<!-- Main -->
 		<br>
 		<div id="main-wrapper" style="width: 900px">
@@ -36,36 +69,46 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 				<a href="http://localhost/trailblazer/audit_trail"><i class="icon-home"></i></a>
 			</div>
 			<div style="margin: 0 auto; text-align: center">
-				<h2>Purchase Transactions</h2>
+				<h2>Expense Transactions</h2>
 				<br>
-													<table id="table" class="table table-hover" style="text-align: left; color: black">
-						<thead>
-																								<th style="text-align: center">Date</th>
-																	<th style="text-align: center">OR No</th>
-																	<th style="text-align: center">Amount Due</th>
-																	<th style="text-align: center">Name</th>
-																	<th style="text-align: center">Address</th>
-																	<th style="text-align: center">Contact</th>
-																						<th>Audit Trail Results</th>
-							<!--<th></th>-->
-						</thead>
-						<tbody>
-																																<tr>
-										<td style="text-align: center; vertical-align: center">2010-01-12</td>
-										<td style="text-align: center; vertical-align: center"><a href="#trans-details25626" data-toggle="modal" onClick="getDetails('or_no=25626&amt=2152.18&name=Cebu Educational Supply&address=D. Del Rosario Street, Cebu City, Cebu&contact='); return false;">25626</a></td>
-										<td class="amount" style="text-align: right;">Php 2,152.18</td>
-										<td style="text-align: center; vertical-align: center">Cebu Educational Supply</td>
-										<td style="text-align: center; vertical-align: center">D. Del Rosario Street, Cebu City, Cebu</td>
-										<td style="text-align: center; vertical-align: center"></td>
-										<td style="text-align: center; vertical-align: center; width: 30px"><a href="http://localhost/trailblazer/audit_trail/summary?ref=PT-1-2010&or_no=25626&acct=Purchases&fs=Income Statement&fs_amt=29738.36&fs_file=is-2010.is&ledger=General Ledger&lg_ref=501&lg_desc=25626&lg_debit=2152.18&lg_credit=&lg_total_amt=29738.36&journal=Cash Disbursements Journal&jl_ref=CDJ-1-2010&jl_desc=25626&jl_amt=2152.18&trans=Purchase Transactions&trans_amt=2152.18&trans_total_amt=2152.18">View</a></td>
-										<!--<td style="text-align: center; vertical-align: center; width: 30px"><a>System Audit</a></td>-->
-									</tr>
-																													</tbody>
-					</table>
-								<div id="source-file">Source File: D:\Kristian Lora\My Documents\Lalaine's Bookstore\transaction_files\purchase_transactions\pt-1-2010.tf</div>
+												<div id="trans-table">
+											<table id="table" class="table table-hover" style="text-align: left; color: black">
+							<thead>
+																											<th style="text-align: center">Date</th>
+																			<th style="text-align: center">OR No</th>
+																			<th style="text-align: center">Amount Due</th>
+																			<th style="text-align: center">Name</th>
+																			<th style="text-align: center">Address</th>
+																			<th style="text-align: center">Contact</th>
+																									<th>Audit Trail Results</th>
+								<!--<th></th>-->
+							</thead>
+							<tbody>
+																																				<tr>
+											<td style="text-align: center; vertical-align: center">2010-01-06</td>
+											<td style="text-align: center; vertical-align: center"><a href="#trans-details86" data-toggle="modal" onClick="getDetails('or_no=86&amt=11460&name=Charlie Chong&address=Brgy. Calumpang, Naval, Biliran&contact='); return false;">86</a></td>
+											<td class="amount" style="text-align: right;">Php 11,460.00</td>
+											<td style="text-align: center; vertical-align: center">Charlie Chong</td>
+											<td style="text-align: center; vertical-align: center">Brgy. Calumpang, Naval, Biliran</td>
+											<td style="text-align: center; vertical-align: center"></td>
+											<td style="text-align: center; vertical-align: center; width: 30px"><a href="http://localhost/trailblazer/audit_trail/summary?ref=ET-1-2010&or_no=86&acct=Stall Rent&fs=Income Statement&fs_amt=11460&fs_file=is-1-2010.is&ledger=General Ledger&lg_ref=605&lg_desc=86&lg_debit=11460&lg_credit=&lg_total_amt=11460&journal=Cash Disbursements Journal&jl_ref=CDJ-1-2010&jl_desc=86&jl_amt=11460&trans=Expense Transactions&trans_amt=11460&trans_total_amt=11460">View</a></td>
+											<!--<td style="text-align: center; vertical-align: center; width: 30px"><a>System Audit</a></td>-->
+										</tr>
+																																		<tr id=total-trans-amt>
+									<td></td>
+									<td style="font-weight: bold; text-align: right">TOTAL</td>
+									<td class="amount" style="font-weight: bold">Php 11,460.00</td>								
+									<td></td>
+									<td></td>
+									<td><a href="#select-sample-modal" class="btn btn-primary btn-small" data-toggle="modal" style="text-align: center" onClick="openSelectSample(); return false;">Select a Sample</a></td>
+									<td></td>
+								</tr>
+							</tbody>
+						</table>
+									</div>
+				<div id="source-file">Source File: D:\Kristian Lora\My Documents\Trailblazer Test\transaction_files\expense_transactions\et-1-2010.tf</div>
 			</div>
 		</div>
-	
 	<link href="http://localhost/trailblazer/assets/stylesheets/bootstrap.css" rel="stylesheet"></link>
 	<link href="http://localhost/trailblazer/assets/stylesheets/bootstrap-responsive.css" rel="stylesheet"></link>
 	<link href="http://localhost/trailblazer/assets/stylesheets/main.css" rel="stylesheet"></link>
@@ -84,6 +127,82 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 			$('#trans-details').remove();
 			$('#backdrop').remove();
 		}
+
+		function setAuto() {
+			$('#sampleSize').attr('disabled', 'disabled');
+			$('#sampleSize').val('');
+		}
+		
+		function setManual() {
+			$('#sampleSize').removeAttr('disabled');
+		}
+		
+		function openSelectSample() {
+			$('#sample-selection-modal').removeClass('hide');
+			$('#sample-selection-modal').addClass('in');
+			$('body').append('<div id="backdrop-sample" class="modal-backdrop fade in"></div>');
+		}
+		
+		function closeSelectSample() {
+			$('#sample-selection-modal').removeClass('in');
+			$('#sample-selection-modal').addClass('hide');
+			$('#backdrop-sample').remove();
+			$('#sampleSize').val('');
+		}
+		
+	/**	function selectSample() {
+			medium = $('input[name=optionsSetSize]:checked', '#sample-selection-form').val()
+			sampleSize = $('#sampleSize').val();
+			console.log(medium);
+			headings = "";
+			url2 = '&doc=Expense Transactions&ref=ET-1-2010&acct=Stall Rent&fs=Income Statement&fs_amt=11460&fs_file=is-1-2010.is&ledger=General Ledger&lg_ref=605&lg_desc=86&lg_debit=11460&lg_credit=&lg_amt=11460&lg_total_amt=11460&journal=Cash Disbursements Journal&jl_ref=CDJ-1-2010&jl_desc=86&jl_amt=11460&trans=Expense Transactions&trans_total_amt=11460'.replace(/ /g, "%20");
+							headings += "&headings[]=Date";
+							headings += "&headings[]=OR No";
+							headings += "&headings[]=Amount Due";
+							headings += "&headings[]=Name";
+							headings += "&headings[]=Address";
+							headings += "&headings[]=Contact";
+						headings = headings.replace(/ /g, "%20");
+			console.log(headings);
+			closeSelectSample();
+			$('#trans-table').load('load_trans_sample?medium=' + medium + '&from=' + <div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Notice</p>
+<p>Message:  Undefined index: from</p>
+<p>Filename: cache/a4ae221a0afec453b3434759643ea9d9b45f2540.file.trail_transactions.tpl.cache.php</p>
+<p>Line Number: 340</p>
+
+</div><div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Notice</p>
+<p>Message:  Trying to get property of non-object</p>
+<p>Filename: cache/a4ae221a0afec453b3434759643ea9d9b45f2540.file.trail_transactions.tpl.cache.php</p>
+<p>Line Number: 340</p>
+
+</div> + '&to=' + <div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Notice</p>
+<p>Message:  Undefined index: to</p>
+<p>Filename: cache/a4ae221a0afec453b3434759643ea9d9b45f2540.file.trail_transactions.tpl.cache.php</p>
+<p>Line Number: 341</p>
+
+</div><div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+<h4>A PHP Error was encountered</h4>
+
+<p>Severity: Notice</p>
+<p>Message:  Trying to get property of non-object</p>
+<p>Filename: cache/a4ae221a0afec453b3434759643ea9d9b45f2540.file.trail_transactions.tpl.cache.php</p>
+<p>Line Number: 341</p>
+
+</div> +'&pop=' + 1 + '&size=' + sampleSize + headings + url2 + '&trans_total_amt=' + 11460);
+		}*/
 		
 		function textIt(name, contact_no, date, or_no, amt_due) {
 			var ref = Math.floor(Math.random() * 9000) + 1000;

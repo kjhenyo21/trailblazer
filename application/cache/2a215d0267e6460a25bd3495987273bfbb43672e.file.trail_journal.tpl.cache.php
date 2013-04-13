@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-03-28 15:28:34
+<?php /* Smarty version Smarty-3.1.7, created on 2013-04-13 13:05:04
          compiled from "C:\xampp\htdocs\trailblazer\application/views\audit_trail\trail_journal.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:31701515289bfb0b223-35774772%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '2a215d0267e6460a25bd3495987273bfbb43672e' => 
     array (
       0 => 'C:\\xampp\\htdocs\\trailblazer\\application/views\\audit_trail\\trail_journal.tpl',
-      1 => 1364480912,
+      1 => 1365851102,
       2 => 'file',
     ),
   ),
@@ -36,6 +36,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'lg_amt' => 0,
     'lg_total_amt' => 0,
     'jl_ref' => 0,
+    'jl_total_dr_disp' => 0,
+    'jl_total_other_disp' => 0,
+    'jl_total_cr_disp' => 0,
     'error_msg' => 0,
     'source' => 0,
   ),
@@ -71,7 +74,7 @@ audit_trail"><i class="icon-home"></i></a>
 							<?php if (($_smarty_tpl->tpl_vars['doc']->value=="Cash Receipts Journal")){?>
 								<th style="text-align: center; vertical-align: center">Date</th>
 								<th style="text-align: center; vertical-align: center">Account</th>
-								<th style="text-align: center; vertical-align: center">Description</th>
+								<th style="text-align: center; vertical-align: center">Particular</th>
 								<th style="text-align: center; vertical-align: center">Reference</th>
 								<th style="text-align: center; vertical-align: center">Cash (Dr)</th>
 								<th style="text-align: center; vertical-align: center">Other (Dr)</th>
@@ -79,7 +82,7 @@ audit_trail"><i class="icon-home"></i></a>
 							<?php }elseif(($_smarty_tpl->tpl_vars['doc']->value=="Cash Disbursements Journal")){?>
 								<th style="text-align: center; vertical-align: center">Date</th>
 								<th style="text-align: center; vertical-align: center">Account</th>
-								<th style="text-align: center; vertical-align: center">Description</th>
+								<th style="text-align: center; vertical-align: center">Particular</th>
 								<th style="text-align: center; vertical-align: center">Reference</th>
 								<th style="text-align: center; vertical-align: center">Purchases (Dr)</th>
 								<th style="text-align: center; vertical-align: center">Other (Dr)</th>
@@ -428,6 +431,18 @@ audit_trail/trail_trans?ref=<?php echo $_smarty_tpl->tpl_vars['i']->value['ref']
 								<?php }?>
 								<?php $_smarty_tpl->tpl_vars['row'] = new Smarty_variable($_smarty_tpl->tpl_vars['row']->value+1, null, 0);?>
 							<?php } ?>
+							<tr id="total-journal-bal">
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td class="amount" style="font-weight: bold">Php <?php echo number_format($_smarty_tpl->tpl_vars['jl_total_dr_disp']->value,2,".",",");?>
+</td>
+								<td class="amount" style="font-weight: bold">Php <?php echo number_format($_smarty_tpl->tpl_vars['jl_total_other_disp']->value,2,".",",");?>
+</td>
+								<td class="amount" style="font-weight: bold">Php <?php echo number_format($_smarty_tpl->tpl_vars['jl_total_cr_disp']->value,2,".",",");?>
+</td>
+							</tr>
 						</tbody>
 					</table>
 				<?php }else{ ?>

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-03-29 05:32:48
+<?php /* Smarty version Smarty-3.1.7, created on 2013-04-13 13:06:43
          compiled from "C:\xampp\htdocs\trailblazer\application/views\audit_trail\trail_ledger.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:21618515287d4227846-80967059%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'abe38ed4490c1c4f981f87378e847e254dedb5a6' => 
     array (
       0 => 'C:\\xampp\\htdocs\\trailblazer\\application/views\\audit_trail\\trail_ledger.tpl',
-      1 => 1364531567,
+      1 => 1365851066,
       2 => 'file',
     ),
   ),
@@ -32,6 +32,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'fs_amt' => 0,
     'fs_file' => 0,
     'lg_total_amt' => 0,
+    'lg_total_dr_disp' => 0,
+    'lg_total_cr_disp' => 0,
     'error_msg' => 0,
     'source' => 0,
   ),
@@ -90,7 +92,6 @@ $_smarty_tpl->tpl_vars['i']->_loop = true;
 								<?php if ($_smarty_tpl->tpl_vars['row']->value==0){?>
 									<tr>
 										<td style="text-align: right"><?php echo $_smarty_tpl->tpl_vars['month']->value;?>
-<?php echo $_smarty_tpl->tpl_vars['i']->value['month'];?>
  <?php echo $_smarty_tpl->tpl_vars['i']->value['day'];?>
 </td>
 										<td style="text-align: center;"><?php echo $_smarty_tpl->tpl_vars['i']->value['desc'];?>
@@ -121,8 +122,7 @@ audit_trail/trail_journal?ref=<?php echo $_smarty_tpl->tpl_vars['i']->value['ref
 											<td class="amount">Php <?php echo number_format($_smarty_tpl->tpl_vars['i']->value['credit'],2,".",",");?>
 </td>
 										<?php }else{ ?>
-											<td class="amount"><?php echo $_smarty_tpl->tpl_vars['i']->value['credit'];?>
-</td>
+											<td class="amount">Php 0.00</td>
 										<?php }?>
 									</tr>
 								<?php }else{ ?>
@@ -157,14 +157,22 @@ audit_trail/trail_journal?ref=<?php echo $_smarty_tpl->tpl_vars['i']->value['ref
 											<td class="amount"><?php echo number_format($_smarty_tpl->tpl_vars['i']->value['credit'],2,".",",");?>
 </td>
 										<?php }else{ ?>
-											<td class="amount"><?php echo $_smarty_tpl->tpl_vars['i']->value['credit'];?>
-</td>
+											<td class="amount">0.00</td>
 										<?php }?>
 									</tr>
 								<?php }?>
 								<?php $_smarty_tpl->tpl_vars['row'] = new Smarty_variable($_smarty_tpl->tpl_vars['row']->value+1, null, 0);?>
 								<?php $_smarty_tpl->tpl_vars['curr_month'] = new Smarty_variable($_smarty_tpl->tpl_vars['i']->value['month'], null, 0);?>
 							<?php } ?>
+							<tr id="total-ledger-bal">
+								<td></td>
+								<td></td>
+								<td style="font-weight: bold; text-align: right">TOTAL</td>
+								<td class="amount" style="font-weight: bold">Php <?php echo number_format($_smarty_tpl->tpl_vars['lg_total_dr_disp']->value,2,".",",");?>
+</td>
+								<td class="amount" style="font-weight: bold">Php <?php echo number_format($_smarty_tpl->tpl_vars['lg_total_cr_disp']->value,2,".",",");?>
+</td>
+							</tr>
 						</tbody>
 					</table>
 				<?php }else{ ?>

@@ -11,11 +11,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'nocache_hash' => '228965152992313a2c1-26550995',
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_5154e3aa25ee8',
+  'unifunc' => 'content_51694d9f1d6cf',
   'has_nocache_code' => false,
   'cache_lifetime' => 1,
 ),true); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5154e3aa25ee8')) {function content_5154e3aa25ee8($_smarty_tpl) {?>  <!--
+<?php if ($_valid && !is_callable('content_51694d9f1d6cf')) {function content_51694d9f1d6cf($_smarty_tpl) {?>  <!--
  * Trailblazer Digital Accounting Audit Trail Program
  * @author Kristian Jacob Abad Lora <kjalora92@yahoo.com>
  * @date-created October 31, 2012
@@ -29,10 +29,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 		<h3 style="margin: 20px auto; text-align: center"> User Login </h3>
 		<div id="main-wrapper" style="width: 300px">
 			
-							<div class="alert alert-error">
-				  <button type="button" class="close" data-dismiss="alert">&times;</button>
-				  <strong>Oops!</strong> You are not authorized to access this application without logging in.
-				</div>
 						<form id="form-login" class="form-horizontal" method="post" action="http://localhost/trailblazer/login">
 				<div class="control-group">
 					<label class="control-label" for="uname">Username</label>

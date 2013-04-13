@@ -1,4 +1,4 @@
-<?php /*%%SmartyHeaderCode:207325145e3c9b5ec21-63530817%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:23851516599a6397ce3-12757705%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
@@ -9,13 +9,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '207325145e3c9b5ec21-63530817',
+  'nocache_hash' => '23851516599a6397ce3-12757705',
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_514f7c10190cf',
+  'unifunc' => 'content_5165aec57807a',
   'has_nocache_code' => false,
   'cache_lifetime' => 1,
 ),true); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_514f7c10190cf')) {function content_514f7c10190cf($_smarty_tpl) {?>  <!--
+<?php if ($_valid && !is_callable('content_5165aec57807a')) {function content_5165aec57807a($_smarty_tpl) {?>  <!--
  * Trailblazer Digital Accounting Audit Trail Program
  * @author Kristian Jacob Abad Lora <kjalora92@yahoo.com>
  * @date-created October 31, 2012

@@ -39,6 +39,10 @@ class Trail_Journal extends CI_Controller {
 			$expected_columns = 7;
 			$info = false;
 			$error_msg = "";
+			$jl_total_dr_disp = 0;
+			$jl_total_other_disp = 0;
+			$jl_total_cr_disp = 0;
+			$lg_total_amt_disp = 0;
 			
 			$path = $files->getFilePathByReference($doc_type, $ref);
 			if(file_exists($path['full_path'])) {
@@ -53,28 +57,39 @@ class Trail_Journal extends CI_Controller {
 					if ($errors == 0) {
 						$handle = fopen($path['full_path'], "r");
 						while (($temp = fgetcsv($handle, 1000, ",")) !== FALSE) {
-							$date = explode("-", trim($temp[0]));
-							$day = $date[2];
-							if (strcasecmp($path['doc'], "cash receipts journal") == 0) {
-								$info[] = array(
-									'day' => $day,
-									'acct' => trim($temp[1]),
-									'desc' => trim($temp[2]),
-									'ref' => trim($temp[3]),
-									'cash' => trim($temp[4]),
-									'other' => trim($temp[5]),
-									'sales' => trim($temp[6])
-								);
-							} else if (strcasecmp($path['doc'], "cash disbursements journal") == 0) {
-								$info[] = array(
-									'day' => $day,
-									'acct' => trim($temp[1]),
-									'desc' => trim($temp[2]),
-									'ref' => trim($temp[3]),
-									'purch' => trim($temp[4]),
-									'other' => trim($temp[5]),
-									'cash' => trim($temp[6])
-								);
+							if (($temp[0] != 't') && ($temp[0] != '')) {
+								$date = explode("-", trim($temp[0]));
+								$day = $date[2];
+								if (strcasecmp($path['doc'], "cash receipts journal") == 0) {
+									$info[] = array(
+										'day' => $day,
+										'acct' => trim($temp[1]),
+										'desc' => trim($temp[2]),
+										'ref' => trim($temp[3]),
+										'cash' => trim($temp[4]),
+										'other' => trim($temp[5]),
+										'sales' => trim($temp[6])
+									);
+								} else if (strcasecmp($path['doc'], "cash disbursements journal") == 0) {
+									$info[] = array(
+										'day' => $day,
+										'acct' => trim($temp[1]),
+										'desc' => trim($temp[2]),
+										'ref' => trim($temp[3]),
+										'purch' => trim($temp[4]),
+										'other' => trim($temp[5]),
+										'cash' => trim($temp[6])
+									);
+								}
+							} else if ($temp[0] == 't' && $temp[0] != '') {
+								$jl_total_dr_disp += trim($temp[4]);
+								$jl_total_other_disp += trim($temp[5]);
+								$jl_total_cr_disp += trim($temp[6]);
+								if (strcasecmp($path['doc'], "cash receipts journal") == 0) {		
+									$jl_total_amt_disp = $jl_total_dr_disp - ($jl_total_other_disp + $jl_total_cr_disp);
+								} else if (strcasecmp($path['doc'], "cash disbursements journal") == 0) {
+									$jl_total_amt_disp = ($jl_total_dr_disp + $jl_total_other_disp) - $jl_total_cr_disp;
+								}
 							}
 						}
 					} else $error_msg = "Certain line(s) of the file or the entire file may not be in the required format of this system for journals: [date,description,reference,account1,other_account,account2]";
@@ -100,6 +115,10 @@ class Trail_Journal extends CI_Controller {
 			$this->mysmarty->assign('lg_credit', $lg_credit);
 			$this->mysmarty->assign('lg_amt', $lg_amt);
 			$this->mysmarty->assign('lg_total_amt', $lg_total_amt);
+			$this->mysmarty->assign('jl_total_amt_disp', abs($jl_total_amt_disp));
+			$this->mysmarty->assign('jl_total_dr_disp', $jl_total_dr_disp);
+			$this->mysmarty->assign('jl_total_other_disp', $jl_total_other_disp);
+			$this->mysmarty->assign('jl_total_cr_disp', $jl_total_cr_disp);
 			$this->mysmarty->assign('doc', $path['doc']);
 			$this->mysmarty->assign('jl_ref', $jl_ref);
 			$this->mysmarty->display('header.tpl');

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-03-27 07:44:59
+<?php /* Smarty version Smarty-3.1.7, created on 2013-04-10 20:48:51
          compiled from "C:\xampp\htdocs\trailblazer\application/views\audit_trail\trans_details.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:157135152956bd4f6c3-56403837%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '6e16a3a7a926cc16081f55eb3dbf607705da8351' => 
     array (
       0 => 'C:\\xampp\\htdocs\\trailblazer\\application/views\\audit_trail\\trans_details.tpl',
-      1 => 1364354164,
+      1 => 1364792920,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_5152956c307af',
   'variables' => 
   array (
     'name' => 0,
@@ -24,12 +26,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'or_no' => 0,
     'details' => 0,
     'd' => 0,
+    'dets_total_amt' => 0,
     'error_msg_det' => 0,
     'amt_due' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_5152956c307af',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_5152956c307af')) {function content_5152956c307af($_smarty_tpl) {?><!--
  * Trailblazer Digital Accounting Audit Trail Program
@@ -61,9 +62,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 						<table id="table" style="text-align: center; color: black">
 							<thead>
 								<th style="padding: 0 10px;">Item</th>
-								<th>Quantity</th>
+								<th style="width:5%">Qty</th>
 								<th>Unit Price</th>
-								<th>Amount</th>
+								<th style="width:25%">Amount</th>
 							</thead>
 							<tbody>
 								<?php  $_smarty_tpl->tpl_vars['d'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['d']->_loop = false;
@@ -76,19 +77,26 @@ $_smarty_tpl->tpl_vars['d']->_loop = true;
 </td>
 										<td><?php echo $_smarty_tpl->tpl_vars['d']->value[3];?>
 </td>
-										<td><?php echo number_format($_smarty_tpl->tpl_vars['d']->value[4],2,".",",");?>
+										<td class="amount"><?php echo number_format($_smarty_tpl->tpl_vars['d']->value[4],2,".",",");?>
 </td>
-										<td><?php echo number_format($_smarty_tpl->tpl_vars['d']->value[5],2,".",",");?>
+										<td class="amount"><?php echo number_format($_smarty_tpl->tpl_vars['d']->value[5],2,".",",");?>
 </td>
 									</tr>
 								<?php } ?>
-							</tbody>	
+								<tr id=total-trans-amt>
+									<td></td>
+									<td></td>
+									<td style="font-weight: bold; text-align: right">TOTAL</td>
+									<td class="amount" style="font-weight: bold">Php <?php echo number_format($_smarty_tpl->tpl_vars['dets_total_amt']->value,2,".",",");?>
+</td>								
+								</tr>
+							</tbody>
 						</table>
 					<?php }else{ ?>
 						<table id="table" style="text-align: center; color: black">
 							<thead>
 								<th style="padding: 0 10px;">Item</th>
-								<th>Quantity</th>
+								<th>Qty</th>
 								<th>Unit Price</th>
 								<th>Amount</th>
 							</thead>
