@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-04-13 14:23:05
+<?php /* Smarty version Smarty-3.1.7, created on 2013-04-15 15:42:39
          compiled from "C:\xampp\htdocs\trailblazer\application/views\audit_trail\trail_transactions.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:43005152921ea15cb2-80609588%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'a4ae221a0afec453b3434759643ea9d9b45f2540' => 
     array (
       0 => 'C:\\xampp\\htdocs\\trailblazer\\application/views\\audit_trail\\trail_transactions.tpl',
-      1 => 1365855782,
+      1 => 1366032658,
       2 => 'file',
     ),
   ),
@@ -319,7 +319,7 @@ assets/scripts/bootstrap.js" type="text/javascript"></script>
 			$('#sampleSize').val('');
 		}
 		
-	/**	function selectSample() {
+		function selectSample() {
 			medium = $('input[name=optionsSetSize]:checked', '#sample-selection-form').val()
 			sampleSize = $('#sampleSize').val();
 			console.log(medium);
@@ -342,7 +342,7 @@ $_smarty_tpl->tpl_vars['h']->_loop = true;
  +'&pop=' + <?php echo $_smarty_tpl->tpl_vars['sizeOfTrans']->value;?>
  + '&size=' + sampleSize + headings + url2 + '&trans_total_amt=' + <?php echo $_smarty_tpl->tpl_vars['trans_total_amt']->value;?>
 );
-		}*/
+		}
 		
 		function textIt(name, contact_no, date, or_no, amt_due) {
 			var ref = Math.floor(Math.random() * 9000) + 1000;

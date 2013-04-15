@@ -1,5 +1,28 @@
 h,Date,OR No,Amount Due,Name,Address,Contact
-,2010-01-02,6253,997.50,Mary Ann Polinars,"Lahug, Cebu City",9158342099
-,2010-01-02,6254,36,Yvette Doyongang,"Kamputhaw, Cebu City",9179414753
-,2010-01-02,6255,314.50,Mae Carmel Boquia,Dumanjug,9332567821
+,2010-01-02,6253,997.5,Mary Ann Polinar,"Lahug, Cebu City",9158342099
+,2010-01-02,6254,36,Yvette Doyongan,"Kamputhaw, Cebu City",9179414753
+,2010-01-02,6255,304.5,Mae Carmel Boquia,Dumanjug,9332567821
 ,2010-01-04,6256,210,Eriberta Canada,Carcar,9053171598
+,2010-01-04,6257,131,Justine Balan,,9332567821
+,2010-01-04,6258,61,,,
+,2010-01-04,6259,99,Elaine Pahang,Talisay City,9332567821
+,2010-01-04,6260,86,,,
+,2010-01-05,6261,513,Kirby Taghoy,,9332567821
+,2010-01-05,6262,180,Demelo Lao,,9994406820
+,2010-01-05,6263,33,Kristian Lora,Lahug,9336925206
+,2010-01-05,6264,5,Karl Arevalo,Manila,9332567821
+,2010-01-06,6265,51,,,
+,2010-01-06,6266,80,,,
+,2010-01-06,6267,61,,,
+,2010-01-06,6268,50,,,
+,2010-01-06,6269,42,,,
+,2010-01-07,6270,360,,,
+,2010-01-07,6271,560,Loricar Orais,"Lupa, Naval, Biliran",9993844812
+,2010-01-07,6272,360,,,
+,2010-01-07,6273,885,Samuel Castro,"Naval, Biliran",9053525992
+,2010-01-07,6274,628,Febreth Acedillo,"Caneja St., Naval, Biliran",9173485321
+,2010-01-07,6275,89,,,
+,2010-01-07,6276,390,Elaine Pahang,Talisay City,9332567821
+,2010-01-07,6277,141,,,
+,2010-01-07,6278,638,,,
+,2010-01-07,6279,768,Sharmaine Naquila,"Naval, Biliran",9435734322

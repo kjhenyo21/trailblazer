@@ -41,7 +41,7 @@
 									<tr>
 										<td style="text-align: right">{$month} {$i['day']}</td>
 										<td style="text-align: center;">{$i['desc']}</td>
-										<td style="text-align: center;"><a href="{url}audit_trail/trail_journal?ref={$i['ref']}&acct={$acct}&fs={$fs}&fs_amt={$fs_amt}&fs_file={$fs_file}&ledger={$doc}&lg_ref={$detail['acct_no']}&lg_desc={$i['desc']}&lg_debit={$i['debit']}&lg_credit={$i['credit']}&lg_total_amt={$lg_total_amt}&jl_ref={$i['ref']}">{$i['ref']}</a></td>
+										<td style="text-align: center;"><a href="{url}audit_trail/trail_journal?ref={$i['ref']}&acct={$acct}&fs={$fs}&fs_amt={$fs_amt}&fs_file={$fs_file}&ledger={$doc}&lg_ref={$detail['acct_no']}&lg_desc={$i['desc']}&lg_debit={$i['debit']}&lg_credit={$i['credit']}&lg_total_amt={$lg_total_amt}&lg_total_amt_disp={$lg_total_amt_disp}&jl_ref={$i['ref']}">{$i['ref']}</a></td>
 										{if $i['debit'] != ""}
 											<td class="amount">Php {$i['debit']|number_format:2:".":","}</td>
 										{else}
@@ -57,7 +57,7 @@
 									<tr>
 										<td style="text-align: right">{$i['day']}</td>
 										<td style="text-align: center;">{$i['desc']}</td>
-										<td style="text-align: center;"><a href="{url}audit_trail/trail_journal?ref={$i['ref']}&acct={$acct}&fs={$fs}&fs_amt={$fs_amt}&fs_file={$fs_file}&ledger={$doc}&lg_ref={$detail['acct_no']}&lg_desc={$i['desc']}&lg_debit={$i['debit']}&lg_credit={$i['credit']}&lg_total_amt={$lg_total_amt}&jl_ref={$i['ref']}">{$i['ref']}</a></td>
+										<td style="text-align: center;"><a href="{url}audit_trail/trail_journal?ref={$i['ref']}&acct={$acct}&fs={$fs}&fs_amt={$fs_amt}&fs_file={$fs_file}&ledger={$doc}&lg_ref={$detail['acct_no']}&lg_desc={$i['desc']}&lg_debit={$i['debit']}&lg_credit={$i['credit']}&lg_total_amt={$lg_total_amt}&lg_total_amt_disp={$lg_total_amt_disp}&jl_ref={$i['ref']}">{$i['ref']}</a></td>
 										{if $i['debit'] != ""}
 											<td class="amount">{$i['debit']|number_format:2:".":","}</td>
 										{else}

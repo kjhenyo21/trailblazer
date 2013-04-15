@@ -167,10 +167,13 @@ class Index extends CI_Controller {
 		$noOfModifiedFiles = 0;
 		if ($filesToCheck) {
 			foreach ($filesToCheck as $f) {
-				if ($this->pathExists($f['path']."\\".$f['filename'])) {
-					$newCheckSum = crc32(file_get_contents($f['path']."\\".$f['filename']));
-					if ($f['checksum'] != $newCheckSum)
-						$noOfModifiedFiles++;
+				if ($this->pathExists($f['path'])) {
+					$filepath = $f['path']."\\".$f['filename'];
+					if (file_exists($filepath)) {
+						$newCheckSum = crc32(file_get_contents($filepath));
+						if ($f['checksum'] != $newCheckSum)
+							$noOfModifiedFiles++;
+					}
 				}
 			}
 			return $noOfModifiedFiles;

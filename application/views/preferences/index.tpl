@@ -411,7 +411,7 @@
 						success: function(data){
 							$('#response-validation').remove();
 							$('#pref').prepend('<div id="response" class="alert alert-success" style="margin: 0 auto; text-align:center; width: 280px"><button type="button" class="close" data-dismiss="alert">&times;</button><i class="icon-thumbs-up"></i> {$response}</div>');
-							window.location.href="{url}preferences?response=Profile has been successfully saved!";
+							window.location.href="{url}preferences?response=Preferences have been successfully saved!";
 						},
 						error: function(data) {
 							$('#response').remove();

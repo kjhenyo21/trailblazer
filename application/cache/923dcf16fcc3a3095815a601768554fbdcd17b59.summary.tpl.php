@@ -11,11 +11,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'nocache_hash' => '426551529573306f26-90970638',
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_51695bb686362',
+  'unifunc' => 'content_516c0090035ea',
   'has_nocache_code' => false,
   'cache_lifetime' => 1,
 ),true); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_51695bb686362')) {function content_51695bb686362($_smarty_tpl) {?>  <!--
+<?php if ($_valid && !is_callable('content_516c0090035ea')) {function content_516c0090035ea($_smarty_tpl) {?>  <!--
  * Trailblazer Digital Accounting Audit Trail Program
  * @author Kristian Jacob Abad Lora <kjalora92@yahoo.com>
  * @date-created October 31, 2012
@@ -54,39 +54,39 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 				<br>
 				<div class="sub-summary-container">
 					<div><strong>Income Statement</strong></div>
-					<div>Account: Stall Rent</div>
-					<div>Amount: Php 11,460.00</div>
+					<div>Account: Sales</div>
+					<div>Amount: Php 48,659.27</div>
 				</div>
 									<div class="arrow">
 						<img src="http://localhost/trailblazer/assets/images/arrow-left-small.PNG"></img>
 					</div>
 					<div class="sub-summary-container">
 						<strong>General Ledger</strong>
-						<div>Account: Stall Rent</div>
-						<div>Acct. #: 605</div>
-													<div>Debit: Php 11,460.00</div>
-																			<div>Credit: Php 0.00</div>
+						<div>Account: Sales</div>
+						<div>Acct. #: 401</div>
+													<div>Debit: Php 0.00</div>
+																			<div>Credit: Php 587.00</div>
 											</div>
 													<div class="arrow">
 						<img src="http://localhost/trailblazer/assets/images/arrow-left-small.PNG"></img>
 					</div>
 					<div class="sub-summary-container">
-						<strong>Cash Disbursements Journal</strong>
-						<div>Ref. #: CDJ-1-2010</div>
-						<div>Desc.: 86</div>
-						<div>Amount: Php 11,460.00</div>
+						<strong>Cash Receipts Journal</strong>
+						<div>Ref. #: CRJ-1-2010</div>
+						<div>Desc.: 6256-6260</div>
+						<div>Amount: Php 587.00</div>
 					</div>
 													<div class="arrow">
 						<img src="http://localhost/trailblazer/assets/images/arrow-left-small.PNG"></img>
 					</div>
 					<div class="sub-summary-container">
-													<strong>Expense Transactions</strong>
+													<strong>Sale Transactions</strong>
 							<!---->
-							<div>Date: 2010-01-06</div>
-							<div>OR No.: <a href="#trans-details86" data-toggle="modal" onClick="getDetails('or_no=86&amt=11460&name=Charlie Chong&address=Brgy. Calumpang, Naval, Biliran&contact='); return false;">86</a></div>
-							<div>Amount: Php 11,460.00</div>
-							<div>Name: Charlie Chong</div>
-							<div>Contact: </div>
+							<div>Date: 2010-01-04</div>
+							<div>OR No.: <a href="#trans-details6256" data-toggle="modal" onClick="getDetails('or_no=6256&amt=210&name=Eriberta Canada&address=Carcar&contact=9053171598'); return false;">6256</a></div>
+							<div>Amount: Php 210.00</div>
+							<div>Name: Eriberta Canada</div>
+							<div>Contact: 9053171598</div>
 											</div>
 											</div>
 			
@@ -95,20 +95,20 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 														
 						<table style="margin-bottom: 5px">						
 							<td><i class="icon-ok" style="color: green"></i></td>
-							<td>The amount of Stall Rent Account selected from the Income Statement MATCHES the total amount of the ledger entries in the General Ledger.</td>
+							<td>The amount of Sales Account selected from the Income Statement MATCHES the total amount of the ledger entries in the General Ledger.</td>
 						</table>
 																								<table style="margin-bottom: 5px">
 							<td><i class="icon-ok" style="color: green"></i></td>
-							<td>The amount of the entry selected from the General Ledger MATCHES the amount of the journal entry highlighted in the Cash Disbursements Journal.</td>
+							<td>The amount of the entry selected from the General Ledger MATCHES the amount of the journal entry highlighted in the Cash Receipts Journal.</td>
 						</table>
 																								<table style="margin-bottom: 5px">
 							<td><i class="icon-ok" style="color: green"></i></td>
-							<td>The amount of the entry selected from the Cash Disbursements Journal MATCHES the amount of the entry displayed in the Expense Transactions File.</td>
+							<td>The amount of the entry selected from the Cash Receipts Journal MATCHES the amount of the entry displayed in the Sale Transactions File.</td>
 						</table>
 																							
 						<table style="margin-bottom: 5px">
 							<td><i class="icon-ok" style="color: green"></i></td>
-							<td>The amount of the entry selected from the Expense Transactions MATCHES the amount of the entry displayed in the Expense Transactions Details.</td>
+							<td>The amount of the entry selected from the Sale Transactions MATCHES the amount of the entry displayed in the Sale Transactions Details.</td>
 						</table>
 																		<table style="margin-bottom: 5px">
 						<td><i class="icon-ok" style="color: green"></i></td>

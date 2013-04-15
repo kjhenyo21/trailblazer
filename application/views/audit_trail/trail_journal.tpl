@@ -50,7 +50,7 @@
 												<td style="text-align: right; font-weight: bold">{$month} {$i['day']}</td>
 												<td style="font-weight: bold">{$i['acct']}</td>
 												<td style="font-weight: bold">{$i['desc']}</td>
-												<td style="text-align: center; font-weight: bold"><a href="{url}audit_trail/trail_trans?ref={$i['ref']}&acct={$acct}&fs={$fs}&fs_amt={$fs_amt}&fs_file={$fs_file}&ledger={$ledger}&lg_ref={$lg_ref}&lg_desc={$lg_desc}&lg_debit={$lg_debit}&lg_credit={$lg_credit}&lg_amt={$lg_amt}&lg_total_amt={$lg_total_amt}&journal={$doc}&jl_ref={$jl_ref}&jl_desc={$i['desc']}&jl_amt={$i['cash']}">{$i['ref']}</a></td>
+												<td style="text-align: center; font-weight: bold"><a href="{url}audit_trail/trail_trans?ref={$i['ref']}&acct={$acct}&fs={$fs}&fs_amt={$fs_amt}&fs_file={$fs_file}&ledger={$ledger}&lg_ref={$lg_ref}&lg_desc={$lg_desc}&lg_debit={$lg_debit}&lg_credit={$lg_credit}&lg_amt={$lg_amt}&lg_total_amt={$lg_total_amt}&lg_total_amt_disp={$lg_total_amt_disp}&journal={$doc}&jl_ref={$jl_ref}&jl_desc={$i['desc']}&jl_amt={$i['cash']}&jl_total_amt_disp={$jl_total_amt_disp}">{$i['ref']}</a></td>
 												{if $i['cash'] != ""}
 													<td class="amount" style="font-weight: bold">Php {$i['cash']|number_format:2:".":","}</td>
 												{else}
@@ -70,7 +70,7 @@
 												<td style="text-align: right; font-weight: bold">{$month} {$i['day']}</td>
 												<td style="font-weight: bold">{$i['acct']}</td>
 												<td style="font-weight: bold">{$i['desc']}</td>
-												<td style="text-align: center; font-weight: bold"><a href="{url}audit_trail/trail_trans?ref={$i['ref']}&acct={$acct}&fs={$fs}&fs_amt={$fs_amt}&fs_file={$fs_file}&ledger={$ledger}&lg_ref={$lg_ref}&lg_desc={$lg_desc}&lg_debit={$lg_debit}&lg_credit={$lg_credit}&lg_amt={$lg_amt}&lg_total_amt={$lg_total_amt}&journal={$doc}&jl_ref={$jl_ref}&jl_desc={$i['desc']}&jl_amt={$i['cash']}">{$i['ref']}</a></td>
+												<td style="text-align: center; font-weight: bold"><a href="{url}audit_trail/trail_trans?ref={$i['ref']}&acct={$acct}&fs={$fs}&fs_amt={$fs_amt}&fs_file={$fs_file}&ledger={$ledger}&lg_ref={$lg_ref}&lg_desc={$lg_desc}&lg_debit={$lg_debit}&lg_credit={$lg_credit}&lg_amt={$lg_amt}&lg_total_amt={$lg_total_amt}&lg_total_amt_disp={$lg_total_amt_disp}&journal={$doc}&jl_ref={$jl_ref}&jl_desc={$i['desc']}&jl_amt={$i['cash']}&jl_total_amt_disp={$jl_total_amt_disp}">{$i['ref']}</a></td>
 												{if $i['purch'] != ""}
 													<td class="amount" style="font-weight: bold">Php {$i['purch']|number_format:2:".":","}</td>
 												{else}
@@ -94,7 +94,7 @@
 												<td style="text-align: right; font-weight: bold">{$i['day']}</td>
 												<td style="font-weight: bold">{$i['acct']}</td>
 												<td style="font-weight: bold">{$i['desc']}</td>
-												<td style="text-align: center; font-weight: bold"><a href="{url}audit_trail/trail_trans?ref={$i['ref']}&acct={$acct}&fs={$fs}&fs_amt={$fs_amt}&fs_file={$fs_file}&ledger={$ledger}&lg_ref={$lg_ref}&lg_desc={$lg_desc}&lg_debit={$lg_debit}&lg_credit={$lg_credit}&lg_amt={$lg_amt}&lg_total_amt={$lg_total_amt}&journal={$doc}&jl_ref={$jl_ref}&jl_desc={$i['desc']}&jl_amt={$i['cash']}">{$i['ref']}</a></td>
+												<td style="text-align: center; font-weight: bold"><a href="{url}audit_trail/trail_trans?ref={$i['ref']}&acct={$acct}&fs={$fs}&fs_amt={$fs_amt}&fs_file={$fs_file}&ledger={$ledger}&lg_ref={$lg_ref}&lg_desc={$lg_desc}&lg_debit={$lg_debit}&lg_credit={$lg_credit}&lg_amt={$lg_amt}&lg_total_amt={$lg_total_amt}&lg_total_amt_disp={$lg_total_amt_disp}&journal={$doc}&jl_ref={$jl_ref}&jl_desc={$i['desc']}&jl_amt={$i['cash']}&jl_total_amt_disp={$jl_total_amt_disp}">{$i['ref']}</a></td>
 												{if $i['cash'] != ""}
 													<td class="amount" style="font-weight: bold">{$i['cash']|number_format:2:".":","}</td>
 												{else}
@@ -114,7 +114,7 @@
 												<td style="text-align: right; font-weight: bold">{$i['day']}</td>
 												<td style="font-weight: bold">{$i['acct']}</td>
 												<td style="font-weight: bold">{$i['desc']}</td>
-												<td style="text-align: center; font-weight: bold"><a href="{url}audit_trail/trail_trans?ref={$i['ref']}&acct={$acct}&fs={$fs}&fs_amt={$fs_amt}&fs_file={$fs_file}&ledger={$ledger}&lg_ref={$lg_ref}&lg_desc={$lg_desc}&lg_debit={$lg_debit}&lg_credit={$lg_credit}&lg_amt={$lg_amt}&lg_total_amt={$lg_total_amt}&journal={$doc}&jl_ref={$jl_ref}&jl_desc={$i['desc']}&jl_amt={$i['cash']}">{$i['ref']}</a></td>
+												<td style="text-align: center; font-weight: bold"><a href="{url}audit_trail/trail_trans?ref={$i['ref']}&acct={$acct}&fs={$fs}&fs_amt={$fs_amt}&fs_file={$fs_file}&ledger={$ledger}&lg_ref={$lg_ref}&lg_desc={$lg_desc}&lg_debit={$lg_debit}&lg_credit={$lg_credit}&lg_amt={$lg_amt}&lg_total_amt={$lg_total_amt}&lg_total_amt_disp={$lg_total_amt_disp}&journal={$doc}&jl_ref={$jl_ref}&jl_desc={$i['desc']}&jl_amt={$i['cash']}&jl_total_amt_disp={$jl_total_amt_disp}">{$i['ref']}</a></td>
 												{if $i['purch'] != ""}
 													<td class="amount" style="font-weight: bold">{$i['purch']|number_format:2:".":","}</td>
 												{else}

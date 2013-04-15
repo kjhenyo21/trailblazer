@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-04-10 20:52:46
+<?php /* Smarty version Smarty-3.1.7, created on 2013-04-15 15:57:10
          compiled from "C:\xampp\htdocs\trailblazer\application/views\audit_trail\index.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:13767515281e1ed0ea7-49065407%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '0ec05981f24af0231dcae604535e6ca84eb6960b' => 
     array (
       0 => 'C:\\xampp\\htdocs\\trailblazer\\application/views\\audit_trail\\index.tpl',
-      1 => 1365619852,
+      1 => 1366034223,
       2 => 'file',
     ),
   ),
@@ -121,8 +121,8 @@ file_directory">File Directory <i class="icon-th-list"></i></a></li>
 							<li class="alerta"><a href="<?php echo smarty_function_url(array(),$_smarty_tpl);?>
 file_directory" class="link-alert" data-original-title="Alert! There is/are file(s) that has/have been modified. Check it out now!" style="color: white; float: right;"><i class="icon-exclamation-sign"></i>  File Directory <i class="icon-th-list"></i></a></li>
 						<?php }?>
-						<!--<li><a href="<?php echo smarty_function_url(array(),$_smarty_tpl);?>
-system_audit">System Audit <i class="icon-cog"></i></a></li>-->
+						<li><a href="<?php echo smarty_function_url(array(),$_smarty_tpl);?>
+system_audit">System Audit <i class="icon-cog"></i></a></li>
 						<li><a href="<?php echo smarty_function_url(array(),$_smarty_tpl);?>
 index/logout">Logout <i class="icon-lock"></i></a></li>
 					</ul>

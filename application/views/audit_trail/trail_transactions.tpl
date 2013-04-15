@@ -173,7 +173,7 @@
 			$('#sampleSize').val('');
 		}
 		
-	/**	function selectSample() {
+		function selectSample() {
 			medium = $('input[name=optionsSetSize]:checked', '#sample-selection-form').val()
 			sampleSize = $('#sampleSize').val();
 			console.log(medium);
@@ -186,7 +186,7 @@
 			console.log(headings);
 			closeSelectSample();
 			$('#trans-table').load('load_trans_sample?medium=' + medium + '&from=' + {$from} + '&to=' + {$to} +'&pop=' + {$sizeOfTrans} + '&size=' + sampleSize + headings + url2 + '&trans_total_amt=' + {$trans_total_amt});
-		}*/
+		}
 		
 		function textIt(name, contact_no, date, or_no, amt_due) {
 			var ref = Math.floor(Math.random() * 9000) + 1000;

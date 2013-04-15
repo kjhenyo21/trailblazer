@@ -35,7 +35,7 @@ class Trail_Trans extends CI_Controller {
 			$jl_ref = $_GET['jl_ref'];
 			$jl_desc = $_GET['jl_desc'];
 			$jl_amt = $_GET['jl_amt'];
-			
+			$this->mysmarty->assign('doc', 'Transaction File');
 			if (strrpos($jl_desc, "-") != false) {
 				$range = explode("-", $jl_desc);
 				if (is_numeric($range[0]) && is_numeric($range[1])) {
@@ -64,16 +64,19 @@ class Trail_Trans extends CI_Controller {
 			$path = $files->getFilePathByReference($doc_type, $ref);
 			if(file_exists($path['full_path'])) {
 				$errors = 0;
-				if (($handle = fopen($path['full_path'], "r")) !== FALSE) {
-					
+				$has_heading = 0;			
+				$this->mysmarty->assign('doc', $path['doc']);
+				if (($handle = fopen($path['full_path'], "r")) !== FALSE) {					
 					while (($test = fgetcsv($handle, 1000, ",")) !== FALSE) {
 						$size = count($test);
-						//if ($test[0] == 'h');	//heading
-						//else {
-							if ($size != $expected_columns)
-								$errors++;
-						//}
+						if ($size != $expected_columns)
+							$errors++;
+						if ($test[0] == 'h' && $test[0] != '') {
+							$has_heading++;							
+						}
 					}
+					if ($has_heading == 0)
+						$errors++;
 					if ($errors == 0) {
 						$handle = fopen($path['full_path'], "r");
 						while (($temp = fgetcsv($handle, 1000, ",")) !== FALSE) {
@@ -115,7 +118,7 @@ class Trail_Trans extends CI_Controller {
 									}
 								}
 								//if (!$database->tableExists('transactions'))
-									$database->createTransactionsTable($headings);
+								$database->createTransactionsTable($headings);
 								//else "EXISTS";
 								$database->addTransactions($headings, $info);
 							}
@@ -132,18 +135,21 @@ class Trail_Trans extends CI_Controller {
 				$detailsPath = $files->getFilePathByReference($doc_type, $detailsRef);
 				if($detailsPath) {
 					//for transaction details
-					$errors = 0;
+					$errors_det = 0;
+					$det_has_heading = 0;
 					if (($handle = fopen($detailsPath['full_path'], "r")) !== FALSE) {
 						while (($test = fgetcsv($handle, 1000, ",")) !== FALSE) {
 							$size = count($test);
-							//if ($test[0] == 'h');	//heading
-							//else {
-								if ($size != $expected_columns)
-									$errors++;
-							//}
+							if ($size != $expected_columns)
+								$errors_det++;
+							if ($test[0] == 'h' && $test[0] != '') {
+								$det_has_heading++;							
+							}
 						}
+						if ($det_has_heading == 0)
+							$errors_det++;
 						//echo $errors;
-						if ($errors == 0) {
+						if ($errors_det == 0) {
 							$handle = fopen($detailsPath['full_path'], "r");
 							while (($temp = fgetcsv($handle, 1000, ",")) !== FALSE) {
 								$size = count($temp);
@@ -190,34 +196,37 @@ class Trail_Trans extends CI_Controller {
 							if (!$database->tableExists('transaction_details'))
 								$database->createTransactionDetailsTable($detHeadings);
 							$database->addTransactionDetails($detHeadings, $detInfo);
-						}
+						} else $error_msg = "Certain line(s) of the file or the entire file may not be in the required format of this system for transaction details files: [date,or_no,amt_due,cust_name,cust_address,cust_contact]";
 						$row++;
 					}
 				} else $error_msg_det = "File not found!";
 				
 				
 				$min = 8;
-				if (is_numeric($jl_desc)) {
-					$info = $database->getTransactionViaOR($jl_desc);
-				} else {
-					if ($range) {
-						$info = $database->getTransactionsWithRange($from, $to);
+				if ($errors == 0) {
+					if (is_numeric($jl_desc)) {
+						$info = $database->getTransactionViaOR($jl_desc);
 					} else {
-						$info = $database->getTransactionByDesc($jl_desc);
+						if ($range) {
+							$info = $database->getTransactionsWithRange($from, $to);
+						} else {
+							$info = $database->getTransactionByDesc($jl_desc);
+						}
 					}
-				}
-				$sizeOfTrans = sizeOf($info);
-				if ($info) {
-					foreach ($info as $i) {
-						$trans_total_amt += $i[2];
+					$sizeOfTrans = sizeOf($info);
+					if ($info) {
+						foreach ($info as $i) {
+							//echo $i[2]."-";
+							$trans_total_amt += $i[2];
+						}
+					} else { 
+						$info = false;
+						$error_msg = "Cannot find transaction.";
 					}
-				} else { 
-					$info = false;
-					$error_msg = "Cannot find transaction.";
-				}
+				} else $error_msg = "Certain line(s) of the file or the entire file may not be in the required format of this system for transaction files: [date,or_no,amt_due,cust_name,cust_address,cust_contact]";
 			} else $error_msg = "File not found!";
 			$messages = $database->getIgnoredMessages();
-
+			//echo $trans_total_amt;
 			$this->mysmarty->assign('messages', $messages);
 			$this->mysmarty->assign('status', $this->session->userdata('status'));
 			$this->mysmarty->assign('user', $this->session->userdata('username'));
@@ -245,7 +254,6 @@ class Trail_Trans extends CI_Controller {
 			$this->mysmarty->assign('jl_desc', $jl_desc);
 			$this->mysmarty->assign('jl_amt', $jl_amt);
 			$this->mysmarty->assign('trans_total_amt', $trans_total_amt);
-			$this->mysmarty->assign('doc', $path['doc']);
 			$this->mysmarty->assign('ref', $ref);
 			$this->mysmarty->assign('acct', $account);
 			$this->mysmarty->assign('sizeOfTrans', $sizeOfTrans);

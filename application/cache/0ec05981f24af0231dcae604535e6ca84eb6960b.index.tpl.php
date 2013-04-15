@@ -5,17 +5,17 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '0ec05981f24af0231dcae604535e6ca84eb6960b' => 
     array (
       0 => 'C:\\xampp\\htdocs\\trailblazer\\application/views\\audit_trail\\index.tpl',
-      1 => 1365619852,
+      1 => 1366034223,
       2 => 'file',
     ),
   ),
   'nocache_hash' => '13767515281e1ed0ea7-49065407',
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_51695bbd3da53',
+  'unifunc' => 'content_516c0a8ec5f52',
   'has_nocache_code' => false,
   'cache_lifetime' => 1,
 ),true); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_51695bbd3da53')) {function content_51695bbd3da53($_smarty_tpl) {?>  <!--
+<?php if ($_valid && !is_callable('content_516c0a8ec5f52')) {function content_516c0a8ec5f52($_smarty_tpl) {?>  <!--
  * Trailblazer Digital Accounting Audit Trail Program
  * @author Kristian Jacob Abad Lora <kjalora92@yahoo.com>
  * @date-created October 31, 2012
@@ -75,7 +75,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 												<li><a href="http://localhost/trailblazer/profile">Profile <i class="icon-user"></i></a></li>
 						<li><a href="http://localhost/trailblazer/preferences">Preferences <i class="icon-wrench"></i></a></li>
 													<li><a href="http://localhost/trailblazer/file_directory">File Directory <i class="icon-th-list"></i></a></li>
-												<!--<li><a href="http://localhost/trailblazer/system_audit">System Audit <i class="icon-cog"></i></a></li>-->
+												<li><a href="http://localhost/trailblazer/system_audit">System Audit <i class="icon-cog"></i></a></li>
 						<li><a href="http://localhost/trailblazer/index/logout">Logout <i class="icon-lock"></i></a></li>
 					</ul>
 				</div>

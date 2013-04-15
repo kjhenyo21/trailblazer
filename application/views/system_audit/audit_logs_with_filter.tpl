@@ -1,4 +1,4 @@
-<div id="audit-logs">
+				<div id="audit-logs">
 					{if ($logs)}
 						<table id="table" class="table table-striped" style="text-align: left; color: black">
 							<thead>

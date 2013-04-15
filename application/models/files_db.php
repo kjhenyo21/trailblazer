@@ -44,6 +44,16 @@ class Files_DB extends CI_Model {
 		} else return false;
 	}
 	
+	function deleteAFileInDirectory($path, $filename) {
+		$this->db->where('path', $path);
+		$this->db->where('filename', $filename);
+		$this->db->delete('files');
+	}
+	
+	function deleteAllFilesInDirectory() {
+		$this->db->truncate('files');
+	}
+	
 	function getFilePath($filename) {
 		$query = $this->db->query("SELECT path
 									FROM files

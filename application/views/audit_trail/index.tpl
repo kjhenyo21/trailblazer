@@ -84,7 +84,7 @@
 						{else}
 							<li class="alerta"><a href="{url}file_directory" class="link-alert" data-original-title="Alert! There is/are file(s) that has/have been modified. Check it out now!" style="color: white; float: right;"><i class="icon-exclamation-sign"></i>  File Directory <i class="icon-th-list"></i></a></li>
 						{/if}
-						<!--<li><a href="{url}system_audit">System Audit <i class="icon-cog"></i></a></li>-->
+						<li><a href="{url}system_audit">System Audit <i class="icon-cog"></i></a></li>
 						<li><a href="{url}index/logout">Logout <i class="icon-lock"></i></a></li>
 					</ul>
 				</div>

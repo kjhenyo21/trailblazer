@@ -484,7 +484,6 @@ class Database_DB extends CI_Model {
 	function getSystemAuditLogsByDate($from, $to) {
 		if (($to == '') || ($to == null))
 			$to = $from;
-		echo $to;
 		$query = $this->db->query("SELECT *
 									FROM system_audit
 									WHERE date BETWEEN '$from' and '$to'");

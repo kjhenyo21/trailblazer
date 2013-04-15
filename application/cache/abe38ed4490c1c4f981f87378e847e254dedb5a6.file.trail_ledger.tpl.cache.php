@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-04-13 13:06:43
+<?php /* Smarty version Smarty-3.1.7, created on 2013-04-15 15:09:12
          compiled from "C:\xampp\htdocs\trailblazer\application/views\audit_trail\trail_ledger.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:21618515287d4227846-80967059%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'abe38ed4490c1c4f981f87378e847e254dedb5a6' => 
     array (
       0 => 'C:\\xampp\\htdocs\\trailblazer\\application/views\\audit_trail\\trail_ledger.tpl',
-      1 => 1365851066,
+      1 => 1366031245,
       2 => 'file',
     ),
   ),
@@ -32,6 +32,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'fs_amt' => 0,
     'fs_file' => 0,
     'lg_total_amt' => 0,
+    'lg_total_amt_disp' => 0,
     'lg_total_dr_disp' => 0,
     'lg_total_cr_disp' => 0,
     'error_msg' => 0,
@@ -108,6 +109,7 @@ audit_trail/trail_journal?ref=<?php echo $_smarty_tpl->tpl_vars['i']->value['ref
 &lg_debit=<?php echo $_smarty_tpl->tpl_vars['i']->value['debit'];?>
 &lg_credit=<?php echo $_smarty_tpl->tpl_vars['i']->value['credit'];?>
 &lg_total_amt=<?php echo $_smarty_tpl->tpl_vars['lg_total_amt']->value;?>
+&lg_total_amt_disp=<?php echo $_smarty_tpl->tpl_vars['lg_total_amt_disp']->value;?>
 &jl_ref=<?php echo $_smarty_tpl->tpl_vars['i']->value['ref'];?>
 "><?php echo $_smarty_tpl->tpl_vars['i']->value['ref'];?>
 </a></td>
@@ -143,6 +145,7 @@ audit_trail/trail_journal?ref=<?php echo $_smarty_tpl->tpl_vars['i']->value['ref
 &lg_debit=<?php echo $_smarty_tpl->tpl_vars['i']->value['debit'];?>
 &lg_credit=<?php echo $_smarty_tpl->tpl_vars['i']->value['credit'];?>
 &lg_total_amt=<?php echo $_smarty_tpl->tpl_vars['lg_total_amt']->value;?>
+&lg_total_amt_disp=<?php echo $_smarty_tpl->tpl_vars['lg_total_amt_disp']->value;?>
 &jl_ref=<?php echo $_smarty_tpl->tpl_vars['i']->value['ref'];?>
 "><?php echo $_smarty_tpl->tpl_vars['i']->value['ref'];?>
 </a></td>

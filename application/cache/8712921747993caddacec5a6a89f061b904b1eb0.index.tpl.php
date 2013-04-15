@@ -5,17 +5,17 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '8712921747993caddacec5a6a89f061b904b1eb0' => 
     array (
       0 => 'C:\\xampp\\htdocs\\trailblazer\\application/views\\preferences\\index.tpl',
-      1 => 1365614278,
+      1 => 1366034360,
       2 => 'file',
     ),
   ),
   'nocache_hash' => '73785152c134c9f228-83346293',
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_51695b969d781',
+  'unifunc' => 'content_516c0a70c791f',
   'has_nocache_code' => false,
   'cache_lifetime' => 1,
 ),true); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_51695b969d781')) {function content_51695b969d781($_smarty_tpl) {?>  <!--
+<?php if ($_valid && !is_callable('content_516c0a70c791f')) {function content_516c0a70c791f($_smarty_tpl) {?>  <!--
  * Trailblazer Digital Accounting Audit Trail Program
  * @author Kristian Jacob Abad Lora <kjalora92@yahoo.com>
  * @date-created October 31, 2012
@@ -28,10 +28,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 		<!-- Main -->
 		<div id="main-wrapper-setup">
 			<div id="form-container">
-									<div id="response" class="alert alert-success" style="margin: 0 auto; text-align:center; width: 280px">
-						<button type="button" class="close" data-dismiss="alert">&times;</button>
-						<i class="icon-thumbs-up"></i> Profile has been successfully saved!
-					</div>
 								<!-- Modal for Saving -->
 				<div id="progressModal" class="modal hide fade" style="margin-top: -50px; margin-left: -150px; width: 30%; height: 60px; padding-top: 10px;">
 					<div class="progress progress-striped active" style="height:30px; width: 90%; margin: 0 auto;">
@@ -70,7 +66,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 																							<div class="table-column" id="group-path0">
 													<div class="control">
 														<input type="text" class="span4" id="path0" name="path[]" value=
-														"D:\Kristian Lora\My Documents\Trailblazer Test\financial_statements\income_statements" placeholder="Paste the full path of the directory here" onfocus="this.value = this.value;">
+														"D:\Kristian Lora\My Documents\Lalaine's Bookstore\financial_statements\income_statements" placeholder="Paste the full path of the directory here" onfocus="this.value = this.value;">
 													</div>
 												</div>
 																					</div>
@@ -112,7 +108,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 																							<div class="table-column" id="group-path1">
 													<div class="control">
 														<input type="text" class="span4" id="path1" name="path[]" value=
-														"D:\Kristian Lora\My Documents\Trailblazer Test\ledgers\general_ledgers" placeholder="Paste the full path of the directory here" onfocus="this.value = this.value;">
+														"D:\Kristian Lora\My Documents\Lalaine's Bookstore\ledgers\general_ledgers" placeholder="Paste the full path of the directory here" onfocus="this.value = this.value;">
 													</div>
 												</div>
 																					</div>
@@ -154,7 +150,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 																							<div class="table-column" id="group-path2">
 													<div class="control">
 														<input type="text" class="span4" id="path2" name="path[]" value=
-														"D:\Kristian Lora\My Documents\Trailblazer Test\journals\cash_receipts" placeholder="Paste the full path of the directory here" onfocus="this.value = this.value;">
+														"D:\Kristian Lora\My Documents\Lalaine's Bookstore\journals\cash_receipts" placeholder="Paste the full path of the directory here" onfocus="this.value = this.value;">
 													</div>
 												</div>
 																					</div>
@@ -196,7 +192,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 																							<div class="table-column" id="group-path3">
 													<div class="control">
 														<input type="text" class="span4" id="path3" name="path[]" value=
-														"D:\Kristian Lora\My Documents\Trailblazer Test\journals\cash_disbursements" placeholder="Paste the full path of the directory here" onfocus="this.value = this.value;">
+														"D:\Kristian Lora\My Documents\Lalaine's Bookstore\journals\cash_disbursements" placeholder="Paste the full path of the directory here" onfocus="this.value = this.value;">
 													</div>
 												</div>
 																					</div>
@@ -238,7 +234,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 																							<div class="table-column" id="group-path4">
 													<div class="control">
 														<input type="text" class="span4" id="path4" name="path[]" value=
-														"D:\Kristian Lora\My Documents\Trailblazer Test\transaction_files\sale_transactions" placeholder="Paste the full path of the directory here" onfocus="this.value = this.value;">
+														"D:\Kristian Lora\My Documents\Lalaine's Bookstore\transaction_files\sale_transactions" placeholder="Paste the full path of the directory here" onfocus="this.value = this.value;">
 													</div>
 												</div>
 																					</div>
@@ -280,7 +276,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 																							<div class="table-column" id="group-path5">
 													<div class="control">
 														<input type="text" class="span4" id="path5" name="path[]" value=
-														"D:\Kristian Lora\My Documents\Trailblazer Test\transaction_files\purchase_transactions" placeholder="Paste the full path of the directory here" onfocus="this.value = this.value;">
+														"D:\Kristian Lora\My Documents\Lalaine's Bookstore\transaction_files\purchase_transactions" placeholder="Paste the full path of the directory here" onfocus="this.value = this.value;">
 													</div>
 												</div>
 																					</div>
@@ -322,7 +318,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 																							<div class="table-column" id="group-path6">
 													<div class="control">
 														<input type="text" class="span4" id="path6" name="path[]" value=
-														"D:\Kristian Lora\My Documents\Trailblazer Test\transaction_files\expense_transactions" placeholder="Paste the full path of the directory here" onfocus="this.value = this.value;">
+														"D:\Kristian Lora\My Documents\Lalaine's Bookstore\transaction_files\expense_transactions" placeholder="Paste the full path of the directory here" onfocus="this.value = this.value;">
 													</div>
 												</div>
 																					</div>
@@ -341,6 +337,48 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 												<div class="table-column">
 													<div class="control"><a href="#" data-toggle="modal">
 														<i class="icon-remove" id="remove6" style="color: red;" onClick="removeRow(this.id, 7)"></i></a>
+													</div>
+												</div>
+											</td>
+										</tr>
+																										<tr id="row7">
+										<td>
+											<div class="table-column" id="group-doc7">
+												<div id="control-doc7" class="control">
+													<input type="text" class="doc7" id="doc7" name="doc[]" style="width: 230px; margin-left:-15px;" placeholder="e.g. Cash Receipts"  value="System Audit Log"/>
+												</div>
+											</div>
+										</td>
+										<td>
+											<div class="table-column" id="group-type7">
+												<div class="control">
+													<a class="link" data-original-title="Enter numeric value only: 1=Journals, 2=Ledgers, 3=Financial Statements, 4=Transaction Files, 5=Log Files"><input type="text" class="type7 span2" id="type7" name="type[]" style="width: 155px; float: left; text-align: right" value="5" placeholder="e.g. Journal, Ledger, etc"/></a>
+												</div>
+											</div>
+										</td>
+										<td>
+																							<div class="table-column" id="group-path7">
+													<div class="control">
+														<input type="text" class="span4" id="path7" name="path[]" value=
+														"D:\Kristian Lora\My Documents\Lalaine's Bookstore\system_audit_files" placeholder="Paste the full path of the directory here" onfocus="this.value = this.value;">
+													</div>
+												</div>
+																					</div>
+										</td>
+											<td>
+												<div class="table-column" id="group-ext7">
+													<div class="control">
+														<input type="text" class="span1" id="ext7" name="ext[]" value="log" placeholder="ex: txt"/>
+													</div>
+												</div>
+											</td>
+											<td>
+												<div class="table-column"></div>
+											</td>
+											<td>
+												<div class="table-column">
+													<div class="control"><a href="#" data-toggle="modal">
+														<i class="icon-remove" id="remove7" style="color: red;" onClick="removeRow(this.id, 8)"></i></a>
 													</div>
 												</div>
 											</td>
@@ -379,7 +417,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 			var password = $('#password').val();
 			var cpassword = $('#cpassword').val();
 			var form = $('#setup');
-			var rowNo = 7;
+			var rowNo = 8;
 			var rows = 0;
 			
 			
@@ -526,6 +564,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 					//$('#type5').combobox();
 			//											//$('#doc6').combobox();
 					//$('#type6').combobox();
+			//											//$('#doc7').combobox();
+					//$('#type7').combobox();
 			//												
 			function removeRow(row, id) {
 				no = row.substring(6);
@@ -653,8 +693,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 						async: false,
 						success: function(data){
 							$('#response-validation').remove();
-							$('#pref').prepend('<div id="response" class="alert alert-success" style="margin: 0 auto; text-align:center; width: 280px"><button type="button" class="close" data-dismiss="alert">&times;</button><i class="icon-thumbs-up"></i> Profile has been successfully saved!</div>');
-							window.location.href="http://localhost/trailblazer/preferences?response=Profile has been successfully saved!";
+							$('#pref').prepend('<div id="response" class="alert alert-success" style="margin: 0 auto; text-align:center; width: 280px"><button type="button" class="close" data-dismiss="alert">&times;</button><i class="icon-thumbs-up"></i> </div>');
+							window.location.href="http://localhost/trailblazer/preferences?response=Preferences have been successfully saved!";
 						},
 						error: function(data) {
 							$('#response').remove();

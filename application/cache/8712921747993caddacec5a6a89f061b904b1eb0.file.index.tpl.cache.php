@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-04-10 19:17:59
+<?php /* Smarty version Smarty-3.1.7, created on 2013-04-15 16:10:33
          compiled from "C:\xampp\htdocs\trailblazer\application/views\preferences\index.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:73785152c134c9f228-83346293%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '8712921747993caddacec5a6a89f061b904b1eb0' => 
     array (
       0 => 'C:\\xampp\\htdocs\\trailblazer\\application/views\\preferences\\index.tpl',
-      1 => 1365614278,
+      1 => 1366034360,
       2 => 'file',
     ),
   ),
@@ -496,7 +496,7 @@ $_smarty_tpl->tpl_vars['p']->_loop = true;
 							$('#pref').prepend('<div id="response" class="alert alert-success" style="margin: 0 auto; text-align:center; width: 280px"><button type="button" class="close" data-dismiss="alert">&times;</button><i class="icon-thumbs-up"></i> <?php echo $_smarty_tpl->tpl_vars['response']->value;?>
 </div>');
 							window.location.href="<?php echo smarty_function_url(array(),$_smarty_tpl);?>
-preferences?response=Profile has been successfully saved!";
+preferences?response=Preferences have been successfully saved!";
 						},
 						error: function(data) {
 							$('#response').remove();
